@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HKA Tech — Homepage</title>
+<meta name="description" content="HKA Tech is the Asia Pacific region's leading partner for PMWeb implementation, Business Intelligence, Digital Adoption, and Capital Works Advisory.">
+<meta property="og:title" content="HKA Tech — Capital Works Technology & Advisory">
+<meta property="og:description" content="APAC's leading partner for PMWeb implementation, Business Intelligence, Digital Adoption, and Capital Works Advisory.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════
+   TOKENS
+══════════════════════════════════════ */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-u);font-size:16px;color:var(--text-dk);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit;cursor:pointer}
+ul{list-style:none}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px}
+
+/* ══════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:200;
+  height:72px;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:none;
+  box-shadow:0 1px 8px rgba(0,0,0,.06);
+  transition:box-shadow .3s var(--ease);
+}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+/* Logo */
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:var(--teal);border-radius:3px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:20px;height:20px}
+.logo-words{display:flex;flex-direction:column;line-height:1}
+.logo-words b{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.logo-words small{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-top:2px}
+
+/* Nav items */
+.nav-items{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav-item{position:relative}
+.nav-btn{
+  display:flex;align-items:center;gap:5px;
+  font-size:14px;font-weight:500;color:var(--text-md);
+  padding:8px 14px;border-radius:4px;
+  cursor:pointer;
+  transition:color .15s,background .15s;
+  user-select:none;
+  white-space:nowrap;
+  border:none;background:transparent;font-family:var(--font-u);
+}
+.nav-btn:hover{color:var(--teal);background:var(--teal-lt)}
+.nav-btn svg{width:11px;height:11px;opacity:.5;transition:transform .2s var(--ease)}
+.nav-item.open .nav-btn{color:var(--teal);background:var(--teal-lt)}
+.nav-item.open .nav-btn svg{transform:rotate(180deg);opacity:1}
+
+/* Active underline */
+.nav-btn.active{color:var(--teal)}
+.nav-btn.active::after{content:'';position:absolute;bottom:-1px;left:14px;right:14px;height:2px;background:var(--teal);border-radius:1px}
+
+/* Mega dropdown */
+.mega{
+  position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--white);
+  border:none;
+  border-radius:6px;
+  box-shadow:0 16px 48px rgba(26,58,74,.14),0 0 0 1px rgba(0,0,0,.06);
+  padding:28px;
+  min-width:560px;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-50%) translateY(-8px);
+  transition:opacity .2s var(--ease),transform .2s var(--ease);
+  border-top:3px solid var(--teal);
+}
+.nav-item.open .mega{
+  opacity:1;pointer-events:all;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* Mega layouts */
+.mega-cols{display:grid;gap:24px}
+.mega-cols.c2{grid-template-columns:1fr 1fr}
+.mega-cols.c3{grid-template-columns:1fr 1fr 1fr}
+.mega-col-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lt);margin-bottom:14px;padding-bottom:10px}
+.mega-link{display:flex;align-items:flex-start;gap:11px;padding:10px;border-radius:4px;transition:background .15s;cursor:pointer}
+.mega-link:hover{background:var(--teal-lt)}
+.mega-link:hover .mega-link-title{color:var(--teal)}
+.mega-icon{width:34px;height:34px;background:var(--off-white);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-icon svg{width:16px;height:16px;color:var(--teal)}
+.mega-link-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;transition:color .15s}
+.mega-link-desc{font-size:11px;color:var(--text-lt);line-height:1.5}
+.mega-divider{width:1px;background:var(--grey)}
+.mega-featured{background:var(--teal-lt);border-radius:5px;padding:18px;border-left:3px solid var(--teal)}
+.mega-featured-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.mega-featured-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.mega-featured-desc{font-size:12px;color:var(--text-md);line-height:1.55;margin-bottom:14px}
+.mega-featured-link{font-size:12px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:5px}
+.mega-featured-link svg{width:12px;height:12px}
+
+/* Nav actions */
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-login{font-size:13px;font-weight:500;color:var(--text-lt);padding:6px 12px;transition:color .15s;cursor:pointer}
+.nav-login:hover{color:var(--text-md)}
+.nav-cta{
+  font-size:13px;font-weight:700;color:var(--white);
+  background:var(--teal);padding:10px 20px;border-radius:4px;
+  letter-spacing:.01em;cursor:pointer;white-space:nowrap;
+  transition:background .15s,transform .15s;
+  border:none;font-family:var(--font-u);
+}
+.nav-cta:hover{background:var(--teal-dk);transform:translateY(-1px)}
+
+/* Overlay to close menus */
+.nav-overlay{position:fixed;inset:0;z-index:199;display:none}
+.nav-overlay.active{display:block}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{
+  background:var(--navy);min-height:680px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  padding:100px 0 90px;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(0,152,164,.16) 1px,transparent 1px);
+  background-size:30px 30px;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;top:-120px;right:-60px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,152,164,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero .wrap{display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;position:relative;z-index:2}
+
+.hero-overline{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-overline::before{content:'';display:block;width:22px;height:2px;background:var(--teal)}
+.hero h1{font-family:var(--font-d);font-size:clamp(36px,4vw,52px);font-weight:700;line-height:1.12;color:var(--white);letter-spacing:-.02em;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--teal-mid)}
+.hero-sub{font-size:17px;font-weight:400;line-height:1.65;color:rgba(255,255,255,.62);max-width:520px;margin-bottom:38px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.hero-ctas .btn-primary,.hero-ctas .btn-ghost{flex-shrink:0}
+
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--white);background:var(--teal);padding:13px 26px;border-radius:4px;cursor:pointer;transition:background .15s,transform .15s;letter-spacing:.01em;border:none;font-family:var(--font-u);white-space:nowrap}
+.btn-primary:hover{background:var(--teal-dk);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.72);border:1.5px solid rgba(255,255,255,.22);padding:13px 26px;border-radius:4px;cursor:pointer;transition:all .15s;background:transparent;font-family:var(--font-u);white-space:nowrap}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:var(--white);background:rgba(255,255,255,.05)}
+
+/* CTA note */
+.cta-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:14px;font-style:italic}
+
+/* Dashboard visual */
+.hero-visual{position:relative}
+.dash{background:rgba(255,255,255,.04);border:1px solid rgba(0,152,164,.28);border-radius:8px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.4),0 0 0 1px rgba(0,152,164,.12)}
+.dash-bar{background:rgba(0,152,164,.14);border-bottom:1px solid rgba(0,152,164,.2);padding:11px 16px;display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#FF5F57}.dot.y{background:#FEBC2E}.dot.g{background:#28C840}
+.dash-bar-title{font-size:11px;color:rgba(255,255,255,.45);margin-left:8px;font-weight:500}
+.dash-body{padding:18px}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.dash-stat{background:rgba(0,152,164,.1);border:1px solid rgba(0,152,164,.18);border-radius:4px;padding:11px;text-align:center}
+.dval{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--teal-mid);line-height:1;margin-bottom:3px}
+.dlbl{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.chart-bars{display:flex;align-items:flex-end;gap:4px;height:56px;margin-bottom:14px;padding:0 2px}
+.cb{flex:1;border-radius:2px 2px 0 0;min-height:6px}
+.cb.a{background:var(--teal)}.cb.i{background:rgba(0,152,164,.22)}
+.dash-rows{border-radius:4px;overflow:hidden}
+.dr{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;font-size:10px}
+.dr:nth-child(odd){background:rgba(255,255,255,.03)}
+.dr-lbl{color:rgba(255,255,255,.5);font-weight:500}
+.dr-val{color:var(--teal-mid);font-weight:600}
+.pill{font-size:9px;font-weight:600;padding:2px 7px;border-radius:10px}
+.pill.on{background:rgba(46,139,87,.2);color:#5DD99E}
+.pill.re{background:rgba(200,112,0,.2);color:#F4A83A}
+.pill.co{background:rgba(0,152,164,.2);color:var(--teal-mid)}
+.hero-badge{position:absolute;bottom:-16px;left:-22px;background:var(--white);border-radius:6px;padding:12px 16px;box-shadow:0 8px 32px rgba(0,0,0,.2);display:flex;align-items:center;gap:10px;min-width:190px}
+.badge-icon{width:34px;height:34px;background:var(--teal-lt);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.badge-icon svg{width:17px;height:17px;color:var(--teal)}
+.badge-val{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);line-height:1}
+.badge-lbl{font-size:10px;font-weight:500;color:var(--text-lt);margin-top:2px}
+
+/* ══════════════════════════════════════
+   CREDENTIALS
+══════════════════════════════════════ */
+.creds{background:var(--off-white);border-top:2px solid var(--teal);padding:36px 0}
+.creds .wrap{display:flex;align-items:center;gap:0}
+.cred-m{flex:1;text-align:center;padding:0 20px}
+.cred-m:last-of-type{}
+.cred-m::before{content:'';display:block;width:22px;height:2px;background:var(--teal);margin:0 auto 10px}
+.cred-val{font-family:var(--font-d);font-size:30px;font-weight:700;color:var(--teal);line-height:1;letter-spacing:-.02em}
+.cred-lbl{font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-lt);margin-top:5px}
+.cred-logos{display:flex;align-items:center;justify-content:center;gap:20px;padding:0 32px}
+.cred-pill{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);padding:7px 14px;border-radius:3px;background:var(--white);white-space:nowrap;transition:background .15s}
+.cred-pill:hover{background:var(--teal-lt)}
+
+/* ══════════════════════════════════════
+   SECTION UTILITIES
+══════════════════════════════════════ */
+.section{padding:96px 0;position:relative}
+.section.alt{background:var(--off-white)}
+.section.dark{background:var(--navy);color:var(--white)}
+
+.s-over{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+.s-over::before{content:'';display:block;width:18px;height:2px;background:currentColor}
+.s-over.lt{color:var(--teal-mid)}
+.s-title{font-family:var(--font-d);font-size:clamp(26px,2.8vw,38px);font-weight:700;line-height:1.18;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
+.s-title.lt{color:var(--white)}
+.s-body{font-size:17px;line-height:1.65;color:var(--text-md);max-width:580px}
+.s-body.lt{color:rgba(255,255,255,.65)}
+
+/* ══════════════════════════════════════
+   SERVICES GRID
+══════════════════════════════════════ */
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px}
+.svc-card{background:var(--white);border:none;border-radius:6px;padding:30px 24px;position:relative;cursor:pointer;transition:box-shadow .2s var(--ease),transform .2s var(--ease);overflow:hidden;box-shadow:0 1px 4px rgba(26,58,74,.06)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);opacity:0;transition:opacity .2s}
+.svc-card:hover{box-shadow:0 8px 32px rgba(26,58,74,.1);transform:translateY(-3px)}
+.svc-card:hover::before{opacity:1}
+.svc-icon{width:42px;height:42px;background:var(--teal-lt);border-radius:4px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.svc-icon svg{width:21px;height:21px;color:var(--teal)}
+.svc-badge{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--teal-lt);padding:3px 7px;border-radius:2px;display:inline-block;margin-bottom:10px}
+.svc-title{font-family:var(--font-d);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:9px;line-height:1.25}
+.svc-desc{font-size:13.5px;line-height:1.6;color:var(--text-md);margin-bottom:18px}
+.svc-link{font-size:13px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:5px;transition:gap .15s}
+.svc-link:hover{gap:9px}
+.svc-link svg{width:13px;height:13px}
+
+/* ══════════════════════════════════════
+   PLAN / BUILD / OPERATE — REDESIGNED
+══════════════════════════════════════ */
+.pbo-intro{text-align:center;max-width:720px;margin:0 auto 48px}
+.pbo-intro .s-over{justify-content:center}
+.pbo-intro .s-title{margin-bottom:14px}
+.pbo-intro .s-body{margin:0 auto 10px;max-width:620px}
+
+/* Tab bar */
+.pbo-tabs{display:flex;justify-content:center;gap:0;margin-bottom:52px;border-radius:8px;overflow:hidden;border:none;box-shadow:0 0 0 1.5px rgba(0,0,0,.08);max-width:480px;margin-left:auto;margin-right:auto}
+.pbo-tab{flex:1;padding:14px 28px;font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--text-md);background:var(--white);cursor:pointer;transition:all .2s var(--ease);user-select:none;text-align:center;border:none;font-family:var(--font-u);position:relative}
+.pbo-tab:last-child{}
+.pbo-tab:hover{background:var(--teal-lt);color:var(--teal)}
+.pbo-tab.active{background:var(--navy);color:var(--white)}
+.pbo-tab.active:hover{background:var(--navy)}
+
+/* Feature cards grid */
+.pbo-cards{display:none;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.pbo-cards.active{display:grid}
+.pbo-card{background:var(--white);border:none;border-radius:8px;padding:28px 24px;transition:box-shadow .2s var(--ease),transform .2s var(--ease);cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(26,58,74,.06)}
+.pbo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal);opacity:0;transition:opacity .2s}
+.pbo-card:hover{box-shadow:0 8px 28px rgba(26,58,74,.1);transform:translateY(-2px)}
+.pbo-card:hover::before{opacity:1}
+.pbo-card-icon{width:42px;height:42px;background:var(--teal-lt);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pbo-card-icon svg{width:20px;height:20px;color:var(--teal)}
+.pbo-card-title{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3}
+.pbo-card-desc{font-size:13px;line-height:1.65;color:var(--text-md)}
+
+/* Divider */
+.pbo-divider{width:60px;height:2px;background:var(--grey);margin:52px auto 0}
+
+/* Tools section */
+.tools-wrap{margin-top:52px}
+.tools-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-lt);text-align:center;margin-bottom:24px}
+.tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;border-radius:8px;overflow:hidden;background:rgba(0,0,0,.04)}
+.tool-cell{padding:24px 18px;text-align:center;background:var(--white);transition:background .15s}
+.tool-cell:last-child{}
+.tool-cell:hover{background:var(--teal-lt)}
+.tool-icon{width:40px;height:40px;background:var(--teal-lt);border-radius:6px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tool-icon svg{width:18px;height:18px;color:var(--teal)}
+.tool-title{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.35}
+.tool-desc{font-size:11px;line-height:1.5;color:var(--text-lt)}
+
+/* ══════════════════════════════════════
+   AI STRIP
+══════════════════════════════════════ */
+.ai-strip{background:var(--navy);padding:60px 0;position:relative;overflow:hidden}
+.ai-strip::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,152,164,.07) 0%,transparent 60%);pointer-events:none}
+.ai-strip .wrap{display:grid;grid-template-columns:1fr 2fr;gap:72px;align-items:center;position:relative;z-index:2}
+.ai-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ai-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,152,164,.18);border-radius:6px;padding:22px 18px;transition:background .2s,border-color .2s;cursor:pointer}
+.ai-card:hover{background:rgba(0,152,164,.08);border-color:rgba(0,152,164,.4)}
+.ai-tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:9px}
+.ai-t{font-size:14px;font-weight:600;color:var(--white);margin-bottom:7px}
+.ai-d{font-size:12px;line-height:1.6;color:rgba(255,255,255,.48)}
+
+/* ══════════════════════════════════════
+   INDUSTRIES
+══════════════════════════════════════ */
+.ind-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0}
+.ind-r1{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:44px}
+.ind-r2{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px;padding:0 calc(100%/12)}
+.ind-tile{background:var(--navy);border:1px solid rgba(0,152,164,.12);border-radius:6px;padding:22px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;cursor:pointer;transition:all .25s var(--ease);aspect-ratio:1;justify-content:center}
+.ind-tile:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,152,164,.25)}
+.ind-tile svg{width:36px;height:36px;transition:transform .25s var(--ease);stroke-width:1.4}
+.ind-tile:hover svg{transform:scale(1.08)}
+
+/* Illustrative icon classes — dark tile variants */
+.ind-tile .ics{stroke:var(--teal-mid);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ind-tile .ics-t{stroke:var(--teal-mid);fill:none;stroke-width:0.9;stroke-linecap:round;stroke-linejoin:round}
+.ind-tile .icf{fill:rgba(0,152,164,.15);stroke:var(--teal-mid);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ind-tile .icf-a{fill:var(--teal-mid);stroke:none;opacity:0.2}
+.ind-tile .icd{fill:var(--teal-mid);stroke:none}
+.ind-tile:hover .ics,.ind-tile:hover .ics-t{stroke:var(--white)}
+.ind-tile:hover .icf{fill:rgba(255,255,255,.12);stroke:var(--white)}
+.ind-tile:hover .icf-a{fill:var(--white);opacity:0.2}
+.ind-tile:hover .icd{fill:var(--white)}
+.ind-tile span{font-size:11px;font-weight:600;color:rgba(255,255,255,.7);line-height:1.3;transition:color .25s var(--ease)}
+.ind-tile:hover span{color:var(--white)}
+
+/* ══════════════════════════════════════
+   TESTIMONIAL
+══════════════════════════════════════ */
+.testi{background:var(--navy);padding:96px 0;position:relative;overflow:hidden}
+.testi::after{content:'';position:absolute;bottom:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,152,164,.09) 0%,transparent 70%)}
+.testi-inner{display:grid;grid-template-columns:1fr 360px;gap:72px;align-items:center;position:relative;z-index:2}
+.t-qmark{font-family:var(--font-d);font-size:110px;line-height:.8;color:var(--teal);opacity:.28;margin-bottom:14px;display:block}
+.t-text{font-family:var(--font-d);font-size:21px;font-weight:400;line-height:1.55;color:rgba(255,255,255,.9);font-style:italic;margin-bottom:28px}
+.t-rule{width:36px;height:2px;background:var(--teal);margin-bottom:18px}
+.t-name{font-size:15px;font-weight:600;color:var(--white)}
+.t-role{font-size:13px;color:var(--teal-mid);margin-top:3px}
+.t-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,152,164,.22);border-radius:6px;padding:28px 24px}
+.tc-over{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:14px}
+.tc-title{font-family:var(--font-d);font-size:18px;color:var(--white);font-weight:600;margin-bottom:10px;line-height:1.3}
+.tc-meta{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:22px;line-height:1.55}
+.tc-stats{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.tc-stat{display:flex;align-items:baseline;gap:7px}
+.tc-sv{font-family:var(--font-d);font-size:24px;font-weight:700;color:var(--teal-mid)}
+.tc-sl{font-size:12px;color:rgba(255,255,255,.45)}
+.btn-cs{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:var(--white);border:1.5px solid rgba(255,255,255,.22);padding:11px 18px;border-radius:4px;cursor:pointer;width:100%;justify-content:center;transition:border-color .15s,background .15s;font-family:var(--font-u);background:transparent}
+.btn-cs:hover{border-color:var(--teal);background:rgba(0,152,164,.1)}
+
+/* ══════════════════════════════════════
+   WHY HKA
+══════════════════════════════════════ */
+.why-inner{display:grid;grid-template-columns:400px 1fr;gap:72px;align-items:start}
+.why-l{background:var(--off-white);border-radius:6px;padding:36px 32px;border-left:4px solid var(--teal)}
+.why-l-title{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--navy);margin-bottom:26px;line-height:1.25}
+.why-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}
+.why-check{width:21px;height:21px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.why-check svg{width:11px;height:11px;color:var(--white)}
+.why-txt{font-size:13.5px;line-height:1.6;color:var(--text-dk)}
+.why-txt strong{font-weight:600;color:var(--navy)}
+.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:28px}
+.acc-badge{background:var(--white);border:none;border-left:3px solid var(--teal);border-radius:4px;padding:14px 18px;display:flex;align-items:center;gap:12px;transition:box-shadow .2s var(--ease);box-shadow:0 1px 4px rgba(26,58,74,.06)}
+.acc-badge:hover{box-shadow:0 4px 16px rgba(26,58,74,.08)}
+.acc-icon{width:34px;height:34px;background:var(--teal);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.acc-icon svg{width:16px;height:16px;color:var(--white)}
+.acc-txt{font-size:11.5px;font-weight:600;color:var(--navy);line-height:1.35}
+
+/* ══════════════════════════════════════
+   NEWS
+══════════════════════════════════════ */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.news-card{border-radius:6px;overflow:hidden;background:var(--white);border:none;box-shadow:0 1px 4px rgba(26,58,74,.06);transition:box-shadow .2s,transform .2s;cursor:pointer}
+.news-card:hover{box-shadow:0 8px 32px rgba(26,58,74,.1);transform:translateY(-2px)}
+.news-img{height:150px;background:var(--navy);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.news-img-ph{font-family:var(--font-d);font-size:38px;color:rgba(0,152,164,.3);font-weight:700}
+.news-img-ov{position:absolute;inset:0;background:linear-gradient(to bottom,transparent,rgba(26,58,74,.4))}
+.news-body{padding:22px}
+.news-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:9px}
+.news-title{font-size:15px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:9px}
+.news-exc{font-size:13px;line-height:1.6;color:var(--text-md);margin-bottom:14px}
+.news-meta{font-size:11px;color:var(--text-lt);font-weight:500}
+
+/* ══════════════════════════════════════
+   CTA SECTION
+══════════════════════════════════════ */
+.cta-sec{background:var(--teal);padding:90px 0;text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:26px 26px}
+.cta-sec .wrap{position:relative;z-index:2}
+.cta-eye{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:18px}
+.cta-sec h2{font-family:var(--font-d);font-size:clamp(26px,3vw,42px);font-weight:700;color:var(--white);margin-bottom:14px;letter-spacing:-.02em}
+.cta-sec p{font-size:16px;color:rgba(255,255,255,.72);max-width:500px;margin:0 auto 36px;line-height:1.6}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
+.cta-btns .btn-white,.cta-btns .btn-gw{flex-shrink:0}
+.cta-note-open{font-size:11px;color:rgba(255,255,255,.45);margin-top:14px;font-style:italic}
+.btn-white{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--teal);background:var(--white);padding:13px 30px;border-radius:4px;cursor:pointer;transition:background .15s;border:none;font-family:var(--font-u);white-space:nowrap}
+.btn-white:hover{background:var(--teal-lt)}
+.btn-gw{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--white);border:1.5px solid rgba(255,255,255,.35);padding:13px 26px;border-radius:4px;cursor:pointer;transition:all .15s;background:transparent;font-family:var(--font-u);white-space:nowrap}
+.btn-gw:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.08)}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer{background:var(--navy);padding:68px 0 0}
+.footer-grid{display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:44px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07)}
+.f-logo{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.f-logo-mark{width:30px;height:30px;background:var(--teal);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.f-logo-mark svg{width:17px;height:17px}
+.f-logo-name{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--white)}
+.f-tag{font-size:12.5px;line-height:1.65;color:rgba(255,255,255,.45);margin-bottom:18px}
+.f-contact{display:flex;flex-direction:column;gap:7px}
+.f-contact a{font-size:12.5px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px;transition:color .15s}
+.f-contact a:hover{color:var(--teal-mid)}
+.f-contact a svg{width:13px;height:13px;flex-shrink:0}
+.f-col-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+.f-links{display:flex;flex-direction:column;gap:9px}
+.f-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.f-links a:hover{color:var(--teal-mid)}
+.f-bottom{padding:18px 0;display:flex;align-items:center;justify-content:space-between}
+.f-copy{font-size:12px;color:rgba(255,255,255,.28)}
+.f-legal{display:flex;gap:18px}
+.f-legal a{font-size:12px;color:rgba(255,255,255,.28);transition:color .15s}
+.f-legal a:hover{color:rgba(255,255,255,.55)}
+
+/* ══════════════════════════════════════
+   LINK ARROW
+══════════════════════════════════════ */
+.arrow-link{font-size:13px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
+.arrow-link:hover{gap:9px}
+.arrow-link svg{width:13px;height:13px}
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════ */
+.rev{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rev.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* Skip link */
+.skip-link{position:absolute;top:-100px;left:16px;background:var(--teal);color:var(--white);padding:10px 20px;border-radius:4px;font-size:14px;font-weight:600;z-index:9999;transition:top .2s}
+.skip-link:focus{top:12px}
+
+/* ══════════════════════════════════════
+   EXTRA STAGGER DELAYS
+══════════════════════════════════════ */
+.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+/* ══════════════════════════════════════
+   HERO STAT COUNTER ANIMATION — REMOVED
+══════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   FOCUS VISIBLE FOR KEYBOARD NAV
+══════════════════════════════════════ */
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
+.nav-btn:focus-visible,.nav-cta:focus-visible,.btn-primary:focus-visible,.btn-ghost:focus-visible,.btn-white:focus-visible,.btn-gw:focus-visible,.btn-cs:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* ══════════════════════════════════════
+   BACK TO TOP BUTTON
+══════════════════════════════════════ */
+.back-to-top{position:fixed;bottom:28px;right:28px;z-index:150;width:44px;height:44px;border-radius:50%;background:var(--teal);color:var(--white);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,152,164,.3);opacity:0;transform:translateY(12px);transition:opacity .3s var(--ease),transform .3s var(--ease),background .15s;pointer-events:none}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.back-to-top:hover{background:var(--teal-dk);transform:translateY(-2px)}
+.back-to-top svg{width:18px;height:18px}
+
+/* ══════════════════════════════════════
+   HAMBURGER MENU (MOBILE)
+══════════════════════════════════════ */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:6px;border-radius:4px;transition:background .15s}
+.hamburger:hover{background:var(--teal-lt)}
+.hamburger span{display:block;width:100%;height:2px;background:var(--text-md);border-radius:1px;transition:transform .25s var(--ease),opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--white);z-index:198;padding:24px 20px;overflow-y:auto;transform:translateY(-10px);opacity:0;transition:transform .25s var(--ease),opacity .25s var(--ease)}
+.mobile-menu.open{display:block;transform:translateY(0);opacity:1}
+.mobile-menu a{display:block;font-size:16px;font-weight:500;color:var(--text-md);padding:14px 0;border-bottom:1px solid var(--grey);transition:color .15s}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu .mm-section{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lt);margin-top:18px;margin-bottom:6px;padding:0;border-bottom:none}
+.mobile-menu .mm-cta{display:block;text-align:center;font-size:14px;font-weight:700;color:var(--white);background:var(--teal);padding:14px;border-radius:4px;margin-top:24px;border-bottom:none}
+.mobile-menu .mm-cta:hover{background:var(--teal-dk)}
+
+/* ══════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
+  .rev{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+
+/* Tablets and below */
+@media(max-width:1024px){
+  .wrap{padding:0 32px}
+  .hero .wrap{grid-template-columns:1fr;gap:48px}
+  .hero-visual{max-width:480px}
+  .hero-overline{font-size:12px;letter-spacing:.1em}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .tools-grid{grid-template-columns:repeat(3,1fr)}
+  .ai-strip .wrap{grid-template-columns:1fr;gap:36px}
+  .ai-cards{grid-template-columns:repeat(3,1fr)}
+  .ind-r1{grid-template-columns:repeat(3,1fr)}
+  .ind-r2{grid-template-columns:repeat(3,1fr);padding:0}
+  .testi .wrap > div[style]{grid-template-columns:1fr!important}
+  .why-inner{grid-template-columns:1fr;gap:48px}
+  .news-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+  .footer-grid > div:first-child{grid-column:1 / -1}
+  .mega{position:fixed;top:72px;left:16px;right:16px;transform:none;max-height:calc(100vh - 88px);overflow-y:auto}
+  .nav-item.open .mega{transform:none}
+  .testi-inner{grid-template-columns:1fr;gap:48px}
+  .creds .wrap{flex-wrap:wrap;gap:14px;justify-content:center}
+  .cred-logos{padding:14px 0 0;width:100%;justify-content:center}
+}
+
+/* Mobile */
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .hero{padding:64px 0 56px;min-height:auto}
+  .hero h1{font-size:32px}
+  .hero-sub{font-size:15px}
+  .hero-visual{display:none}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas .btn-primary,.hero-ctas .btn-ghost{justify-content:center}
+  .nav-items{display:none}
+  .nav-actions .nav-login{display:none}
+  .hamburger{display:flex}
+  .section{padding:64px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:repeat(2,1fr)}
+  .ai-cards{grid-template-columns:1fr}
+  .ind-r1{grid-template-columns:repeat(2,1fr)}
+  .ind-r2{grid-template-columns:repeat(2,1fr);padding:0}
+  .news-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .creds .wrap{flex-direction:column;gap:18px}
+  .cred-m{padding:0 0 14px}
+  .cred-m:last-of-type{}
+  .cred-logos{flex-wrap:wrap}
+  .f-bottom{flex-direction:column;gap:12px;text-align:center}
+  .f-legal{flex-wrap:wrap;justify-content:center}
+  .pbo-tabs{flex-direction:column;max-width:100%}
+  .pbo-tab{}
+  .pbo-tab:last-child{}
+  .pbo-cards{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column;align-items:center}
+  .acc-grid{grid-template-columns:1fr 1fr!important}
+  .testi .wrap > div[style*="grid-template-columns"]{display:flex!important;flex-direction:column;gap:20px}
+}
+
+/* Tablet hamburger */
+@media(max-width:1024px){
+  .hamburger{display:flex}
+}
+
+</style>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+
+
+<!-- ════════════════════════════════════
+     NAV
+════════════════════════════════════ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+
+    <!-- Logo -->
+    <a class="logo" href="#">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+
+    <!-- Nav items -->
+    <div class="nav-items">
+
+      <!-- Platform -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="#">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solutions -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
+                <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
+                <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="#"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="#"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="#"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="#"><div><div class="mega-link-title">Health Care</div></div></a>
+              <a class="mega-link" href="#"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="#" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
+                <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
+                <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
+                <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
+              </a>
+              <a class="mega-link" href="#">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
+                <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customers (no dropdown) -->
+      <div class="nav-item">
+        <button class="nav-btn">Customers</button>
+      </div>
+
+      <!-- About -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resources -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="#"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end nav-items -->
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <a class="nav-login" href="#">Login</a>
+      <button class="nav-cta">Contact Us</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="#">PMWeb Overview</a>
+  <a href="#">Platform Features</a>
+  <a href="#">Hosting &amp; SaaS</a>
+  <a href="#">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="#">Plan</a>
+  <a href="#">Build</a>
+  <a href="#">Operate</a>
+  <a href="#">View All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="#">Business Intelligence (BI)</a>
+  <a href="#">Digital Adoption (DAP)</a>
+  <a href="#">Implementation</a>
+  <a href="#">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="#">Customers</a>
+  <a href="#">About</a>
+  <a href="#">News &amp; Events</a>
+  <a href="#">Resources</a>
+  <a href="#" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero" id="main-content">
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-overline">Capital Works Technology &amp; Advisory — Asia Pacific and World-Wide</div>
+      <h1>Manage Every Project.<br><em>From Plan to Operate.</em></h1>
+      <p class="hero-sub">With APAC Headquarters in Sydney Australia, HKA Tech is the region's leading partner for PMWeb implementation, Business Intelligence, Digital Adoption, and Capital Works Advisory — trusted by government, infrastructure, and property organisations across the region.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">
+          Contact Us
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+        <button class="btn-ghost">
+          Explore PMWeb
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dash">
+        <div class="dash-bar">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <span class="dash-bar-title">PMWeb — Portfolio Dashboard</span>
+        </div>
+        <div class="dash-body">
+          <div class="dash-stats">
+            <div class="dash-stat"><div class="dval">42</div><div class="dlbl">Active Projects</div></div>
+            <div class="dash-stat"><div class="dval">$2.4B</div><div class="dlbl">Portfolio Value</div></div>
+            <div class="dash-stat"><div class="dval">94%</div><div class="dlbl">On Schedule</div></div>
+          </div>
+          <div class="chart-bars">
+            <div class="cb i" style="height:45%"></div><div class="cb i" style="height:60%"></div>
+            <div class="cb i" style="height:50%"></div><div class="cb a" style="height:75%"></div>
+            <div class="cb i" style="height:65%"></div><div class="cb i" style="height:80%"></div>
+            <div class="cb a" style="height:90%"></div><div class="cb i" style="height:70%"></div>
+            <div class="cb a" style="height:85%"></div><div class="cb i" style="height:55%"></div>
+            <div class="cb i" style="height:75%"></div><div class="cb a" style="height:95%"></div>
+          </div>
+          <div class="dash-rows">
+            <div class="dr"><span class="dr-lbl">Western Motorway Extension</span><span class="pill on">On Track</span><span class="dr-val">$340M</span></div>
+            <div class="dr"><span class="dr-lbl">Northern Hospital Expansion</span><span class="pill co">Complete</span><span class="dr-val">$180M</span></div>
+            <div class="dr"><span class="dr-lbl">Port Infrastructure Upgrade</span><span class="pill re">In Review</span><span class="dr-val">$620M</span></div>
+            <div class="dr"><span class="dr-lbl">University Precinct Stage 3</span><span class="pill on">On Track</span><span class="dr-val">$95M</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<div class="creds">
+  <div class="wrap">
+    <div class="cred-m"><div class="cred-val">300+</div><div class="cred-lbl">Organisations</div></div>
+    <div class="cred-m"><div class="cred-val">25+</div><div class="cred-lbl">Years Experience</div></div>
+    <div class="cred-m"><div class="cred-val">11</div><div class="cred-lbl">Industry Sectors</div></div>
+    <div class="cred-m"><div class="cred-val">#1</div><div class="cred-lbl">PMWeb Partner APAC</div></div>
+    <div class="cred-logos">
+      <div class="cred-pill">HKA Tech Global</div>
+      <div class="cred-pill">HKA Corporate</div>
+      <div class="cred-pill">PMWeb</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES — 4 STREAMS -->
+<section class="section rev">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end">
+      <div><div class="s-over">What We Do</div><h2 class="s-title">A Full-Service Technology &amp; Advisory Partner</h2></div>
+      <div><p class="s-body">Beyond PMWeb, HKA Tech delivers independent value across Business Intelligence, Digital Adoption, and Capital Works Advisory — each a distinct capability, each generating results for APAC's most complex capital works organisations.</p></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rev d1">
+        <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="2" width="8" height="8" rx="1"/><rect x="12" y="2" width="8" height="8" rx="1"/><rect x="2" y="12" width="8" height="8" rx="1"/><rect x="12" y="12" width="8" height="8" rx="1"/></svg></div>
+        <div class="svc-badge">Core Product</div>
+        <div class="svc-title">PMWeb</div>
+        <p class="svc-desc">Enterprise portfolio, program and project management for capital works. Full Plan → Build → Operate lifecycle — from estimating and cost control to document management and workflow.</p>
+        <a class="svc-link" href="#">Explore PMWeb <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card rev d2">
+        <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 16V9M8 16V6M12 16v-4M16 16V3M20 16H2"/></svg></div>
+        <div class="svc-badge">Analytics</div>
+        <div class="svc-title">Business Intelligence</div>
+        <p class="svc-desc">Custom dashboards and reporting for PMWeb and other enterprise systems. Independent of any single platform — real visibility across your entire capital works portfolio.</p>
+        <a class="svc-link" href="#">Explore BI <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card rev d3">
+        <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="9"/><path d="M7 3.3A9 9 0 0 1 20 11"/><path d="M11 7v4l3 3"/></svg></div>
+        <div class="svc-badge">Digital Adoption</div>
+        <div class="svc-title">Digital Adoption Platforms</div>
+        <p class="svc-desc">WalkMe and other DAP tools that maximise system uptake and user proficiency — for PMWeb and other enterprise applications, independent of any single vendor.</p>
+        <a class="svc-link" href="#">Explore DAP <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+      </div>
+      <div class="svc-card rev d4">
+        <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M11 2L4 6v5c0 4 3.2 7.7 7 9 3.8-1.3 7-5 7-9V6l-7-4z"/></svg></div>
+        <div class="svc-badge">Advisory</div>
+        <div class="svc-title">Capital Works Advisory</div>
+        <p class="svc-desc">Implementation track record, hands-on delivery expertise, and HKA's unparalleled organisational knowledge — including Crux Insight — to help owners manage capital works more effectively.</p>
+        <a class="svc-link" href="#">Explore Advisory <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN / BUILD / OPERATE -->
+<section class="section alt rev">
+  <div class="wrap">
+
+    <!-- Centered intro -->
+    <div class="pbo-intro">
+      <div class="s-over">PMWeb Platform</div>
+      <h2 class="s-title">Capital Works Management Across the Full Lifecycle</h2>
+      <p class="s-body">PMWeb is the specialist choice for organisations managing buildings, infrastructure, and capital programs — a single configurable platform covering the full lifecycle.</p>
+      <a class="arrow-link" href="#">Full Platform Overview <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="pbo-tabs" role="tablist">
+      <button class="pbo-tab active" data-phase="plan" role="tab" aria-selected="true" aria-controls="cards-plan">Plan</button>
+      <button class="pbo-tab" data-phase="build" role="tab" aria-selected="false" aria-controls="cards-build">Build</button>
+      <button class="pbo-tab" data-phase="operate" role="tab" aria-selected="false" aria-controls="cards-operate">Operate</button>
+    </div>
+
+    <!-- PLAN cards -->
+    <div class="pbo-cards active" id="cards-plan" role="tabpanel">
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 16V6l6-4 6 4v10"/><rect x="7" y="11" width="6" height="5"/></svg></div>
+        <div class="pbo-card-title">Planning</div>
+        <p class="pbo-card-desc">Define scope, set baselines, and establish governance frameworks with stage gates and approval workflows.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="5" width="16" height="12" rx="1"/><path d="M5 3v4M15 3v4M2 10h16"/></svg></div>
+        <div class="pbo-card-title">Estimating</div>
+        <p class="pbo-card-desc">Set program budgets, resource estimates, and contingency at every level of the WBS from day one.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>
+        <div class="pbo-card-title">Procurement</div>
+        <p class="pbo-card-desc">Manage sourcing, tender evaluation, and vendor selection through structured procurement workflows.</p>
+      </div>
+    </div>
+
+    <!-- BUILD cards -->
+    <div class="pbo-cards" id="cards-build" role="tabpanel">
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 15l4-9 4 6 3-3 5 6"/></svg></div>
+        <div class="pbo-card-title">Cost Controls</div>
+        <p class="pbo-card-desc">Manage and track funding, budgets, contracts, change orders, risks, forecasts, invoices and payments across all projects and programs.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 16V7l5-5h11v14H2z"/><path d="M7 2v5H2"/></svg></div>
+        <div class="pbo-card-title">Contract Management</div>
+        <p class="pbo-card-desc">Extensive contract management features that dovetail into all areas of PMWeb — cost, schedule, workflow, dashboards and reports in real time.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 18V8l8-6 8 6v10"/><path d="M7 18v-6h6v6"/></svg></div>
+        <div class="pbo-card-title">Program &amp; Project Management</div>
+        <p class="pbo-card-desc">Comprehensive tools for portfolios, programs and projects — configurable to align with PMBOK, PRINCE2 or your organisation's preferred framework.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="6" y="1" width="8" height="18" rx="2"/><path d="M9 16h2"/></svg></div>
+        <div class="pbo-card-title">Mobility</div>
+        <p class="pbo-card-desc">True zero-footprint access — run PMWeb from any browser on iPad, iPhone, tablet or smartphone with no downloads required.</p>
+      </div>
+    </div>
+
+    <!-- OPERATE cards -->
+    <div class="pbo-cards" id="cards-operate" role="tabpanel">
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="9" width="16" height="9" rx="1"/><path d="M6 9V6a4 4 0 0 1 8 0v3"/></svg></div>
+        <div class="pbo-card-title">Asset Management</div>
+        <p class="pbo-card-desc">Track, monitor, map and assess locations, facilities, equipment and their subcomponents — with preventive and predictive maintenance, work requests and work orders.</p>
+      </div>
+      <div class="pbo-card">
+        <div class="pbo-card-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="16" height="16" rx="2"/><path d="M6 10h8M10 6v8"/></svg></div>
+        <div class="pbo-card-title">Lease Management</div>
+        <p class="pbo-card-desc">Define and manage cost and revenue leases with sophisticated charge calculations, lease abstracts, suite linking, and direct integration with planning and workflow.</p>
+      </div>
+    </div>
+
+    <!-- Tools grid -->
+    <div class="tools-wrap">
+      <div class="tools-label">PMWeb tools for use throughout the whole project lifecycle</div>
+      <div class="tools-grid">
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 6h6M6 9h6M6 12h4"/></svg></div>
+          <div class="tool-title">Core Module</div>
+          <div class="tool-desc">Set-up, security and audit across the lifecycle</div>
+        </div>
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M4 14V8M7 14V5M10 14v-4M13 14V3"/></svg></div>
+          <div class="tool-title">Dashboards &amp; Reports</div>
+          <div class="tool-desc">Drill-down to underlying data in real time</div>
+        </div>
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="2" y="4" width="14" height="11" rx="1"/><path d="M5 2v4M13 2v4M2 9h14"/></svg></div>
+          <div class="tool-title">Scheduling &amp; Stage Gates</div>
+          <div class="tool-desc">Tasks and deliverables with self-contained tools</div>
+        </div>
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2 6l4-4h6l4 4v6l-4 4H6l-4-4z"/><circle cx="9" cy="9" r="2"/></svg></div>
+          <div class="tool-title">Workflow</div>
+          <div class="tool-desc">Drag-and-drop document routing and approval</div>
+        </div>
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="5" cy="9" r="2"/><circle cx="13" cy="9" r="2"/><path d="M7 9h4"/><path d="M5 7V4M13 7V4M5 11v3M13 11v3"/></svg></div>
+          <div class="tool-title">Integration &amp; Interfaces</div>
+          <div class="tool-desc">API, SSIS and modern system compatibility</div>
+        </div>
+        <div class="tool-cell">
+          <div class="tool-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2 14V6l4-4h10v12H2z"/><path d="M6 2v4H2"/></svg></div>
+          <div class="tool-title">Document &amp; Data Control</div>
+          <div class="tool-desc">Templates, forms and extensibility features</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AI STRIP -->
+<div class="ai-strip rev">
+  <div class="wrap">
+    <div class="ai-left">
+      <div class="s-over lt">Our Approach to AI</div>
+      <h3 style="font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--white);margin-bottom:12px;letter-spacing:-.02em">AI Across Our Entire Service Offering</h3>
+      <p style="font-size:14px;line-height:1.65;color:rgba(255,255,255,.55)">We apply AI capabilities across PMWeb, Business Intelligence, and Digital Adoption — with practical, substantiated outcomes. No hype. Real results.</p>
+    </div>
+    <div class="ai-cards">
+      <div class="ai-card"><div class="ai-tag">PMWeb + AI</div><div class="ai-t">Intelligent Forecasting</div><p class="ai-d">AI-assisted cost forecasting and schedule risk analysis within PMWeb's portfolio workflows.</p></div>
+      <div class="ai-card"><div class="ai-tag">BI + AI</div><div class="ai-t">Automated Insights</div><p class="ai-d">AI-enhanced dashboards that surface anomalies and generate narrative summaries for project owners.</p></div>
+      <div class="ai-card"><div class="ai-tag">DAP + AI</div><div class="ai-t">Adaptive Guidance</div><p class="ai-d">AI-driven adoption tools that personalise in-application guidance to accelerate system proficiency.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- INDUSTRIES -->
+<section class="section rev">
+  <div class="wrap">
+    <div class="ind-head">
+      <div><div class="s-over">Who We Serve</div><h2 class="s-title" style="max-width:440px">Deep Expertise Across Every Capital Works Sector</h2></div>
+      <a class="arrow-link" href="#">View All Industries <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+    </div>
+    <div class="ind-r1">
+      <!-- Government — Classical building: pediment, columns, base -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path class="icf" d="M18 3L4 12h28L18 3z"/>
+          <rect class="icf" x="4" y="12" width="28" height="2.5" rx=".5"/>
+          <rect class="ics" x="6.5" y="14.5" width="3" height="13" rx=".3"/>
+          <rect class="ics" x="12.5" y="14.5" width="3" height="13" rx=".3"/>
+          <rect class="ics" x="20.5" y="14.5" width="3" height="13" rx=".3"/>
+          <rect class="ics" x="26.5" y="14.5" width="3" height="13" rx=".3"/>
+          <rect class="icf" x="3" y="27.5" width="30" height="2.5" rx=".5"/>
+          <circle class="icd" cx="18" cy="8.5" r="1.2"/>
+        </svg>
+        <span>Government</span>
+      </div>
+      <!-- Developers & Property — Two buildings with windows -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect class="icf" x="4" y="5" width="15" height="25" rx="1.2"/>
+          <rect class="icf" x="19" y="12" width="12" height="18" rx="1.2"/>
+          <rect class="icf-a" x="7" y="9" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="12.5" y="9" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="7" y="15" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="12.5" y="15" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="7" y="21" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="12.5" y="21" width="3.5" height="3" rx=".4"/>
+          <rect class="icf-a" x="22" y="16" width="3" height="2.5" rx=".4"/>
+          <rect class="icf-a" x="27" y="16" width="2.5" height="2.5" rx=".4"/>
+          <rect class="icf-a" x="22" y="21" width="3" height="2.5" rx=".4"/>
+          <rect class="icf-a" x="27" y="21" width="2.5" height="2.5" rx=".4"/>
+          <rect class="ics" x="9" y="25" width="4.5" height="5" rx=".8"/>
+          <circle class="icd" cx="12" cy="28" r=".5"/>
+        </svg>
+        <span>Developers &amp; Property</span>
+      </div>
+      <!-- Healthcare — Rounded square with cross + heartbeat -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect class="icf" x="5" y="3" width="26" height="26" rx="5"/>
+          <path class="ics" d="M14.5 9h7v5.5h5.5v7h-5.5v5.5h-7v-5.5H9v-7h5.5z"/>
+          <path class="ics-t" d="M3 33l3.5 0 2-3 2.5 5 2.5-5 2 3h4"/>
+        </svg>
+        <span>Healthcare</span>
+      </div>
+      <!-- Education — Graduation cap, tassel, book base -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path class="icf" d="M18 4L3 12l15 8 15-8L18 4z"/>
+          <path class="ics" d="M8 14.5v6.5c0 0 4 4.5 10 4.5s10-4.5 10-4.5v-6.5"/>
+          <line class="ics" x1="32" y1="12" x2="32" y2="22"/>
+          <circle class="icd" cx="32" cy="23.5" r="1.5"/>
+          <rect class="icf" x="7" y="28" width="22" height="3.5" rx=".8"/>
+          <line class="ics-t" x1="18" y1="28" x2="18" y2="31.5"/>
+        </svg>
+        <span>Education</span>
+      </div>
+      <!-- Energy & Resources — Lightning bolt inside gear -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle class="icf" cx="18" cy="18" r="11"/>
+          <line class="ics-t" x1="18" y1="3" x2="18" y2="7"/>
+          <line class="ics-t" x1="18" y1="29" x2="18" y2="33"/>
+          <line class="ics-t" x1="4" y1="18" x2="7" y2="18"/>
+          <line class="ics-t" x1="29" y1="18" x2="32" y2="18"/>
+          <line class="ics-t" x1="7.5" y1="7.5" x2="9.8" y2="9.8"/>
+          <line class="ics-t" x1="26.2" y1="26.2" x2="28.5" y2="28.5"/>
+          <line class="ics-t" x1="7.5" y1="28.5" x2="9.8" y2="26.2"/>
+          <line class="ics-t" x1="26.2" y1="9.8" x2="28.5" y2="7.5"/>
+          <circle class="ics-t" cx="18" cy="18" r="5.5"/>
+          <path class="ics" d="M20 10l-6.5 9h4.5l-1 7 6.5-9h-4.5z"/>
+        </svg>
+        <span>Energy &amp; Resources</span>
+      </div>
+      <!-- Transportation — Road with dashes and small vehicle -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path class="icf" d="M7 31l5-26h12l5 26z"/>
+          <line class="ics" x1="4" y1="31" x2="32" y2="31"/>
+          <line class="ics-t" x1="18" y1="7.5" x2="18" y2="11"/>
+          <line class="ics-t" x1="18" y1="14.5" x2="18" y2="18"/>
+          <line class="ics-t" x1="18" y1="21.5" x2="18" y2="25"/>
+          <line class="ics-t" x1="18" y1="27.5" x2="18" y2="30"/>
+          <rect class="ics-t" x="20" y="16" width="4" height="7" rx="1.2"/>
+        </svg>
+        <span>Transportation</span>
+      </div>
+    </div>
+    <div class="ind-r2">
+      <!-- Hospitality — Bed with headboard, pillow, legs, lamp -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect class="icf" x="4" y="9" width="9" height="10" rx="2"/>
+          <rect class="icf" x="3" y="16" width="30" height="7" rx="2"/>
+          <rect class="ics-t" x="6" y="12.5" width="5" height="3.5" rx="1.5"/>
+          <line class="ics" x1="5.5" y1="23" x2="5.5" y2="28"/>
+          <line class="ics" x1="30.5" y1="23" x2="30.5" y2="28"/>
+          <line class="ics-t" x1="28" y1="9" x2="28" y2="16"/>
+          <path class="ics-t" d="M25.5 9l2.5-3 2.5 3"/>
+        </svg>
+        <span>Hospitality</span>
+      </div>
+      <!-- Construction Managers — Tower crane -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <rect class="icf" x="9" y="7" width="4" height="23" rx=".5"/>
+          <path class="ics" d="M11 7l18-2.5v2.5H11"/>
+          <line class="ics-t" x1="11" y1="8.5" x2="4" y2="6"/>
+          <rect class="ics-t" x="2" y="4.5" width="4" height="3" rx=".5"/>
+          <line class="ics-t" x1="25" y1="7" x2="25" y2="17"/>
+          <line class="ics-t" x1="22.5" y1="17" x2="27.5" y2="17"/>
+          <rect class="icf" x="21" y="18.5" width="8" height="5" rx=".8"/>
+          <line class="ics-t" x1="9" y1="12" x2="13" y2="18" stroke-dasharray="1.5 2"/>
+          <line class="ics-t" x1="13" y1="12" x2="9" y2="18" stroke-dasharray="1.5 2"/>
+          <line class="ics-t" x1="9" y1="20" x2="13" y2="26" stroke-dasharray="1.5 2"/>
+          <line class="ics-t" x1="13" y1="20" x2="9" y2="26" stroke-dasharray="1.5 2"/>
+          <rect class="icf" x="6" y="30" width="10" height="2" rx=".5"/>
+        </svg>
+        <span>Construction Managers</span>
+      </div>
+      <!-- Engineering & Design — Drafting compass -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle class="icf" cx="18" cy="9" r="4.5"/>
+          <circle class="icd" cx="18" cy="9" r="1.5"/>
+          <line class="ics" x1="15" y1="13" x2="8" y2="31"/>
+          <circle class="icd" cx="8" cy="31" r="1"/>
+          <line class="ics" x1="21" y1="13" x2="28" y2="31"/>
+          <circle class="icd" cx="28" cy="31" r="1"/>
+          <line class="ics-t" x1="12.5" y1="23" x2="23.5" y2="23"/>
+          <path class="ics-t" d="M10.5 29.5a10 10 0 0 1 15 0" stroke-dasharray="2.5 2.5"/>
+        </svg>
+        <span>Engineering &amp; Design</span>
+      </div>
+      <!-- Manufacturing & Tech — Gear with signal waves -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <circle class="icf" cx="15" cy="18" r="9"/>
+          <circle class="ics-t" cx="15" cy="18" r="4.5"/>
+          <circle class="icd" cx="15" cy="18" r="1.5"/>
+          <rect class="ics-t" x="13" y="6" width="4" height="3" rx=".5"/>
+          <rect class="ics-t" x="13" y="27" width="4" height="3" rx=".5"/>
+          <rect class="ics-t" x="3" y="16" width="3" height="4" rx=".5"/>
+          <rect class="ics-t" x="24" y="16" width="3" height="4" rx=".5"/>
+          <path class="ics-t" d="M28 11c2 2 2 5.5 0 7.5"/>
+          <path class="ics-t" d="M31 8.5c3 3 3 8.5 0 11.5"/>
+        </svg>
+        <span>Manufacturing &amp; Tech</span>
+      </div>
+      <!-- Retail & Banking — Storefront with awning -->
+      <div class="ind-tile">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path class="icf" d="M3 12l2-7h26l2 7z"/>
+          <path class="ics-t" d="M3 12c0 2.5 2 3.5 4.5 3.5S12 14.5 12 12"/>
+          <path class="ics-t" d="M12 12c0 2.5 2 3.5 4.5 3.5S21 14.5 21 12"/>
+          <path class="ics-t" d="M21 12c0 2.5 2 3.5 4.5 3.5S30 14.5 30 12"/>
+          <rect class="icf" x="3" y="15" width="30" height="17" rx="1"/>
+          <rect class="ics" x="14" y="23" width="8" height="9" rx="1"/>
+          <circle class="icd" cx="20.5" cy="28" r=".6"/>
+          <rect class="icf-a" x="5.5" y="18.5" width="5.5" height="3.5" rx=".5"/>
+          <rect class="icf-a" x="25" y="18.5" width="5.5" height="3.5" rx=".5"/>
+          <circle class="ics-t" cx="8" cy="28" r="2.5"/>
+          <line class="ics-t" x1="8" y1="26" x2="8" y2="30"/>
+        </svg>
+        <span>Retail &amp; Banking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi rev">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="s-over lt" style="justify-content:center">What Our Clients Say</div>
+      <h2 class="s-title lt">Trusted by Leading Organisations Across APAC</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="t-card">
+        <span class="t-qmark" style="font-size:60px;margin-bottom:8px">"</span>
+        <p style="font-family:var(--font-d);font-size:16px;font-style:italic;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:22px">PMWeb transformed how we manage our capital works portfolio. The depth of knowledge HKA Tech brings goes beyond software — they understand how projects are delivered.</p>
+        <div class="t-rule"></div>
+        <div class="t-name" style="font-size:13px">Executive Director, Capital Delivery</div>
+        <div class="t-role" style="font-size:12px">Major Transport Authority</div>
+      </div>
+      <div class="t-card">
+        <span class="t-qmark" style="font-size:60px;margin-bottom:8px">"</span>
+        <p style="font-family:var(--font-d);font-size:16px;font-style:italic;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:22px">The BI dashboards HKA Tech built give us real-time visibility across every project. Our reporting time has been reduced dramatically and decisions are faster.</p>
+        <div class="t-rule"></div>
+        <div class="t-name" style="font-size:13px">Director of Infrastructure Programs</div>
+        <div class="t-role" style="font-size:12px">State Government Department</div>
+      </div>
+      <div class="t-card">
+        <span class="t-qmark" style="font-size:60px;margin-bottom:8px">"</span>
+        <p style="font-family:var(--font-d);font-size:16px;font-style:italic;color:rgba(255,255,255,.85);line-height:1.6;margin-bottom:22px">HKA Tech's WalkMe implementation drove adoption across 2,000+ users in under three months. Their approach to digital adoption is structured and results-driven.</p>
+        <div class="t-rule"></div>
+        <div class="t-name" style="font-size:13px">Head of Digital Transformation</div>
+        <div class="t-role" style="font-size:12px">National Healthcare Provider</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HKA TECH -->
+<section class="section rev">
+  <div class="wrap">
+    <div class="why-inner">
+      <div class="why-l">
+        <div class="why-l-title">Why organisations choose HKA Tech</div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 5.5l2.5 2.5L9 3"/></svg></div><div class="why-txt"><strong>APAC's largest PMWeb implementer</strong> — more deployments, more sectors, more complex programs than any other regional partner.</div></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 5.5l2.5 2.5L9 3"/></svg></div><div class="why-txt"><strong>Independent service revenue</strong> — our BI and DAP capabilities deliver measurable value with or without PMWeb at the centre.</div></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 5.5l2.5 2.5L9 3"/></svg></div><div class="why-txt"><strong>Part of HKA Global</strong> — backed by the world's leading claims, disputes, and advisory firm across 40+ global offices.</div></div>
+        <div class="why-item"><div class="why-check"><svg viewBox="0 0 11 11" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2 5.5l2.5 2.5L9 3"/></svg></div><div class="why-txt"><strong>Capital works advisory depth</strong> — software expertise combined with hands-on project delivery knowledge and Crux Insight intelligence.</div></div>
+      </div>
+      <div>
+        <div class="s-over">Our Credentials</div>
+        <h2 class="s-title">A Global Network. A Local Focus.</h2>
+        <p class="s-body" style="margin-bottom:28px">HKA Tech APAC operates as part of HKA Global — present across 40+ offices on six continents. Our APAC team brings local knowledge of the region's procurement frameworks, contract standards, and delivery environments.</p>
+        <div class="acc-grid" style="grid-template-columns:1fr 1fr 1fr">
+          <!-- PMWeb: grid/dashboard icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div><span class="acc-txt">PMWeb Certified<br>Implementation Partner</span></div>
+          <!-- ISO: shield icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5L3 4v3.5c0 3.5 2.1 6.4 5 7.5 2.9-1.1 5-4 5-7.5V4L8 1.5z"/><path d="M6 8l1.5 1.5L10 7"/></svg></div><span class="acc-txt">ISO 27001<br>Certified Organisation</span></div>
+          <!-- WalkMe: footsteps / path icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="4" r="1.5"/><circle cx="11" cy="8" r="1.5"/><circle cx="5" cy="12" r="1.5"/><path d="M6.5 4.5l3 3M6.5 11.5l3-3"/></svg></div><span class="acc-txt">WalkMe Certified<br>Deployment Partner</span></div>
+          <!-- AWS: cloud icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5A3 3 0 0 1 4 6.5h.5a4.5 4.5 0 0 1 8.5 1 2.5 2.5 0 0 1 0 5H4z"/></svg></div><span class="acc-txt">Amazon Web Services<br>SaaS Delivery Partner</span></div>
+          <!-- Bluebeam: document/layers icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l6-3 6 3-6 3-6-3z"/><path d="M2 8l6 3 6-3"/><path d="M2 11l6 3 6-3"/></svg></div><span class="acc-txt">Bluebeam Certified<br>Integration Partner</span></div>
+          <!-- Azure: server/cloud icon -->
+          <div class="acc-badge"><div class="acc-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="4" rx="1"/><rect x="2" y="9" width="12" height="4" rx="1"/><circle cx="5" cy="5" r=".75" fill="currentColor" stroke="none"/><circle cx="5" cy="11" r=".75" fill="currentColor" stroke="none"/><path d="M8 5h4M8 11h4"/></svg></div><span class="acc-txt">Microsoft Azure<br>Cloud Partner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section alt rev">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div><div class="s-over">News &amp; Insights</div><h2 class="s-title">Latest from HKA Tech</h2></div>
+      <a class="arrow-link" href="#">All News &amp; Events <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card rev d1"><div class="news-img"><div class="news-img-ph">BI</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Business Intelligence</div><div class="news-title">Unlocking Portfolio Visibility: AI-Assisted BI Dashboards for Infrastructure Owners</div><p class="news-exc">How HKA Tech's BI team is applying AI to surface program-level insights that traditional reporting cannot deliver.</p><div class="news-meta">March 2026 · 6 min read</div></div></div>
+      <div class="news-card rev d2"><div class="news-img"><div class="news-img-ph">V8</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Platform Update</div><div class="news-title">PMWeb Version 8.0 — Key New Features for APAC Clients</div><p class="news-exc">A summary of the most impactful capabilities in PMWeb 8.0 and what they mean for existing users considering an upgrade.</p><div class="news-meta">February 2026 · 8 min read</div></div></div>
+      <div class="news-card rev d3"><div class="news-img"><div class="news-img-ph">DAP</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Digital Adoption</div><div class="news-title">Beyond WalkMe: Why HKA Tech is Expanding its Digital Adoption Portfolio</div><p class="news-exc">Why HKA Tech is moving to a multi-vendor DAP approach and what this means for clients improving system adoption.</p><div class="news-meta">January 2026 · 5 min read</div></div></div>
+      <div class="news-card rev d4"><div class="news-img"><div class="news-img-ph">PM</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Implementation</div><div class="news-title">Five Lessons from Large-Scale PMWeb Deployments in Government</div><p class="news-exc">Practical takeaways from rolling out PMWeb across multi-agency capital works programs in the public sector.</p><div class="news-meta">December 2025 · 7 min read</div></div></div>
+      <div class="news-card rev d5"><div class="news-img"><div class="news-img-ph">CW</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Advisory</div><div class="news-title">Capital Works Advisory: Bridging the Gap Between Technology and Delivery</div><p class="news-exc">How HKA Tech combines software expertise with hands-on project delivery knowledge to improve outcomes for asset owners.</p><div class="news-meta">November 2025 · 6 min read</div></div></div>
+      <div class="news-card rev d6"><div class="news-img"><div class="news-img-ph">AI</div><div class="news-img-ov"></div></div><div class="news-body"><div class="news-tag">Innovation</div><div class="news-title">AI in Capital Works: Practical Applications, Not Hype</div><p class="news-exc">A grounded look at how AI is being applied across PMWeb, BI and DAP to deliver measurable value for project owners.</p><div class="news-meta">October 2025 · 5 min read</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec rev">
+  <div class="wrap">
+    <div class="cta-eye">Talk to Us</div>
+    <h2>Ready to Transform Your Capital Works Program?</h2>
+    <p>Talk to our team about PMWeb, Business Intelligence, Digital Adoption, or Advisory services. We'll help you find the right starting point.</p>
+    <div class="cta-btns">
+      <button class="btn-white">Contact Us</button>
+      <button class="btn-gw">Explore All Services <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 7h10M7 3l4 4-4 4"/></svg></button>
+    </div>
+    <p class="cta-note-open"><!-- Internal: CTA label open for review per Guidelines §14.4 --></p>
+  </div>
+</section>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo"><div class="f-logo-mark"><svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/><rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/></svg></div><span class="f-logo-name">HKA Tech</span></div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>asiapacific@hka.com</a>
+          <a href="tel:+61292559100"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>+61 2 9255 9100</a>
+        </div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px">Offices</div>
+          <span style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5"><strong style="color:rgba(255,255,255,.6)">Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5"><strong style="color:rgba(255,255,255,.6)">Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5"><strong style="color:rgba(255,255,255,.6)">Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.5"><strong style="color:rgba(255,255,255,.6)">Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="#">PMWeb Overview</a><a href="#">Platform Features</a><a href="#">Business Intelligence</a>
+          <a href="#">Digital Adoption (DAP)</a><a href="#">Capital Works Advisory</a>
+          <a href="#">Implementation Guide</a><a href="#">Hosting &amp; SaaS</a><a href="#">What's New</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="#">Our Story</a><a href="#">Our Approach</a><a href="#">APAC Team</a>
+          <a href="#">Accreditations</a><a href="#">News &amp; Events</a>
+          <a href="#">Who Uses PMWeb</a><a href="#">Testimonials</a><a href="#">HKA Global</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="#">Government</a><a href="#">Healthcare</a><a href="#">Education</a>
+          <a href="#">Transportation</a><a href="#">Energy &amp; Resources</a>
+          <a href="#">Property &amp; Construction</a><a href="#">Engineering &amp; Design</a>
+          <a href="#">All 11 Industries →</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="#">Privacy Policy</a><a href="#">Conditions of Use</a>
+        <a href="#">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     JAVASCRIPT — ALL INTERACTIONS
+════════════════════════════════════ -->
+<script>
+/* ─ NAV DROPDOWNS ─────────────────── */
+const navItems  = document.querySelectorAll('.nav-item[data-menu]');
+const overlay   = document.getElementById('navOverlay');
+
+function closeAll() {
+  navItems.forEach(i => {
+    i.classList.remove('open');
+    const btn = i.querySelector('.nav-btn');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+  overlay.classList.remove('active');
+}
+
+navItems.forEach(item => {
+  const btn = item.querySelector('.nav-btn');
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const wasOpen = item.classList.contains('open');
+    closeAll();
+    if (!wasOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      overlay.classList.add('active');
+    }
+  });
+});
+
+overlay.addEventListener('click', closeAll);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+
+/* ─ NAV SHADOW ON SCROLL ──────────── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  nav.style.boxShadow = y > 20
+    ? '0 4px 24px rgba(0,0,0,.12)'
+    : '0 2px 16px rgba(0,0,0,.06)';
+}, { passive: true });
+
+/* ─ PLAN / BUILD / OPERATE TABS ───── */
+document.querySelectorAll('.pbo-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const phase = tab.dataset.phase;
+    document.querySelectorAll('.pbo-tab').forEach(t => {
+      t.classList.remove('active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    document.querySelectorAll('.pbo-cards').forEach(c => c.classList.remove('active'));
+    document.getElementById('cards-' + phase).classList.add('active');
+  });
+});
+
+/* ─ SCROLL REVEAL ─────────────────── */
+const revEls = document.querySelectorAll('.rev');
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('vis');
+      revObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+revEls.forEach(el => revObs.observe(el));
+
+/* ─ HAMBURGER MENU ────────────────── */
+const hamburger = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+/* ─ BACK TO TOP ───────────────────── */
+const btt = document.getElementById('backToTop');
+if (btt) {
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+</script>
+</body>
+</html>
