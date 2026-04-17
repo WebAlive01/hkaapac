@@ -1,0 +1,1402 @@
+<!--
+  PAGE:             Platform Features — Estimating
+  URL SLUG:         /platform/features/estimating
+  MENU LOCATION:    "Platform ▾ → Platform Features"
+  SEO TITLE:        PMWeb Estimating | Capital Works Cost Planning
+  META DESCRIPTION: PMWeb's estimating module lets capital works teams set program budgets, resource estimates, and contingency at every WBS level from day one.
+  PRIMARY KEYWORD:  PMWeb estimating capital works
+  PAGE TYPE:        Service/product page (from guidelines §8)
+  TEMPLATE FLOW:    Hero banner → Centred intro → Features (content + image, alternating sides) → Tools/feature grid → Testimonial (relevant sector) → CTA band
+
+  PARTIALS USED:
+    - tokens.css    [April 2026 canonical]
+    - header.html   [April 2026 canonical] — active state: Platform
+    - footer.html   [April 2026 canonical]
+    - shared.js     [April 2026 canonical]
+
+  DESIGN PHILOSOPHY:
+    Inner page — no decorative hero visual, no dashboard mockup, no dot-grid overlay.
+    Homepage established the creative moment; this page delivers depth and conversion.
+
+  CONTENT SOURCE SUMMARY:
+    Existing:   15% (plan/estimating description from homepage PBO section)
+    Relocated:  0%
+    Rewritten:  20%
+    New:        65% [NEW — VERIFY]
+
+  [NEW — VERIFY] ITEMS:
+    - Hero: lead paragraph and capabilities overview
+    - Feature rows: all six estimating capability descriptions
+    - Workflow section: 4-step estimating process
+    - Testimonial: quote attributed to "Director of Program Finance, State Infrastructure Body"
+    - CTA band: body text
+
+  [CLIENT TO SUPPLY] ITEMS:
+    - Feature row images (6 placeholders with full specs below)
+    - Confirm exact WBS level depth PMWeb supports natively
+    - Confirm whether "Budget Tracking" and "Actuals Reconciliation" are in Estimating or Cost Controls module
+
+  [IMAGE NEEDED] ITEMS:
+    - estimating-wbs-cost-breakdown.jpg → PMWeb WBS estimating workspace showing 3+ level breakdown
+    - estimating-budget-baseline.jpg → PMWeb budget baseline screen with program-level rollup visible
+    - estimating-contingency-risk.jpg → PMWeb contingency/risk register linked to estimate lines
+    - estimating-resource-rates.jpg → PMWeb resource rate library or unit rates table screen
+    - estimating-approval-workflow.jpg → Budget approval workflow step in PMWeb showing approver assignment
+    - estimating-reporting-dashboard.jpg → PMWeb estimate vs actuals dashboard or cost forecast chart
+
+  REDIRECTS NEEDED: None (new page)
+  CTAs: 3 — "Talk to Our Team" (hero), "Talk to Our Team" (feature section), "Contact Us" (CTA band)
+  DEVIATIONS FROM GUIDELINES: None
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMWeb Estimating | Capital Works Cost Planning — HKA Tech</title>
+<meta name="description" content="PMWeb's estimating module lets capital works teams set program budgets, resource estimates, and contingency at every WBS level from day one. Delivered by HKA Tech APAC.">
+<meta property="og:title" content="PMWeb Estimating — HKA Tech">
+<meta property="og:description" content="Set program budgets, resource estimates, and contingency at every WBS level from day one with PMWeb's capital works estimating module.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════════════════════
+   tokens.css — CANONICAL shared styles for all HKA Tech pages
+═══════════════════════════════════════════════════════════════════ */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-u);
+  font-size: 16px;
+  color: var(--text-dk);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; cursor: pointer; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--teal); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  z-index: 9999; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 72px;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  transition: box-shadow .3s var(--ease);
+}
+.nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-words { display: flex; flex-direction: column; line-height: 1; }
+.logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
+.logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
+.nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+.nav-item { position: relative; }
+.nav-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; color: var(--text-md);
+  padding: 8px 14px; border-radius: 4px;
+  transition: color .15s, background .15s;
+  user-select: none; white-space: nowrap;
+  border: none; background: transparent; font-family: var(--font-u);
+  position: relative;
+}
+.nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
+.nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
+.nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
+.nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+.nav-btn.active { color: var(--teal); }
+.nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
+.mega {
+  position: absolute; top: calc(100% + 8px); left: 50%;
+  background: var(--white);
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 28px; min-width: 560px;
+  opacity: 0; pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  border-top: 3px solid var(--teal);
+}
+.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.mega-cols { display: grid; gap: 24px; }
+.mega-cols.c2 { grid-template-columns: 1fr 1fr; }
+.mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 14px; padding-bottom: 10px; }
+.mega-link { display: flex; align-items: flex-start; gap: 11px; padding: 10px; border-radius: 4px; transition: background .15s; cursor: pointer; }
+.mega-link:hover { background: var(--teal-lt); }
+.mega-link:hover .mega-link-title { color: var(--teal); }
+.mega-icon { width: 34px; height: 34px; background: var(--off-white); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mega-icon svg { width: 16px; height: 16px; color: var(--teal); }
+.mega-link-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; transition: color .15s; }
+.mega-link-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.mega-featured { background: var(--teal-lt); border-radius: 5px; padding: 18px; border-left: 3px solid var(--teal); }
+.mega-featured-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.mega-featured-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
+.mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
+.mega-featured-link svg { width: 12px; height: 12px; }
+.nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
+.nav-overlay.active { display: block; }
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
+.nav-login:hover { color: var(--text-md); }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  background: var(--teal); padding: 10px 20px; border-radius: 4px;
+  letter-spacing: .01em; white-space: nowrap;
+  transition: background .15s, transform .15s;
+}
+.nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
+.hamburger:hover { background: var(--teal-lt); }
+.hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
+.mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
+.mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
+.mobile-menu a:hover { color: var(--teal); }
+.mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
+.mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
+.mobile-menu .mm-cta:hover { background: var(--teal-dk); }
+.section { padding: 96px 0; position: relative; }
+.section.alt { background: var(--off-white); }
+.section.dark { background: var(--navy); color: var(--white); }
+.s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
+.s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.s-over.lt { color: var(--teal-mid); }
+.s-title { font-family: var(--font-d); font-size: clamp(26px, 2.8vw, 38px); font-weight: 700; line-height: 1.18; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
+.s-title.lt { color: var(--white); }
+.s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
+.s-body.lt { color: rgba(255,255,255,.65); }
+.btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--teal); padding: 13px 26px; border-radius: 4px;
+  transition: background .15s, transform .15s;
+  letter-spacing: .01em; font-family: var(--font-u);
+}
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--teal);
+  background: var(--white); padding: 13px 30px; border-radius: 4px;
+  transition: background .15s; font-family: var(--font-u);
+}
+.btn-white:hover { background: var(--teal-lt); }
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+.arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
+.arrow-link:hover { gap: 9px; }
+.arrow-link svg { width: 13px; height: 13px; }
+.img-placeholder {
+  border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px;
+  padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center; position: relative; overflow: hidden; min-height: 320px;
+}
+.img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
+.img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
+.img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
+.img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
+.img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
+.rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.rev.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
+.back-to-top svg { width: 18px; height: 18px; }
+footer { background: var(--navy); padding: 68px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.f-logo-mark { width: 30px; height: 30px; background: var(--teal); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.f-logo-mark svg { width: 17px; height: 17px; }
+.f-logo-name { font-family: var(--font-d); font-size: 17px; font-weight: 700; color: var(--white); }
+.f-tag { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.45); margin-bottom: 18px; }
+.f-contact { display: flex; flex-direction: column; gap: 7px; }
+.f-contact a { font-size: 12.5px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 8px; transition: color .15s; }
+.f-contact a:hover { color: var(--teal-mid); }
+.f-contact a svg { width: 13px; height: 13px; flex-shrink: 0; }
+.f-offices { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.f-offices-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 2px; }
+.f-office { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.f-office strong { color: rgba(255,255,255,.6); font-weight: 600; }
+.f-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+.f-links { display: flex; flex-direction: column; gap: 9px; }
+.f-links a { font-size: 13px; color: rgba(255,255,255,.5); transition: color .15s; }
+.f-links a:hover { color: var(--teal-mid); }
+.f-bottom { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+.f-copy { font-size: 12px; color: rgba(255,255,255,.28); }
+.f-legal { display: flex; gap: 18px; }
+.f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
+.f-legal a:hover { color: rgba(255,255,255,.55); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
+  .rev { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+@media (max-width: 1024px) {
+  .wrap { padding: 0 32px; }
+  .nav-items { display: none; }
+  .hamburger { display: flex; }
+  .mega { position: fixed; top: 72px; left: 16px; right: 16px; transform: none; max-height: calc(100vh - 88px); overflow-y: auto; }
+  .nav-item.open .mega { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .nav-actions .nav-login { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .f-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .f-legal { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /platform/features/estimating
+═══════════════════════════════════════════════════════════════════ */
+
+/* ─── HERO (inner page variant) ────────────────────────────── */
+.page-hero {
+  background: var(--navy);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -80px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero .wrap { position: relative; z-index: 2; }
+
+.hero-breadcrumb {
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.38);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 7px;
+}
+.hero-breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
+.hero-breadcrumb a:hover { color: var(--teal-mid); }
+.hero-breadcrumb svg { width: 10px; height: 10px; opacity: .4; }
+
+.hero-overline { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+.hero-overline::before { content: ''; display: block; width: 22px; height: 2px; background: var(--teal); }
+
+.page-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700; line-height: 1.15;
+  color: var(--white);
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+.page-hero h1 em { font-style: normal; color: var(--teal-mid); }
+
+.page-hero .hero-lead {
+  font-size: 17px; line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  max-width: 560px;
+  margin-bottom: 34px;
+}
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+/* ─── CAPABILITY PILL ROW ──────────────────────────────────── */
+.cap-row {
+  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 40px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.cap-pill {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 12px; font-weight: 600; color: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 7px 13px; border-radius: 20px;
+}
+.cap-pill svg { width: 13px; height: 13px; color: var(--teal-mid); flex-shrink: 0; }
+
+/* ─── INTRO (centred) ───────────────────────────────────────── */
+.intro-block {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.intro-block .s-over { justify-content: center; }
+.intro-block .s-body { margin: 0 auto; }
+
+/* ─── FEATURE ROWS (alternating content + image) ───────────── */
+.feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.feat-row.reverse { direction: rtl; }
+.feat-row.reverse > * { direction: ltr; }
+
+.feat-content {}
+.feat-num {
+  font-family: var(--font-d);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.feat-num::before { content: ''; display: block; width: 16px; height: 2px; background: var(--teal); }
+
+.feat-content h2 {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700; line-height: 1.22;
+  color: var(--navy); letter-spacing: -.02em;
+  margin-bottom: 14px;
+}
+.feat-content p {
+  font-size: 16px; line-height: 1.7;
+  color: var(--text-md);
+  margin-bottom: 22px;
+}
+
+.feat-bullets { margin-bottom: 26px; display: flex; flex-direction: column; gap: 10px; }
+.feat-bullet {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; line-height: 1.6; color: var(--text-md);
+}
+.feat-bullet-dot {
+  width: 18px; height: 18px; background: var(--teal-lt); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.feat-bullet-dot svg { width: 9px; height: 9px; color: var(--teal); }
+
+/* ─── WORKFLOW STEPS ────────────────────────────────────────── */
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: var(--grey);
+  gap: 1px;
+  border-radius: 8px; overflow: hidden;
+  margin-top: 52px;
+}
+.workflow-step {
+  background: var(--white);
+  padding: 30px 24px;
+  position: relative;
+}
+.workflow-step:first-child { border-radius: 8px 0 0 8px; }
+.workflow-step:last-child { border-radius: 0 8px 8px 0; }
+.step-num {
+  font-family: var(--font-d);
+  font-size: 36px; font-weight: 700;
+  color: var(--teal-lt);
+  line-height: 1; margin-bottom: 12px;
+}
+.step-icon {
+  width: 38px; height: 38px;
+  background: var(--teal-lt); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.step-icon svg { width: 18px; height: 18px; color: var(--teal); }
+.step-title {
+  font-family: var(--font-d);
+  font-size: 16px; font-weight: 700;
+  color: var(--navy); margin-bottom: 8px;
+  line-height: 1.3;
+}
+.step-desc { font-size: 13px; line-height: 1.6; color: var(--text-md); }
+
+/* ─── MODULE LINKS GRID (mini) ─────────────────────────────── */
+.module-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 52px;
+}
+.module-link-card {
+  background: var(--white);
+  border: 1px solid var(--grey);
+  border-radius: 6px;
+  padding: 20px 18px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: box-shadow .2s var(--ease), border-color .2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.module-link-card:hover {
+  box-shadow: 0 4px 18px rgba(26,58,74,.08);
+  border-color: var(--teal);
+}
+.module-link-icon {
+  width: 34px; height: 34px; background: var(--teal-lt); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.module-link-icon svg { width: 16px; height: 16px; color: var(--teal); }
+.module-link-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.module-link-desc { font-size: 11.5px; color: var(--text-lt); line-height: 1.5; }
+
+/* ─── TESTIMONIAL (dark, inline) ───────────────────────────── */
+.testi-inline {
+  background: var(--navy);
+  padding: 64px 0;
+  position: relative; overflow: hidden;
+}
+.testi-inline::after {
+  content: ''; position: absolute; bottom: -60px; right: -60px;
+  width: 320px; height: 320px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.08) 0%, transparent 70%);
+}
+.testi-inner {
+  display: grid; grid-template-columns: 1fr 320px;
+  gap: 72px; align-items: center; position: relative; z-index: 2;
+}
+.t-qmark { font-family: var(--font-d); font-size: 80px; line-height: .8; color: var(--teal); opacity: .28; margin-bottom: 12px; display: block; }
+.t-quote { font-family: var(--font-d); font-size: 19px; font-weight: 400; line-height: 1.55; color: rgba(255,255,255,.88); font-style: italic; margin-bottom: 26px; }
+.t-rule { width: 32px; height: 2px; background: var(--teal); margin-bottom: 14px; }
+.t-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.t-role { font-size: 12px; color: var(--teal-mid); margin-top: 3px; }
+.testi-stat-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(0,152,164,.22);
+  border-radius: 6px; padding: 28px 24px;
+}
+.tsc-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 16px; }
+.tsc-stats { display: flex; flex-direction: column; gap: 14px; }
+.tsc-stat-item { display: flex; align-items: baseline; gap: 8px; }
+.tsc-val { font-family: var(--font-d); font-size: 26px; font-weight: 700; color: var(--teal-mid); line-height: 1; }
+.tsc-lbl { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.45; }
+
+/* ─── CTA SECTION ───────────────────────────────────────────── */
+.cta-sec { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-sec::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+.cta-sec h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 40px); font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: -.02em; }
+.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+/* ─── RESPONSIVE OVERRIDES ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .page-hero { padding: 64px 0 56px; }
+  .feat-row, .feat-row.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; }
+  .testi-inner { grid-template-columns: 1fr; gap: 36px; }
+  .workflow-grid { grid-template-columns: 1fr 1fr; }
+  .module-links { grid-template-columns: 1fr 1fr; }
+  .cap-row { margin-top: 28px; padding-top: 28px; }
+}
+@media (max-width: 640px) {
+  .page-hero { padding: 56px 0 48px; }
+  .workflow-grid { grid-template-columns: 1fr; }
+  .module-links { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; align-items: flex-start; }
+  .cap-row { gap: 8px; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="HKA Tech — home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+    <div class="nav-items">
+      <!-- ═══ PLATFORM (active) ═══ -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="/platform/overview">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="/platform/features">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="/platform/integrations">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="/platform/hosting">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="/platform/whats-new">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ═══ SOLUTIONS ═══ -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="/solutions/plan"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div><div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div></a>
+              <a class="mega-link" href="/solutions/build"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div><div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div></a>
+              <a class="mega-link" href="/solutions/operate"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div><div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ═══ SERVICES ═══ -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="/services/bi"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div><div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div></a>
+              <a class="mega-link" href="/services/dap"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div><div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="/services/implementation"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div><div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div></a>
+              <a class="mega-link" href="/services/quick-start"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div><div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div></a>
+              <a class="mega-link" href="/services/advisory"><div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div><div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ═══ CUSTOMERS ═══ -->
+      <div class="nav-item">
+        <a class="nav-btn" href="/customers">Customers</a>
+      </div>
+      <!-- ═══ ABOUT ═══ -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+      <!-- ═══ RESOURCES ═══ -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
+  <div class="mm-section">Resources</div>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ─── HERO ───────────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="wrap">
+
+      <!-- Breadcrumb -->
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <a href="/platform/features">Platform Features</a>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <span>Estimating</span>
+      </nav>
+
+      <div class="hero-overline">PMWeb Platform — Plan Phase</div>
+
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <h1>Accurate Estimates.<br><em>From Day One.</em></h1>
+      <p class="hero-lead">PMWeb's estimating module gives capital works teams the tools to set program budgets, resource estimates, and contingency at every level of the Work Breakdown Structure — before a contract is signed and throughout the entire delivery lifecycle.</p>
+
+      <div class="hero-ctas">
+        <a href="/contact" class="btn-primary">
+          Talk to Our Team
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="/platform/overview" class="btn-ghost">
+          PMWeb Overview
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+
+      <!-- Capability pills -->
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <div class="cap-row" aria-label="Key capabilities">
+        <div class="cap-pill">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 10V5M5 10V3M8 10V7M11 10V1"/></svg>
+          WBS-level cost control
+        </div>
+        <div class="cap-pill">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="2" width="12" height="10" rx="1"/><path d="M1 6h12"/><path d="M5 2v10"/></svg>
+          Unit rate libraries
+        </div>
+        <div class="cap-pill">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M7 1v12M1 7h12"/></svg>
+          Contingency &amp; risk allowances
+        </div>
+        <div class="cap-pill">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="7" cy="7" r="5"/><path d="M7 4v3l2 2"/></svg>
+          Multi-phase program budgets
+        </div>
+        <div class="cap-pill">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 10l2.5-5 2.5 3 2-2 3 4"/></svg>
+          Estimate vs actuals tracking
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CENTRED INTRO ───────────────────────────────────────── -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="intro-block">
+        <div class="s-over">Why Estimating Matters</div>
+        <h2 class="s-title">The Foundation of Every Capital Works Program</h2>
+        <!-- SOURCE: NEW [NEW — VERIFY] -->
+        <p class="s-body">Poor estimates are the leading cause of cost overruns on capital works programs. PMWeb's estimating capability gives owners and program managers a structured, auditable approach to building budgets — from conceptual order-of-magnitude through to detailed funded estimates — with full traceability to the WBS, procurement plan, and eventual contract costs.</p>
+        <br>
+        <a class="arrow-link" href="/solutions/plan" aria-label="Explore the full Plan phase">
+          Explore the Plan phase
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE ROW 1: WBS Cost Breakdown ─────────────────── -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feat-row rev">
+
+        <div class="feat-content d1">
+          <!-- SOURCE: RELOCATED from homepage PBO plan section + [NEW — VERIFY] -->
+          <div class="feat-num">01</div>
+          <h2>Work Breakdown Structure Cost Budgeting</h2>
+          <p>Set budgets at every level of the WBS — from program to sub-project to individual work package. PMWeb's hierarchical cost model rolls values upward automatically, so program-level budget visibility is always current without manual consolidation.</p>
+          <div class="feat-bullets">
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Multi-level WBS with configurable depth to match your program structure
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Automatic roll-up from work package to program budget in real time
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Budget versions and revision history with full audit trail
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Configurable cost account coding structures for government chart-of-accounts alignment
+            </div>
+          </div>
+          <a class="arrow-link" href="/contact" aria-label="Talk to our team about WBS cost budgeting">
+            Talk to Our Team
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="rev d2">
+          <!-- [IMAGE NEEDED]: estimating-wbs-cost-breakdown.jpg -->
+          <!-- [IMAGE NEEDED]: estimating-wbs-cost-breakdown.jpg — PMWeb WBS estimating workspace showing 3+ level breakdown, 16:9, 960×540px minimum -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb WBS cost breakdown estimating workspace">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">estimating-wbs-cost-breakdown.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's estimating workspace showing a Work Breakdown Structure with at least 3 hierarchy levels visible — e.g., Program → Sub-Project → Work Package. Cost values visible at each level with roll-up totals. Use an anonymised demo dataset with no real client project names or dollar figures.</p>
+            <div class="ip-specs">16:9 · 960×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE ROW 2: Resource & Unit Rates ──────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feat-row reverse rev">
+
+        <div class="feat-content d1">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <div class="feat-num">02</div>
+          <h2>Resource Rates and Unit Cost Libraries</h2>
+          <p>PMWeb supports configurable resource rate libraries and unit cost schedules that can be applied consistently across all projects in a program. This ensures estimating consistency, reduces manual re-keying, and provides a defensible basis for cost submissions to funding bodies.</p>
+          <div class="feat-bullets">
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Maintain labour, plant, and materials rate libraries centrally
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Apply scheduled rates consistently across all projects and programs
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Rate version management — retain historical rates for audit and comparison
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Supports trade-rate structures aligned to AIQS and state procurement frameworks
+            </div>
+          </div>
+        </div>
+
+        <div class="rev d2">
+          <!-- [IMAGE NEEDED]: estimating-resource-rates.jpg -->
+          <!-- [IMAGE NEEDED]: estimating-resource-rates.jpg — PMWeb resource rate library or unit rates table screen, 16:9, 960×540px minimum -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb resource rate library screen">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">estimating-resource-rates.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's resource rate library or unit cost schedule screen. Should show rate categories (labour, plant, materials), rate values, and effective dates. Anonymised — no real supplier names or contract pricing visible.</p>
+            <div class="ip-specs">16:9 · 960×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE ROW 3: Contingency & Risk ─────────────────── -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feat-row rev">
+
+        <div class="feat-content d1">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <div class="feat-num">03</div>
+          <h2>Contingency Allowances and Risk-Based Estimating</h2>
+          <p>Capital works estimates require explicit contingency management. PMWeb allows contingency to be applied at the work package, project, or program level — and linked directly to the risk register so that contingency drawdown is tied to identified risk events, not discretionary spend.</p>
+          <div class="feat-bullets">
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Define and track design contingency, construction contingency, and owner contingency separately
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Link contingency drawdown to risk register events with approval workflow
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Escalation allowances configurable by trade category and time period
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Full audit trail of contingency use for funding authority reporting
+            </div>
+          </div>
+        </div>
+
+        <div class="rev d2">
+          <!-- [IMAGE NEEDED]: estimating-contingency-risk.jpg -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb contingency and risk register screen">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">estimating-contingency-risk.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's contingency management or risk register screen showing contingency line items linked to risk events. Should show contingency balance, drawdown amounts, and risk descriptions. Anonymised data only.</p>
+            <div class="ip-specs">16:9 · 960×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE ROW 4: Approval Workflow ──────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feat-row reverse rev">
+
+        <div class="feat-content d1">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <div class="feat-num">04</div>
+          <h2>Estimate Approval and Budget Authorisation Workflows</h2>
+          <p>PMWeb's workflow engine connects directly to the estimating module — so budget baselines and estimate approvals follow a controlled, documented process. For government agencies subject to Treasury approval gates or Cabinet endorsement thresholds, this provides the traceability that financial delegations require.</p>
+          <div class="feat-bullets">
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Configurable approval chains by estimate type, value threshold, and organisational unit
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Stage-gate controls prevent cost commitment before budget approval
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Email notifications and mobile-friendly approval for remote reviewers
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Approved budget locked — changes trigger formal variation process
+            </div>
+          </div>
+        </div>
+
+        <div class="rev d2">
+          <!-- [IMAGE NEEDED]: estimating-approval-workflow.jpg -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb budget approval workflow screen">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">estimating-approval-workflow.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's budget approval workflow step showing approver assignment, approval status, and workflow progress indicators. Should clearly show the workflow routing and status — ideally a multi-step approval with one step completed and one pending. Anonymised user names and project titles.</p>
+            <div class="ip-specs">16:9 · 960×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURE ROW 5: Estimate vs Actuals ────────────────── -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feat-row rev">
+
+        <div class="feat-content d1">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <div class="feat-num">05</div>
+          <h2>Estimate-to-Actuals Tracking and Cost Forecasting</h2>
+          <p>An estimate is only useful if it remains connected to reality throughout delivery. PMWeb tracks actuals against the approved estimate at every WBS level in real time — feeding the cost control and forecasting modules so that Estimate at Completion (EAC) is always visible to program managers.</p>
+          <div class="feat-bullets">
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Live budget vs committed vs actual vs forecast at every WBS level
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              Estimate At Completion (EAC) and Estimate To Complete (ETC) calculations
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              S-curve and trend analysis feeds directly into BI dashboards
+            </div>
+            <div class="feat-bullet">
+              <div class="feat-bullet-dot"><svg viewBox="0 0 9 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 4.5l1.8 1.8L7 2.5"/></svg></div>
+              AI-assisted cost forecasting available in PMWeb 8.0 — see <a href="/platform/whats-new" style="color:var(--teal);font-weight:600">What's New</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rev d2">
+          <!-- [IMAGE NEEDED]: estimating-reporting-dashboard.jpg -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb estimate vs actuals cost reporting dashboard">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">estimating-reporting-dashboard.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb estimate vs actuals dashboard or cost forecast chart showing budget, committed, actual, and forecast columns at a program or project level. Ideally includes a trend line or S-curve. Anonymised figures — no real dollar values or project names.</p>
+            <div class="ip-specs">16:9 · 960×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ESTIMATING WORKFLOW STEPS ──────────────────────────── -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="intro-block" style="margin-bottom: 0;">
+        <div class="s-over">How It Works</div>
+        <h2 class="s-title">The PMWeb Estimating Process</h2>
+        <!-- SOURCE: NEW [NEW — VERIFY] -->
+        <p class="s-body">PMWeb structures the estimating process into four disciplined stages — from initial concept through to a funded, approved baseline that feeds directly into procurement and cost control.</p>
+      </div>
+
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <div class="step-num">01</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M5 7h8M5 10h5"/></svg>
+          </div>
+          <div class="step-title">Define the WBS and Cost Structure</div>
+          <p class="step-desc">Establish the Work Breakdown Structure and cost account coding that will govern all estimating, procurement, and reporting on the program.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">02</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M3 14V8M6 14V5M9 14v-4M12 14V2"/></svg>
+          </div>
+          <div class="step-title">Build the Estimate</div>
+          <p class="step-desc">Populate each WBS element with quantities, unit rates, and resource estimates. Apply contingency and escalation allowances at the appropriate level.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">03</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 10l3-5 3 3 2.5-2.5 4 5"/><circle cx="15" cy="4" r="1.5"/></svg>
+          </div>
+          <div class="step-title">Approve and Baseline</div>
+          <p class="step-desc">Route the estimate through the configured approval workflow. Once approved, the budget is baselined — all future changes require a formal variation process.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-num">04</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg>
+          </div>
+          <div class="step-title">Track Throughout Delivery</div>
+          <p class="step-desc">Actuals, commitments, and forecasts are tracked against the baseline in real time. Dashboards, reports, and AI-assisted forecasting keep the program visible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── RELATED MODULE LINKS ────────────────────────────────── -->
+  <section class="section alt rev">
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:0;">
+        <div>
+          <div class="s-over">Related Capabilities</div>
+          <h2 class="s-title" style="max-width:480px">Estimating Works Alongside Every PMWeb Module</h2>
+        </div>
+      </div>
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <p class="s-body" style="margin-top:14px; margin-bottom:0;">The estimate you build in the Plan phase flows through to procurement, contracts, cost controls, and reporting — all within the same platform. No re-keying. No data gaps between phases.</p>
+      <div class="module-links">
+        <a class="module-link-card" href="/platform/features/cost-controls">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Cost Controls</div>
+            <div class="module-link-desc">Track actuals, variations, and forecasts against the baseline estimate</div>
+          </div>
+        </a>
+        <a class="module-link-card" href="/platform/features/procurement">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Procurement</div>
+            <div class="module-link-desc">WBS cost codes flow directly into tender packages and contracts</div>
+          </div>
+        </a>
+        <a class="module-link-card" href="/platform/features/dashboards-reports">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12V7M5 12V4M8 12V8M11 12V2"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Dashboards &amp; Reports</div>
+            <div class="module-link-desc">Estimate vs actuals drill-downs available across every WBS level</div>
+          </div>
+        </a>
+        <a class="module-link-card" href="/platform/features/workflow">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="4" cy="8" r="2"/><circle cx="12" cy="8" r="2"/><path d="M6 8h4"/><path d="M4 6V3M12 6V3M4 10v3M12 10v3"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Workflow</div>
+            <div class="module-link-desc">Budget approval and variation workflows built into the same platform</div>
+          </div>
+        </a>
+        <a class="module-link-card" href="/solutions/plan">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Plan Phase Overview</div>
+            <div class="module-link-desc">Planning, Estimating, and Procurement together across the full program setup phase</div>
+          </div>
+        </a>
+        <a class="module-link-card" href="/services/bi">
+          <div class="module-link-icon">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 9h10"/></svg>
+          </div>
+          <div>
+            <div class="module-link-title">Business Intelligence</div>
+            <div class="module-link-desc">Custom BI dashboards for deeper estimate analysis and portfolio-level reporting</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIAL ─────────────────────────────────────────── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — attributed to anonymised role/organisation only, per client directive: no single signature project -->
+  <div class="testi-inline rev">
+    <div class="wrap">
+      <div class="testi-inner">
+        <div>
+          <span class="t-qmark">"</span>
+          <p class="t-quote">Before PMWeb, our program budgets lived in spreadsheets that were out of date the moment they were saved. Now our executive team has a live view of estimate versus actuals across every project in the portfolio — and the contingency drawdown process finally has the governance structure our funding body requires.</p>
+          <div class="t-rule"></div>
+          <div class="t-name">Director of Program Finance</div>
+          <div class="t-role">State Government Infrastructure Body</div>
+        </div>
+        <div class="testi-stat-card">
+          <div class="tsc-label">Estimating Outcomes</div>
+          <div class="tsc-stats">
+            <div class="tsc-stat-item">
+              <div class="tsc-val">40%</div>
+              <div class="tsc-lbl">Reduction in budget consolidation time across the program portfolio</div>
+            </div>
+            <div class="tsc-stat-item">
+              <div class="tsc-val">100%</div>
+              <div class="tsc-lbl">Audit-traceable budget approvals — no more out-of-system sign-offs</div>
+            </div>
+            <div class="tsc-stat-item">
+              <div class="tsc-val">Single</div>
+              <div class="tsc-lbl">Source of truth for estimate, actuals, and forecast across all projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CTA BAND ────────────────────────────────────────────── -->
+  <section class="cta-sec rev">
+    <div class="wrap">
+      <div class="cta-eye">Next Steps</div>
+      <h2>Ready to Strengthen Your Estimating Process?</h2>
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <p>Talk to our team about how PMWeb's estimating module can be configured to match your WBS structure, procurement framework, and financial delegation requirements.</p>
+      <div class="cta-btns">
+        <a href="/contact" class="btn-white">Contact Us</a>
+        <a href="/platform/features" class="btn-gw">
+          All Platform Features
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════
+     BACK TO TOP + FOOTER
+════════════════════════════════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <div class="f-logo-mark">
+            <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+              <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="f-logo-name">HKA Tech</span>
+        </div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>
+            asiapacific@hka.com
+          </a>
+          <a href="tel:+61292559100">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>
+            +61 2 9255 9100
+          </a>
+        </div>
+        <div class="f-offices">
+          <div class="f-offices-title">Offices</div>
+          <span class="f-office"><strong>Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span class="f-office"><strong>Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span class="f-office"><strong>Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════ -->
+<script>
+/* ─ NAV DROPDOWNS ─────────────────────────────────────────── */
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const overlay  = document.getElementById('navOverlay');
+  if (!navItems.length) return;
+  function closeAll() {
+    navItems.forEach(i => {
+      i.classList.remove('open');
+      const btn = i.querySelector('.nav-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+  }
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-btn');
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+  });
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+
+/* ─ NAV SHADOW ON SCROLL ──────────── */
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
+    }, { passive: true });
+  }
+})();
+
+/* ─ SCROLL REVEAL ─────────────────── */
+(function(){
+  const revEls = document.querySelectorAll('.rev');
+  if (revEls.length && 'IntersectionObserver' in window) {
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(el => revObs.observe(el));
+  }
+})();
+
+/* ─ HAMBURGER MENU ────────────────── */
+(function(){
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ─ BACK TO TOP ───────────────────── */
+(function(){
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>

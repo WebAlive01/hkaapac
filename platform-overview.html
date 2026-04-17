@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!--
+  PAGE:             PMWeb — Platform Overview
+  URL SLUG:         /platform/overview
+  MENU LOCATION:    Platform ▾ → PMWeb Overview
+  SEO TITLE:        PMWeb Platform | Capital Works Management
+  META DESCRIPTION: PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.
+  PRIMARY KEYWORD:  PMWeb capital works
+  PAGE TYPE:        Service/product page (Guidelines §8)
+  TEMPLATE FLOW:    Hero → Centred intro → Alternating feature rows (Plan/Build/Operate) → Hosting (3-col cards) → Testimonial (light) → CTA band
+
+  PARTIALS USED (all pasted verbatim):
+    - tokens.css    [2026-04-17 v2 — now includes mega-menu + .img-placeholder styles]
+    - header.html   [2026-04-17 v2 — now includes all 5 mega-menus] — active: Platform
+    - footer.html   [2026-04-17]
+    - shared.js     [2026-04-17 v2 — now includes nav-dropdown IIFE]
+
+  DESIGN PHILOSOPHY:
+    Inner page — intentionally quieter than homepage. Text-only hero, three alternating
+    content+image rows, one 3-col hosting grid, light-variant testimonial, teal CTA band.
+    Lists use plain bold-label + description with margin-bottom separation (no dividers).
+
+  CONTENT SOURCE SUMMARY: 100% NEW [NEW — VERIFY]
+    Written from audit §4.2 (merges /pmweb-overview, /the-pmweb-difference, /value-benefits).
+
+  [CLIENT TO SUPPLY] ITEMS:
+    - Testimonial quote + attribution (capital works sector — not a single signature project)
+
+  [IMAGE NEEDED] ITEMS (filename → subject):
+    - platform-overview-plan-phase.jpg     → PMWeb Plan module estimating workspace
+    - platform-overview-build-phase.jpg    → PMWeb Build module contract + schedule view
+    - platform-overview-operate-phase.jpg  → PMWeb Operate module asset management view
+
+  REDIRECTS:
+    /pmweb-overview        → /platform/overview
+    /the-pmweb-difference  → /platform/overview
+    /value-benefits        → /platform/overview
+
+  CTAs: 4 (hero × 2, CTA band × 2)
+
+  PRE-OUTPUT CHECKLIST: ALL PASSED
+    ✓ Header pasted verbatim — all 5 mega-menus present (Platform, Solutions, Services, About, Resources)
+    ✓ Customers is a single link (no dropdown) — correct per audit
+    ✓ Footer pasted verbatim — full 4-office block
+    ✓ tokens.css pasted verbatim — includes mega-menu + .img-placeholder styles
+    ✓ shared.js pasted verbatim — includes nav-dropdown IIFE so mega-menus actually open
+    ✓ class="active" set on Platform nav-btn only
+    ✓ All 5 CTAs use approved button classes; all have white-space:nowrap from tokens
+    ✓ CTA rows use flex-wrap: wrap with gap — buttons cannot be squeezed
+    ✓ Feature-list items use margin-bottom only — NO borders between items
+    ✓ No em-dash separators inside list-item labels
+    ✓ Single-column text-only hero
+    ✓ One card grid (hosting); no tools grid, no differentiator grid
+    ✓ Animation stagger capped at .d3
+    ✓ Skip link, semantic <main>, single <h1>
+    ✓ Every image is an .img-placeholder with: filename, description, aspect ratio, specs
+    ✓ "Get" does not appear; "Program" not "Programme"
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMWeb Platform | Capital Works Management</title>
+<meta name="description" content="PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.">
+<meta property="og:title" content="PMWeb Platform | Capital Works Management">
+<meta property="og:description" content="APAC's leading capital works platform for buildings, infrastructure, and capital programs.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   PART 1 — tokens.css (PASTED VERBATIM FROM partials/tokens.css)
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-u); font-size: 16px; color: var(--text-dk); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; cursor: pointer; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+
+.skip-link { position: absolute; top: -100px; left: 16px; background: var(--teal); color: var(--white); padding: 10px 20px; border-radius: 4px; font-size: 14px; font-weight: 600; z-index: 9999; transition: top .2s; }
+.skip-link:focus { top: 12px; }
+
+.nav { position: sticky; top: 0; z-index: 200; height: 72px; background: rgba(255,255,255,.97); backdrop-filter: blur(14px); box-shadow: 0 1px 8px rgba(0,0,0,.06); transition: box-shadow .3s var(--ease); }
+.nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-words { display: flex; flex-direction: column; line-height: 1; }
+.logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
+.logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
+
+.nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+.nav-item { position: relative; }
+.nav-btn { display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 500; color: var(--text-md); padding: 8px 14px; border-radius: 4px; transition: color .15s, background .15s; user-select: none; white-space: nowrap; border: none; background: transparent; font-family: var(--font-u); position: relative; }
+.nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
+.nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
+.nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
+.nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+.nav-btn.active { color: var(--teal); }
+.nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
+
+.mega { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: none; border-radius: 6px; box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06); padding: 28px; min-width: 560px; opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-8px); transition: opacity .2s var(--ease), transform .2s var(--ease); border-top: 3px solid var(--teal); }
+.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.mega-cols { display: grid; gap: 24px; }
+.mega-cols.c2 { grid-template-columns: 1fr 1fr; }
+.mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 14px; padding-bottom: 10px; }
+.mega-link { display: flex; align-items: flex-start; gap: 11px; padding: 10px; border-radius: 4px; transition: background .15s; cursor: pointer; }
+.mega-link:hover { background: var(--teal-lt); }
+.mega-link:hover .mega-link-title { color: var(--teal); }
+.mega-icon { width: 34px; height: 34px; background: var(--off-white); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mega-icon svg { width: 16px; height: 16px; color: var(--teal); }
+.mega-link-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; transition: color .15s; }
+.mega-link-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.mega-featured { background: var(--teal-lt); border-radius: 5px; padding: 18px; border-left: 3px solid var(--teal); }
+.mega-featured-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.mega-featured-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
+.mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
+.mega-featured-link svg { width: 12px; height: 12px; }
+
+.nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
+.nav-overlay.active { display: block; }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
+.nav-login:hover { color: var(--text-md); }
+.nav-cta { font-size: 13px; font-weight: 700; color: var(--white); background: var(--teal); padding: 10px 20px; border-radius: 4px; letter-spacing: .01em; white-space: nowrap; transition: background .15s, transform .15s; }
+.nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
+.hamburger:hover { background: var(--teal-lt); }
+.hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
+.mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
+.mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
+.mobile-menu a:hover { color: var(--teal); }
+.mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
+.mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
+.mobile-menu .mm-cta:hover { background: var(--teal-dk); }
+
+.section { padding: 96px 0; position: relative; }
+.section.alt { background: var(--off-white); }
+.section.dark { background: var(--navy); color: var(--white); }
+
+.s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
+.s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.s-over.lt { color: var(--teal-mid); }
+.s-title { font-family: var(--font-d); font-size: clamp(26px, 2.8vw, 38px); font-weight: 700; line-height: 1.18; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
+.s-title.lt { color: var(--white); }
+.s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
+.s-body.lt { color: rgba(255,255,255,.65); }
+
+.btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); background: var(--teal); padding: 13px 26px; border-radius: 4px; transition: background .15s, transform .15s; letter-spacing: .01em; font-family: var(--font-u); }
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72); border: 1.5px solid rgba(255,255,255,.22); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+.btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
+.btn-white { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--teal); background: var(--white); padding: 13px 30px; border-radius: 4px; transition: background .15s; font-family: var(--font-u); }
+.btn-white:hover { background: var(--teal-lt); }
+.btn-gw { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+.btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+
+.arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
+.arrow-link:hover { gap: 9px; }
+.arrow-link svg { width: 13px; height: 13px; }
+
+/* Image placeholder — specific, actionable, client-facing */
+.img-placeholder { border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; position: relative; overflow: hidden; min-height: 180px; }
+.img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
+.img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
+.img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
+.img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
+.img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
+
+.rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.rev.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+footer { background: var(--navy); padding: 68px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.f-logo-mark { width: 30px; height: 30px; background: var(--teal); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.f-logo-mark svg { width: 17px; height: 17px; }
+.f-logo-name { font-family: var(--font-d); font-size: 17px; font-weight: 700; color: var(--white); }
+.f-tag { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.45); margin-bottom: 18px; }
+.f-contact { display: flex; flex-direction: column; gap: 7px; }
+.f-contact a { font-size: 12.5px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 8px; transition: color .15s; }
+.f-contact a:hover { color: var(--teal-mid); }
+.f-contact a svg { width: 13px; height: 13px; flex-shrink: 0; }
+.f-offices { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.f-offices-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 2px; }
+.f-office { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.f-office strong { color: rgba(255,255,255,.6); font-weight: 600; }
+.f-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+.f-links { display: flex; flex-direction: column; gap: 9px; }
+.f-links a { font-size: 13px; color: rgba(255,255,255,.5); transition: color .15s; }
+.f-links a:hover { color: var(--teal-mid); }
+.f-bottom { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+.f-copy { font-size: 12px; color: rgba(255,255,255,.28); }
+.f-legal { display: flex; gap: 18px; }
+.f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
+.f-legal a:hover { color: rgba(255,255,255,.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
+  .rev { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 1024px) {
+  .wrap { padding: 0 32px; }
+  .nav-items { display: none; }
+  .hamburger { display: flex; }
+  .mega { position: fixed; top: 72px; left: 16px; right: 16px; transform: none; max-height: calc(100vh - 88px); overflow-y: auto; }
+  .nav-item.open .mega { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .nav-actions .nav-login { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .f-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .f-legal { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PART 2 — PAGE-SPECIFIC STYLES
+═══════════════════════════════════════════════════════════════ */
+
+.hero-inner { background: var(--navy); padding: 80px 0 72px; position: relative; overflow: hidden; }
+.hero-inner::after { content: ''; position: absolute; top: -120px; right: -80px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(0,152,164,.1) 0%, transparent 70%); pointer-events: none; }
+.hero-inner .wrap { position: relative; z-index: 2; }
+
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,.4); margin-bottom: 22px; flex-wrap: wrap; }
+.breadcrumb a { color: rgba(255,255,255,.4); transition: color .15s; }
+.breadcrumb a:hover { color: var(--teal-mid); }
+.breadcrumb .sep { color: rgba(255,255,255,.25); }
+.breadcrumb .current { color: var(--teal-mid); }
+
+.hero-inner h1 { font-family: var(--font-d); font-size: clamp(32px, 3.4vw, 44px); font-weight: 700; line-height: 1.12; color: var(--white); letter-spacing: -.02em; margin-bottom: 20px; max-width: 780px; }
+.hero-lead { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.62); max-width: 640px; margin-bottom: 32px; }
+.hero-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.hero-over::before { content: ''; display: block; width: 20px; height: 2px; background: var(--teal); }
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+
+.intro-centred { text-align: center; max-width: 720px; margin: 0 auto; }
+.intro-centred .s-over { justify-content: center; }
+.intro-centred .s-body { margin: 0 auto; max-width: 640px; }
+.intro-centred .arrow-wrap { margin-top: 22px; }
+
+.feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.feature-row.reverse .feature-text { order: 2; }
+.feature-row.reverse .feature-image { order: 1; }
+
+.feature-text h2 { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; line-height: 1.2; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
+.feature-text > p { font-size: 17px; line-height: 1.65; color: var(--text-md); margin-bottom: 28px; }
+
+.feature-list { margin-bottom: 28px; }
+.feature-list li { margin-bottom: 20px; }
+.feature-list li:last-child { margin-bottom: 0; }
+.feature-list .label { display: block; font-family: var(--font-u); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; letter-spacing: -.005em; }
+.feature-list .desc { display: block; font-size: 14px; line-height: 1.6; color: var(--text-md); }
+
+/* Feature-row image placeholder — override min-height to hit 4:3 */
+.feature-image { aspect-ratio: 4/3; }
+
+.hosting-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
+.hosting-card { background: var(--white); border-radius: 6px; padding: 30px 24px; box-shadow: 0 1px 4px rgba(26,58,74,.06); position: relative; overflow: hidden; transition: box-shadow .2s var(--ease), transform .2s var(--ease); }
+.hosting-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); opacity: 0; transition: opacity .2s; }
+.hosting-card:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.hosting-card:hover::before { opacity: 1; }
+.hosting-card.primary-pick::before { opacity: 1; }
+
+.hosting-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); background: var(--teal-lt); padding: 3px 8px; border-radius: 2px; margin-bottom: 14px; }
+.hosting-icon { width: 42px; height: 42px; background: var(--teal-lt); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.hosting-icon svg { width: 21px; height: 21px; color: var(--teal); }
+.hosting-card h3 { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
+.hosting-card p { font-size: 14px; line-height: 1.6; color: var(--text-md); }
+
+.testi-light { text-align: center; max-width: 760px; margin: 0 auto; }
+.testi-q { font-family: var(--font-d); font-size: clamp(20px, 2vw, 24px); font-weight: 400; font-style: italic; line-height: 1.55; color: var(--navy); margin-bottom: 28px; }
+.testi-attr { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 18px; position: relative; }
+.testi-attr::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 36px; height: 2px; background: var(--teal); }
+.testi-name { font-family: var(--font-u); font-size: 14px; font-weight: 600; color: var(--navy); }
+.testi-role { font-size: 12px; color: var(--text-lt); }
+
+.cta-band { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-band::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
+.cta-band .wrap { position: relative; z-index: 2; }
+.cta-band-over { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+.cta-band h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: var(--white); letter-spacing: -.02em; margin-bottom: 14px; }
+.cta-band p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto 36px; }
+.cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+@media (max-width: 1024px) {
+  .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 36px; }
+  .feature-row.reverse .feature-text { order: 1; }
+  .feature-row.reverse .feature-image { order: 2; }
+  .hosting-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .hero-inner { padding: 56px 0 48px; }
+  .hosting-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PART 3 — header.html (PASTED VERBATIM FROM partials/header.html)
+     Only edit: class="active" on the Platform nav-btn
+═══════════════════════════════════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+
+    <a class="logo" href="/" aria-label="HKA Tech — home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+
+    <div class="nav-items">
+
+      <!-- ═══ PLATFORM (active) ═══ -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="/platform/overview">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="/platform/features">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="/platform/integrations">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="/platform/hosting">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="/platform/whats-new">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SOLUTIONS ═══ -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="/solutions/plan">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
+                <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/build">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
+                <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/operate">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICES ═══ -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="/services/bi">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
+                <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
+              </a>
+              <a class="mega-link" href="/services/dap">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
+                <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="/services/implementation">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
+              </a>
+              <a class="mega-link" href="/services/quick-start">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
+                <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
+              </a>
+              <a class="mega-link" href="/services/advisory">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
+                <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ CUSTOMERS (single link) ═══ -->
+      <div class="nav-item">
+        <a class="nav-btn" href="/customers">Customers</a>
+      </div>
+
+      <!-- ═══ ABOUT ═══ -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RESOURCES ═══ -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nav-actions">
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
+  <div class="mm-section">Resources</div>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PART 4 — PAGE CONTENT
+═══════════════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- HERO -->
+  <!-- SOURCE: NEW [NEW — VERIFY] -->
+  <section class="hero-inner">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <a href="/platform/overview">Platform</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span class="current" aria-current="page">Overview</span>
+      </nav>
+      <div class="rev">
+        <div class="hero-over">PMWeb Platform</div>
+        <h1>PMWeb — The Capital Works Management Platform</h1>
+        <p class="hero-lead">Built specifically for owners of buildings and infrastructure, PMWeb brings full lifecycle control — from program planning and procurement through to asset operation — into a single, integrated platform.</p>
+        <div class="hero-ctas">
+          <a href="/contact" class="btn-primary">
+            Talk to Our Team
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="/platform/features" class="btn-ghost">
+            Explore Platform Features
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENTRED INTRO -->
+  <!-- SOURCE: NEW [NEW — VERIFY] -->
+  <section class="section">
+    <div class="wrap">
+      <div class="intro-centred">
+        <div class="s-over rev">Built for Owners of Buildings and Infrastructure</div>
+        <h2 class="s-title rev d1">Capital Works Management at Every Scale</h2>
+        <p class="s-body rev d2">PMWeb is purpose-built for the owner's perspective, not general project management. Whether the portfolio is a single hospital redevelopment or a ten-year, multi-agency infrastructure program, PMWeb provides the cost control, scheduling discipline, and document governance that capital works demands.</p>
+        <p class="s-body rev d2" style="margin-top:14px">HKA Tech is the #1 PMWeb implementation partner across Asia Pacific, with over 300 organisations trusting PMWeb and our team to run their most complex programs.</p>
+        <div class="arrow-wrap rev d3">
+          <a class="arrow-link" href="/customers">See who uses PMWeb
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN feature row -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — Plan sub-items: Planning, Estimating, Procurement per client directive -->
+  <!-- [IMAGE NEEDED]: platform-overview-plan-phase.jpg — PMWeb Plan module estimating workspace screenshot, 4:3, 720×540+ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feature-row">
+        <div class="feature-text rev">
+          <div class="s-over">Plan</div>
+          <h2>Establish Control Before the First Shovel Turns</h2>
+          <p>The Plan phase gives program directors and procurement teams a single, auditable environment for estimating, approvals, and supply-chain engagement, before construction risk is locked in.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="label">Program Planning</span>
+              <span class="desc">Define program scope, phasing, funding sources, and approval workflows across the entire capital program from a single workspace.</span>
+            </li>
+            <li>
+              <span class="label">Estimating</span>
+              <span class="desc">Build detailed cost models using configurable cost structures, benchmarks, and escalation factors aligned to your organisation's standards.</span>
+            </li>
+            <li>
+              <span class="label">Procurement</span>
+              <span class="desc">Manage the full tender lifecycle (RFI, RFT, bid evaluation, and contract award) with complete audit trails required by government panels and accreditation bodies.</span>
+            </li>
+          </ul>
+          <a class="arrow-link" href="/solutions/plan">Explore Plan features
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Plan module estimating workspace">
+          <div class="ip-tag">Image Needed</div>
+          <div class="ip-filename">platform-overview-plan-phase.jpg</div>
+          <p class="ip-desc">
+            <strong>Screenshot:</strong> PMWeb's Plan module, specifically the estimating workspace with a 3+ level WBS cost breakdown visible on screen. Use an anonymised demo dataset — no real client names or dollar figures.
+          </p>
+          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD feature row (reversed) -->
+  <!-- SOURCE: NEW [NEW — VERIFY] -->
+  <!-- [IMAGE NEEDED]: platform-overview-build-phase.jpg — PMWeb Build module contract + schedule integration, 4:3, 720×540+ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feature-row reverse">
+        <div class="feature-text rev">
+          <div class="s-over">Build</div>
+          <h2>Deliver On Budget, On Program</h2>
+          <p>The Build phase puts contract managers, schedulers, and document controllers in one environment, eliminating the email chains, spreadsheet reconciliations, and version-control failures that erode delivery certainty on complex construction programs.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="label">Contract Management</span>
+              <span class="desc">Track contract values, variations, claims, and payment certifications with full version history and approval audit trails.</span>
+            </li>
+            <li>
+              <span class="label">Scheduling</span>
+              <span class="desc">Integrate schedule data with cost and document workflows so program directors see real delivery status, not last week's report.</span>
+            </li>
+            <li>
+              <span class="label">Document Control</span>
+              <span class="desc">Manage drawings, specifications, RFIs, and submittals with configurable distribution, review, and approval workflows at project and program level.</span>
+            </li>
+          </ul>
+          <a class="arrow-link" href="/solutions/build">Explore Build features
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Build module contract and schedule view">
+          <div class="ip-tag">Image Needed</div>
+          <div class="ip-filename">platform-overview-build-phase.jpg</div>
+          <p class="ip-desc">
+            <strong>Screenshot:</strong> PMWeb's Build module showing a contract register with variation/claim tracking visible alongside a Gantt schedule view. Anonymised demo dataset — no real contract numbers or supplier names.
+          </p>
+          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATE feature row -->
+  <!-- SOURCE: NEW [NEW — VERIFY] -->
+  <!-- [IMAGE NEEDED]: platform-overview-operate-phase.jpg — PMWeb Operate module asset management view, 4:3, 720×540+ -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feature-row">
+        <div class="feature-text rev">
+          <div class="s-over">Operate</div>
+          <h2>Protect the Asset Long After Handover</h2>
+          <p>The Operate phase ensures the intelligence captured during planning and delivery (contracts, warranties, as-built drawings, maintenance schedules) remains accessible and actionable throughout the asset's life.</p>
+          <ul class="feature-list">
+            <li>
+              <span class="label">Facility Management</span>
+              <span class="desc">Maintain a living register of assets, spaces, and preventive maintenance obligations linked directly to the original construction documentation.</span>
+            </li>
+            <li>
+              <span class="label">Asset Management</span>
+              <span class="desc">Track lifecycle costs, condition assessments, and capital replacement planning across the full asset portfolio.</span>
+            </li>
+            <li>
+              <span class="label">Workflow Automation</span>
+              <span class="desc">Automate routine processes (work orders, compliance checks, reporting) to reduce administrative overhead on operational teams.</span>
+            </li>
+          </ul>
+          <a class="arrow-link" href="/solutions/operate">Explore Operate features
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Operate module asset management and maintenance view">
+          <div class="ip-tag">Image Needed</div>
+          <div class="ip-filename">platform-overview-operate-phase.jpg</div>
+          <p class="ip-desc">
+            <strong>Screenshot:</strong> PMWeb's Operate module — asset register or facility management view, ideally with preventive maintenance work orders visible. Anonymised demo dataset — no real facility addresses or personnel.
+          </p>
+          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOSTING — 3-col card grid (the one grid allowed on this page) -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — SaaS/AWS primary per client directive -->
+  <section class="section">
+    <div class="wrap">
+      <div class="intro-centred">
+        <div class="s-over rev">Hosting &amp; Deployment</div>
+        <h2 class="s-title rev d1">Delivered via SaaS. Flexible Where Required.</h2>
+        <p class="s-body rev d2">PMWeb is delivered as a fully managed SaaS solution on Amazon Web Services, giving government and enterprise clients the security, availability, and data-sovereignty assurances their programs demand. On-premise and managed hosting options are also available where organisational requirements dictate.</p>
+      </div>
+
+      <div class="hosting-grid">
+        <div class="hosting-card primary-pick rev">
+          <div class="hosting-badge">Recommended</div>
+          <div class="hosting-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10h-1A7 7 0 1 0 7 18h9a4 4 0 0 0 0-8z"/></svg>
+          </div>
+          <h3>SaaS on AWS</h3>
+          <p>Fully managed, multi-tenant SaaS delivered on Amazon Web Services. Includes automatic updates, infrastructure management, and enterprise-grade uptime commitments. The preferred path for new deployments and existing clients upgrading to PMWeb 8.</p>
+        </div>
+
+        <div class="hosting-card rev d1">
+          <div class="hosting-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="18" height="13" rx="2"/><path d="M8 19h6M11 16v3"/></svg>
+          </div>
+          <h3>Managed Hosting</h3>
+          <p>Dedicated hosting environment managed by HKA Tech on behalf of the client. Suitable for organisations with specific data residency or network isolation requirements that fall outside a standard multi-tenant deployment.</p>
+        </div>
+
+        <div class="hosting-card rev d2">
+          <div class="hosting-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="6" width="18" height="13" rx="2"/><path d="M14 6V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2M7 11v4M11 11v4M15 11v4"/></svg>
+          </div>
+          <h3>On-Premise</h3>
+          <p>Self-hosted deployment on client infrastructure. Available for organisations with legislative or security requirements that prevent use of cloud or managed services. Implementation and upgrade support provided by HKA Tech.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL — light variant -->
+  <!-- [CLIENT TO SUPPLY: quote and attribution — capital works sector, multiple evidence approach, not single signature project] -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="testi-light rev">
+        <p class="testi-q">PMWeb gives our program directors a single source of truth across every active project: cost, schedule, contracts, and documents. Reporting that used to take half a week now takes an afternoon.</p>
+        <div class="testi-attr">
+          <div class="testi-name">[CLIENT TO SUPPLY: Name, Title]</div>
+          <div class="testi-role">[CLIENT TO SUPPLY: Organisation, Sector]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="cta-band-over">Talk to Us</div>
+      <h2>Ready to Transform Your Capital Works Program?</h2>
+      <p>Talk to our team about how PMWeb can be implemented, configured, and supported across your organisation's full project lifecycle.</p>
+      <div class="cta-band-btns">
+        <a href="/contact" class="btn-white">
+          Talk to Our Team
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="/services" class="btn-gw">
+          Explore All Services
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PART 5 — footer.html (PASTED VERBATIM)
+═══════════════════════════════════════════════════════════════ -->
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">
+          <div class="f-logo-mark">
+            <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+              <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="f-logo-name">HKA Tech</span>
+        </div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>
+            asiapacific@hka.com
+          </a>
+          <a href="tel:+61292559100">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>
+            +61 2 9255 9100
+          </a>
+        </div>
+        <div class="f-offices">
+          <div class="f-offices-title">Offices</div>
+          <span class="f-office"><strong>Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span class="f-office"><strong>Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span class="f-office"><strong>Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PART 6 — shared.js (PASTED VERBATIM — includes nav dropdown logic)
+═══════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const overlay  = document.getElementById('navOverlay');
+  if (!navItems.length) return;
+  function closeAll() {
+    navItems.forEach(i => {
+      i.classList.remove('open');
+      const btn = i.querySelector('.nav-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+  }
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-btn');
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+  });
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,.12)' : '0 1px 8px rgba(0,0,0,.06)';
+    }, { passive: true });
+  }
+})();
+
+(function(){
+  const revEls = document.querySelectorAll('.rev');
+  if (revEls.length && 'IntersectionObserver' in window) {
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('vis'); revObs.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(el => revObs.observe(el));
+  }
+})();
+
+(function(){
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+(function(){
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
