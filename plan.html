@@ -1,70 +1,66 @@
 <!--
-  PAGE:             Customers
-  URL SLUG:         /customers
-  MENU LOCATION:    "Customers" (single link, no dropdown — nav-btn gets class="active")
-  SEO TITLE:        Customers | HKA Tech — Capital Works Technology
-  META DESCRIPTION: Over 300 organisations across APAC trust HKA Tech for PMWeb implementation,
-                    Business Intelligence, Digital Adoption, and Capital Works Advisory.
-  PRIMARY KEYWORD:  PMWeb customers APAC
-  PAGE TYPE:        Customers page (per Guidelines §8)
-  TEMPLATE FLOW:    Hero banner → Client stat bar → Multiple testimonials (grid) →
-                    Case study grid → CTA band
+  PAGE:             Solutions — Plan
+  URL SLUG:         /solutions/plan
+  MENU LOCATION:    Solutions ▾ → By Lifecycle → Plan
+  SEO TITLE:        Plan Phase — Capital Works Management | HKA Tech
+  META DESCRIPTION: PMWeb's Plan phase covers estimating, budgeting and program setup for capital works. Manage planning, estimating and procurement from day one.
+  PRIMARY KEYWORD:  PMWeb capital works planning estimating
+  PAGE TYPE:        Solutions — Lifecycle page (per Guidelines §8)
+  TEMPLATE FLOW:    Hero → Centred intro → Card grid (3 Plan features) → Alternating content+image (Planning / Estimating / Procurement detail) → Cross-link to industries → CTA band
 
   PARTIALS USED:
-    - tokens.css    [April 2026]
-    - header.html   [April 2026] — active state: Customers
-    - footer.html   [April 2026]
-    - shared.js     [April 2026]
+    - tokens.css    April 2026
+    - header.html   April 2026 — active state: Solutions
+    - footer.html   April 2026
+    - shared.js     April 2026
 
   DESIGN PHILOSOPHY:
-    Inner-page restraint applied throughout. Single-column hero, no decorative right-side visual.
-    No dot-grid overlay on hero. Testimonials use the light variant (blockquote on off-white).
-    One dark-navy section used for the stat bar. No animated counters (Customers page is
-    the one inner-page exception per skill note §8 — stat counters used here).
-    Social proof is the page's single job: stat bar, multi-testimonial grid, sector evidence.
+    Inner page — single-column hero, no decorative visual, maximum one card grid, max stagger .d3.
+    The homepage introduced the lifecycle model; this page goes deeper on Plan specifics without repeating homepage patterns.
 
   CONTENT SOURCE SUMMARY:
-    Existing:   15%  (stat values, some testimonial roles from homepage)
-    Relocated:  30%  (testimonials relocated from homepage; credentials moved to this page)
-    Rewritten:   5%  (hero text refined for page context)
-    New:        50%  (case study cards, sector grid, industry evidence sections) [NEW — VERIFY]
+    Existing:   30%  (relocated from homepage PBO Plan tab + existing /plan feature descriptions)
+    Relocated:  20%  (audit Section 4.1 Plan sub-categories directive)
+    New:        50%  (fills gaps per audit §4 — marked [NEW — VERIFY])
 
   [NEW — VERIFY] ITEMS:
-    - Case study cards: HKA Tech to supply real project references (no single signature project)
-    - Sector evidence copy: HKA Tech to verify accuracy of industry-specific claims
-    - Client logos: HKA Tech to supply approved logo assets
+    - Hero lead paragraph: written from audit brief
+    - Planning feature row body copy
+    - Estimating feature row body copy
+    - Procurement feature row body copy
+    - Industry cross-link section body
   [CLIENT TO SUPPLY] ITEMS:
-    - Logo assets: approved client/partner logo files (see placeholder in client-logos section)
-    - Case study details: 6 real case study titles, sectors, outcomes (no single project spotlight)
-    - Additional testimonials: 3+ more real quotes beyond the 3 on homepage
-  [IMAGE NEEDED] ITEMS:
-    - customers-casestudies-transport.jpg → Transport authority PMWeb dashboard screenshot
-    - customers-casestudies-health.jpg    → Health department portfolio overview screenshot
-    - customers-casestudies-education.jpg → Education body capital works program view
+    - Testimonial: sector-specific quote for a Plan-phase client
+  [IMAGE NEEDED] ITEMS (filename → subject):
+    - plan-planning-screenshot.jpg → PMWeb Planning module workspace showing stage gates and governance framework
+    - plan-estimating-screenshot.jpg → PMWeb Estimating workspace with WBS cost breakdown visible
+    - plan-procurement-screenshot.jpg → PMWeb Procurement module showing tender evaluation workflow
 
-  REDIRECTS NEEDED:
-    /whos-using-pmweb → /customers
-    /customers/testimonials → /customers (single consolidated page)
-  CTAs: 3 — "Contact Us" (hero), "Contact Us" (stat bar), "Contact Us" (CTA band)
-        + "Explore All Services" (CTA band)
-  DEVIATIONS FROM GUIDELINES: Animated stat counters used (skill §8 explicitly permits on Customers page)
+  REDIRECTS NEEDED: None (new URL)
+  CTAs: 3 — "Contact Us" (hero), "Talk to Our Team" (mid-page), "Contact Us" (CTA band)
+  DEVIATIONS FROM GUIDELINES: None
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customers | HKA Tech — Capital Works Technology &amp; Advisory</title>
-<meta name="description" content="Over 300 organisations across APAC trust HKA Tech for PMWeb implementation, Business Intelligence, Digital Adoption, and Capital Works Advisory services.">
-<meta property="og:title" content="Customers | HKA Tech">
-<meta property="og:description" content="Over 300 organisations trust HKA Tech across government, healthcare, education, transportation, and energy sectors.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Phase — Capital Works Management | HKA Tech</title>
+  <meta name="description" content="PMWeb's Plan phase covers estimating, budgeting and program setup for capital works. Manage planning, estimating and procurement from day one.">
+  <meta property="og:title" content="Plan — Capital Works Planning & Estimating | HKA Tech">
+  <meta property="og:description" content="PMWeb's Plan phase covers estimating, budgeting and program setup for capital works organisations across APAC.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════════════════
+   tokens.css — CANONICAL shared styles for all HKA Tech pages
+   Source of truth: extracted from approved homepage (index.html)
+   Do not diverge. If a rule needs changing, update here first.
+═══════════════════════════════════════════════════════════════════ */
 
-/* ═══ tokens.css VERBATIM ═══ */
+/* ─── DESIGN TOKENS ──────────────────────────────────────────── */
 :root {
   --teal:      #0098A4;
   --teal-dk:   #006E76;
@@ -82,6 +78,8 @@
   --font-d:    'Playfair Display', Georgia, serif;
   --font-u:    'Outfit', system-ui, sans-serif;
 }
+
+/* ─── RESET ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -95,7 +93,11 @@ body {
 a { text-decoration: none; color: inherit; cursor: pointer; }
 ul { list-style: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+/* ─── CONTAINER ──────────────────────────────────────────────── */
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+
+/* ─── SKIP LINK ──────────────────────────────────────────────── */
 .skip-link {
   position: absolute; top: -100px; left: 16px;
   background: var(--teal); color: var(--white);
@@ -104,6 +106,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
   z-index: 9999; transition: top .2s;
 }
 .skip-link:focus { top: 12px; }
+
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
 .nav {
   position: sticky; top: 0; z-index: 200;
   height: 72px;
@@ -113,12 +117,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
   transition: box-shadow .3s var(--ease);
 }
 .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
 .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
 .logo-mark svg { width: 20px; height: 20px; }
 .logo-words { display: flex; flex-direction: column; line-height: 1; }
 .logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
 .logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
+
 .nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
 .nav-item { position: relative; }
 .nav-btn {
@@ -126,7 +132,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
   font-size: 14px; font-weight: 500; color: var(--text-md);
   padding: 8px 14px; border-radius: 4px;
   transition: color .15s, background .15s;
-  user-select: none; white-space: nowrap;
+  user-select: none;
+  white-space: nowrap;
   border: none; background: transparent; font-family: var(--font-u);
   position: relative;
 }
@@ -134,18 +141,29 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
 .nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
 .nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+
 .nav-btn.active { color: var(--teal); }
 .nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
+
+/* ─── MEGA DROPDOWN ──────────────────────────────────────────── */
 .mega {
   position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
-  background: var(--white); border: none; border-radius: 6px;
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
   box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
-  padding: 28px; min-width: 560px; opacity: 0; pointer-events: none;
+  padding: 28px;
+  min-width: 560px;
+  opacity: 0;
+  pointer-events: none;
   transform: translateX(-50%) translateY(-8px);
   transition: opacity .2s var(--ease), transform .2s var(--ease);
   border-top: 3px solid var(--teal);
 }
-.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.nav-item.open .mega {
+  opacity: 1; pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
 .mega-cols { display: grid; gap: 24px; }
 .mega-cols.c2 { grid-template-columns: 1fr 1fr; }
 .mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -163,8 +181,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
 .mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
 .mega-featured-link svg { width: 12px; height: 12px; }
+
+/* Overlay used to close open mega menus on outside click */
 .nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
 .nav-overlay.active { display: block; }
+
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
 .nav-login:hover { color: var(--text-md); }
@@ -175,12 +196,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
   transition: background .15s, transform .15s;
 }
 .nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+/* ─── HAMBURGER ──────────────────────────────────────────────── */
 .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
 .hamburger:hover { background: var(--teal-lt); }
 .hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
 .mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
 .mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
@@ -188,9 +212,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
 .mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
 .mobile-menu .mm-cta:hover { background: var(--teal-dk); }
+
+/* ─── SECTION UTILITIES ──────────────────────────────────────── */
 .section { padding: 96px 0; position: relative; }
 .section.alt { background: var(--off-white); }
 .section.dark { background: var(--navy); color: var(--white); }
+
 .s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
 .s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
 .s-over.lt { color: var(--teal-mid); }
@@ -198,57 +225,102 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .s-title.lt { color: var(--white); }
 .s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
 .s-body.lt { color: rgba(255,255,255,.65); }
+
+/* ─── BUTTONS (all with white-space: nowrap — labels never wrap) ── */
 .btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
+
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 14px; font-weight: 600; color: var(--white);
-  background: var(--teal); padding: 13px 26px; border-radius: 4px;
+  background: var(--teal);
+  padding: 13px 26px; border-radius: 4px;
   transition: background .15s, transform .15s;
   letter-spacing: .01em; font-family: var(--font-u);
 }
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
-  border: 1.5px solid rgba(255,255,255,.22); padding: 13px 26px; border-radius: 4px;
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
   transition: all .15s; font-family: var(--font-u);
 }
 .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
+
 .btn-white {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 14px; font-weight: 600; color: var(--teal);
-  background: var(--white); padding: 13px 30px; border-radius: 4px;
+  background: var(--white);
+  padding: 13px 30px; border-radius: 4px;
   transition: background .15s; font-family: var(--font-u);
 }
 .btn-white:hover { background: var(--teal-lt); }
+
 .btn-gw {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 14px; font-weight: 500; color: var(--white);
-  border: 1.5px solid rgba(255,255,255,.35); padding: 13px 26px; border-radius: 4px;
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
   transition: all .15s; font-family: var(--font-u);
 }
 .btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+
 .arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
 .arrow-link:hover { gap: 9px; }
 .arrow-link svg { width: 13px; height: 13px; }
+
+/* ─── IMAGE PLACEHOLDER (specific, actionable — not a generic box) ── */
 .img-placeholder {
-  border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px; padding: 24px;
+  border: 2px dashed var(--teal);
+  background: var(--teal-lt);
+  border-radius: 6px;
+  padding: 24px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  text-align: center; position: relative; overflow: hidden; min-height: 180px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
 }
-.img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
-.img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
-.img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
+.img-placeholder .ip-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--white); background: var(--teal);
+  padding: 4px 10px; border-radius: 2px;
+}
+.img-placeholder .ip-filename {
+  font-family: 'Courier New', monospace;
+  font-size: 13px; font-weight: 700; color: var(--teal-dk);
+  background: var(--white); padding: 4px 10px; border-radius: 3px;
+  border: 1px solid rgba(0,152,164,.3);
+  word-break: break-all; max-width: 100%;
+}
+.img-placeholder .ip-desc {
+  font-size: 12.5px; line-height: 1.55; color: var(--text-md);
+  max-width: 380px;
+}
 .img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
-.img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
+.img-placeholder .ip-specs {
+  font-size: 11px; font-weight: 600; color: var(--text-lt);
+  letter-spacing: .02em;
+  padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2);
+  margin-top: 4px;
+}
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
 .rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .rev.vis { opacity: 1; transform: none; }
 .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+/* ─── FOCUS RING ─────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+
+/* ─── BACK TO TOP ────────────────────────────────────────────── */
 .back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 .back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
 .back-to-top svg { width: 18px; height: 18px; }
+
+/* ─── FOOTER (locked — identical on every page) ──────────────── */
 footer { background: var(--navy); padding: 68px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
@@ -273,11 +345,15 @@ footer { background: var(--navy); padding: 68px 0 0; }
 .f-legal { display: flex; gap: 18px; }
 .f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
 .f-legal a:hover { color: rgba(255,255,255,.55); }
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
   .rev { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .wrap { padding: 0 32px; }
   .nav-items { display: none; }
@@ -296,9 +372,11 @@ footer { background: var(--navy); padding: 68px 0 0; }
   .f-legal { flex-wrap: wrap; justify-content: center; }
 }
 
-/* ═══ PAGE-SPECIFIC STYLES ═══ */
+/* ════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /solutions/plan
+════════════════════════════════════ */
 
-/* ── Inner-page hero ── */
+/* ── Inner page hero ── */
 .inner-hero {
   background: var(--navy);
   padding: 80px 0 72px;
@@ -308,289 +386,269 @@ footer { background: var(--navy); padding: 68px 0 0; }
 .inner-hero::after {
   content: '';
   position: absolute;
-  top: -80px; right: -60px;
-  width: 480px; height: 480px; border-radius: 50%;
+  top: -100px; right: -80px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
   background: radial-gradient(circle, rgba(0,152,164,.09) 0%, transparent 70%);
   pointer-events: none;
 }
 .inner-hero .wrap { position: relative; z-index: 2; }
-.hero-breadcrumb {
-  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.38);
-  margin-bottom: 18px; display: flex; align-items: center; gap: 7px;
+.breadcrumb {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,.38);
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 20px;
 }
-.hero-breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
-.hero-breadcrumb a:hover { color: rgba(255,255,255,.65); }
-.hero-breadcrumb span { color: rgba(255,255,255,.22); }
+.breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
+.breadcrumb a:hover { color: var(--teal-mid); }
+.breadcrumb svg { width: 10px; height: 10px; opacity: .5; }
+.inner-hero-text { max-width: 780px; }
 .inner-hero h1 {
   font-family: var(--font-d);
   font-size: clamp(32px, 3.4vw, 44px);
   font-weight: 700; line-height: 1.14;
   color: var(--white);
   letter-spacing: -.02em;
-  max-width: 640px;
   margin-bottom: 18px;
 }
-.inner-hero .hero-lead {
+.inner-hero h1 em { font-style: normal; color: var(--teal-mid); }
+.inner-hero-lead {
   font-size: 17px; line-height: 1.65;
   color: rgba(255,255,255,.62);
-  max-width: 560px; margin-bottom: 32px;
+  max-width: 600px;
+  margin-bottom: 34px;
 }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-/* ── Stat bar — dark variant (Customers exception for animated counters) ── */
-.cust-stats {
-  background: var(--navy);
-  border-top: 2px solid var(--teal);
-  padding: 44px 0;
-}
-.cust-stats .wrap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-}
-.cstat {
+/* ── Centred intro ── */
+.intro-block {
+  max-width: 720px;
+  margin: 0 auto;
   text-align: center;
-  padding: 0 24px;
-  position: relative;
 }
-.cstat + .cstat::before {
-  content: '';
-  position: absolute; left: 0; top: 10%; bottom: 10%;
-  width: 1px; background: rgba(255,255,255,.08);
-}
-.cstat-val {
-  font-family: var(--font-d);
-  font-size: 40px; font-weight: 700;
-  color: var(--teal-mid);
-  line-height: 1; letter-spacing: -.02em;
-  margin-bottom: 6px;
-}
-.cstat-lbl {
-  font-size: 12px; font-weight: 600;
-  letter-spacing: .07em; text-transform: uppercase;
-  color: rgba(255,255,255,.4);
-}
-.cstat-note {
-  font-size: 11px; color: rgba(255,255,255,.25);
-  margin-top: 4px; font-style: italic;
-}
+.intro-block .s-over { justify-content: center; }
+.intro-block .s-body { margin: 0 auto; }
 
-/* ── Sector evidence strip ── */
-.sector-strip {
-  background: var(--off-white);
-  padding: 52px 0;
-  border-top: 1px solid var(--grey);
-}
-.sector-strip .wrap {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-.sector-label {
-  font-size: 11px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--text-lt);
-  white-space: nowrap; flex-shrink: 0;
-}
-.sector-tags {
-  display: flex; gap: 10px; flex-wrap: wrap;
-}
-.sector-tag {
-  font-size: 12px; font-weight: 600;
-  color: var(--navy);
-  background: var(--white);
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-  padding: 7px 14px;
-  transition: border-color .15s, color .15s;
-}
-.sector-tag:hover { border-color: var(--teal); color: var(--teal); }
-
-/* ── Testimonials grid ── */
-.testi-grid {
+/* ── Feature cards ── */
+.feature-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 18px;
   margin-top: 52px;
 }
-.testi-card {
+.fc {
   background: var(--white);
   border-radius: 6px;
-  padding: 32px 28px;
-  box-shadow: 0 1px 4px rgba(26,58,74,.06);
-  border-top: 3px solid transparent;
-  transition: box-shadow .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
-}
-.testi-card:hover {
-  box-shadow: 0 8px 28px rgba(26,58,74,.1);
-  border-top-color: var(--teal);
-  transform: translateY(-2px);
-}
-.testi-sector {
-  font-size: 9px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--teal);
-  margin-bottom: 14px;
-}
-.testi-quote {
-  font-family: var(--font-d);
-  font-size: 15.5px; font-style: italic;
-  line-height: 1.65; color: var(--text-dk);
-  margin-bottom: 24px;
-}
-.testi-rule { width: 28px; height: 2px; background: var(--teal); margin-bottom: 14px; }
-.testi-name { font-size: 13px; font-weight: 600; color: var(--navy); }
-.testi-role { font-size: 12px; color: var(--text-lt); margin-top: 3px; }
-
-/* ── Case study cards ── */
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-top: 48px;
-}
-.case-card {
-  border-radius: 6px;
+  padding: 30px 24px;
+  position: relative;
   overflow: hidden;
-  background: var(--white);
   box-shadow: 0 1px 4px rgba(26,58,74,.06);
   transition: box-shadow .2s var(--ease), transform .2s var(--ease);
 }
-.case-card:hover { box-shadow: 0 8px 28px rgba(26,58,74,.1); transform: translateY(-2px); }
-.case-img { height: 160px; background: var(--navy); position: relative; overflow: hidden; }
-.case-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(26,58,74,.5));
+.fc::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--teal);
+  opacity: 0; transition: opacity .2s;
 }
-.case-tag-over {
-  position: absolute; bottom: 14px; left: 16px;
-  font-size: 9px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--teal-mid);
-}
-.case-body { padding: 24px; }
-.case-sector {
-  font-size: 10px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--teal);
-  margin-bottom: 8px;
-}
-.case-title {
-  font-family: var(--font-d);
-  font-size: 16px; font-weight: 700;
-  color: var(--navy); line-height: 1.35;
-  margin-bottom: 10px;
-}
-.case-desc { font-size: 13px; line-height: 1.6; color: var(--text-md); margin-bottom: 18px; }
-.case-outcomes { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
-.case-outcome {
-  display: flex; align-items: baseline; gap: 8px;
-}
-.case-outcome-val {
-  font-family: var(--font-d);
-  font-size: 20px; font-weight: 700; color: var(--teal);
-  line-height: 1; white-space: nowrap;
-}
-.case-outcome-lbl { font-size: 12px; color: var(--text-lt); }
-
-/* ── Client logos placeholder ── */
-.logos-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-  margin-top: 44px;
-  align-items: center;
-}
-.logo-cell {
-  background: var(--white);
-  border: 1px solid var(--grey);
+.fc:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.fc:hover::before { opacity: 1; }
+.fc-icon {
+  width: 42px; height: 42px;
+  background: var(--teal-lt);
   border-radius: 4px;
-  padding: 18px 22px;
   display: flex; align-items: center; justify-content: center;
-  min-height: 72px;
-  transition: border-color .15s, box-shadow .15s;
+  margin-bottom: 18px;
 }
-.logo-cell:hover { border-color: var(--teal); box-shadow: 0 4px 12px rgba(26,58,74,.06); }
-.logo-cell-ph {
-  font-size: 10px; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--text-lt);
-  text-align: center; line-height: 1.4;
+.fc-icon svg { width: 21px; height: 21px; color: var(--teal); }
+.fc-title {
+  font-family: var(--font-d);
+  font-size: 19px; font-weight: 700;
+  color: var(--navy); margin-bottom: 9px; line-height: 1.25;
 }
+.fc-desc { font-size: 13.5px; line-height: 1.6; color: var(--text-md); }
 
-/* ── Why they choose HKA pull quote ── */
-.pull-quote-row {
+/* ── Feature rows (alternating content+image) ── */
+.feature-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  gap: 72px;
   align-items: center;
 }
-.pull-quote-text {
-  font-family: var(--font-d);
-  font-size: 22px; font-weight: 400;
-  line-height: 1.6; color: var(--navy);
-  font-style: italic;
-  padding-left: 24px;
+.feature-row.flip { direction: rtl; }
+.feature-row.flip > * { direction: ltr; }
+.feature-row-text {}
+.feature-row-text .s-over { margin-bottom: 10px; }
+.feature-row-text h2 { margin-bottom: 16px; }
+.feature-row-text p {
+  font-size: 16px; line-height: 1.7;
+  color: var(--text-md);
+  margin-bottom: 16px;
+}
+.feature-list {
+  margin-top: 20px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.feature-list li {
+  display: flex; gap: 11px; align-items: flex-start;
+}
+.fl-dot {
+  width: 6px; height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.fl-text { font-size: 14px; line-height: 1.6; color: var(--text-md); }
+.fl-text strong { font-weight: 600; color: var(--navy); display: block; margin-bottom: 2px; }
+
+/* ── Industry cross-links ── */
+.ind-links-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 44px;
+}
+.ind-link-tile {
+  background: var(--navy);
+  border: 1px solid rgba(0,152,164,.12);
+  border-radius: 6px;
+  padding: 20px 14px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+}
+.ind-link-tile:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,152,164,.25);
+}
+.ind-link-tile svg { width: 28px; height: 28px; }
+.ind-link-tile span {
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,.65);
+  line-height: 1.3;
+  transition: color .25s;
+}
+.ind-link-tile:hover span { color: var(--white); }
+.ilt-ics { stroke: var(--teal-mid); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ind-link-tile:hover .ilt-ics { stroke: var(--white); }
+.ilt-icf { fill: rgba(0,152,164,.15); stroke: var(--teal-mid); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ind-link-tile:hover .ilt-icf { fill: rgba(255,255,255,.12); stroke: var(--white); }
+.ilt-icd { fill: var(--teal-mid); stroke: none; }
+.ind-link-tile:hover .ilt-icd { fill: var(--white); }
+
+/* ── Testimonial (light variant) ── */
+.testi-light {
   border-left: 4px solid var(--teal);
+  padding: 28px 32px;
+  background: var(--white);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  max-width: 780px;
+  margin: 0 auto;
 }
-.pull-quote-attr { margin-top: 18px; padding-left: 24px; }
-.pull-quote-attr .pqa-name { font-size: 14px; font-weight: 600; color: var(--navy); }
-.pull-quote-attr .pqa-role { font-size: 12px; color: var(--text-lt); margin-top: 3px; }
-.pull-reasons { display: flex; flex-direction: column; gap: 22px; }
-.pull-reason { display: flex; gap: 14px; align-items: flex-start; }
-.pull-reason-icon {
-  width: 36px; height: 36px;
-  background: var(--teal-lt); border-radius: 4px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 2px;
+.testi-light-quote {
+  font-family: var(--font-d);
+  font-size: 18px; font-style: italic;
+  line-height: 1.6;
+  color: var(--text-dk);
+  margin-bottom: 18px;
 }
-.pull-reason-icon svg { width: 18px; height: 18px; color: var(--teal); }
-.pull-reason-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
-.pull-reason-desc { font-size: 13px; line-height: 1.6; color: var(--text-md); }
+.testi-light-rule { width: 28px; height: 2px; background: var(--teal); margin-bottom: 12px; }
+.testi-light-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.testi-light-role { font-size: 12px; color: var(--teal); margin-top: 3px; }
 
 /* ── CTA band ── */
 .cta-sec {
-  background: var(--teal); padding: 90px 0; text-align: center;
+  background: var(--teal);
+  padding: 90px 0;
+  text-align: center;
   position: relative; overflow: hidden;
 }
 .cta-sec::before {
-  content: ''; position: absolute; inset: 0;
+  content: '';
+  position: absolute; inset: 0;
   background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
   background-size: 26px 26px;
 }
 .cta-sec .wrap { position: relative; z-index: 2; }
-.cta-eye { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
-.cta-sec h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: -.02em; }
-.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
-.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+.cta-eye {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); margin-bottom: 18px;
+}
+.cta-sec h2 {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; color: var(--white);
+  margin-bottom: 14px; letter-spacing: -.02em;
+}
+.cta-sec p {
+  font-size: 16px; color: rgba(255,255,255,.72);
+  max-width: 500px; margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.cta-btns {
+  display: flex; gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap; align-items: center;
+}
 
 /* ── Responsive overrides ── */
 @media (max-width: 1024px) {
-  .cust-stats .wrap { grid-template-columns: repeat(2, 1fr); gap: 0; }
-  .cstat:nth-child(3)::before { display: none; }
-  .cstat:nth-child(3) { border-top: 1px solid rgba(255,255,255,.08); padding-top: 32px; }
-  .cstat:nth-child(4) { border-top: 1px solid rgba(255,255,255,.08); padding-top: 32px; }
-  .testi-grid { grid-template-columns: repeat(2, 1fr); }
-  .case-grid { grid-template-columns: repeat(2, 1fr); }
-  .logos-row { grid-template-columns: repeat(3, 1fr); }
-  .pull-quote-row { grid-template-columns: 1fr; gap: 48px; }
+  .feature-cards { grid-template-columns: repeat(2, 1fr); }
+  .feature-row { grid-template-columns: 1fr; gap: 40px; }
+  .feature-row.flip { direction: ltr; }
+  .ind-links-grid { grid-template-columns: repeat(3, 1fr); }
   .inner-hero { padding: 64px 0 56px; }
 }
 @media (max-width: 640px) {
-  .cust-stats .wrap { grid-template-columns: 1fr 1fr; }
-  .testi-grid { grid-template-columns: 1fr; }
-  .case-grid { grid-template-columns: 1fr; }
-  .logos-row { grid-template-columns: repeat(2, 1fr); }
-  .inner-hero h1 { font-size: 32px; }
-  .inner-hero .hero-lead { font-size: 15px; }
+  .feature-cards { grid-template-columns: 1fr; }
+  .ind-links-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-ghost { justify-content: center; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .testi-light { padding: 22px 20px; }
 }
-
-</style>
+  </style>
 </head>
 <body>
 
-<!-- ═══ header.html VERBATIM — active state on Customers ═══ -->
+<!-- ════════════════════════════════════
+     HEADER — copied verbatim from header.html
+     Active state: Solutions nav-btn
+════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════
+     header.html — CANONICAL site header partial
+     Source of truth: extracted from approved homepage (index.html)
+
+     USAGE: Copy this block VERBATIM into every inner page.
+     The ONLY permitted modification is adding class="active" to the
+     current page's top-level <button class="nav-btn"> — marked below.
+
+     Includes: 5 mega-menus (Platform, Solutions, Services, About,
+     Resources). Customers is a single link (no dropdown) per audit.
+
+     Do NOT rewrite nav items. Do NOT strip mega-menus "because this
+     page doesn't need them" — every page carries the full nav so
+     users can jump anywhere from anywhere.
+     Do NOT add inline styles except the positional overrides already
+     present on .mega (min-width, left, transform) — those are
+     per-dropdown and required.
+═══════════════════════════════════════════════════════════════ -->
+
+<!-- Skip to content -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="nav-overlay" id="navOverlay"></div>
 <nav class="nav" id="mainNav" aria-label="Main navigation">
   <div class="wrap">
+
+    <!-- Logo -->
     <a class="logo" href="https://webalive01.github.io/hkaapac/index.html" aria-label="HKA Tech — home">
       <div class="logo-mark">
         <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -601,9 +659,10 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
     </a>
 
+    <!-- Nav items -->
     <div class="nav-items">
 
-      <!-- Platform -->
+      <!-- ═══ PLATFORM ═══ -->
       <div class="nav-item" data-menu="platform">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -648,9 +707,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- Solutions -->
+      <!-- ═══ SOLUTIONS ═══ -->
       <div class="nav-item" data-menu="solutions">
-        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Solutions
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
@@ -683,7 +742,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- Services -->
+      <!-- ═══ SERVICES ═══ -->
       <div class="nav-item" data-menu="services">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -720,12 +779,12 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- Customers — single link, active -->
+      <!-- ═══ CUSTOMERS (single link, no dropdown) ═══ -->
       <div class="nav-item">
-        <a class="nav-btn active" href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
+        <a class="nav-btn" href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
       </div>
 
-      <!-- About -->
+      <!-- ═══ ABOUT ═══ -->
       <div class="nav-item" data-menu="about">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -741,7 +800,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- Resources -->
+      <!-- ═══ RESOURCES ═══ -->
       <div class="nav-item" data-menu="resources">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -757,8 +816,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-    </div>
+    </div><!-- end nav-items -->
 
+    <!-- Actions -->
     <div class="nav-actions">
       <a class="nav-login" href="https://webalive01.github.io/hkaapac/index.html">Login</a>
       <a class="nav-cta" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
@@ -766,6 +826,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         <span></span><span></span><span></span>
       </button>
     </div>
+
   </div>
 </nav>
 
@@ -801,397 +862,301 @@ footer { background: var(--navy); padding: 68px 0 0; }
   <a href="https://webalive01.github.io/hkaapac/advisory.html">PMO Toolkit &amp; Advisory</a>
   <a href="https://webalive01.github.io/hkaapac/index.html" class="mm-cta">Contact Us</a>
 </div>
-<!-- ═══ end header.html ═══ -->
 
-
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
 <main id="main-content">
 
-  <!-- ════════════════════════════
-       HERO
-  ════════════════════════════ -->
-  <!-- SOURCE: REWRITTEN [NEW — VERIFY] — adapted from homepage hero for Customers context -->
+  <!-- ── HERO ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit Section 4.1 Plan directives -->
   <section class="inner-hero">
     <div class="wrap">
-      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="https://webalive01.github.io/hkaapac/index.html">Home</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">Customers</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <a href="https://webalive01.github.io/hkaapac/plan.html">Solutions</a>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <span>Plan</span>
       </nav>
-      <div class="s-over lt">Who Uses PMWeb</div>
-      <h1>Trusted by the Organisations That Build APAC's Infrastructure</h1>
-      <p class="hero-lead">
-        Over 300 government bodies, infrastructure authorities, health departments, universities, and property developers across Asia Pacific rely on HKA Tech — for PMWeb implementation, Business Intelligence, Digital Adoption, and Capital Works Advisory.
-      </p>
-      <div class="hero-ctas">
-        <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">
-          Contact Us
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a class="btn-ghost" href="https://webalive01.github.io/hkaapac/customers.html">
-          Explore by Industry
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
+      <div class="inner-hero-text rev">
+        <div class="s-over lt">PMWeb — Plan Phase</div>
+        <h1>Plan Your Capital Works Program <em>with Precision.</em></h1>
+        <p class="inner-hero-lead">Before the first contract is signed or the first shovel breaks ground, the quality of your planning determines the outcome of every project in your portfolio. PMWeb's Plan capabilities give capital works owners the tools to define scope, establish budgets, and set governance frameworks that hold throughout delivery.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">
+            Contact Us
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn-ghost" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+            Full Platform Overview
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════
-       STAT BAR — dark (animated counters permitted on Customers page)
-  ════════════════════════════ -->
-  <!-- SOURCE: RELOCATED — stat values from homepage credentials bar -->
-  <div class="cust-stats">
+  <!-- ── CENTRED INTRO ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit Section 4.1 Plan directives -->
+  <section class="section rev">
     <div class="wrap">
-      <div class="cstat rev">
-        <div class="cstat-val" data-target="300" data-suffix="+">300+</div>
-        <div class="cstat-lbl">Organisations</div>
-        <div class="cstat-note">across APAC and worldwide</div>
+      <div class="intro-block">
+        <div class="s-over">The Plan Phase</div>
+        <h2 class="s-title">Estimating, Budgeting &amp; Program Setup</h2>
+        <p class="s-body">PMWeb covers the full plan phase for capital works owners — from initial program estimating and scope definition through to procurement. Three core capabilities work together to establish a sound foundation before construction begins.</p>
+        <div style="margin-top:20px">
+          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/build.html">Explore the Build phase
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="cstat rev d1">
-        <div class="cstat-val" data-target="25" data-suffix="+">25+</div>
-        <div class="cstat-lbl">Years Experience</div>
-        <div class="cstat-note">in capital works technology</div>
-      </div>
-      <div class="cstat rev d2">
-        <div class="cstat-val" data-target="11">11</div>
-        <div class="cstat-lbl">Industry Sectors</div>
-        <div class="cstat-note">from government to hospitality</div>
-      </div>
-      <div class="cstat rev d3">
-        <div class="cstat-val">#1</div>
-        <div class="cstat-lbl">PMWeb Partner APAC</div>
-        <div class="cstat-note">more deployments than any other partner</div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ════════════════════════════
-       SECTOR EVIDENCE STRIP
-  ════════════════════════════ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — drawn from audit §2 audience segments and §4.6 industry list -->
-  <div class="sector-strip rev">
-    <div class="wrap">
-      <div class="sector-label">Active sectors</div>
-      <div class="sector-tags">
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Government</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Healthcare</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Education</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Transportation</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Energy &amp; Resources</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Developers &amp; Property</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Hospitality</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Construction Managers</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Engineering &amp; Design</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Manufacturing &amp; Tech</a>
-        <a class="sector-tag" href="https://webalive01.github.io/hkaapac/customers.html">Retail &amp; Banking</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ════════════════════════════
-       CLIENT LOGOS
-  ════════════════════════════ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — CLIENT TO SUPPLY: provide approved logo assets for each cell below -->
-  <section class="section">
-    <div class="wrap">
-      <div class="s-over">Our Clients</div>
-      <h2 class="s-title">300+ Organisations Across Asia Pacific</h2>
-      <p class="s-body">From state government infrastructure authorities to major hospital networks, university campuses, and national transport agencies — HKA Tech's client base spans the full breadth of capital works in the region.</p>
-
-      <!-- [CLIENT TO SUPPLY: replace each logo cell below with actual approved client logo images.
-           Suggested cell count: 10 logos in 5×2 arrangement. Each logo on white background,
-           consistent height ~40px, grey on white preferred. No identifying project data needed —
-           company/agency logos only, with client permission confirmed. ] -->
-      <div class="logos-row rev" aria-label="Client organisations">
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-      </div>
-      <div class="logos-row rev d1" style="margin-top:16px" aria-label="More client organisations">
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
-        <div class="logo-cell"><div class="logo-cell-ph">Client Logo<br>[SUPPLY]</div></div>
+      <!-- SOURCE: RELOCATED — from homepage PBO Plan tab -->
+      <div class="feature-cards">
+        <div class="fc rev d1">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 16V6l7-4 7 4v10"/><rect x="7" y="11" width="8" height="5"/></svg>
+          </div>
+          <div class="fc-title">Planning</div>
+          <p class="fc-desc">Define scope, set baselines, and establish governance frameworks with stage gates and approval workflows that ensure every project starts with a clear mandate.</p>
+        </div>
+        <div class="fc rev d2">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="5" width="18" height="13" rx="1"/><path d="M5 3v4M17 3v4M2 11h18"/></svg>
+          </div>
+          <div class="fc-title">Estimating</div>
+          <p class="fc-desc">Set program budgets, resource estimates, and contingency at every level of the WBS from day one — with the detail needed to defend your figures to treasury or a board.</p>
+        </div>
+        <div class="fc rev d3">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="9"/><path d="M7 3.3A9 9 0 0 1 20 11"/><path d="M11 7v4l3 3"/></svg>
+          </div>
+          <div class="fc-title">Procurement</div>
+          <p class="fc-desc">Manage sourcing, tender evaluation, and vendor selection through structured procurement workflows — maintaining an auditable record from market testing through to contract award.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════
-       TESTIMONIALS — light variant (inner-page style)
-  ════════════════════════════ -->
-  <!-- SOURCE: RELOCATED — 3 testimonials from homepage; 3 new [NEW — VERIFY] -->
-  <section class="section alt">
+  <!-- ── PLANNING DETAIL ROW ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit Section 4.1 and homepage PBO content -->
+  <section class="section alt rev">
     <div class="wrap">
-      <div class="s-over">What Our Clients Say</div>
-      <h2 class="s-title">Real Outcomes for Real Programs</h2>
-      <p class="s-body">HKA Tech works across Australia's most complex capital works environments. Here is what the people running those programs have to say.</p>
-
-      <div class="testi-grid">
-
-        <!-- Relocated from homepage -->
-        <div class="testi-card rev d1">
-          <div class="testi-sector">Transportation</div>
-          <p class="testi-quote">"PMWeb transformed how we manage our capital works portfolio. The depth of knowledge HKA Tech brings goes beyond software — they understand how projects are delivered."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Executive Director, Capital Delivery</div>
-          <div class="testi-role">Major Transport Authority</div>
+      <div class="feature-row">
+        <div class="feature-row-text">
+          <div class="s-over">Planning</div>
+          <h2 class="s-title">Scope, Governance &amp; Stage Gate Control</h2>
+          <p>Effective capital works delivery starts with a planning framework that everyone can work within. PMWeb's Planning tools let you define the full scope of your program, establish governance frameworks aligned with your organisation's policies, and set stage gates that control how projects progress through each phase of delivery.</p>
+          <p>Approval workflows ensure that no project proceeds without the right authorisations in place — reducing scope creep, managing budget exposure, and providing the audit trail that government and institutional owners require.</p>
+          <ul class="feature-list" role="list">
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Work Breakdown Structure (WBS)</strong>Define program, project, and task hierarchies that align with your existing governance frameworks — from portfolio level down to individual deliverables.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Stage gates and approval workflows</strong>Configurable approval sequences ensure that each phase of a project cannot proceed without documented sign-off from the appropriate authority.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Scope and baseline management</strong>Lock baselines at key decision points to enable meaningful variance tracking throughout the Build phase.</div>
+            </li>
+          </ul>
         </div>
-
-        <!-- Relocated from homepage -->
-        <div class="testi-card rev d2">
-          <div class="testi-sector">Government</div>
-          <p class="testi-quote">"The BI dashboards HKA Tech built give us real-time visibility across every project. Our reporting time has been reduced dramatically and decisions are faster."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Director of Infrastructure Programs</div>
-          <div class="testi-role">State Government Department</div>
-        </div>
-
-        <!-- Relocated from homepage -->
-        <div class="testi-card rev d3">
-          <div class="testi-sector">Healthcare</div>
-          <p class="testi-quote">"HKA Tech's WalkMe implementation drove adoption across 2,000+ users in under three months. Their approach to digital adoption is structured and results-driven."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Head of Digital Transformation</div>
-          <div class="testi-role">National Healthcare Provider</div>
-        </div>
-
-        <!-- SOURCE: NEW [NEW — VERIFY] — HKA Tech to supply real quote from education sector client -->
-        <div class="testi-card rev d1">
-          <div class="testi-sector">Education</div>
-          <p class="testi-quote">"The PMWeb platform gave us a single source of truth across a $1.2B capital program spanning 14 campuses. HKA Tech's implementation team understood our governance requirements from day one."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Director of Campus Infrastructure</div>
-          <div class="testi-role">Major Australian University</div>
-        </div>
-
-        <!-- SOURCE: NEW [NEW — VERIFY] — HKA Tech to supply real quote from energy/resources sector -->
-        <div class="testi-card rev d2">
-          <div class="testi-sector">Energy &amp; Resources</div>
-          <p class="testi-quote">"We needed a platform that could handle the complexity of multi-year, multi-site capital programs. PMWeb — configured by HKA Tech — delivered exactly that, on time and within budget."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Program Director, Capital Projects</div>
-          <div class="testi-role">National Energy Utility</div>
-        </div>
-
-        <!-- SOURCE: NEW [NEW — VERIFY] — HKA Tech to supply real quote from property/developer client -->
-        <div class="testi-card rev d3">
-          <div class="testi-sector">Developers &amp; Property</div>
-          <p class="testi-quote">"HKA Tech's advisory capability is what sets them apart. It is not just about configuring software — their team brings genuine capital works delivery experience that makes the difference."</p>
-          <div class="testi-rule"></div>
-          <div class="testi-name">Head of Development</div>
-          <div class="testi-role">Major Property Developer</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════
-       CASE STUDIES
-  ════════════════════════════ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — CLIENT TO SUPPLY real case study details (no single signature project;
-       multiple case studies required per audit §1 client directive). Titles and outcomes below are structural
-       placeholders — HKA Tech to provide verified real-world figures and project descriptions. -->
-  <section class="section">
-    <div class="wrap">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
         <div>
-          <div class="s-over">Case Studies</div>
-          <h2 class="s-title">Programs That Demonstrate What's Possible</h2>
+          <!-- [IMAGE NEEDED]: plan-planning-screenshot.jpg — PMWeb Planning module workspace showing stage gates and governance framework, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Planning module workspace showing stage gates and governance framework">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">plan-planning-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Planning module workspace showing a program hierarchy with stage gate milestones visible. Ideally showing at least two levels of project structure and a governance approval workflow. Use anonymised demo data — no real client project names.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
         </div>
-        <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
-          Discuss Your Requirements
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ESTIMATING DETAIL ROW ── -->
+  <!-- SOURCE: RELOCATED — from homepage PBO Plan tab (Estimating card) + [NEW — VERIFY] body -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="feature-row flip">
+        <div class="feature-row-text">
+          <div class="s-over">Estimating</div>
+          <h2 class="s-title">Program Budgets &amp; Cost Baselines</h2>
+          <p>Setting credible cost estimates at program inception is one of the most important steps in capital works delivery. PMWeb's Estimating tools allow you to build budgets from the ground up — structured by WBS, informed by historical data, and documented to the level of detail required by your approving authority.</p>
+          <p>From high-level program estimates to line-by-line cost plans, PMWeb supports the full estimating workflow with contingency management, escalation modelling, and direct linkage to the cost control module used throughout the Build phase.</p>
+          <ul class="feature-list" role="list">
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>WBS-aligned cost planning</strong>Build estimates at every level of your work breakdown structure — from program totals to individual work packages — with full roll-up and drill-down.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Contingency and risk allowances</strong>Model contingency at each WBS level, with configurable risk registers that link cost exposure to identified program risks.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Baseline lock and variance tracking</strong>Lock approved estimates as cost baselines before construction begins, enabling real-time variance reporting throughout delivery.</div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <!-- [IMAGE NEEDED]: plan-estimating-screenshot.jpg — PMWeb Estimating workspace with WBS cost breakdown visible, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Estimating workspace with WBS cost breakdown visible">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">plan-estimating-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Estimating module showing a cost breakdown structure with at least 3 levels of WBS visible — ideally with line-item costs, contingency columns, and totals. Use anonymised demo data — no real dollar figures from live client projects.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCUREMENT DETAIL ROW ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit Section 4.1 Plan sub-categories directive -->
+  <section class="section alt rev">
+    <div class="wrap">
+      <div class="feature-row">
+        <div class="feature-row-text">
+          <div class="s-over">Procurement</div>
+          <h2 class="s-title">Sourcing, Tendering &amp; Vendor Selection</h2>
+          <p>For government and institutional capital works owners, procurement is not just a commercial activity — it is a governance obligation. PMWeb's Procurement tools provide a structured, auditable environment for managing the full sourcing lifecycle, from market testing and expression of interest through to tender evaluation and contract award.</p>
+          <p>Procurement workflows in PMWeb are configurable to match your organisation's standing procurement frameworks, including panel arrangements, approved supplier lists, and mandatory probity requirements.</p>
+          <ul class="feature-list" role="list">
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Tender management and evaluation</strong>Manage the full tender lifecycle within PMWeb — issue, receive, evaluate, and award — with configurable scoring matrices and probity controls.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Vendor and panel management</strong>Maintain approved supplier and panel registers with performance history, insurance currency, and licence tracking all in one place.</div>
+            </li>
+            <li>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Seamless transition to Build</strong>Once a contract is awarded in PMWeb, it flows directly into the contract management and cost control modules — eliminating manual re-entry and version risk.</div>
+            </li>
+          </ul>
+          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+            <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">Talk to Our Team
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a class="arrow-link" href="https://webalive01.github.io/hkaapac/advisory.html">Implementation services
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <!-- [IMAGE NEEDED]: plan-procurement-screenshot.jpg — PMWeb Procurement module showing tender evaluation workflow, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Procurement module showing tender evaluation workflow">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">plan-procurement-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Procurement module showing a tender evaluation workflow — ideally with tender line items, evaluation scoring, and vendor comparison visible. Use anonymised demo data — no real vendor names or pricing.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIAL (light variant) ── -->
+  <!-- [CLIENT TO SUPPLY: testimonial quote from a Plan-phase client — government, infrastructure, or property sector. Should reference planning, estimating, or procurement capability specifically. Name: Director/Executive title + organisation type (no individual names needed). Role: e.g. "Director of Capital Programs, State Government Authority"] -->
+  <section class="section rev">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:36px">
+        <div class="s-over" style="justify-content:center">What Our Clients Say</div>
+      </div>
+      <div class="testi-light">
+        <p class="testi-light-quote">"PMWeb gave us the estimating and governance controls we needed before we committed $800 million to our infrastructure program. The ability to lock baselines at the planning stage and track variance in real time changed the way our board receives project reports."</p>
+        <div class="testi-light-rule"></div>
+        <div class="testi-light-name">[CLIENT TO SUPPLY: Name and Title]</div>
+        <div class="testi-light-role">[CLIENT TO SUPPLY: Organisation type — e.g. State Government Capital Authority]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── INDUSTRY CROSS-LINKS ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — cross-link pattern from audit Section 3 Solutions page structure -->
+  <section class="section alt rev">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px">
+        <div>
+          <div class="s-over">Plan by Industry</div>
+          <h2 class="s-title">Planning Challenges Vary by Sector</h2>
+        </div>
+        <div>
+          <p class="s-body">Government procurement rules, healthcare functional briefs, transport corridor approvals — each sector brings distinct planning requirements. HKA Tech's implementation teams understand the planning frameworks your organisation operates within.</p>
+        </div>
+      </div>
+      <div class="ind-links-grid">
+        <!-- Government -->
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Government — Plan solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path class="ilt-icf" d="M14 3L3 10h22L14 3z"/>
+            <rect class="ilt-icf" x="3" y="10" width="22" height="2" rx=".4"/>
+            <rect class="ilt-ics" x="5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="10" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="15.5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="20.5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-icf" x="2" y="22" width="24" height="2" rx=".4"/>
+          </svg>
+          <span>Government</span>
+        </a>
+        <!-- Healthcare -->
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Healthcare — Plan solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect class="ilt-icf" x="4" y="3" width="20" height="20" rx="4"/>
+            <path class="ilt-ics" d="M11.5 8h5v4.5h4.5v5h-4.5v4.5h-5v-4.5H7v-5h4.5z"/>
+          </svg>
+          <span>Healthcare</span>
+        </a>
+        <!-- Education -->
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Education — Plan solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path class="ilt-icf" d="M14 3L2 10l12 7 12-7L14 3z"/>
+            <path class="ilt-ics" d="M6 12.5v6c0 0 3.5 3.5 8 3.5s8-3.5 8-3.5v-6"/>
+            <rect class="ilt-icf" x="5" y="23" width="18" height="2.5" rx=".6"/>
+          </svg>
+          <span>Education</span>
+        </a>
+        <!-- Transportation -->
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Transportation — Plan solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path class="ilt-icf" d="M6 25l4-20h8l4 20z"/>
+            <line class="ilt-ics" x1="3" y1="25" x2="25" y2="25"/>
+            <line class="ilt-ics" x1="14" y1="7" x2="14" y2="22" stroke-dasharray="2 2"/>
+          </svg>
+          <span>Transportation</span>
+        </a>
+        <!-- Energy & Resources -->
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Energy &amp; Resources — Plan solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <circle class="ilt-icf" cx="14" cy="14" r="9"/>
+            <path class="ilt-ics" d="M16 7l-5 8h4l-1 6 5-8h-4z"/>
+          </svg>
+          <span>Energy &amp; Resources</span>
+        </a>
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a class="arrow-link" href="https://webalive01.github.io/hkaapac/customers.html">View all 11 industries
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
         </a>
       </div>
-
-      <div class="case-grid">
-
-        <!-- Case study 1 — Transport -->
-        <div class="case-card rev d1">
-          <div class="case-img" role="img" aria-label="Transportation infrastructure program">
-            <!-- [IMAGE NEEDED]: customers-casestudies-transport.jpg — Screenshot of PMWeb portfolio dashboard showing a multi-project transport program. Anonymised data. Show the dashboard interface clearly with chart and project list. -->
-            <div class="img-placeholder" role="img" aria-label="Placeholder: transport authority PMWeb dashboard">
-              <div class="ip-tag">Image Needed</div>
-              <div class="ip-filename">customers-casestudies-transport.jpg</div>
-              <p class="ip-desc"><strong>Screenshot:</strong> PMWeb portfolio dashboard for a multi-project transport program. Anonymised data. Dashboard interface with chart and project list clearly visible.</p>
-              <div class="ip-specs">16:9 · 640×360px minimum · PNG or high-quality JPG</div>
-            </div>
-            <div class="case-img-overlay"></div>
-            <div class="case-tag-over">PMWeb + BI</div>
-          </div>
-          <div class="case-body">
-            <div class="case-sector">Transportation</div>
-            <div class="case-title">[CLIENT TO SUPPLY: Transport program title — e.g., "Major Road Network Capital Program"]</div>
-            <p class="case-desc">[CLIENT TO SUPPLY: 2–3 sentence description of the engagement, scope, and primary challenge addressed. Approx. 60–80 words.]</p>
-            <div class="case-outcomes">
-              <div class="case-outcome">
-                <span class="case-outcome-val">[X]%</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., reduction in reporting time]</span>
-              </div>
-              <div class="case-outcome">
-                <span class="case-outcome-val">$[X]B</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., portfolio value under management]</span>
-              </div>
-            </div>
-            <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
-              Discuss a Similar Program
-              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Case study 2 — Healthcare -->
-        <div class="case-card rev d2">
-          <div class="case-img" role="img" aria-label="Healthcare infrastructure program">
-            <!-- [IMAGE NEEDED]: customers-casestudies-health.jpg — Screenshot of PMWeb showing a multi-site health department capital works program. Anonymised. Interface visible with program summary. -->
-            <div class="img-placeholder" role="img" aria-label="Placeholder: health department PMWeb overview screenshot">
-              <div class="ip-tag">Image Needed</div>
-              <div class="ip-filename">customers-casestudies-health.jpg</div>
-              <p class="ip-desc"><strong>Screenshot:</strong> PMWeb portfolio overview for a multi-site health department capital program. Anonymised data. Program-level summary visible.</p>
-              <div class="ip-specs">16:9 · 640×360px minimum · PNG or high-quality JPG</div>
-            </div>
-            <div class="case-img-overlay"></div>
-            <div class="case-tag-over">PMWeb + DAP</div>
-          </div>
-          <div class="case-body">
-            <div class="case-sector">Healthcare</div>
-            <div class="case-title">[CLIENT TO SUPPLY: Healthcare capital program title]</div>
-            <p class="case-desc">[CLIENT TO SUPPLY: 2–3 sentence description of the engagement, including WalkMe or DAP component if applicable. Approx. 60–80 words.]</p>
-            <div class="case-outcomes">
-              <div class="case-outcome">
-                <span class="case-outcome-val">[X]+</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., users onboarded via WalkMe]</span>
-              </div>
-              <div class="case-outcome">
-                <span class="case-outcome-val">[X] mo</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., implementation timeline]</span>
-              </div>
-            </div>
-            <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
-              Discuss a Similar Program
-              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Case study 3 — Education -->
-        <div class="case-card rev d3">
-          <div class="case-img" role="img" aria-label="Education capital works program">
-            <!-- [IMAGE NEEDED]: customers-casestudies-education.jpg — Screenshot of PMWeb showing a university or education body capital works program view. Anonymised. Interface chrome visible. -->
-            <div class="img-placeholder" role="img" aria-label="Placeholder: education body PMWeb capital works screenshot">
-              <div class="ip-tag">Image Needed</div>
-              <div class="ip-filename">customers-casestudies-education.jpg</div>
-              <p class="ip-desc"><strong>Screenshot:</strong> PMWeb program view for a university or education authority capital works portfolio. Anonymised. Interface chrome clearly visible.</p>
-              <div class="ip-specs">16:9 · 640×360px minimum · PNG or high-quality JPG</div>
-            </div>
-            <div class="case-img-overlay"></div>
-            <div class="case-tag-over">PMWeb + Advisory</div>
-          </div>
-          <div class="case-body">
-            <div class="case-sector">Education</div>
-            <div class="case-title">[CLIENT TO SUPPLY: Education capital program title]</div>
-            <p class="case-desc">[CLIENT TO SUPPLY: 2–3 sentence description of the engagement, including Advisory or BI component if applicable. Approx. 60–80 words.]</p>
-            <div class="case-outcomes">
-              <div class="case-outcome">
-                <span class="case-outcome-val">$[X]M</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., capital program value managed]</span>
-              </div>
-              <div class="case-outcome">
-                <span class="case-outcome-val">[X]</span>
-                <span class="case-outcome-lbl">[Outcome label — e.g., campuses on one platform]</span>
-              </div>
-            </div>
-            <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
-              Discuss a Similar Program
-              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════
-       WHY THEY CHOOSE HKA — pull quote + reasons
-  ════════════════════════════ -->
-  <!-- SOURCE: RELOCATED — "Why HKA" content from homepage, restructured for inner-page -->
-  <section class="section alt rev">
-    <div class="wrap">
-      <div class="pull-quote-row">
-        <div>
-          <div class="s-over">Consistent Feedback</div>
-          <blockquote class="pull-quote-text">
-            "It is not just the software — it is the people behind it. HKA Tech's team has delivered capital programs themselves. That changes every conversation."
-          </blockquote>
-          <div class="pull-quote-attr">
-            <!-- SOURCE: NEW [NEW — VERIFY] — HKA Tech to confirm attribution or replace with approved quote -->
-            <div class="pqa-name">Infrastructure Program Manager</div>
-            <div class="pqa-role">State Government Agency [NEW — VERIFY: confirm or replace]</div>
-          </div>
-        </div>
-        <div>
-          <div class="s-over">Why HKA Tech</div>
-          <h2 class="s-title" style="max-width:420px">What Keeps 300+ Organisations Coming Back</h2>
-          <div class="pull-reasons" style="margin-top:28px">
-            <div class="pull-reason">
-              <div class="pull-reason-icon">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="11" y="2" width="5" height="5" rx="1"/><rect x="2" y="11" width="5" height="5" rx="1"/><rect x="11" y="11" width="5" height="5" rx="1"/></svg>
-              </div>
-              <div>
-                <div class="pull-reason-title">APAC's largest PMWeb implementer</div>
-                <p class="pull-reason-desc">More deployments, more sectors, and more complex programs under management than any other regional partner.</p>
-              </div>
-            </div>
-            <div class="pull-reason">
-              <div class="pull-reason-icon">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 14V8M7 14V5M10 14v-4M13 14V3"/></svg>
-              </div>
-              <div>
-                <div class="pull-reason-title">Independent BI and DAP capability</div>
-                <p class="pull-reason-desc">Business Intelligence and Digital Adoption services that deliver measurable value with or without PMWeb at the centre.</p>
-              </div>
-            </div>
-            <div class="pull-reason">
-              <div class="pull-reason-icon">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M9 2l-6 3.5v4.5c0 4 2.5 6.5 6 7.5 3.5-1 6-3.5 6-7.5V5.5L9 2z"/></svg>
-              </div>
-              <div>
-                <div class="pull-reason-title">Part of HKA Global</div>
-                <p class="pull-reason-desc">Backed by the world's leading claims, disputes, and advisory firm — 40+ offices, deep capital works knowledge across six continents.</p>
-              </div>
-            </div>
-            <div class="pull-reason">
-              <div class="pull-reason-icon">
-                <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg>
-              </div>
-              <div>
-                <div class="pull-reason-title">Capital works advisory depth</div>
-                <p class="pull-reason-desc">Software expertise combined with hands-on project delivery knowledge and Crux Insight intelligence — a combination no other APAC partner offers.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════
-       CTA BAND
-  ════════════════════════════ -->
-  <!-- SOURCE: RELOCATED — CTA band pattern from homepage, copy adjusted for Customers context -->
+  <!-- ── CTA BAND ── -->
+  <!-- SOURCE: RELOCATED — pattern from homepage CTA band; text [NEW — VERIFY] -->
   <section class="cta-sec rev">
     <div class="wrap">
-      <div class="cta-eye">Talk to Our Team</div>
-      <h2>Ready to See What HKA Tech Can Do for Your Program?</h2>
-      <p>Contact us to discuss your PMWeb, Business Intelligence, Digital Adoption, or Advisory requirements. We'll help you find the right starting point.</p>
+      <div class="cta-eye">Start with Plan</div>
+      <h2>Ready to Strengthen Your Planning &amp; Estimating?</h2>
+      <p>Talk to our team about how PMWeb's Plan capabilities can be configured to match your organisation's governance frameworks, procurement policies, and program structure.</p>
       <div class="cta-btns">
         <a class="btn-white" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
-        <a class="btn-gw" href="https://webalive01.github.io/hkaapac/platform-overview.html">
-          Explore All Services
+        <a class="btn-gw" href="https://webalive01.github.io/hkaapac/build.html">Explore the Build Phase
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
         </a>
       </div>
@@ -1200,8 +1165,20 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
 </main>
 
+<!-- ════════════════════════════════════
+     FOOTER — copied verbatim from footer.html
+════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════════════
+     footer.html — CANONICAL site footer partial
+     Source of truth: extracted from approved homepage (index.html)
 
-<!-- ═══ footer.html VERBATIM ═══ -->
+     USAGE: Copy this block VERBATIM into every inner page.
+     Do NOT rewrite. Do NOT reduce to "Sydney · Melbourne · Brisbane · Perth"
+     one-liner. Every page shows the full four-office block per client directive.
+     Do NOT add inline styles.
+═══════════════════════════════════════════════════════════════ -->
+
+<!-- BACK TO TOP -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
 </button>
@@ -1209,6 +1186,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
 <footer>
   <div class="wrap">
     <div class="footer-grid">
+
+      <!-- Column 1: Brand + Contact + Offices -->
       <div>
         <div class="f-logo">
           <div class="f-logo-mark">
@@ -1238,6 +1217,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
         </div>
       </div>
+
+      <!-- Column 2: Platform & Services -->
       <div>
         <div class="f-col-title">Platform &amp; Services</div>
         <div class="f-links">
@@ -1251,6 +1232,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/platform-overview.html">What's New</a>
         </div>
       </div>
+
+      <!-- Column 3: Company -->
       <div>
         <div class="f-col-title">Company</div>
         <div class="f-links">
@@ -1263,6 +1246,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/platform-overview.html">HKA Global</a>
         </div>
       </div>
+
+      <!-- Column 4: Industries -->
       <div>
         <div class="f-col-title">Industries</div>
         <div class="f-links">
@@ -1276,6 +1261,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/customers.html">All 11 Industries →</a>
         </div>
       </div>
+
     </div>
     <div class="f-bottom">
       <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
@@ -1287,15 +1273,23 @@ footer { background: var(--navy); padding: 68px 0 0; }
     </div>
   </div>
 </footer>
-<!-- ═══ end footer.html ═══ -->
-
 
 <script>
-/* ═══ shared.js VERBATIM ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   shared.js — CANONICAL shared scripts for all HKA Tech pages
+   Source of truth: extracted from approved homepage (index.html)
+   Copy verbatim into every inner page inside a <script> tag.
+
+   Handles: nav dropdowns (mega-menus), nav scroll shadow,
+   scroll-reveal (IntersectionObserver), hamburger menu, back-to-top.
+═══════════════════════════════════════════════════════════════ */
+
+/* ─ NAV DROPDOWNS (mega-menus) ────────────────────────────── */
 (function(){
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
   const overlay  = document.getElementById('navOverlay');
   if (!navItems.length) return;
+
   function closeAll() {
     navItems.forEach(i => {
       i.classList.remove('open');
@@ -1304,6 +1298,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
     });
     if (overlay) overlay.classList.remove('active');
   }
+
   navItems.forEach(item => {
     const btn = item.querySelector('.nav-btn');
     if (!btn) return;
@@ -1318,10 +1313,12 @@ footer { background: var(--navy); padding: 68px 0 0; }
       }
     });
   });
+
   if (overlay) overlay.addEventListener('click', closeAll);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
 })();
 
+/* ─ NAV SHADOW ON SCROLL ──────────── */
 (function(){
   const nav = document.getElementById('mainNav');
   if (nav) {
@@ -1333,6 +1330,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
   }
 })();
 
+/* ─ SCROLL REVEAL ─────────────────── */
 (function(){
   const revEls = document.querySelectorAll('.rev');
   if (revEls.length && 'IntersectionObserver' in window) {
@@ -1348,6 +1346,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
   }
 })();
 
+/* ─ HAMBURGER MENU ────────────────── */
 (function(){
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1368,6 +1367,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
   });
 })();
 
+/* ─ BACK TO TOP ───────────────────── */
 (function(){
   const btt = document.getElementById('backToTop');
   if (!btt) return;
@@ -1377,31 +1377,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
   btt.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-})();
-/* ═══ end shared.js ═══ */
-
-/* ═══ PAGE-SPECIFIC JS — animated stat counters ═══ */
-(function(){
-  const statEls = document.querySelectorAll('.cstat-val[data-target]');
-  if (!statEls.length) return;
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1400;
-      const step = duration / target;
-      let current = 0;
-      const timer = setInterval(() => {
-        current += Math.ceil(target / 40);
-        if (current >= target) { current = target; clearInterval(timer); }
-        el.textContent = current + suffix;
-      }, step);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.3 });
-  statEls.forEach(el => observer.observe(el));
 })();
 </script>
 </body>

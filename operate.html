@@ -1,77 +1,66 @@
-<!DOCTYPE html>
 <!--
-  PAGE:             PMWeb — Platform Overview
-  URL SLUG:         /platform/overview
-  MENU LOCATION:    Platform ▾ → PMWeb Overview
-  SEO TITLE:        PMWeb Platform | Capital Works Management
-  META DESCRIPTION: PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.
-  PRIMARY KEYWORD:  PMWeb capital works
-  PAGE TYPE:        Service/product page (Guidelines §8)
-  TEMPLATE FLOW:    Hero → Centred intro → Alternating feature rows (Plan/Build/Operate) → Hosting (3-col cards) → Testimonial (light) → CTA band
+  PAGE:             Solutions — Operate
+  URL SLUG:         /solutions/operate
+  MENU LOCATION:    Solutions ▾ → By Lifecycle → Operate
+  SEO TITLE:        Operate | Asset & Facility Management — PMWeb | HKA Tech
+  META DESCRIPTION: PMWeb's Operate phase: asset management, lease management, facility maintenance, and workflow tools for capital works organisations across APAC.
+  PRIMARY KEYWORD:  PMWeb asset management operate
+  PAGE TYPE:        Solutions — Lifecycle page (per Guidelines §8)
+  TEMPLATE FLOW:    Hero → Centred intro → Card grid (3 Operate features) → Alternating content+image (Asset Mgmt / Lease Mgmt / Work Orders detail) → Testimonial (light) → Industry cross-links → CTA band
 
-  PARTIALS USED (all pasted verbatim):
-    - tokens.css    [2026-04-17 v2 — now includes mega-menu + .img-placeholder styles]
-    - header.html   [2026-04-17 v2 — now includes all 5 mega-menus] — active: Platform
-    - footer.html   [2026-04-17]
-    - shared.js     [2026-04-17 v2 — now includes nav-dropdown IIFE]
+  PARTIALS USED:
+    - tokens.css    April 2026
+    - header.html   April 2026 — active state: Solutions
+    - footer.html   April 2026
+    - shared.js     April 2026
 
   DESIGN PHILOSOPHY:
-    Inner page — intentionally quieter than homepage. Text-only hero, three alternating
-    content+image rows, one 3-col hosting grid, light-variant testimonial, teal CTA band.
-    Lists use plain bold-label + description with margin-bottom separation (no dividers).
+    Inner page — matches /solutions/plan exactly: same CSS classes, same section structure,
+    same card and feature-row patterns. No lifecycle strip. No custom card variants.
 
-  CONTENT SOURCE SUMMARY: 100% NEW [NEW — VERIFY]
-    Written from audit §4.2 (merges /pmweb-overview, /the-pmweb-difference, /value-benefits).
+  CONTENT SOURCE SUMMARY:
+    Existing:   40%  (relocated from homepage PBO Operate tab cards)
+    New:        60%  (filled per audit §4 — marked [NEW — VERIFY])
+
+  [NEW — VERIFY] ITEMS:
+    - Hero lead paragraph
+    - All three feature row body copy sections
+    - Testimonial quote (placeholder — client to supply real attribution)
+    - Industry cross-link intro text
 
   [CLIENT TO SUPPLY] ITEMS:
-    - Testimonial quote + attribution (capital works sector — not a single signature project)
+    - Testimonial: real name, role, and organisation
 
   [IMAGE NEEDED] ITEMS (filename → subject):
-    - platform-overview-plan-phase.jpg     → PMWeb Plan module estimating workspace
-    - platform-overview-build-phase.jpg    → PMWeb Build module contract + schedule view
-    - platform-overview-operate-phase.jpg  → PMWeb Operate module asset management view
+    - operate-asset-management-screenshot.jpg → PMWeb Asset Management module showing asset hierarchy and maintenance schedule
+    - operate-lease-management-screenshot.jpg → PMWeb Lease Management screen showing lease abstracts and charge calculations
+    - operate-work-orders-screenshot.jpg → PMWeb Work Order list screen with open requests
 
-  REDIRECTS:
-    /pmweb-overview        → /platform/overview
-    /the-pmweb-difference  → /platform/overview
-    /value-benefits        → /platform/overview
-
-  CTAs: 4 (hero × 2, CTA band × 2)
-
-  PRE-OUTPUT CHECKLIST: ALL PASSED
-    ✓ Header pasted verbatim — all 5 mega-menus present (Platform, Solutions, Services, About, Resources)
-    ✓ Customers is a single link (no dropdown) — correct per audit
-    ✓ Footer pasted verbatim — full 4-office block
-    ✓ tokens.css pasted verbatim — includes mega-menu + .img-placeholder styles
-    ✓ shared.js pasted verbatim — includes nav-dropdown IIFE so mega-menus actually open
-    ✓ class="active" set on Platform nav-btn only
-    ✓ All 5 CTAs use approved button classes; all have white-space:nowrap from tokens
-    ✓ CTA rows use flex-wrap: wrap with gap — buttons cannot be squeezed
-    ✓ Feature-list items use margin-bottom only — NO borders between items
-    ✓ No em-dash separators inside list-item labels
-    ✓ Single-column text-only hero
-    ✓ One card grid (hosting); no tools grid, no differentiator grid
-    ✓ Animation stagger capped at .d3
-    ✓ Skip link, semantic <main>, single <h1>
-    ✓ Every image is an .img-placeholder with: filename, description, aspect ratio, specs
-    ✓ "Get" does not appear; "Program" not "Programme"
+  REDIRECTS NEEDED: None (new URL)
+  CTAs: 3 — "Contact Us" (hero), "Talk to Our Team" (mid-page), "Contact Us" (CTA band)
+  DEVIATIONS FROM GUIDELINES: None
 -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PMWeb Platform | Capital Works Management</title>
-<meta name="description" content="PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.">
-<meta property="og:title" content="PMWeb Platform | Capital Works Management">
-<meta property="og:description" content="APAC's leading capital works platform for buildings, infrastructure, and capital programs.">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-/* ═══════════════════════════════════════════════════════════════
-   PART 1 — tokens.css (PASTED VERBATIM FROM partials/tokens.css)
-═══════════════════════════════════════════════════════════════ */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operate — Asset &amp; Facility Management | HKA Tech</title>
+  <meta name="description" content="PMWeb's Operate phase: asset management, lease management, facility maintenance, and workflow tools for capital works organisations across APAC.">
+  <meta property="og:title" content="Operate — PMWeb Capital Works Management | HKA Tech">
+  <meta property="og:description" content="Manage your assets, facilities, and leases after construction closes out. PMWeb's Operate phase keeps your organisation in control from handover through the full asset lifecycle.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ═══════════════════════════════════════════════════════════════════
+   tokens.css — CANONICAL shared styles for all HKA Tech pages
+   Source of truth: extracted from approved homepage (index.html)
+   Do not diverge. If a rule needs changing, update here first.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ─── DESIGN TOKENS ──────────────────────────────────────────── */
 :root {
   --teal:      #0098A4;
   --teal-dk:   #006E76;
@@ -89,19 +78,44 @@
   --font-d:    'Playfair Display', Georgia, serif;
   --font-u:    'Outfit', system-ui, sans-serif;
 }
+
+/* ─── RESET ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-u); font-size: 16px; color: var(--text-dk); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body {
+  font-family: var(--font-u);
+  font-size: 16px;
+  color: var(--text-dk);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 a { text-decoration: none; color: inherit; cursor: pointer; }
 ul { list-style: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
 
+/* ─── CONTAINER ──────────────────────────────────────────────── */
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
 
-.skip-link { position: absolute; top: -100px; left: 16px; background: var(--teal); color: var(--white); padding: 10px 20px; border-radius: 4px; font-size: 14px; font-weight: 600; z-index: 9999; transition: top .2s; }
+/* ─── SKIP LINK ──────────────────────────────────────────────── */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--teal); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  z-index: 9999; transition: top .2s;
+}
 .skip-link:focus { top: 12px; }
 
-.nav { position: sticky; top: 0; z-index: 200; height: 72px; background: rgba(255,255,255,.97); backdrop-filter: blur(14px); box-shadow: 0 1px 8px rgba(0,0,0,.06); transition: box-shadow .3s var(--ease); }
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 72px;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  transition: box-shadow .3s var(--ease);
+}
 .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 
 .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
@@ -113,16 +127,43 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 
 .nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
 .nav-item { position: relative; }
-.nav-btn { display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 500; color: var(--text-md); padding: 8px 14px; border-radius: 4px; transition: color .15s, background .15s; user-select: none; white-space: nowrap; border: none; background: transparent; font-family: var(--font-u); position: relative; }
+.nav-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; color: var(--text-md);
+  padding: 8px 14px; border-radius: 4px;
+  transition: color .15s, background .15s;
+  user-select: none;
+  white-space: nowrap;
+  border: none; background: transparent; font-family: var(--font-u);
+  position: relative;
+}
 .nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
 .nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
 .nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
 .nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+
 .nav-btn.active { color: var(--teal); }
 .nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
 
-.mega { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: none; border-radius: 6px; box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06); padding: 28px; min-width: 560px; opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-8px); transition: opacity .2s var(--ease), transform .2s var(--ease); border-top: 3px solid var(--teal); }
-.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+/* ─── MEGA DROPDOWN ──────────────────────────────────────────── */
+.mega {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 28px;
+  min-width: 560px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  border-top: 3px solid var(--teal);
+}
+.nav-item.open .mega {
+  opacity: 1; pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
 .mega-cols { display: grid; gap: 24px; }
 .mega-cols.c2 { grid-template-columns: 1fr 1fr; }
 .mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -141,15 +182,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
 .mega-featured-link svg { width: 12px; height: 12px; }
 
+/* Overlay used to close open mega menus on outside click */
 .nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
 .nav-overlay.active { display: block; }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
 .nav-login:hover { color: var(--text-md); }
-.nav-cta { font-size: 13px; font-weight: 700; color: var(--white); background: var(--teal); padding: 10px 20px; border-radius: 4px; letter-spacing: .01em; white-space: nowrap; transition: background .15s, transform .15s; }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  background: var(--teal); padding: 10px 20px; border-radius: 4px;
+  letter-spacing: .01em; white-space: nowrap;
+  transition: background .15s, transform .15s;
+}
 .nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
 
+/* ─── HAMBURGER ──────────────────────────────────────────────── */
 .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
 .hamburger:hover { background: var(--teal-lt); }
 .hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
@@ -165,6 +213,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
 .mobile-menu .mm-cta:hover { background: var(--teal-dk); }
 
+/* ─── SECTION UTILITIES ──────────────────────────────────────── */
 .section { padding: 96px 0; position: relative; }
 .section.alt { background: var(--off-white); }
 .section.dark { background: var(--navy); color: var(--white); }
@@ -177,39 +226,101 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
 .s-body.lt { color: rgba(255,255,255,.65); }
 
+/* ─── BUTTONS (all with white-space: nowrap — labels never wrap) ── */
 .btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); background: var(--teal); padding: 13px 26px; border-radius: 4px; transition: background .15s, transform .15s; letter-spacing: .01em; font-family: var(--font-u); }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--teal);
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .15s, transform .15s;
+  letter-spacing: .01em; font-family: var(--font-u);
+}
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72); border: 1.5px solid rgba(255,255,255,.22); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
 .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--teal); background: var(--white); padding: 13px 30px; border-radius: 4px; transition: background .15s; font-family: var(--font-u); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--teal);
+  background: var(--white);
+  padding: 13px 30px; border-radius: 4px;
+  transition: background .15s; font-family: var(--font-u);
+}
 .btn-white:hover { background: var(--teal-lt); }
-.btn-gw { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
 .btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
 
 .arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
 .arrow-link:hover { gap: 9px; }
 .arrow-link svg { width: 13px; height: 13px; }
 
-/* Image placeholder — specific, actionable, client-facing */
-.img-placeholder { border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; position: relative; overflow: hidden; min-height: 180px; }
-.img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
-.img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
-.img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
+/* ─── IMAGE PLACEHOLDER (specific, actionable — not a generic box) ── */
+.img-placeholder {
+  border: 2px dashed var(--teal);
+  background: var(--teal-lt);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+.img-placeholder .ip-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--white); background: var(--teal);
+  padding: 4px 10px; border-radius: 2px;
+}
+.img-placeholder .ip-filename {
+  font-family: 'Courier New', monospace;
+  font-size: 13px; font-weight: 700; color: var(--teal-dk);
+  background: var(--white); padding: 4px 10px; border-radius: 3px;
+  border: 1px solid rgba(0,152,164,.3);
+  word-break: break-all; max-width: 100%;
+}
+.img-placeholder .ip-desc {
+  font-size: 12.5px; line-height: 1.55; color: var(--text-md);
+  max-width: 380px;
+}
 .img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
-.img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
+.img-placeholder .ip-specs {
+  font-size: 11px; font-weight: 600; color: var(--text-lt);
+  letter-spacing: .02em;
+  padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2);
+  margin-top: 4px;
+}
 
+/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
 .rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .rev.vis { opacity: 1; transform: none; }
 .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
 
+/* ─── FOCUS RING ─────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
 
+/* ─── BACK TO TOP ────────────────────────────────────────────── */
 .back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 .back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
 .back-to-top svg { width: 18px; height: 18px; }
 
+/* ─── FOOTER (locked — identical on every page) ──────────────── */
 footer { background: var(--navy); padding: 68px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
@@ -235,12 +346,14 @@ footer { background: var(--navy); padding: 68px 0 0; }
 .f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
 .f-legal a:hover { color: rgba(255,255,255,.55); }
 
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
   .rev { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
 
+/* ─── RESPONSIVE (tokens) ────────────────────────────────────── */
 @media (max-width: 1024px) {
   .wrap { padding: 0 32px; }
   .nav-items { display: none; }
@@ -259,94 +372,262 @@ footer { background: var(--navy); padding: 68px 0 0; }
   .f-legal { flex-wrap: wrap; justify-content: center; }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PART 2 — PAGE-SPECIFIC STYLES
-═══════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /solutions/operate
+   Mirrors /solutions/plan exactly (same class names, same values)
+════════════════════════════════════════════════════════════════ */
 
-.hero-inner { background: var(--navy); padding: 80px 0 72px; position: relative; overflow: hidden; }
-.hero-inner::after { content: ''; position: absolute; top: -120px; right: -80px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(0,152,164,.1) 0%, transparent 70%); pointer-events: none; }
-.hero-inner .wrap { position: relative; z-index: 2; }
-
-.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,.4); margin-bottom: 22px; flex-wrap: wrap; }
-.breadcrumb a { color: rgba(255,255,255,.4); transition: color .15s; }
+/* ── Inner-page hero ── */
+.inner-hero {
+  background: var(--navy);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.inner-hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -80px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.09) 0%, transparent 70%);
+  pointer-events: none;
+}
+.inner-hero .wrap { position: relative; z-index: 2; }
+.breadcrumb {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,.38);
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 20px;
+}
+.breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
 .breadcrumb a:hover { color: var(--teal-mid); }
-.breadcrumb .sep { color: rgba(255,255,255,.25); }
-.breadcrumb .current { color: var(--teal-mid); }
-
-.hero-inner h1 { font-family: var(--font-d); font-size: clamp(32px, 3.4vw, 44px); font-weight: 700; line-height: 1.12; color: var(--white); letter-spacing: -.02em; margin-bottom: 20px; max-width: 780px; }
-.hero-lead { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.62); max-width: 640px; margin-bottom: 32px; }
-.hero-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.hero-over::before { content: ''; display: block; width: 20px; height: 2px; background: var(--teal); }
-
+.breadcrumb svg { width: 10px; height: 10px; opacity: .5; }
+.inner-hero-text { max-width: 780px; }
+.inner-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700; line-height: 1.14;
+  color: var(--white);
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+}
+.inner-hero h1 em { font-style: normal; color: var(--teal-mid); }
+.inner-hero-lead {
+  font-size: 17px; line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  max-width: 600px;
+  margin-bottom: 34px;
+}
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-.intro-centred { text-align: center; max-width: 720px; margin: 0 auto; }
-.intro-centred .s-over { justify-content: center; }
-.intro-centred .s-body { margin: 0 auto; max-width: 640px; }
-.intro-centred .arrow-wrap { margin-top: 22px; }
+/* ── Centred intro ── */
+.intro-block {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.intro-block .s-over { justify-content: center; }
+.intro-block .s-body { margin: 0 auto; }
 
-.feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.feature-row.reverse .feature-text { order: 2; }
-.feature-row.reverse .feature-image { order: 1; }
+/* ── Feature cards ── */
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 52px;
+}
+.fc {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 30px 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  transition: box-shadow .2s var(--ease), transform .2s var(--ease);
+}
+.fc::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--teal);
+  opacity: 0; transition: opacity .2s;
+}
+.fc:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.fc:hover::before { opacity: 1; }
+.fc-icon {
+  width: 42px; height: 42px;
+  background: var(--teal-lt);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.fc-icon svg { width: 21px; height: 21px; color: var(--teal); }
+.fc-title {
+  font-family: var(--font-d);
+  font-size: 19px; font-weight: 700;
+  color: var(--navy); margin-bottom: 9px; line-height: 1.25;
+}
+.fc-desc { font-size: 13.5px; line-height: 1.6; color: var(--text-md); }
 
-.feature-text h2 { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; line-height: 1.2; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
-.feature-text > p { font-size: 17px; line-height: 1.65; color: var(--text-md); margin-bottom: 28px; }
+/* ── Feature rows (alternating content+image) ── */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.feature-row.flip { direction: rtl; }
+.feature-row.flip > * { direction: ltr; }
+.feature-row-text .s-over { margin-bottom: 10px; }
+.feature-row-text h2 { margin-bottom: 16px; }
+.feature-row-text p {
+  font-size: 16px; line-height: 1.7;
+  color: var(--text-md);
+  margin-bottom: 16px;
+}
+.feature-list {
+  margin-top: 20px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.feature-list li {
+  display: flex; gap: 11px; align-items: flex-start;
+}
+.fl-dot {
+  width: 6px; height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.fl-text { font-size: 14px; line-height: 1.6; color: var(--text-md); }
+.fl-text strong { font-weight: 600; color: var(--navy); display: block; margin-bottom: 2px; }
 
-.feature-list { margin-bottom: 28px; }
-.feature-list li { margin-bottom: 20px; }
-.feature-list li:last-child { margin-bottom: 0; }
-.feature-list .label { display: block; font-family: var(--font-u); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; letter-spacing: -.005em; }
-.feature-list .desc { display: block; font-size: 14px; line-height: 1.6; color: var(--text-md); }
+/* ── Industry cross-links ── */
+.ind-links-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 44px;
+}
+.ind-link-tile {
+  background: var(--navy);
+  border: 1px solid rgba(0,152,164,.12);
+  border-radius: 6px;
+  padding: 20px 14px;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+}
+.ind-link-tile:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,152,164,.25);
+}
+.ind-link-tile svg { width: 28px; height: 28px; }
+.ind-link-tile span {
+  font-size: 11px; font-weight: 600;
+  color: rgba(255,255,255,.65);
+  line-height: 1.3;
+  transition: color .25s;
+}
+.ind-link-tile:hover span { color: var(--white); }
+.ilt-ics { stroke: var(--teal-mid); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ind-link-tile:hover .ilt-ics { stroke: var(--white); }
+.ilt-icf { fill: rgba(0,152,164,.15); stroke: var(--teal-mid); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ind-link-tile:hover .ilt-icf { fill: rgba(255,255,255,.12); stroke: var(--white); }
+.ilt-icd { fill: var(--teal-mid); stroke: none; }
+.ind-link-tile:hover .ilt-icd { fill: var(--white); }
 
-/* Feature-row image placeholder — override min-height to hit 4:3 */
-.feature-image { aspect-ratio: 4/3; }
+/* ── Testimonial (light variant) ── */
+.testi-light {
+  border-left: 4px solid var(--teal);
+  padding: 28px 32px;
+  background: var(--white);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  max-width: 780px;
+  margin: 0 auto;
+}
+.testi-light-quote {
+  font-family: var(--font-d);
+  font-size: 18px; font-style: italic;
+  line-height: 1.6;
+  color: var(--text-dk);
+  margin-bottom: 18px;
+}
+.testi-light-rule { width: 28px; height: 2px; background: var(--teal); margin-bottom: 12px; }
+.testi-light-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.testi-light-role { font-size: 12px; color: var(--teal); margin-top: 3px; }
 
-.hosting-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
-.hosting-card { background: var(--white); border-radius: 6px; padding: 30px 24px; box-shadow: 0 1px 4px rgba(26,58,74,.06); position: relative; overflow: hidden; transition: box-shadow .2s var(--ease), transform .2s var(--ease); }
-.hosting-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); opacity: 0; transition: opacity .2s; }
-.hosting-card:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
-.hosting-card:hover::before { opacity: 1; }
-.hosting-card.primary-pick::before { opacity: 1; }
+/* ── CTA band ── */
+.cta-sec {
+  background: var(--teal);
+  padding: 90px 0;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.6); margin-bottom: 18px;
+}
+.cta-sec h2 {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700; color: var(--white);
+  margin-bottom: 14px; letter-spacing: -.02em;
+}
+.cta-sec p {
+  font-size: 16px; color: rgba(255,255,255,.72);
+  max-width: 500px; margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.cta-btns {
+  display: flex; gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap; align-items: center;
+}
 
-.hosting-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); background: var(--teal-lt); padding: 3px 8px; border-radius: 2px; margin-bottom: 14px; }
-.hosting-icon { width: 42px; height: 42px; background: var(--teal-lt); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-.hosting-icon svg { width: 21px; height: 21px; color: var(--teal); }
-.hosting-card h3 { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
-.hosting-card p { font-size: 14px; line-height: 1.6; color: var(--text-md); }
-
-.testi-light { text-align: center; max-width: 760px; margin: 0 auto; }
-.testi-q { font-family: var(--font-d); font-size: clamp(20px, 2vw, 24px); font-weight: 400; font-style: italic; line-height: 1.55; color: var(--navy); margin-bottom: 28px; }
-.testi-attr { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 18px; position: relative; }
-.testi-attr::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 36px; height: 2px; background: var(--teal); }
-.testi-name { font-family: var(--font-u); font-size: 14px; font-weight: 600; color: var(--navy); }
-.testi-role { font-size: 12px; color: var(--text-lt); }
-
-.cta-band { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
-.cta-band::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
-.cta-band .wrap { position: relative; z-index: 2; }
-.cta-band-over { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
-.cta-band h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: var(--white); letter-spacing: -.02em; margin-bottom: 14px; }
-.cta-band p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto 36px; }
-.cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
-
+/* ── Responsive overrides ── */
 @media (max-width: 1024px) {
-  .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 36px; }
-  .feature-row.reverse .feature-text { order: 1; }
-  .feature-row.reverse .feature-image { order: 2; }
-  .hosting-grid { grid-template-columns: 1fr 1fr; }
+  .feature-cards { grid-template-columns: repeat(2, 1fr); }
+  .feature-row { grid-template-columns: 1fr; gap: 40px; }
+  .feature-row.flip { direction: ltr; }
+  .ind-links-grid { grid-template-columns: repeat(3, 1fr); }
+  .inner-hero { padding: 64px 0 56px; }
 }
 @media (max-width: 640px) {
-  .hero-inner { padding: 56px 0 48px; }
-  .hosting-grid { grid-template-columns: 1fr; }
+  .feature-cards { grid-template-columns: 1fr; }
+  .ind-links-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-ghost { justify-content: center; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .testi-light { padding: 22px 20px; }
 }
-</style>
+  </style>
 </head>
 <body>
 
+<!-- ════════════════════════════════════
+     HEADER — copied verbatim from header.html
+     Active state: Solutions nav-btn
+════════════════════════════════════ -->
 <!-- ═══════════════════════════════════════════════════════════════
-     PART 3 — header.html (PASTED VERBATIM FROM partials/header.html)
-     Only edit: class="active" on the Platform nav-btn
+     header.html — CANONICAL site header partial
+     Source of truth: extracted from approved homepage (index.html)
 ═══════════════════════════════════════════════════════════════ -->
+
+<!-- Skip to content -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="nav-overlay" id="navOverlay"></div>
@@ -365,9 +646,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
     <div class="nav-items">
 
-      <!-- ═══ PLATFORM (active) ═══ -->
       <div class="nav-item" data-menu="platform">
-        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Platform
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
@@ -410,9 +690,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- ═══ SOLUTIONS ═══ -->
       <div class="nav-item" data-menu="solutions">
-        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Solutions
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
@@ -445,7 +724,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- ═══ SERVICES ═══ -->
       <div class="nav-item" data-menu="services">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -482,12 +760,10 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- ═══ CUSTOMERS (single link) ═══ -->
       <div class="nav-item">
         <a class="nav-btn" href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
       </div>
 
-      <!-- ═══ ABOUT ═══ -->
       <div class="nav-item" data-menu="about">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -503,7 +779,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- ═══ RESOURCES ═══ -->
       <div class="nav-item" data-menu="resources">
         <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
@@ -564,33 +839,30 @@ footer { background: var(--navy); padding: 68px 0 0; }
   <a href="https://webalive01.github.io/hkaapac/index.html" class="mm-cta">Contact Us</a>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 4 — PAGE CONTENT
-═══════════════════════════════════════════════════════════════ -->
 <main id="main-content">
 
-  <!-- HERO -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <section class="hero-inner">
+  <!-- ── HERO ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit Section 4 Operate context -->
+  <section class="inner-hero">
     <div class="wrap">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="https://webalive01.github.io/hkaapac/index.html">Home</a>
-        <span class="sep" aria-hidden="true">›</span>
-        <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Platform</a>
-        <span class="sep" aria-hidden="true">›</span>
-        <span class="current" aria-current="page">Overview</span>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <a href="https://webalive01.github.io/hkaapac/customers.html">Solutions</a>
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+        <span>Operate</span>
       </nav>
-      <div class="rev">
-        <div class="hero-over">PMWeb Platform</div>
-        <h1>PMWeb — The Capital Works Management Platform</h1>
-        <p class="hero-lead">Built specifically for owners of buildings and infrastructure, PMWeb brings full lifecycle control — from program planning and procurement through to asset operation — into a single, integrated platform.</p>
+      <div class="inner-hero-text rev">
+        <div class="s-over lt">PMWeb — Operate Phase</div>
+        <h1>Manage Your Assets <em>Long After Handover.</em></h1>
+        <p class="inner-hero-lead">Construction closes out. Operations begin. PMWeb's Operate phase keeps your organisation in full control — tracking assets, managing leases, scheduling maintenance, and coordinating work orders across every facility in your portfolio.</p>
         <div class="hero-ctas">
-          <a href="https://webalive01.github.io/hkaapac/index.html" class="btn-primary">
-            Talk to Our Team
+          <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">
+            Contact Us
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
-          <a href="https://webalive01.github.io/hkaapac/features.html" class="btn-ghost">
-            Explore Platform Features
+          <a class="btn-ghost" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+            Full Platform Overview
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
@@ -598,211 +870,280 @@ footer { background: var(--navy); padding: 68px 0 0; }
     </div>
   </section>
 
-  <!-- CENTRED INTRO -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <section class="section">
+  <!-- ── CENTRED INTRO ── -->
+  <!-- SOURCE: RELOCATED — adapted from homepage PBO Operate tab -->
+  <section class="section rev">
     <div class="wrap">
-      <div class="intro-centred">
-        <div class="s-over rev">Built for Owners of Buildings and Infrastructure</div>
-        <h2 class="s-title rev d1">Capital Works Management at Every Scale</h2>
-        <p class="s-body rev d2">PMWeb is purpose-built for the owner's perspective, not general project management. Whether the portfolio is a single hospital redevelopment or a ten-year, multi-agency infrastructure program, PMWeb provides the cost control, scheduling discipline, and document governance that capital works demands.</p>
-        <p class="s-body rev d2" style="margin-top:14px">HKA Tech is the #1 PMWeb implementation partner across Asia Pacific, with over 300 organisations trusting PMWeb and our team to run their most complex programs.</p>
-        <div class="arrow-wrap rev d3">
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/customers.html">See who uses PMWeb
+      <div class="intro-block">
+        <div class="s-over">The Operate Phase</div>
+        <h2 class="s-title">Asset Management, Leases &amp; Ongoing Operations</h2>
+        <p class="s-body">Most project management platforms stop at practical completion. PMWeb doesn't. The Operate phase delivers a fully integrated environment for asset tracking, preventive maintenance, lease management, and facility operations — all connected to the cost and document data built during Plan and Build.</p>
+        <div style="margin-top:20px">
+          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/plan.html">Explore the Plan phase
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
           </a>
+        </div>
+      </div>
+
+      <!-- SOURCE: RELOCATED — from homepage PBO Operate tab cards -->
+      <div class="feature-cards">
+        <div class="fc rev d1">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="9" width="18" height="11" rx="1.5"/>
+              <path d="M6 9V6a5 5 0 0 1 10 0v3"/>
+            </svg>
+          </div>
+          <div class="fc-title">Asset Management</div>
+          <p class="fc-desc">Track, monitor, map, and assess locations, facilities, equipment, and subcomponents — with preventive and predictive maintenance, work requests, and work orders.</p>
+        </div>
+        <div class="fc rev d2">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="18" height="18" rx="2"/>
+              <path d="M6 11h10M11 6v10"/>
+            </svg>
+          </div>
+          <div class="fc-title">Lease Management</div>
+          <p class="fc-desc">Define and manage cost and revenue leases with sophisticated charge calculations, lease abstracts, suite linking, and direct integration with planning and workflow modules.</p>
+        </div>
+        <div class="fc rev d3">
+          <div class="fc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M5 6h12M5 11h8M5 16h10"/>
+              <circle cx="17" cy="16" r="3.5"/>
+              <path d="M17 14.5v1.5l1 1"/>
+            </svg>
+          </div>
+          <div class="fc-title">Work Orders &amp; Requests</div>
+          <p class="fc-desc">Receive, prioritise, and assign work requests from any location. Track work orders to resolution with full audit trails, cost capture, and integration with your asset register.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLAN feature row -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — Plan sub-items: Planning, Estimating, Procurement per client directive -->
-  <!-- [IMAGE NEEDED]: platform-overview-plan-phase.jpg — PMWeb Plan module estimating workspace screenshot, 4:3, 720×540+ -->
-  <section class="section alt">
+  <!-- ── ASSET MANAGEMENT DETAIL ROW ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — expanded from homepage Operate card -->
+  <section class="section alt rev">
     <div class="wrap">
       <div class="feature-row">
-        <div class="feature-text rev">
-          <div class="s-over">Plan</div>
-          <h2>Establish Control Before the First Shovel Turns</h2>
-          <p>The Plan phase gives program directors and procurement teams a single, auditable environment for estimating, approvals, and supply-chain engagement, before construction risk is locked in.</p>
-          <ul class="feature-list">
+        <div class="feature-row-text">
+          <div class="s-over">Asset Management</div>
+          <h2 class="s-title">A Complete Register of Every Asset You Own</h2>
+          <p>PMWeb gives you a single, structured asset register that links directly to the project records created during the Build phase. Every asset — building, piece of infrastructure, plant, or equipment — is registered with its full hierarchy, location data, condition status, and maintenance history.</p>
+          <p>Preventive maintenance schedules are configured at the asset level and automatically generate work orders on the required cycle. Predictive maintenance rules can be applied based on usage, age, or condition thresholds — ensuring your maintenance program is responsive, not just reactive.</p>
+          <ul class="feature-list" role="list">
             <li>
-              <span class="label">Program Planning</span>
-              <span class="desc">Define program scope, phasing, funding sources, and approval workflows across the entire capital program from a single workspace.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Asset hierarchies</strong>Unlimited depth — from precinct to individual component — with location mapping linking assets to specific buildings, floors, and spaces.</div>
             </li>
             <li>
-              <span class="label">Estimating</span>
-              <span class="desc">Build detailed cost models using configurable cost structures, benchmarks, and escalation factors aligned to your organisation's standards.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Maintenance scheduling</strong>Automatic work order generation on preventive cycles, with condition assessments recording inspection results against defined rating scales.</div>
             </li>
             <li>
-              <span class="label">Procurement</span>
-              <span class="desc">Manage the full tender lifecycle (RFI, RFT, bid evaluation, and contract award) with complete audit trails required by government panels and accreditation bodies.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Whole-of-life cost capture</strong>Every work order cost is captured against the relevant asset, enabling accurate whole-of-life cost analysis and capital renewal forecasting.</div>
             </li>
           </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/plan.html">Explore Plan features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
         </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Plan module estimating workspace">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-plan-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Plan module, specifically the estimating workspace with a 3+ level WBS cost breakdown visible on screen. Use an anonymised demo dataset — no real client names or dollar figures.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        <div>
+          <!-- [IMAGE NEEDED]: operate-asset-management-screenshot.jpg — PMWeb Asset Management module showing asset hierarchy and maintenance schedule, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Asset Management module showing asset hierarchy tree and preventive maintenance schedule">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">operate-asset-management-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Asset Management module showing an asset hierarchy tree (at least 3 levels: Site → Building → Equipment) alongside a preventive maintenance schedule grid. Use an anonymised demo dataset — no real client site names or asset IDs.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BUILD feature row (reversed) -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <!-- [IMAGE NEEDED]: platform-overview-build-phase.jpg — PMWeb Build module contract + schedule integration, 4:3, 720×540+ -->
-  <section class="section">
+  <!-- ── LEASE MANAGEMENT DETAIL ROW ── -->
+  <!-- SOURCE: RELOCATED from homepage Operate card + [NEW — VERIFY] body -->
+  <section class="section rev">
     <div class="wrap">
-      <div class="feature-row reverse">
-        <div class="feature-text rev">
-          <div class="s-over">Build</div>
-          <h2>Deliver On Budget, On Program</h2>
-          <p>The Build phase puts contract managers, schedulers, and document controllers in one environment, eliminating the email chains, spreadsheet reconciliations, and version-control failures that erode delivery certainty on complex construction programs.</p>
-          <ul class="feature-list">
+      <div class="feature-row flip">
+        <div class="feature-row-text">
+          <div class="s-over">Lease Management</div>
+          <h2 class="s-title">Sophisticated Lease Administration, Fully Integrated</h2>
+          <p>For organisations that own and lease property — government agencies managing tenanted buildings, healthcare organisations with commercial leases, developers with income-producing assets — PMWeb's Lease Management module provides a complete administration framework.</p>
+          <p>Lease abstracts capture all key terms. Charge calculations handle rent, outgoings, CPI adjustments, and incentives. Suite linking connects each tenancy to the physical space in your asset register. All lease financials flow directly into your cost and portfolio dashboards.</p>
+          <ul class="feature-list" role="list">
             <li>
-              <span class="label">Contract Management</span>
-              <span class="desc">Track contract values, variations, claims, and payment certifications with full version history and approval audit trails.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Lease abstracts</strong>Capture all key commercial terms — rent, outgoings, CPI adjustments, incentives, and renewal options — in a structured, searchable format.</div>
             </li>
             <li>
-              <span class="label">Scheduling</span>
-              <span class="desc">Integrate schedule data with cost and document workflows so program directors see real delivery status, not last week's report.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Charge calculations and suite linking</strong>Sophisticated charge logic connects each tenancy to specific spaces in the asset register, with all financials flowing to your portfolio dashboards.</div>
             </li>
             <li>
-              <span class="label">Document Control</span>
-              <span class="desc">Manage drawings, specifications, RFIs, and submittals with configurable distribution, review, and approval workflows at project and program level.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Workflow integration</strong>Lease approvals, renewals, and variations are managed through configurable PMWeb workflows — maintaining a complete audit trail for compliance.</div>
             </li>
           </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/build.html">Explore Build features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
         </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Build module contract and schedule view">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-build-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Build module showing a contract register with variation/claim tracking visible alongside a Gantt schedule view. Anonymised demo dataset — no real contract numbers or supplier names.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        <div>
+          <!-- [IMAGE NEEDED]: operate-lease-management-screenshot.jpg — PMWeb Lease Management screen showing lease abstracts and charge calculations, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Lease Management screen showing lease abstract and charge calculation summary">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">operate-lease-management-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Lease Management module showing a lease abstract with key fields (term, rent, outgoings, incentive) and a charge calculation summary. Use an anonymised demo dataset — no real tenant or property names.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OPERATE feature row -->
+  <!-- ── WORK ORDERS DETAIL ROW ── -->
   <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <!-- [IMAGE NEEDED]: platform-overview-operate-phase.jpg — PMWeb Operate module asset management view, 4:3, 720×540+ -->
-  <section class="section alt">
+  <section class="section alt rev">
     <div class="wrap">
       <div class="feature-row">
-        <div class="feature-text rev">
-          <div class="s-over">Operate</div>
-          <h2>Protect the Asset Long After Handover</h2>
-          <p>The Operate phase ensures the intelligence captured during planning and delivery (contracts, warranties, as-built drawings, maintenance schedules) remains accessible and actionable throughout the asset's life.</p>
-          <ul class="feature-list">
+        <div class="feature-row-text">
+          <div class="s-over">Work Orders &amp; Facility Management</div>
+          <h2 class="s-title">From Work Request to Resolution, in One System</h2>
+          <p>PMWeb handles the full work order lifecycle — from the initial request raised by a facility user through to assignment, scheduling, execution, and sign-off. Every step is tracked, costed, and connected to the relevant asset record.</p>
+          <p>Because work order data sits alongside your asset register, cost records, and document management, you always have a complete picture of what work has been done, what it cost, and what impact it has on the projected life of your assets.</p>
+          <ul class="feature-list" role="list">
             <li>
-              <span class="label">Facility Management</span>
-              <span class="desc">Maintain a living register of assets, spaces, and preventive maintenance obligations linked directly to the original construction documentation.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Work request submission</strong>From any device — browser-based, zero footprint required. Priority classification and routing rules apply automatically based on asset type and urgency.</div>
             </li>
             <li>
-              <span class="label">Asset Management</span>
-              <span class="desc">Track lifecycle costs, condition assessments, and capital replacement planning across the full asset portfolio.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Contractor management</strong>Purchase order integration for external works, with time and materials capture against each work order for accurate job costing.</div>
             </li>
             <li>
-              <span class="label">Workflow Automation</span>
-              <span class="desc">Automate routine processes (work orders, compliance checks, reporting) to reduce administrative overhead on operational teams.</span>
+              <div class="fl-dot" aria-hidden="true"></div>
+              <div class="fl-text"><strong>Approval and escalation workflows</strong>Configurable workflows manage approvals, escalations, and completion sign-off — with a full audit trail for compliance and reporting.</div>
             </li>
           </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/operate.html">Explore Operate features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
+          <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+            <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">Talk to Our Team
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </a>
+            <a class="arrow-link" href="https://webalive01.github.io/hkaapac/features.html">Explore PMWeb platform features
+              <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Operate module asset management and maintenance view">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-operate-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Operate module — asset register or facility management view, ideally with preventive maintenance work orders visible. Anonymised demo dataset — no real facility addresses or personnel.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
+        <div>
+          <!-- [IMAGE NEEDED]: operate-work-orders-screenshot.jpg — PMWeb Work Order list screen with open requests, 4:3, 720×540+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb Work Order management screen showing open work requests with priority, status, and assigned resource columns">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">operate-work-orders-screenshot.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's Work Order management screen showing a list of open work requests with columns for priority, asset, status, assigned resource, and estimated cost. At least 6–8 rows visible. Use anonymised demo data.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG · Include PMWeb interface chrome</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HOSTING — 3-col card grid (the one grid allowed on this page) -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — SaaS/AWS primary per client directive -->
-  <section class="section">
+  <!-- ── TESTIMONIAL (light variant) ── -->
+  <!-- [CLIENT TO SUPPLY: testimonial from an Operate-phase client — government, healthcare, or property sector, referencing asset management, lease management, or facility operations] -->
+  <section class="section rev">
     <div class="wrap">
-      <div class="intro-centred">
-        <div class="s-over rev">Hosting &amp; Deployment</div>
-        <h2 class="s-title rev d1">Delivered via SaaS. Flexible Where Required.</h2>
-        <p class="s-body rev d2">PMWeb is delivered as a fully managed SaaS solution on Amazon Web Services, giving government and enterprise clients the security, availability, and data-sovereignty assurances their programs demand. On-premise and managed hosting options are also available where organisational requirements dictate.</p>
+      <div style="text-align:center;margin-bottom:36px">
+        <div class="s-over" style="justify-content:center">What Our Clients Say</div>
       </div>
-
-      <div class="hosting-grid">
-        <div class="hosting-card primary-pick rev">
-          <div class="hosting-badge">Recommended</div>
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10h-1A7 7 0 1 0 7 18h9a4 4 0 0 0 0-8z"/></svg>
-          </div>
-          <h3>SaaS on AWS</h3>
-          <p>Fully managed, multi-tenant SaaS delivered on Amazon Web Services. Includes automatic updates, infrastructure management, and enterprise-grade uptime commitments. The preferred path for new deployments and existing clients upgrading to PMWeb 8.</p>
-        </div>
-
-        <div class="hosting-card rev d1">
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="18" height="13" rx="2"/><path d="M8 19h6M11 16v3"/></svg>
-          </div>
-          <h3>Managed Hosting</h3>
-          <p>Dedicated hosting environment managed by HKA Tech on behalf of the client. Suitable for organisations with specific data residency or network isolation requirements that fall outside a standard multi-tenant deployment.</p>
-        </div>
-
-        <div class="hosting-card rev d2">
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="6" width="18" height="13" rx="2"/><path d="M14 6V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2M7 11v4M11 11v4M15 11v4"/></svg>
-          </div>
-          <h3>On-Premise</h3>
-          <p>Self-hosted deployment on client infrastructure. Available for organisations with legislative or security requirements that prevent use of cloud or managed services. Implementation and upgrade support provided by HKA Tech.</p>
-        </div>
+      <div class="testi-light">
+        <p class="testi-light-quote">"PMWeb gave us a single place to manage over 2,000 assets across our facilities portfolio. The integration between the work order system and our asset register means every team sees the same data in real time — we're no longer reconciling across multiple spreadsheets."</p>
+        <div class="testi-light-rule"></div>
+        <div class="testi-light-name">[CLIENT TO SUPPLY: Name and Title]</div>
+        <div class="testi-light-role">[CLIENT TO SUPPLY: Organisation — e.g. State Government Property Authority]</div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL — light variant -->
-  <!-- [CLIENT TO SUPPLY: quote and attribution — capital works sector, multiple evidence approach, not single signature project] -->
-  <section class="section alt">
+  <!-- ── INDUSTRY CROSS-LINKS ── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — asset-heavy sectors most relevant to Operate phase -->
+  <section class="section alt rev">
     <div class="wrap">
-      <div class="testi-light rev">
-        <p class="testi-q">PMWeb gives our program directors a single source of truth across every active project: cost, schedule, contracts, and documents. Reporting that used to take half a week now takes an afternoon.</p>
-        <div class="testi-attr">
-          <div class="testi-name">[CLIENT TO SUPPLY: Name, Title]</div>
-          <div class="testi-role">[CLIENT TO SUPPLY: Organisation, Sector]</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:44px">
+        <div>
+          <div class="s-over">Operate by Industry</div>
+          <h2 class="s-title">Asset Management Challenges Vary by Sector</h2>
+        </div>
+        <div>
+          <p class="s-body">Hospital critical systems, government building portfolios, university campuses, and long-life energy infrastructure each bring distinct operational requirements. HKA Tech's implementation teams understand the asset management frameworks your organisation operates within.</p>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="ind-links-grid">
 
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="wrap">
-      <div class="cta-band-over">Talk to Us</div>
-      <h2>Ready to Transform Your Capital Works Program?</h2>
-      <p>Talk to our team about how PMWeb can be implemented, configured, and supported across your organisation's full project lifecycle.</p>
-      <div class="cta-band-btns">
-        <a href="https://webalive01.github.io/hkaapac/index.html" class="btn-white">
-          Talk to Our Team
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Government — Operate solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path class="ilt-icf" d="M14 3L3 10h22L14 3z"/>
+            <rect class="ilt-icf" x="3" y="10" width="22" height="2" rx=".4"/>
+            <rect class="ilt-ics" x="5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="10" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="15.5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-ics" x="20.5" y="12" width="2.5" height="10" rx=".3"/>
+            <rect class="ilt-icf" x="2" y="22" width="24" height="2" rx=".4"/>
+          </svg>
+          <span>Government</span>
         </a>
-        <a href="https://webalive01.github.io/hkaapac/platform-overview.html" class="btn-gw">
-          Explore All Services
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Healthcare — Operate solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect class="ilt-icf" x="4" y="3" width="20" height="20" rx="4"/>
+            <path class="ilt-ics" d="M11.5 8h5v4.5h4.5v5h-4.5v4.5h-5v-4.5H7v-5h4.5z"/>
+          </svg>
+          <span>Healthcare</span>
+        </a>
+
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Education — Operate solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <path class="ilt-icf" d="M14 3L2 10l12 7 12-7L14 3z"/>
+            <path class="ilt-ics" d="M6 12.5v6c0 0 3.5 3.5 8 3.5s8-3.5 8-3.5v-6"/>
+            <rect class="ilt-icf" x="5" y="23" width="18" height="2.5" rx=".6"/>
+          </svg>
+          <span>Education</span>
+        </a>
+
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Developers &amp; Property — Operate solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <rect class="ilt-icf" x="3" y="5" width="13" height="19" rx="1"/>
+            <rect class="ilt-icf" x="16" y="11" width="9" height="13" rx="1"/>
+            <rect class="ilt-icd" x="6" y="9" width="3" height="2.5" rx=".3"/>
+            <rect class="ilt-icd" x="11" y="9" width="3" height="2.5" rx=".3"/>
+            <rect class="ilt-icd" x="6" y="14" width="3" height="2.5" rx=".3"/>
+            <rect class="ilt-icd" x="11" y="14" width="3" height="2.5" rx=".3"/>
+          </svg>
+          <span>Developers &amp; Property</span>
+        </a>
+
+        <a class="ind-link-tile" href="https://webalive01.github.io/hkaapac/customers.html" aria-label="Energy &amp; Resources — Operate solutions">
+          <svg viewBox="0 0 28 28" fill="none">
+            <circle class="ilt-icf" cx="14" cy="14" r="9"/>
+            <path class="ilt-ics" d="M16 7l-5 8h4l-1 6 5-8h-4z"/>
+          </svg>
+          <span>Energy &amp; Resources</span>
+        </a>
+
+      </div>
+      <div style="text-align:center;margin-top:32px">
+        <a class="arrow-link" href="https://webalive01.github.io/hkaapac/customers.html">View all 11 industries
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <section class="cta-sec rev">
+    <div class="wrap">
+      <div class="cta-eye">Manage What You've Built</div>
+      <h2>Ready to Manage Your Assets in PMWeb?</h2>
+      <p>Talk to our team about your asset management, lease, or facility operations requirements. We'll help you understand how PMWeb's Operate phase fits your organisation.</p>
+      <div class="cta-btns">
+        <a class="btn-white" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
+        <a class="btn-gw" href="https://webalive01.github.io/hkaapac/build.html">Explore the Build Phase
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
         </a>
       </div>
     </div>
@@ -810,10 +1151,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 5 — footer.html (PASTED VERBATIM)
-═══════════════════════════════════════════════════════════════ -->
-
+<!-- BACK TO TOP -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
 </button>
@@ -850,7 +1188,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
         </div>
       </div>
-
       <div>
         <div class="f-col-title">Platform &amp; Services</div>
         <div class="f-links">
@@ -864,7 +1201,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/platform-overview.html">What's New</a>
         </div>
       </div>
-
       <div>
         <div class="f-col-title">Company</div>
         <div class="f-links">
@@ -877,7 +1213,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/platform-overview.html">HKA Global</a>
         </div>
       </div>
-
       <div>
         <div class="f-col-title">Industries</div>
         <div class="f-links">
@@ -892,7 +1227,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
     </div>
-
     <div class="f-bottom">
       <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
       <div class="f-legal">
@@ -904,10 +1238,11 @@ footer { background: var(--navy); padding: 68px 0 0; }
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 6 — shared.js (PASTED VERBATIM — includes nav dropdown logic)
-═══════════════════════════════════════════════════════════════ -->
 <script>
+/* ═══════════════════════════════════════════════════════════════
+   shared.js — CANONICAL shared scripts for all HKA Tech pages
+═══════════════════════════════════════════════════════════════ */
+
 (function(){
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
   const overlay  = document.getElementById('navOverlay');
@@ -942,7 +1277,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
   const nav = document.getElementById('mainNav');
   if (nav) {
     window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,.12)' : '0 1px 8px rgba(0,0,0,.06)';
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
     }, { passive: true });
   }
 })();
@@ -952,7 +1289,10 @@ footer { background: var(--navy); padding: 68px 0 0; }
   if (revEls.length && 'IntersectionObserver' in window) {
     const revObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('vis'); revObs.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revEls.forEach(el => revObs.observe(el));
@@ -990,6 +1330,5 @@ footer { background: var(--navy); padding: 68px 0 0; }
   });
 })();
 </script>
-
 </body>
 </html>

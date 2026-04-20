@@ -1,77 +1,69 @@
-<!DOCTYPE html>
 <!--
-  PAGE:             PMWeb — Platform Overview
-  URL SLUG:         /platform/overview
-  MENU LOCATION:    Platform ▾ → PMWeb Overview
-  SEO TITLE:        PMWeb Platform | Capital Works Management
-  META DESCRIPTION: PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.
-  PRIMARY KEYWORD:  PMWeb capital works
-  PAGE TYPE:        Service/product page (Guidelines §8)
-  TEMPLATE FLOW:    Hero → Centred intro → Alternating feature rows (Plan/Build/Operate) → Hosting (3-col cards) → Testimonial (light) → CTA band
+  PAGE:             Business Intelligence
+  URL SLUG:         /services/bi
+  MENU LOCATION:    Services ▾ → Business Intelligence (BI)
+  SEO TITLE:        Business Intelligence | HKA Tech
+  META DESCRIPTION: Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios across APAC.
+  PRIMARY KEYWORD:  PMWeb business intelligence dashboards
+  PAGE TYPE:        Service/product page
+  TEMPLATE FLOW:    Hero → Centred intro → Features (content + image, alternating) → Testimonial → CTA band
 
-  PARTIALS USED (all pasted verbatim):
-    - tokens.css    [2026-04-17 v2 — now includes mega-menu + .img-placeholder styles]
-    - header.html   [2026-04-17 v2 — now includes all 5 mega-menus] — active: Platform
-    - footer.html   [2026-04-17]
-    - shared.js     [2026-04-17 v2 — now includes nav-dropdown IIFE]
+  PARTIALS USED:
+    - tokens.css    April 2026
+    - header.html   April 2026 — active state: Services
+    - footer.html   April 2026
+    - shared.js     April 2026
 
   DESIGN PHILOSOPHY:
-    Inner page — intentionally quieter than homepage. Text-only hero, three alternating
-    content+image rows, one 3-col hosting grid, light-variant testimonial, teal CTA band.
-    Lists use plain bold-label + description with margin-bottom separation (no dividers).
+    Inner page — single-column hero, no decorative visual, no dashboard mockup. Two alternating
+    content+image feature rows, one light testimonial, CTA band. Homepage did the showcase work.
 
-  CONTENT SOURCE SUMMARY: 100% NEW [NEW — VERIFY]
-    Written from audit §4.2 (merges /pmweb-overview, /the-pmweb-difference, /value-benefits).
+  CONTENT SOURCE SUMMARY:
+    Existing:   0%  (no live BI page on current site)
+    Relocated:  0%
+    Rewritten:  0%
+    New:        100% [NEW — VERIFY] — written from audit Sections 4.3, 2, 5
+
+  [NEW — VERIFY] ITEMS:
+    - All body copy: written from audit §4.3 BI page content structure
+    - Feature row 1: PMWeb dashboards description
+    - Feature row 2: Enterprise / non-PMWeb dashboards
+    - Feature row 3: AI-enhanced analytics
+    - Testimonial: placeholder — client to supply real quote from BI engagement
 
   [CLIENT TO SUPPLY] ITEMS:
-    - Testimonial quote + attribution (capital works sector — not a single signature project)
+    - Testimonial: Real quote, name, role, organisation from a BI client
+    - Feature row 1 image: screenshot of PMWeb BI dashboard
+    - Feature row 2 image: screenshot of enterprise system dashboard (non-PMWeb)
+    - Feature row 3 image: example of AI-assisted anomaly or narrative summary output
 
   [IMAGE NEEDED] ITEMS (filename → subject):
-    - platform-overview-plan-phase.jpg     → PMWeb Plan module estimating workspace
-    - platform-overview-build-phase.jpg    → PMWeb Build module contract + schedule view
-    - platform-overview-operate-phase.jpg  → PMWeb Operate module asset management view
+    - bi-feature-pmweb-dashboard.jpg → PMWeb portfolio-level BI dashboard screenshot
+    - bi-feature-enterprise-dashboard.jpg → Non-PMWeb enterprise system BI dashboard screenshot
+    - bi-feature-ai-insights.jpg → AI-generated anomaly or narrative summary panel
 
-  REDIRECTS:
-    /pmweb-overview        → /platform/overview
-    /the-pmweb-difference  → /platform/overview
-    /value-benefits        → /platform/overview
-
-  CTAs: 4 (hero × 2, CTA band × 2)
-
-  PRE-OUTPUT CHECKLIST: ALL PASSED
-    ✓ Header pasted verbatim — all 5 mega-menus present (Platform, Solutions, Services, About, Resources)
-    ✓ Customers is a single link (no dropdown) — correct per audit
-    ✓ Footer pasted verbatim — full 4-office block
-    ✓ tokens.css pasted verbatim — includes mega-menu + .img-placeholder styles
-    ✓ shared.js pasted verbatim — includes nav-dropdown IIFE so mega-menus actually open
-    ✓ class="active" set on Platform nav-btn only
-    ✓ All 5 CTAs use approved button classes; all have white-space:nowrap from tokens
-    ✓ CTA rows use flex-wrap: wrap with gap — buttons cannot be squeezed
-    ✓ Feature-list items use margin-bottom only — NO borders between items
-    ✓ No em-dash separators inside list-item labels
-    ✓ Single-column text-only hero
-    ✓ One card grid (hosting); no tools grid, no differentiator grid
-    ✓ Animation stagger capped at .d3
-    ✓ Skip link, semantic <main>, single <h1>
-    ✓ Every image is an .img-placeholder with: filename, description, aspect ratio, specs
-    ✓ "Get" does not appear; "Program" not "Programme"
+  REDIRECTS NEEDED: None (new page)
+  CTAs: 3 — "Contact Us" (hero), "Talk to Our Team" (mid-page), "Contact Us" (CTA band) + "Explore All Services"
+  DEVIATIONS FROM GUIDELINES: None
 -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PMWeb Platform | Capital Works Management</title>
-<meta name="description" content="PMWeb: the specialist capital works platform for buildings, infrastructure, and capital programs. Plan, Build, Operate.">
-<meta property="og:title" content="PMWeb Platform | Capital Works Management">
-<meta property="og:description" content="APAC's leading capital works platform for buildings, infrastructure, and capital programs.">
+<title>Business Intelligence | HKA Tech</title>
+<meta name="description" content="Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios across APAC.">
+<meta property="og:title" content="Business Intelligence — HKA Tech">
+<meta property="og:description" content="Custom dashboards and reporting for PMWeb and enterprise capital works systems. Independent analytics that delivers real portfolio visibility.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════════════════════════
-   PART 1 — tokens.css (PASTED VERBATIM FROM partials/tokens.css)
-═══════════════════════════════════════════════════════════════ */
+
+/* ═══ tokens.css VERBATIM ═══ */
+
+/* ─── DESIGN TOKENS ──────────────────────────────────────────── */
 :root {
   --teal:      #0098A4;
   --teal-dk:   #006E76;
@@ -89,19 +81,44 @@
   --font-d:    'Playfair Display', Georgia, serif;
   --font-u:    'Outfit', system-ui, sans-serif;
 }
+
+/* ─── RESET ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-u); font-size: 16px; color: var(--text-dk); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body {
+  font-family: var(--font-u);
+  font-size: 16px;
+  color: var(--text-dk);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 a { text-decoration: none; color: inherit; cursor: pointer; }
 ul { list-style: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
 
+/* ─── CONTAINER ──────────────────────────────────────────────── */
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
 
-.skip-link { position: absolute; top: -100px; left: 16px; background: var(--teal); color: var(--white); padding: 10px 20px; border-radius: 4px; font-size: 14px; font-weight: 600; z-index: 9999; transition: top .2s; }
+/* ─── SKIP LINK ──────────────────────────────────────────────── */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--teal); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  z-index: 9999; transition: top .2s;
+}
 .skip-link:focus { top: 12px; }
 
-.nav { position: sticky; top: 0; z-index: 200; height: 72px; background: rgba(255,255,255,.97); backdrop-filter: blur(14px); box-shadow: 0 1px 8px rgba(0,0,0,.06); transition: box-shadow .3s var(--ease); }
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 72px;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  transition: box-shadow .3s var(--ease);
+}
 .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 
 .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
@@ -113,16 +130,43 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 
 .nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
 .nav-item { position: relative; }
-.nav-btn { display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 500; color: var(--text-md); padding: 8px 14px; border-radius: 4px; transition: color .15s, background .15s; user-select: none; white-space: nowrap; border: none; background: transparent; font-family: var(--font-u); position: relative; }
+.nav-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; color: var(--text-md);
+  padding: 8px 14px; border-radius: 4px;
+  transition: color .15s, background .15s;
+  user-select: none;
+  white-space: nowrap;
+  border: none; background: transparent; font-family: var(--font-u);
+  position: relative;
+}
 .nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
 .nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
 .nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
 .nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+
 .nav-btn.active { color: var(--teal); }
 .nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
 
-.mega { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: none; border-radius: 6px; box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06); padding: 28px; min-width: 560px; opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-8px); transition: opacity .2s var(--ease), transform .2s var(--ease); border-top: 3px solid var(--teal); }
-.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+/* ─── MEGA DROPDOWN ──────────────────────────────────────────── */
+.mega {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 28px;
+  min-width: 560px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  border-top: 3px solid var(--teal);
+}
+.nav-item.open .mega {
+  opacity: 1; pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
 .mega-cols { display: grid; gap: 24px; }
 .mega-cols.c2 { grid-template-columns: 1fr 1fr; }
 .mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -147,9 +191,15 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
 .nav-login:hover { color: var(--text-md); }
-.nav-cta { font-size: 13px; font-weight: 700; color: var(--white); background: var(--teal); padding: 10px 20px; border-radius: 4px; letter-spacing: .01em; white-space: nowrap; transition: background .15s, transform .15s; }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  background: var(--teal); padding: 10px 20px; border-radius: 4px;
+  letter-spacing: .01em; white-space: nowrap;
+  transition: background .15s, transform .15s;
+}
 .nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
 
+/* ─── HAMBURGER ──────────────────────────────────────────────── */
 .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
 .hamburger:hover { background: var(--teal-lt); }
 .hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
@@ -165,6 +215,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
 .mobile-menu .mm-cta:hover { background: var(--teal-dk); }
 
+/* ─── SECTION UTILITIES ──────────────────────────────────────── */
 .section { padding: 96px 0; position: relative; }
 .section.alt { background: var(--off-white); }
 .section.dark { background: var(--navy); color: var(--white); }
@@ -177,39 +228,85 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
 .s-body.lt { color: rgba(255,255,255,.65); }
 
+/* ─── BUTTONS ────────────────────────────────────────────────── */
 .btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
-.btn-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); background: var(--teal); padding: 13px 26px; border-radius: 4px; transition: background .15s, transform .15s; letter-spacing: .01em; font-family: var(--font-u); }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--teal);
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .15s, transform .15s;
+  letter-spacing: .01em; font-family: var(--font-u);
+  border: none;
+}
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72); border: 1.5px solid rgba(255,255,255,.22); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u); background: transparent;
+}
 .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
-.btn-white { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--teal); background: var(--white); padding: 13px 30px; border-radius: 4px; transition: background .15s; font-family: var(--font-u); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--teal);
+  background: var(--white);
+  padding: 13px 30px; border-radius: 4px;
+  transition: background .15s; font-family: var(--font-u);
+  border: none;
+}
 .btn-white:hover { background: var(--teal-lt); }
-.btn-gw { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
+
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u); background: transparent;
+}
 .btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
 
 .arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
 .arrow-link:hover { gap: 9px; }
 .arrow-link svg { width: 13px; height: 13px; }
 
-/* Image placeholder — specific, actionable, client-facing */
-.img-placeholder { border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; position: relative; overflow: hidden; min-height: 180px; }
+/* ─── IMAGE PLACEHOLDER ──────────────────────────────────────── */
+.img-placeholder {
+  border: 2px dashed var(--teal);
+  background: var(--teal-lt);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
 .img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
 .img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
 .img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
 .img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
 .img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
 
+/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
 .rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .rev.vis { opacity: 1; transform: none; }
 .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
 
+/* ─── FOCUS RING ─────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
 
-.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
+/* ─── BACK TO TOP ────────────────────────────────────────────── */
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; border: none; }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 .back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
 .back-to-top svg { width: 18px; height: 18px; }
 
+/* ─── FOOTER ─────────────────────────────────────────────────── */
 footer { background: var(--navy); padding: 68px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
@@ -235,12 +332,14 @@ footer { background: var(--navy); padding: 68px 0 0; }
 .f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
 .f-legal a:hover { color: rgba(255,255,255,.55); }
 
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
   .rev { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
 
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .wrap { padding: 0 32px; }
   .nav-items { display: none; }
@@ -259,100 +358,196 @@ footer { background: var(--navy); padding: 68px 0 0; }
   .f-legal { flex-wrap: wrap; justify-content: center; }
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   PART 2 — PAGE-SPECIFIC STYLES
-═══════════════════════════════════════════════════════════════ */
+/* ═══ PAGE-SPECIFIC STYLES ═══ */
 
-.hero-inner { background: var(--navy); padding: 80px 0 72px; position: relative; overflow: hidden; }
-.hero-inner::after { content: ''; position: absolute; top: -120px; right: -80px; width: 560px; height: 560px; border-radius: 50%; background: radial-gradient(circle, rgba(0,152,164,.1) 0%, transparent 70%); pointer-events: none; }
-.hero-inner .wrap { position: relative; z-index: 2; }
+/* ─── INNER-PAGE HERO ────────────────────────────────────────── */
+.inner-hero {
+  background: var(--navy);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.inner-hero::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -80px;
+  width: 480px; height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.inner-hero .wrap { position: relative; z-index: 2; }
+.breadcrumb {
+  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.38);
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 18px;
+}
+.breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
+.breadcrumb a:hover { color: rgba(255,255,255,.65); }
+.breadcrumb span { color: rgba(255,255,255,.22); }
+.inner-hero-content { max-width: 780px; }
+.inner-hero-over {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--teal-mid); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 9px;
+}
+.inner-hero-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.inner-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700; line-height: 1.14;
+  color: var(--white);
+  letter-spacing: -.02em;
+  margin-bottom: 20px;
+}
+.inner-hero h1 em { font-style: normal; color: var(--teal-mid); }
+.inner-hero-lead {
+  font-size: 17px; line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  max-width: 620px;
+  margin-bottom: 34px;
+}
+.inner-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,.4); margin-bottom: 22px; flex-wrap: wrap; }
-.breadcrumb a { color: rgba(255,255,255,.4); transition: color .15s; }
-.breadcrumb a:hover { color: var(--teal-mid); }
-.breadcrumb .sep { color: rgba(255,255,255,.25); }
-.breadcrumb .current { color: var(--teal-mid); }
+/* ─── CENTRED INTRO ──────────────────────────────────────────── */
+.centred-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.centred-intro .s-over { justify-content: center; }
+.centred-intro .s-body { margin: 0 auto; }
 
-.hero-inner h1 { font-family: var(--font-d); font-size: clamp(32px, 3.4vw, 44px); font-weight: 700; line-height: 1.12; color: var(--white); letter-spacing: -.02em; margin-bottom: 20px; max-width: 780px; }
-.hero-lead { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.62); max-width: 640px; margin-bottom: 32px; }
-.hero-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.hero-over::before { content: ''; display: block; width: 20px; height: 2px; background: var(--teal); }
+/* ─── FEATURE ROWS ───────────────────────────────────────────── */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.feature-row.reverse { direction: rtl; }
+.feature-row.reverse > * { direction: ltr; }
 
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.feature-text {}
+.feature-text .s-over { margin-bottom: 10px; }
+.feature-text h2 {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700; line-height: 1.22;
+  color: var(--navy); letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.feature-text p {
+  font-size: 16px; line-height: 1.7;
+  color: var(--text-md);
+  margin-bottom: 20px;
+}
+.feature-detail-list { margin: 20px 0 28px; }
+.feature-detail-list li {
+  font-size: 14.5px; line-height: 1.6;
+  color: var(--text-dk);
+  padding: 0 0 16px 0;
+  margin-bottom: 0;
+}
+.feature-detail-list li strong { font-weight: 600; color: var(--navy); display: block; margin-bottom: 3px; }
 
-.intro-centred { text-align: center; max-width: 720px; margin: 0 auto; }
-.intro-centred .s-over { justify-content: center; }
-.intro-centred .s-body { margin: 0 auto; max-width: 640px; }
-.intro-centred .arrow-wrap { margin-top: 22px; }
+.feature-visual { border-radius: 6px; overflow: hidden; }
+.feature-visual .img-placeholder { min-height: 340px; }
 
-.feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-.feature-row.reverse .feature-text { order: 2; }
-.feature-row.reverse .feature-image { order: 1; }
+/* ─── AI FEATURE STRIP ───────────────────────────────────────── */
+.ai-feature {
+  background: var(--navy);
+  border-radius: 6px;
+  padding: 36px 32px;
+  border: 1px solid rgba(0,152,164,.18);
+  margin-top: 48px;
+}
+.ai-feature-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal-mid); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.ai-feature-label::before { content: ''; display: block; width: 14px; height: 2px; background: currentColor; }
+.ai-feature h3 {
+  font-family: var(--font-d);
+  font-size: 22px; font-weight: 700;
+  color: var(--white); margin-bottom: 12px; line-height: 1.25;
+}
+.ai-feature p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.58); margin-bottom: 28px; }
+.ai-cards-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.ai-card-sm {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(0,152,164,.18);
+  border-radius: 5px; padding: 18px 16px;
+  transition: background .2s, border-color .2s;
+}
+.ai-card-sm:hover { background: rgba(0,152,164,.08); border-color: rgba(0,152,164,.4); }
+.ai-card-sm-tag { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 7px; }
+.ai-card-sm-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+.ai-card-sm-desc { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,.45); }
 
-.feature-text h2 { font-family: var(--font-d); font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; line-height: 1.2; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
-.feature-text > p { font-size: 17px; line-height: 1.65; color: var(--text-md); margin-bottom: 28px; }
+/* ─── TESTIMONIAL (LIGHT) ────────────────────────────────────── */
+.testi-light {
+  background: var(--off-white);
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 40px 44px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.testi-light blockquote {
+  font-family: var(--font-d);
+  font-size: 19px; font-style: italic;
+  line-height: 1.6; color: var(--navy);
+  margin-bottom: 24px;
+}
+.testi-light-rule { width: 28px; height: 2px; background: var(--teal); margin-bottom: 14px; }
+.testi-light-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.testi-light-role { font-size: 13px; color: var(--teal); margin-top: 3px; }
 
-.feature-list { margin-bottom: 28px; }
-.feature-list li { margin-bottom: 20px; }
-.feature-list li:last-child { margin-bottom: 0; }
-.feature-list .label { display: block; font-family: var(--font-u); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; letter-spacing: -.005em; }
-.feature-list .desc { display: block; font-size: 14px; line-height: 1.6; color: var(--text-md); }
+/* ─── CTA BAND ───────────────────────────────────────────────── */
+.cta-sec { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-sec::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+.cta-sec h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: -.02em; }
+.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
 
-/* Feature-row image placeholder — override min-height to hit 4:3 */
-.feature-image { aspect-ratio: 4/3; }
-
-.hosting-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 52px; }
-.hosting-card { background: var(--white); border-radius: 6px; padding: 30px 24px; box-shadow: 0 1px 4px rgba(26,58,74,.06); position: relative; overflow: hidden; transition: box-shadow .2s var(--ease), transform .2s var(--ease); }
-.hosting-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); opacity: 0; transition: opacity .2s; }
-.hosting-card:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
-.hosting-card:hover::before { opacity: 1; }
-.hosting-card.primary-pick::before { opacity: 1; }
-
-.hosting-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); background: var(--teal-lt); padding: 3px 8px; border-radius: 2px; margin-bottom: 14px; }
-.hosting-icon { width: 42px; height: 42px; background: var(--teal-lt); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
-.hosting-icon svg { width: 21px; height: 21px; color: var(--teal); }
-.hosting-card h3 { font-family: var(--font-d); font-size: 19px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 10px; }
-.hosting-card p { font-size: 14px; line-height: 1.6; color: var(--text-md); }
-
-.testi-light { text-align: center; max-width: 760px; margin: 0 auto; }
-.testi-q { font-family: var(--font-d); font-size: clamp(20px, 2vw, 24px); font-weight: 400; font-style: italic; line-height: 1.55; color: var(--navy); margin-bottom: 28px; }
-.testi-attr { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 18px; position: relative; }
-.testi-attr::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 36px; height: 2px; background: var(--teal); }
-.testi-name { font-family: var(--font-u); font-size: 14px; font-weight: 600; color: var(--navy); }
-.testi-role { font-size: 12px; color: var(--text-lt); }
-
-.cta-band { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
-.cta-band::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
-.cta-band .wrap { position: relative; z-index: 2; }
-.cta-band-over { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
-.cta-band h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: var(--white); letter-spacing: -.02em; margin-bottom: 14px; }
-.cta-band p { font-size: 16px; line-height: 1.6; color: rgba(255,255,255,.72); max-width: 540px; margin: 0 auto 36px; }
-.cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
-
+/* ─── RESPONSIVE PAGE-SPECIFIC ───────────────────────────────── */
 @media (max-width: 1024px) {
-  .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 36px; }
-  .feature-row.reverse .feature-text { order: 1; }
-  .feature-row.reverse .feature-image { order: 2; }
-  .hosting-grid { grid-template-columns: 1fr 1fr; }
+  .feature-row { grid-template-columns: 1fr; gap: 40px; }
+  .feature-row.reverse { direction: ltr; }
+  .ai-cards-inner { grid-template-columns: 1fr; }
+  .inner-hero { padding: 64px 0 56px; }
+  .testi-light { padding: 32px 28px; }
 }
 @media (max-width: 640px) {
-  .hero-inner { padding: 56px 0 48px; }
-  .hosting-grid { grid-template-columns: 1fr; }
+  .inner-hero h1 { font-size: 30px; }
+  .inner-hero-lead { font-size: 15px; }
+  .inner-hero-ctas { flex-direction: column; align-items: stretch; }
+  .inner-hero-ctas .btn-primary, .inner-hero-ctas .btn-ghost { justify-content: center; }
+  .ai-cards-inner { grid-template-columns: 1fr; }
+  .testi-light { padding: 28px 20px; }
+  .testi-light blockquote { font-size: 17px; }
 }
+
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 3 — header.html (PASTED VERBATIM FROM partials/header.html)
-     Only edit: class="active" on the Platform nav-btn
-═══════════════════════════════════════════════════════════════ -->
+<!-- Skip to content -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
+<!-- ════════════════════════════════════
+     HEADER — VERBATIM from header.html
+     Active state: Services
+════════════════════════════════════ -->
 <div class="nav-overlay" id="navOverlay"></div>
 <nav class="nav" id="mainNav" aria-label="Main navigation">
   <div class="wrap">
 
+    <!-- Logo -->
     <a class="logo" href="https://webalive01.github.io/hkaapac/index.html" aria-label="HKA Tech — home">
       <div class="logo-mark">
         <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -363,11 +558,12 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
     </a>
 
+    <!-- Nav items -->
     <div class="nav-items">
 
-      <!-- ═══ PLATFORM (active) ═══ -->
+      <!-- ═══ PLATFORM ═══ -->
       <div class="nav-item" data-menu="platform">
-        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Platform
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
@@ -447,7 +643,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
       <!-- ═══ SERVICES ═══ -->
       <div class="nav-item" data-menu="services">
-        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Services
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
         </button>
         <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
@@ -482,7 +678,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-      <!-- ═══ CUSTOMERS (single link) ═══ -->
+      <!-- ═══ CUSTOMERS (single link, no dropdown) ═══ -->
       <div class="nav-item">
         <a class="nav-btn" href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
       </div>
@@ -519,8 +715,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
-    </div>
+    </div><!-- end nav-items -->
 
+    <!-- Actions -->
     <div class="nav-actions">
       <a class="nav-login" href="https://webalive01.github.io/hkaapac/index.html">Login</a>
       <a class="nav-cta" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
@@ -532,6 +729,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
   </div>
 </nav>
 
+<!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mm-section">Platform</div>
   <a href="https://webalive01.github.io/hkaapac/platform-overview.html">PMWeb Overview</a>
@@ -564,245 +762,198 @@ footer { background: var(--navy); padding: 68px 0 0; }
   <a href="https://webalive01.github.io/hkaapac/index.html" class="mm-cta">Contact Us</a>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 4 — PAGE CONTENT
-═══════════════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
 <main id="main-content">
 
-  <!-- HERO -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <section class="hero-inner">
+  <!-- ═══ HERO ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit §4.3 BI page content structure -->
+  <section class="inner-hero">
     <div class="wrap">
-      <nav aria-label="Breadcrumb" class="breadcrumb">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="https://webalive01.github.io/hkaapac/index.html">Home</a>
-        <span class="sep" aria-hidden="true">›</span>
-        <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Platform</a>
-        <span class="sep" aria-hidden="true">›</span>
-        <span class="current" aria-current="page">Overview</span>
+        <span aria-hidden="true">›</span>
+        <a href="https://webalive01.github.io/hkaapac/bi.html">Services</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Business Intelligence</span>
       </nav>
-      <div class="rev">
-        <div class="hero-over">PMWeb Platform</div>
-        <h1>PMWeb — The Capital Works Management Platform</h1>
-        <p class="hero-lead">Built specifically for owners of buildings and infrastructure, PMWeb brings full lifecycle control — from program planning and procurement through to asset operation — into a single, integrated platform.</p>
-        <div class="hero-ctas">
-          <a href="https://webalive01.github.io/hkaapac/index.html" class="btn-primary">
+      <div class="inner-hero-content">
+        <div class="inner-hero-over">Analytics &amp; Reporting</div>
+        <h1>Business Intelligence for <em>Capital Works Portfolios</em></h1>
+        <p class="inner-hero-lead">Custom dashboards and reporting that deliver real visibility across your capital works portfolio — for PMWeb and other enterprise systems. An independent HKA Tech capability that generates measurable value with or without PMWeb at the centre.</p>
+        <div class="inner-hero-ctas">
+          <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">
+            Contact Us
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a class="btn-ghost" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+            Explore PMWeb
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CENTRED INTRO ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="centred-intro">
+        <div class="s-over">Our BI Capability</div>
+        <h2 class="s-title">Real Visibility. Across Every System.</h2>
+        <p class="s-body">HKA Tech's Business Intelligence practice builds custom dashboards and reporting solutions for organisations managing capital programs — connecting PMWeb data, financial systems, scheduling tools, and other enterprise platforms into a single, coherent view of performance. Our BI revenue is earned independently of PMWeb: we work with any system your organisation relies on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURE ROW 1 — PMWeb Dashboards ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.3 -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feature-row rev">
+        <div class="feature-text">
+          <div class="s-over">PMWeb + BI</div>
+          <h2>Portfolio-Level Dashboards for PMWeb</h2>
+          <p>PMWeb contains a wealth of cost, schedule, contract, and workflow data. HKA Tech's BI team builds reporting layers that surface that data at the portfolio and program level — so executive decision-makers see what they need, when they need it, without navigating individual project records.</p>
+          <ul class="feature-detail-list">
+            <li>
+              <strong>Executive Portfolio Dashboards</strong>
+              Consolidated views of budget performance, contract status, cost-to-complete forecasts, and schedule variance across all projects in a program.
+            </li>
+            <li>
+              <strong>Program-Level Cost Reporting</strong>
+              Drill-down from portfolio to project to cost-code level, with variance flagging and trend analysis built in.
+            </li>
+            <li>
+              <strong>Governance &amp; Workflow Reporting</strong>
+              Visibility of approval pipeline status, outstanding actions, and document control metrics — critical for compliance-driven environments.
+            </li>
+          </ul>
+          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+            Explore PMWeb
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="feature-visual rev d1">
+          <!-- [IMAGE NEEDED]: bi-feature-pmweb-dashboard.jpg — PMWeb portfolio-level BI dashboard screenshot, 4:3, 800×600+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb portfolio-level BI dashboard screenshot">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">bi-feature-pmweb-dashboard.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> A portfolio-level BI dashboard built on PMWeb data. Should show multiple KPI tiles (budget, schedule, contract status), a trend chart, and a project-level breakdown table. Use an anonymised demo dataset — no real client project names or dollar figures visible.</p>
+            <div class="ip-specs">4:3 · 800×600px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURE ROW 2 — Enterprise System Dashboards ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.3: "Custom dashboards and reporting for PMWeb and other enterprise systems. Revenue earned independently of PMWeb." -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feature-row reverse rev">
+        <div class="feature-text">
+          <div class="s-over">Enterprise BI</div>
+          <h2>Reporting Beyond PMWeb</h2>
+          <p>HKA Tech's BI capability is not limited to PMWeb. Many capital works organisations operate multiple enterprise systems — financial platforms, ERP solutions, scheduling tools, and asset management databases. We build reporting layers that connect these sources into a unified view, independent of any single vendor.</p>
+          <ul class="feature-detail-list">
+            <li>
+              <strong>Multi-System Data Integration</strong>
+              Connect data from SAP, Oracle, Microsoft Dynamics, and other platforms alongside PMWeb to produce a single source of truth for program performance.
+            </li>
+            <li>
+              <strong>Custom KPI Frameworks</strong>
+              We work with your team to define the metrics that matter — then build dashboards that track them consistently across all projects and programs.
+            </li>
+            <li>
+              <strong>Reporting for Every Audience</strong>
+              From field-level project reports to board-ready executive summaries — each dashboard is designed for its intended audience and decision context.
+            </li>
+          </ul>
+          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
             Talk to Our Team
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-          <a href="https://webalive01.github.io/hkaapac/features.html" class="btn-ghost">
-            Explore Platform Features
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CENTRED INTRO -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <section class="section">
-    <div class="wrap">
-      <div class="intro-centred">
-        <div class="s-over rev">Built for Owners of Buildings and Infrastructure</div>
-        <h2 class="s-title rev d1">Capital Works Management at Every Scale</h2>
-        <p class="s-body rev d2">PMWeb is purpose-built for the owner's perspective, not general project management. Whether the portfolio is a single hospital redevelopment or a ten-year, multi-agency infrastructure program, PMWeb provides the cost control, scheduling discipline, and document governance that capital works demands.</p>
-        <p class="s-body rev d2" style="margin-top:14px">HKA Tech is the #1 PMWeb implementation partner across Asia Pacific, with over 300 organisations trusting PMWeb and our team to run their most complex programs.</p>
-        <div class="arrow-wrap rev d3">
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/customers.html">See who uses PMWeb
             <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLAN feature row -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — Plan sub-items: Planning, Estimating, Procurement per client directive -->
-  <!-- [IMAGE NEEDED]: platform-overview-plan-phase.jpg — PMWeb Plan module estimating workspace screenshot, 4:3, 720×540+ -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="feature-row">
-        <div class="feature-text rev">
-          <div class="s-over">Plan</div>
-          <h2>Establish Control Before the First Shovel Turns</h2>
-          <p>The Plan phase gives program directors and procurement teams a single, auditable environment for estimating, approvals, and supply-chain engagement, before construction risk is locked in.</p>
-          <ul class="feature-list">
-            <li>
-              <span class="label">Program Planning</span>
-              <span class="desc">Define program scope, phasing, funding sources, and approval workflows across the entire capital program from a single workspace.</span>
-            </li>
-            <li>
-              <span class="label">Estimating</span>
-              <span class="desc">Build detailed cost models using configurable cost structures, benchmarks, and escalation factors aligned to your organisation's standards.</span>
-            </li>
-            <li>
-              <span class="label">Procurement</span>
-              <span class="desc">Manage the full tender lifecycle (RFI, RFT, bid evaluation, and contract award) with complete audit trails required by government panels and accreditation bodies.</span>
-            </li>
-          </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/plan.html">Explore Plan features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
-        </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Plan module estimating workspace">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-plan-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Plan module, specifically the estimating workspace with a 3+ level WBS cost breakdown visible on screen. Use an anonymised demo dataset — no real client names or dollar figures.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BUILD feature row (reversed) -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <!-- [IMAGE NEEDED]: platform-overview-build-phase.jpg — PMWeb Build module contract + schedule integration, 4:3, 720×540+ -->
-  <section class="section">
-    <div class="wrap">
-      <div class="feature-row reverse">
-        <div class="feature-text rev">
-          <div class="s-over">Build</div>
-          <h2>Deliver On Budget, On Program</h2>
-          <p>The Build phase puts contract managers, schedulers, and document controllers in one environment, eliminating the email chains, spreadsheet reconciliations, and version-control failures that erode delivery certainty on complex construction programs.</p>
-          <ul class="feature-list">
-            <li>
-              <span class="label">Contract Management</span>
-              <span class="desc">Track contract values, variations, claims, and payment certifications with full version history and approval audit trails.</span>
-            </li>
-            <li>
-              <span class="label">Scheduling</span>
-              <span class="desc">Integrate schedule data with cost and document workflows so program directors see real delivery status, not last week's report.</span>
-            </li>
-            <li>
-              <span class="label">Document Control</span>
-              <span class="desc">Manage drawings, specifications, RFIs, and submittals with configurable distribution, review, and approval workflows at project and program level.</span>
-            </li>
-          </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/build.html">Explore Build features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
-        </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Build module contract and schedule view">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-build-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Build module showing a contract register with variation/claim tracking visible alongside a Gantt schedule view. Anonymised demo dataset — no real contract numbers or supplier names.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OPERATE feature row -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
-  <!-- [IMAGE NEEDED]: platform-overview-operate-phase.jpg — PMWeb Operate module asset management view, 4:3, 720×540+ -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="feature-row">
-        <div class="feature-text rev">
-          <div class="s-over">Operate</div>
-          <h2>Protect the Asset Long After Handover</h2>
-          <p>The Operate phase ensures the intelligence captured during planning and delivery (contracts, warranties, as-built drawings, maintenance schedules) remains accessible and actionable throughout the asset's life.</p>
-          <ul class="feature-list">
-            <li>
-              <span class="label">Facility Management</span>
-              <span class="desc">Maintain a living register of assets, spaces, and preventive maintenance obligations linked directly to the original construction documentation.</span>
-            </li>
-            <li>
-              <span class="label">Asset Management</span>
-              <span class="desc">Track lifecycle costs, condition assessments, and capital replacement planning across the full asset portfolio.</span>
-            </li>
-            <li>
-              <span class="label">Workflow Automation</span>
-              <span class="desc">Automate routine processes (work orders, compliance checks, reporting) to reduce administrative overhead on operational teams.</span>
-            </li>
-          </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/operate.html">Explore Operate features
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
-        </div>
-        <div class="img-placeholder feature-image rev d1" role="img" aria-label="Image placeholder: PMWeb Operate module asset management and maintenance view">
-          <div class="ip-tag">Image Needed</div>
-          <div class="ip-filename">platform-overview-operate-phase.jpg</div>
-          <p class="ip-desc">
-            <strong>Screenshot:</strong> PMWeb's Operate module — asset register or facility management view, ideally with preventive maintenance work orders visible. Anonymised demo dataset — no real facility addresses or personnel.
-          </p>
-          <div class="ip-specs">4:3 · 720×540px min · PNG or high-quality JPG</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOSTING — 3-col card grid (the one grid allowed on this page) -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — SaaS/AWS primary per client directive -->
-  <section class="section">
-    <div class="wrap">
-      <div class="intro-centred">
-        <div class="s-over rev">Hosting &amp; Deployment</div>
-        <h2 class="s-title rev d1">Delivered via SaaS. Flexible Where Required.</h2>
-        <p class="s-body rev d2">PMWeb is delivered as a fully managed SaaS solution on Amazon Web Services, giving government and enterprise clients the security, availability, and data-sovereignty assurances their programs demand. On-premise and managed hosting options are also available where organisational requirements dictate.</p>
-      </div>
-
-      <div class="hosting-grid">
-        <div class="hosting-card primary-pick rev">
-          <div class="hosting-badge">Recommended</div>
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M16 10h-1A7 7 0 1 0 7 18h9a4 4 0 0 0 0-8z"/></svg>
+        <div class="feature-visual rev d1">
+          <!-- [IMAGE NEEDED]: bi-feature-enterprise-dashboard.jpg — Non-PMWeb enterprise BI dashboard, 4:3, 800×600+ -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: Enterprise system BI dashboard screenshot — non-PMWeb source data">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">bi-feature-enterprise-dashboard.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> A BI dashboard drawing on non-PMWeb enterprise data (e.g. SAP or Oracle financial data alongside a scheduling tool). Should show multi-source data integration visually — ideally a header noting two or more connected systems, with KPI tiles and a chart panel. Anonymised data only.</p>
+            <div class="ip-specs">4:3 · 800×600px minimum · PNG or high-quality JPG</div>
           </div>
-          <h3>SaaS on AWS</h3>
-          <p>Fully managed, multi-tenant SaaS delivered on Amazon Web Services. Includes automatic updates, infrastructure management, and enterprise-grade uptime commitments. The preferred path for new deployments and existing clients upgrading to PMWeb 8.</p>
-        </div>
-
-        <div class="hosting-card rev d1">
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="18" height="13" rx="2"/><path d="M8 19h6M11 16v3"/></svg>
-          </div>
-          <h3>Managed Hosting</h3>
-          <p>Dedicated hosting environment managed by HKA Tech on behalf of the client. Suitable for organisations with specific data residency or network isolation requirements that fall outside a standard multi-tenant deployment.</p>
-        </div>
-
-        <div class="hosting-card rev d2">
-          <div class="hosting-icon">
-            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="6" width="18" height="13" rx="2"/><path d="M14 6V4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2M7 11v4M11 11v4M15 11v4"/></svg>
-          </div>
-          <h3>On-Premise</h3>
-          <p>Self-hosted deployment on client infrastructure. Available for organisations with legislative or security requirements that prevent use of cloud or managed services. Implementation and upgrade support provided by HKA Tech.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIAL — light variant -->
-  <!-- [CLIENT TO SUPPLY: quote and attribution — capital works sector, multiple evidence approach, not single signature project] -->
-  <section class="section alt">
+  <!-- ═══ AI-ENHANCED ANALYTICS ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.1 AI section: "BI + AI: Automated Insights" -->
+  <section class="section alt rev">
     <div class="wrap">
-      <div class="testi-light rev">
-        <p class="testi-q">PMWeb gives our program directors a single source of truth across every active project: cost, schedule, contracts, and documents. Reporting that used to take half a week now takes an afternoon.</p>
-        <div class="testi-attr">
-          <div class="testi-name">[CLIENT TO SUPPLY: Name, Title]</div>
-          <div class="testi-role">[CLIENT TO SUPPLY: Organisation, Sector]</div>
+      <div class="centred-intro" style="margin-bottom:0">
+        <div class="s-over">AI-Enhanced Analytics</div>
+        <h2 class="s-title" style="max-width:600px;margin-left:auto;margin-right:auto">BI Dashboards Powered by AI</h2>
+        <p class="s-body" style="margin:0 auto 0">HKA Tech applies AI capabilities across its BI practice — surfacing anomalies, generating narrative summaries, and identifying patterns that conventional reporting cannot easily expose.</p>
+      </div>
+      <div class="ai-feature">
+        <div class="ai-feature-label">BI + AI</div>
+        <h3>Automated Insights for Capital Works Reporting</h3>
+        <p>AI-enhanced dashboards that go beyond data visualisation — identifying cost trends, flagging schedule risk, and generating plain-language summaries for program owners who need answers, not just charts.</p>
+        <div class="ai-cards-inner">
+          <div class="ai-card-sm">
+            <div class="ai-card-sm-tag">Anomaly Detection</div>
+            <div class="ai-card-sm-title">Surface Issues Before They Escalate</div>
+            <p class="ai-card-sm-desc">AI models flag unusual cost movements, contract variations, and schedule deviations automatically — so your team focuses on investigation rather than discovery.</p>
+          </div>
+          <div class="ai-card-sm">
+            <div class="ai-card-sm-tag">Narrative Summaries</div>
+            <div class="ai-card-sm-title">Reports That Explain Themselves</div>
+            <p class="ai-card-sm-desc">AI-generated narrative commentary interprets dashboard data for executive audiences — turning numbers into concise, readable performance summaries.</p>
+          </div>
+          <div class="ai-card-sm">
+            <div class="ai-card-sm-tag">Predictive Analytics</div>
+            <div class="ai-card-sm-title">Cost-to-Complete Forecasting</div>
+            <p class="ai-card-sm-desc">AI-assisted forecasting models draw on historical project data to improve the accuracy of cost-to-complete estimates across your portfolio.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band">
+  <!-- ═══ TESTIMONIAL ═══ -->
+  <!-- SOURCE: NEW [CLIENT TO SUPPLY] — placeholder quote; replace with real BI client testimonial -->
+  <section class="section rev">
     <div class="wrap">
-      <div class="cta-band-over">Talk to Us</div>
-      <h2>Ready to Transform Your Capital Works Program?</h2>
-      <p>Talk to our team about how PMWeb can be implemented, configured, and supported across your organisation's full project lifecycle.</p>
-      <div class="cta-band-btns">
-        <a href="https://webalive01.github.io/hkaapac/index.html" class="btn-white">
-          Talk to Our Team
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a href="https://webalive01.github.io/hkaapac/platform-overview.html" class="btn-gw">
+      <div style="text-align:center;margin-bottom:44px">
+        <div class="s-over" style="justify-content:center">Client Results</div>
+        <h2 class="s-title" style="max-width:520px;margin-left:auto;margin-right:auto">What Our BI Clients Say</h2>
+      </div>
+      <!-- [CLIENT TO SUPPLY: Replace the placeholder quote below with a real testimonial from a BI engagement — name, role, and organisation required. Quote should reference a specific outcome: reporting time reduction, visibility improvement, decision speed, or similar.] -->
+      <div class="testi-light">
+        <blockquote>"The BI dashboards HKA Tech built give us real-time visibility across every project in our portfolio. Our reporting time has been reduced dramatically and our executive team can now see the full picture in a single view — without waiting for end-of-month reports."</blockquote>
+        <div class="testi-light-rule"></div>
+        <div class="testi-light-name">[CLIENT TO SUPPLY: Name, Title]</div>
+        <div class="testi-light-role">[CLIENT TO SUPPLY: Organisation]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BAND ═══ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — per audit §6 graduated engagement model -->
+  <section class="cta-sec rev">
+    <div class="wrap">
+      <div class="cta-eye">Talk to Us</div>
+      <h2>Ready to Transform Your Capital Works Reporting?</h2>
+      <p>Talk to our BI team about what real portfolio visibility looks like for your organisation — whether you run PMWeb, another enterprise platform, or a combination of both.</p>
+      <div class="cta-btns">
+        <a class="btn-white" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
+        <a class="btn-gw" href="https://webalive01.github.io/hkaapac/platform-overview.html">
           Explore All Services
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
         </a>
       </div>
     </div>
@@ -810,10 +961,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
 </main>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 5 — footer.html (PASTED VERBATIM)
-═══════════════════════════════════════════════════════════════ -->
-
+<!-- ════════════════════════════════════
+     FOOTER — VERBATIM from footer.html
+════════════════════════════════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
 </button>
@@ -821,6 +971,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
 <footer>
   <div class="wrap">
     <div class="footer-grid">
+
+      <!-- Column 1: Brand + Contact + Offices -->
       <div>
         <div class="f-logo">
           <div class="f-logo-mark">
@@ -851,6 +1003,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
+      <!-- Column 2: Platform & Services -->
       <div>
         <div class="f-col-title">Platform &amp; Services</div>
         <div class="f-links">
@@ -865,6 +1018,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
+      <!-- Column 3: Company -->
       <div>
         <div class="f-col-title">Company</div>
         <div class="f-links">
@@ -878,6 +1032,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
         </div>
       </div>
 
+      <!-- Column 4: Industries -->
       <div>
         <div class="f-col-title">Industries</div>
         <div class="f-links">
@@ -891,8 +1046,8 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <a href="https://webalive01.github.io/hkaapac/customers.html">All 11 Industries →</a>
         </div>
       </div>
-    </div>
 
+    </div>
     <div class="f-bottom">
       <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
       <div class="f-legal">
@@ -904,14 +1059,16 @@ footer { background: var(--navy); padding: 68px 0 0; }
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PART 6 — shared.js (PASTED VERBATIM — includes nav dropdown logic)
-═══════════════════════════════════════════════════════════════ -->
+<!-- ════════════════════════════════════
+     SCRIPTS — shared.js VERBATIM
+════════════════════════════════════ -->
 <script>
+/* ─ NAV DROPDOWNS (mega-menus) ────────────────────────────── */
 (function(){
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
   const overlay  = document.getElementById('navOverlay');
   if (!navItems.length) return;
+
   function closeAll() {
     navItems.forEach(i => {
       i.classList.remove('open');
@@ -920,6 +1077,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
     });
     if (overlay) overlay.classList.remove('active');
   }
+
   navItems.forEach(item => {
     const btn = item.querySelector('.nav-btn');
     if (!btn) return;
@@ -934,31 +1092,40 @@ footer { background: var(--navy); padding: 68px 0 0; }
       }
     });
   });
+
   if (overlay) overlay.addEventListener('click', closeAll);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
 })();
 
+/* ─ NAV SHADOW ON SCROLL ──────────── */
 (function(){
   const nav = document.getElementById('mainNav');
   if (nav) {
     window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,.12)' : '0 1px 8px rgba(0,0,0,.06)';
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
     }, { passive: true });
   }
 })();
 
+/* ─ SCROLL REVEAL ─────────────────── */
 (function(){
   const revEls = document.querySelectorAll('.rev');
   if (revEls.length && 'IntersectionObserver' in window) {
     const revObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) { entry.target.classList.add('vis'); revObs.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revEls.forEach(el => revObs.observe(el));
   }
 })();
 
+/* ─ HAMBURGER MENU ────────────────── */
 (function(){
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -979,6 +1146,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
   });
 })();
 
+/* ─ BACK TO TOP ───────────────────── */
 (function(){
   const btt = document.getElementById('backToTop');
   if (!btt) return;
