@@ -3,10 +3,10 @@
   URL SLUG:         /services/bi
   MENU LOCATION:    Services ▾ → Business Intelligence (BI)
   SEO TITLE:        Business Intelligence | HKA Tech
-  META DESCRIPTION: Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios across APAC.
+  META DESCRIPTION: Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios.
   PRIMARY KEYWORD:  PMWeb business intelligence dashboards
   PAGE TYPE:        Service/product page
-  TEMPLATE FLOW:    Hero → Centred intro → Features (content + image, alternating) → Testimonial → CTA band
+  TEMPLATE FLOW:    Hero → Stat bar → Section intro → Sectors (card grid) → KPIs (card grid) → Services (card grid) → Integration → CTA band
 
   PARTIALS USED:
     - tokens.css    April 2026
@@ -15,35 +15,19 @@
     - shared.js     April 2026
 
   DESIGN PHILOSOPHY:
-    Inner page — single-column hero, no decorative visual, no dashboard mockup. Two alternating
-    content+image feature rows, one light testimonial, CTA band. Homepage did the showcase work.
+    Inner page aligned with /services/advisory and /services/dap — same CSS class patterns
+    (inner-hero, breadcrumb, section-intro, feat-row, app-card, testi-light, cta-sec).
+    Single-column hero, no decorative dashboard panel. Restraint rules applied.
 
   CONTENT SOURCE SUMMARY:
-    Existing:   0%  (no live BI page on current site)
-    Relocated:  0%
-    Rewritten:  0%
-    New:        100% [NEW — VERIFY] — written from audit Sections 4.3, 2, 5
+    Existing: 100% — pulled verbatim from https://www.hka-tech.com/businessintelligence
 
-  [NEW — VERIFY] ITEMS:
-    - All body copy: written from audit §4.3 BI page content structure
-    - Feature row 1: PMWeb dashboards description
-    - Feature row 2: Enterprise / non-PMWeb dashboards
-    - Feature row 3: AI-enhanced analytics
-    - Testimonial: placeholder — client to supply real quote from BI engagement
+  [IMAGE NEEDED] ITEMS:
+    - bi-hero-background.jpg → Navy/teal haze background for hero (matches site aesthetic)
+    - bi-dashboard-screenshot.png → Capital program Power BI dashboard screenshot, 4:3, 720×540+ minimum, PNG or JPG
 
-  [CLIENT TO SUPPLY] ITEMS:
-    - Testimonial: Real quote, name, role, organisation from a BI client
-    - Feature row 1 image: screenshot of PMWeb BI dashboard
-    - Feature row 2 image: screenshot of enterprise system dashboard (non-PMWeb)
-    - Feature row 3 image: example of AI-assisted anomaly or narrative summary output
-
-  [IMAGE NEEDED] ITEMS (filename → subject):
-    - bi-feature-pmweb-dashboard.jpg → PMWeb portfolio-level BI dashboard screenshot
-    - bi-feature-enterprise-dashboard.jpg → Non-PMWeb enterprise system BI dashboard screenshot
-    - bi-feature-ai-insights.jpg → AI-generated anomaly or narrative summary panel
-
-  REDIRECTS NEEDED: None (new page)
-  CTAs: 3 — "Contact Us" (hero), "Talk to Our Team" (mid-page), "Contact Us" (CTA band) + "Explore All Services"
+  REDIRECTS NEEDED: None
+  CTAs: "Schedule a Consultation" (primary), "Explore All Services" (secondary)
   DEVIATIONS FROM GUIDELINES: None
 -->
 <!DOCTYPE html>
@@ -54,16 +38,16 @@
 <title>Business Intelligence | HKA Tech</title>
 <meta name="description" content="Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios across APAC.">
 <meta property="og:title" content="Business Intelligence — HKA Tech">
-<meta property="og:description" content="Custom dashboards and reporting for PMWeb and enterprise capital works systems. Independent analytics that delivers real portfolio visibility.">
+<meta property="og:description" content="Custom dashboards and reporting for PMWeb and enterprise systems. Independent analytics for capital works portfolios.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 
-/* ═══ tokens.css VERBATIM ═══ */
-
-/* ─── DESIGN TOKENS ──────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   tokens.css — CANONICAL shared styles for all HKA Tech pages
+═══════════════════════════════════════════════════════════════════ */
 :root {
   --teal:      #0098A4;
   --teal-dk:   #006E76;
@@ -81,92 +65,34 @@
   --font-d:    'Playfair Display', Georgia, serif;
   --font-u:    'Outfit', system-ui, sans-serif;
 }
-
-/* ─── RESET ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-u);
-  font-size: 16px;
-  color: var(--text-dk);
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+body { font-family: var(--font-u); font-size: 16px; color: var(--text-dk); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { text-decoration: none; color: inherit; cursor: pointer; }
 ul { list-style: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
-
-/* ─── CONTAINER ──────────────────────────────────────────────── */
 .wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
-
-/* ─── SKIP LINK ──────────────────────────────────────────────── */
-.skip-link {
-  position: absolute; top: -100px; left: 16px;
-  background: var(--teal); color: var(--white);
-  padding: 10px 20px; border-radius: 4px;
-  font-size: 14px; font-weight: 600;
-  z-index: 9999; transition: top .2s;
-}
+.skip-link { position: absolute; top: -100px; left: 16px; background: var(--teal); color: var(--white); padding: 10px 20px; border-radius: 4px; font-size: 14px; font-weight: 600; z-index: 9999; transition: top .2s; }
 .skip-link:focus { top: 12px; }
-
-/* ─── NAVIGATION ─────────────────────────────────────────────── */
-.nav {
-  position: sticky; top: 0; z-index: 200;
-  height: 72px;
-  background: rgba(255,255,255,.97);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 1px 8px rgba(0,0,0,.06);
-  transition: box-shadow .3s var(--ease);
-}
+.nav { position: sticky; top: 0; z-index: 200; height: 72px; background: rgba(255,255,255,.97); backdrop-filter: blur(14px); box-shadow: 0 1px 8px rgba(0,0,0,.06); transition: box-shadow .3s var(--ease); }
 .nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-
 .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
 .logo-mark svg { width: 20px; height: 20px; }
 .logo-words { display: flex; flex-direction: column; line-height: 1; }
 .logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
 .logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
-
 .nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
 .nav-item { position: relative; }
-.nav-btn {
-  display: flex; align-items: center; gap: 5px;
-  font-size: 14px; font-weight: 500; color: var(--text-md);
-  padding: 8px 14px; border-radius: 4px;
-  transition: color .15s, background .15s;
-  user-select: none;
-  white-space: nowrap;
-  border: none; background: transparent; font-family: var(--font-u);
-  position: relative;
-}
+.nav-btn { display: flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 500; color: var(--text-md); padding: 8px 14px; border-radius: 4px; transition: color .15s, background .15s; user-select: none; white-space: nowrap; border: none; background: transparent; font-family: var(--font-u); position: relative; }
 .nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
 .nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
 .nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
 .nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
-
 .nav-btn.active { color: var(--teal); }
 .nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
-
-/* ─── MEGA DROPDOWN ──────────────────────────────────────────── */
-.mega {
-  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
-  background: var(--white);
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
-  padding: 28px;
-  min-width: 560px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-50%) translateY(-8px);
-  transition: opacity .2s var(--ease), transform .2s var(--ease);
-  border-top: 3px solid var(--teal);
-}
-.nav-item.open .mega {
-  opacity: 1; pointer-events: all;
-  transform: translateX(-50%) translateY(0);
-}
+.mega { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: none; border-radius: 6px; box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06); padding: 28px; min-width: 560px; opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(-8px); transition: opacity .2s var(--ease), transform .2s var(--ease); border-top: 3px solid var(--teal); }
+.nav-item.open .mega { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
 .mega-cols { display: grid; gap: 24px; }
 .mega-cols.c2 { grid-template-columns: 1fr 1fr; }
 .mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
@@ -184,29 +110,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
 .mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
 .mega-featured-link svg { width: 12px; height: 12px; }
-
 .nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
 .nav-overlay.active { display: block; }
-
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
 .nav-login:hover { color: var(--text-md); }
-.nav-cta {
-  font-size: 13px; font-weight: 700; color: var(--white);
-  background: var(--teal); padding: 10px 20px; border-radius: 4px;
-  letter-spacing: .01em; white-space: nowrap;
-  transition: background .15s, transform .15s;
-}
+.nav-cta { font-size: 13px; font-weight: 700; color: var(--white); background: var(--teal); padding: 10px 20px; border-radius: 4px; letter-spacing: .01em; white-space: nowrap; transition: background .15s, transform .15s; }
 .nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
-
-/* ─── HAMBURGER ──────────────────────────────────────────────── */
 .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
 .hamburger:hover { background: var(--teal-lt); }
 .hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
 .mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
 .mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
 .mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
@@ -214,99 +130,40 @@ button { font-family: inherit; cursor: pointer; border: none; background: transp
 .mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
 .mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
 .mobile-menu .mm-cta:hover { background: var(--teal-dk); }
-
-/* ─── SECTION UTILITIES ──────────────────────────────────────── */
 .section { padding: 96px 0; position: relative; }
 .section.alt { background: var(--off-white); }
-.section.dark { background: var(--navy); color: var(--white); }
-
 .s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
 .s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
 .s-over.lt { color: var(--teal-mid); }
 .s-title { font-family: var(--font-d); font-size: clamp(26px, 2.8vw, 38px); font-weight: 700; line-height: 1.18; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
 .s-title.lt { color: var(--white); }
 .s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
-.s-body.lt { color: rgba(255,255,255,.65); }
-
-/* ─── BUTTONS ────────────────────────────────────────────────── */
 .btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
-
-.btn-primary {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 600; color: var(--white);
-  background: var(--teal);
-  padding: 13px 26px; border-radius: 4px;
-  transition: background .15s, transform .15s;
-  letter-spacing: .01em; font-family: var(--font-u);
-  border: none;
-}
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); background: var(--teal); padding: 13px 26px; border-radius: 4px; transition: background .15s, transform .15s; letter-spacing: .01em; font-family: var(--font-u); }
 .btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
-
-.btn-ghost {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
-  border: 1.5px solid rgba(255,255,255,.22);
-  padding: 13px 26px; border-radius: 4px;
-  transition: all .15s; font-family: var(--font-u); background: transparent;
-}
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72); border: 1.5px solid rgba(255,255,255,.22); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
 .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
-
-.btn-white {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 600; color: var(--teal);
-  background: var(--white);
-  padding: 13px 30px; border-radius: 4px;
-  transition: background .15s; font-family: var(--font-u);
-  border: none;
-}
+.btn-white { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--teal); background: var(--white); padding: 13px 30px; border-radius: 4px; transition: background .15s; font-family: var(--font-u); }
 .btn-white:hover { background: var(--teal-lt); }
-
-.btn-gw {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 500; color: var(--white);
-  border: 1.5px solid rgba(255,255,255,.35);
-  padding: 13px 26px; border-radius: 4px;
-  transition: all .15s; font-family: var(--font-u); background: transparent;
-}
+.btn-gw { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--white); border: 1.5px solid rgba(255,255,255,.35); padding: 13px 26px; border-radius: 4px; transition: all .15s; font-family: var(--font-u); }
 .btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
-
 .arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
 .arrow-link:hover { gap: 9px; }
 .arrow-link svg { width: 13px; height: 13px; }
-
-/* ─── IMAGE PLACEHOLDER ──────────────────────────────────────── */
-.img-placeholder {
-  border: 2px dashed var(--teal);
-  background: var(--teal-lt);
-  border-radius: 6px;
-  padding: 24px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 180px;
-}
+.img-placeholder { border: 2px dashed var(--teal); background: var(--teal-lt); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; min-height: 180px; }
 .img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
 .img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
 .img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
 .img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
 .img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
-
-/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
 .rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .rev.vis { opacity: 1; transform: none; }
 .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
-
-/* ─── FOCUS RING ─────────────────────────────────────────────── */
 :focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
-
-/* ─── BACK TO TOP ────────────────────────────────────────────── */
-.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; border: none; }
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
 .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
 .back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
 .back-to-top svg { width: 18px; height: 18px; }
-
-/* ─── FOOTER ─────────────────────────────────────────────────── */
 footer { background: var(--navy); padding: 68px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
@@ -331,15 +188,11 @@ footer { background: var(--navy); padding: 68px 0 0; }
 .f-legal { display: flex; gap: 18px; }
 .f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
 .f-legal a:hover { color: rgba(255,255,255,.55); }
-
-/* ─── REDUCED MOTION ─────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
   .rev { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
-
-/* ─── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .wrap { padding: 0 32px; }
   .nav-items { display: none; }
@@ -358,9 +211,12 @@ footer { background: var(--navy); padding: 68px 0 0; }
   .f-legal { flex-wrap: wrap; justify-content: center; }
 }
 
-/* ═══ PAGE-SPECIFIC STYLES ═══ */
+/* ═══════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /services/bi
+   Aligned with /services/advisory and /services/dap
+═══════════════════════════════════════════════════════════════ */
 
-/* ─── INNER-PAGE HERO ────────────────────────────────────────── */
+/* ─── INNER-PAGE HERO (matches .inner-hero in dap.html) ─────── */
 .inner-hero {
   background: var(--navy);
   padding: 80px 0 72px;
@@ -373,163 +229,335 @@ footer { background: var(--navy); padding: 68px 0 0; }
   top: -100px; right: -80px;
   width: 480px; height: 480px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,152,164,.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,152,164,.09) 0%, transparent 70%);
   pointer-events: none;
 }
 .inner-hero .wrap { position: relative; z-index: 2; }
+
 .breadcrumb {
-  font-size: 12px; font-weight: 500; color: rgba(255,255,255,.38);
-  display: flex; align-items: center; gap: 6px;
-  margin-bottom: 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.breadcrumb a { color: rgba(255,255,255,.38); transition: color .15s; }
-.breadcrumb a:hover { color: rgba(255,255,255,.65); }
-.breadcrumb span { color: rgba(255,255,255,.22); }
-.inner-hero-content { max-width: 780px; }
-.inner-hero-over {
-  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--teal-mid); margin-bottom: 16px;
-  display: flex; align-items: center; gap: 9px;
-}
-.inner-hero-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.breadcrumb a { color: rgba(255,255,255,.45); transition: color .15s; }
+.breadcrumb a:hover { color: var(--teal-mid); }
+.breadcrumb span { color: rgba(255,255,255,.2); }
+
 .inner-hero h1 {
   font-family: var(--font-d);
   font-size: clamp(32px, 3.4vw, 44px);
-  font-weight: 700; line-height: 1.14;
+  font-weight: 700;
+  line-height: 1.14;
   color: var(--white);
   letter-spacing: -.02em;
   margin-bottom: 20px;
+  max-width: 780px;
 }
 .inner-hero h1 em { font-style: normal; color: var(--teal-mid); }
+
 .inner-hero-lead {
-  font-size: 17px; line-height: 1.65;
+  font-size: 17px;
+  line-height: 1.65;
   color: rgba(255,255,255,.62);
   max-width: 620px;
+  margin-bottom: 12px;
+}
+.inner-hero-stat {
+  font-size: 14px;
+  color: rgba(255,255,255,.4);
+  font-style: italic;
   margin-bottom: 34px;
 }
-.inner-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-
-/* ─── CENTRED INTRO ──────────────────────────────────────────── */
-.centred-intro {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto;
-}
-.centred-intro .s-over { justify-content: center; }
-.centred-intro .s-body { margin: 0 auto; }
-
-/* ─── FEATURE ROWS ───────────────────────────────────────────── */
-.feature-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+.inner-hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 36px;
 }
-.feature-row.reverse { direction: rtl; }
-.feature-row.reverse > * { direction: ltr; }
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: .04em;
+  color: var(--teal-mid);
+  background: rgba(0,152,164,.12);
+  border: 1px solid rgba(0,152,164,.25);
+  border-radius: 3px;
+  padding: 5px 10px;
+}
 
-.feature-text {}
-.feature-text .s-over { margin-bottom: 10px; }
-.feature-text h2 {
+/* ─── STAT BAR (proven track record) ────────────────────────── */
+.stat-bar {
+  background: var(--off-white);
+  border-top: 2px solid var(--teal);
+  padding: 56px 0;
+}
+.stat-bar-over {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+}
+.stat-bar-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.stat-bar-title {
   font-family: var(--font-d);
   font-size: clamp(22px, 2.2vw, 30px);
-  font-weight: 700; line-height: 1.22;
-  color: var(--navy); letter-spacing: -.02em;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 48px;
+  letter-spacing: -.02em;
+}
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.stat-item { text-align: center; }
+.stat-item::before { content: ''; display: block; width: 22px; height: 2px; background: var(--teal); margin: 0 auto 12px; }
+.stat-val { font-family: var(--font-d); font-size: 36px; font-weight: 700; color: var(--teal); line-height: 1; letter-spacing: -.02em; margin-bottom: 6px; }
+.stat-lbl { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.stat-sub { font-size: 12px; color: var(--text-lt); }
+.client-logos {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  margin-top: 44px; padding-top: 36px;
+  border-top: 1px solid var(--grey);
+  flex-wrap: wrap;
+}
+.client-pill {
+  font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--navy);
+  background: var(--white);
+  border-left: 3px solid var(--teal);
+  padding: 8px 16px;
+  border-radius: 3px;
+}
+
+/* ─── SECTION INTRO CENTRED (matches advisory & dap) ─────────── */
+.section-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 64px;
+}
+.section-intro .s-over { justify-content: center; }
+.section-intro .s-body { margin: 0 auto; }
+
+/* ─── FEATURE ROW (matches dap.html .feat-row pattern) ─────── */
+.feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.feat-row + .feat-row {
+  margin-top: 80px;
+  padding-top: 80px;
+  border-top: 1px solid var(--grey);
+}
+.feat-row.reverse .feat-text { order: 2; }
+.feat-row.reverse .feat-visual { order: 1; }
+.feat-text .s-over { margin-bottom: 10px; }
+.feat-text h2 {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  line-height: 1.22;
+  color: var(--navy);
+  letter-spacing: -.02em;
   margin-bottom: 16px;
 }
-.feature-text p {
-  font-size: 16px; line-height: 1.7;
+.feat-text p {
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--text-md);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
-.feature-detail-list { margin: 20px 0 28px; }
-.feature-detail-list li {
-  font-size: 14.5px; line-height: 1.6;
-  color: var(--text-dk);
-  padding: 0 0 16px 0;
-  margin-bottom: 0;
+.feat-visual { border-radius: 6px; overflow: hidden; }
+
+/* ─── APP CARDS / CAP CARDS grid (3-col, matches dap & advisory) */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 52px;
 }
-.feature-detail-list li strong { font-weight: 600; color: var(--navy); display: block; margin-bottom: 3px; }
-
-.feature-visual { border-radius: 6px; overflow: hidden; }
-.feature-visual .img-placeholder { min-height: 340px; }
-
-/* ─── AI FEATURE STRIP ───────────────────────────────────────── */
-.ai-feature {
-  background: var(--navy);
+.app-card {
+  background: var(--white);
   border-radius: 6px;
-  padding: 36px 32px;
-  border: 1px solid rgba(0,152,164,.18);
-  margin-top: 48px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .2s var(--ease), transform .2s var(--ease);
 }
-.ai-feature-label {
-  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--teal-mid); margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
+.app-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity .2s;
 }
-.ai-feature-label::before { content: ''; display: block; width: 14px; height: 2px; background: currentColor; }
-.ai-feature h3 {
+.app-card:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.app-card:hover::before { opacity: 1; }
+.app-icon {
+  width: 42px; height: 42px;
+  background: var(--teal-lt);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.app-icon svg { width: 20px; height: 20px; color: var(--teal); }
+.app-title {
   font-family: var(--font-d);
-  font-size: 22px; font-weight: 700;
-  color: var(--white); margin-bottom: 12px; line-height: 1.25;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 9px;
+  line-height: 1.3;
 }
-.ai-feature p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.58); margin-bottom: 28px; }
-.ai-cards-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.ai-card-sm {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(0,152,164,.18);
-  border-radius: 5px; padding: 18px 16px;
-  transition: background .2s, border-color .2s;
-}
-.ai-card-sm:hover { background: rgba(0,152,164,.08); border-color: rgba(0,152,164,.4); }
-.ai-card-sm-tag { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 7px; }
-.ai-card-sm-title { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
-.ai-card-sm-desc { font-size: 12px; line-height: 1.6; color: rgba(255,255,255,.45); }
+.app-desc { font-size: 13.5px; line-height: 1.6; color: var(--text-md); }
 
-/* ─── TESTIMONIAL (LIGHT) ────────────────────────────────────── */
+/* ─── KPI CARDS (4-col, specific to BI page) ────────────────── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.kpi-card {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 24px 20px;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  border-top: 3px solid var(--teal);
+}
+.kpi-icon { width: 36px; height: 36px; background: var(--teal-lt); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.kpi-icon svg { width: 18px; height: 18px; color: var(--teal); }
+.kpi-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.kpi-list { display: flex; flex-direction: column; gap: 5px; }
+.kpi-list li { font-size: 11.5px; color: var(--text-md); line-height: 1.45; padding-left: 10px; position: relative; }
+.kpi-list li::before { content: ''; position: absolute; left: 0; top: 6px; width: 4px; height: 1px; background: var(--teal); }
+
+/* ─── INLINE CALLOUT (metric story, working with systems) ────── */
+.inline-callout {
+  background: var(--teal-lt);
+  border-left: 4px solid var(--teal);
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-top: 44px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.inline-callout svg { width: 20px; height: 20px; color: var(--teal); flex-shrink: 0; margin-top: 2px; }
+.inline-callout h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+.inline-callout p { font-size: 13.5px; color: var(--text-md); line-height: 1.6; }
+
+/* ─── INTEGRATION CARDS (2-col, system lists) ──────────────── */
+.int-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.int-card { background: var(--white); border-radius: 6px; padding: 28px 24px; box-shadow: 0 1px 4px rgba(26,58,74,.06); }
+.int-hdr { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.int-icon { width: 36px; height: 36px; background: var(--teal-lt); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.int-icon svg { width: 18px; height: 18px; color: var(--teal); }
+.int-title { font-size: 14px; font-weight: 700; color: var(--navy); }
+.int-list { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+.int-list li { font-size: 13px; color: var(--text-md); padding: 3px 0; }
+
+/* ─── INTEGRATION FEATURES (4-col tiles) ────────────────────── */
+.int-feats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+.int-feat { text-align: center; padding: 22px 16px; background: var(--off-white); border-radius: 6px; }
+.int-feat-icon { width: 36px; height: 36px; background: var(--teal-lt); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.int-feat-icon svg { width: 18px; height: 18px; color: var(--teal); }
+.int-feat-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.int-feat-desc { font-size: 12px; color: var(--text-md); line-height: 1.5; }
+
+/* ─── LIGHT TESTIMONIAL (matches advisory & dap) ────────────── */
 .testi-light {
   background: var(--off-white);
   border-left: 4px solid var(--teal);
   border-radius: 6px;
-  padding: 40px 44px;
-  max-width: 820px;
+  padding: 36px 40px;
+  max-width: 840px;
   margin: 0 auto;
 }
-.testi-light blockquote {
+.testi-quote {
   font-family: var(--font-d);
-  font-size: 19px; font-style: italic;
-  line-height: 1.6; color: var(--navy);
-  margin-bottom: 24px;
+  font-size: 19px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--navy);
+  margin-bottom: 22px;
 }
-.testi-light-rule { width: 28px; height: 2px; background: var(--teal); margin-bottom: 14px; }
-.testi-light-name { font-size: 14px; font-weight: 600; color: var(--navy); }
-.testi-light-role { font-size: 13px; color: var(--teal); margin-top: 3px; }
+.testi-rule { width: 30px; height: 2px; background: var(--teal); margin-bottom: 14px; }
+.testi-name { font-size: 14px; font-weight: 600; color: var(--navy); }
+.testi-role { font-size: 13px; color: var(--teal); margin-top: 3px; }
 
-/* ─── CTA BAND ───────────────────────────────────────────────── */
-.cta-sec { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
-.cta-sec::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
+/* ─── CTA BAND (matches advisory & dap) ─────────────────────── */
+.cta-sec {
+  background: var(--teal);
+  padding: 90px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
 .cta-sec .wrap { position: relative; z-index: 2; }
 .cta-eye { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
 .cta-sec h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: -.02em; }
-.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
+.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 28px; line-height: 1.6; }
+.cta-consult-list { list-style: none; max-width: 500px; margin: 0 auto 36px; display: flex; flex-direction: column; gap: 10px; }
+.cta-consult-list li { display: flex; align-items: flex-start; gap: 10px; text-align: left; font-size: 14px; color: rgba(255,255,255,.78); line-height: 1.5; }
+.cta-consult-list li svg { width: 16px; height: 16px; color: rgba(255,255,255,.65); flex-shrink: 0; margin-top: 2px; }
 .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
 
-/* ─── RESPONSIVE PAGE-SPECIFIC ───────────────────────────────── */
+/* ─── RESPONSIVE — page-specific ────────────────────────────── */
 @media (max-width: 1024px) {
-  .feature-row { grid-template-columns: 1fr; gap: 40px; }
-  .feature-row.reverse { direction: ltr; }
-  .ai-cards-inner { grid-template-columns: 1fr; }
   .inner-hero { padding: 64px 0 56px; }
-  .testi-light { padding: 32px 28px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .feat-row { grid-template-columns: 1fr; gap: 40px; }
+  .feat-row.reverse .feat-text { order: 1; }
+  .feat-row.reverse .feat-visual { order: 2; }
+  .app-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .int-grid { grid-template-columns: 1fr; }
+  .int-feats { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
+  .inner-hero { padding: 56px 0 48px; }
   .inner-hero h1 { font-size: 30px; }
   .inner-hero-lead { font-size: 15px; }
   .inner-hero-ctas { flex-direction: column; align-items: stretch; }
   .inner-hero-ctas .btn-primary, .inner-hero-ctas .btn-ghost { justify-content: center; }
-  .ai-cards-inner { grid-template-columns: 1fr; }
-  .testi-light { padding: 28px 20px; }
-  .testi-light blockquote { font-size: 17px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .testi-light { padding: 28px 24px; }
+  .testi-quote { font-size: 16px; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  .feat-row + .feat-row { margin-top: 56px; padding-top: 56px; }
 }
 
 </style>
@@ -540,15 +568,13 @@ footer { background: var(--navy); padding: 68px 0 0; }
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ════════════════════════════════════
-     HEADER — VERBATIM from header.html
-     Active state: Services
+     HEADER — verbatim from header.html
+     ACTIVE STATE: Services
 ════════════════════════════════════ -->
 <div class="nav-overlay" id="navOverlay"></div>
 <nav class="nav" id="mainNav" aria-label="Main navigation">
   <div class="wrap">
-
-    <!-- Logo -->
-    <a class="logo" href="https://webalive01.github.io/hkaapac/index.html" aria-label="HKA Tech — home">
+    <a class="logo" href="/" aria-label="HKA Tech — home">
       <div class="logo-mark">
         <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
@@ -558,7 +584,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
     </a>
 
-    <!-- Nav items -->
     <div class="nav-items">
 
       <!-- ═══ PLATFORM ═══ -->
@@ -570,26 +595,26 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <div class="mega-cols c3">
             <div>
               <div class="mega-col-title">Product</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+              <a class="mega-link" href="/platform/overview">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
                 <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/features.html">
+              <a class="mega-link" href="/platform/features">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
                 <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+              <a class="mega-link" href="/platform/integrations">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
                 <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
               </a>
             </div>
             <div>
               <div class="mega-col-title">Infrastructure</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+              <a class="mega-link" href="/platform/hosting">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
                 <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+              <a class="mega-link" href="/platform/whats-new">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
                 <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
               </a>
@@ -599,7 +624,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
                 <div class="mega-featured-label">Latest Release</div>
                 <div class="mega-featured-title">PMWeb Version 8.0</div>
                 <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
-                <a class="mega-featured-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
               </div>
             </div>
           </div>
@@ -615,27 +640,27 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <div class="mega-cols c2">
             <div>
               <div class="mega-col-title">By Lifecycle</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/plan.html">
+              <a class="mega-link" href="/solutions/plan">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
                 <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/build.html">
+              <a class="mega-link" href="/solutions/build">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
                 <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/operate.html">
+              <a class="mega-link" href="/solutions/operate">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
                 <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
               </a>
             </div>
             <div>
               <div class="mega-col-title">By Industry</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html"><div><div class="mega-link-title">Government</div></div></a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html"><div><div class="mega-link-title">Healthcare</div></div></a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html"><div><div class="mega-link-title">Education</div></div></a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html"><div><div class="mega-link-title">Transportation</div></div></a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/customers.html" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
             </div>
           </div>
         </div>
@@ -650,26 +675,26 @@ footer { background: var(--navy); padding: 68px 0 0; }
           <div class="mega-cols c2">
             <div>
               <div class="mega-col-title">Technology Services</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/bi.html">
+              <a class="mega-link" href="/services/bi">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
                 <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/dap.html">
+              <a class="mega-link" href="/services/dap">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
                 <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
               </a>
             </div>
             <div>
               <div class="mega-col-title">Advisory</div>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html">
+              <a class="mega-link" href="/services/implementation">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
                 <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html">
+              <a class="mega-link" href="/services/quick-start">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
                 <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
               </a>
-              <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html">
+              <a class="mega-link" href="/services/advisory">
                 <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
                 <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
               </a>
@@ -680,7 +705,7 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
       <!-- ═══ CUSTOMERS (single link, no dropdown) ═══ -->
       <div class="nav-item">
-        <a class="nav-btn" href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
+        <a class="nav-btn" href="/customers">Customers</a>
       </div>
 
       <!-- ═══ ABOUT ═══ -->
@@ -691,10 +716,10 @@ footer { background: var(--navy); padding: 68px 0 0; }
         <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
           <div>
             <div class="mega-col-title">Company</div>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/platform-overview.html"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
           </div>
         </div>
       </div>
@@ -707,251 +732,652 @@ footer { background: var(--navy); padding: 68px 0 0; }
         <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
           <div>
             <div class="mega-col-title">Resources</div>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/dap.html"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
-            <a class="mega-link" href="https://webalive01.github.io/hkaapac/advisory.html"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
           </div>
         </div>
       </div>
 
-    </div><!-- end nav-items -->
+    </div>
 
-    <!-- Actions -->
     <div class="nav-actions">
-      <a class="nav-login" href="https://webalive01.github.io/hkaapac/index.html">Login</a>
-      <a class="nav-cta" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
-
   </div>
 </nav>
 
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mm-section">Platform</div>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">PMWeb Overview</a>
-  <a href="https://webalive01.github.io/hkaapac/features.html">Platform Features</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Integrations</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Hosting &amp; SaaS</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">What's New</a>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
   <div class="mm-section">Solutions</div>
-  <a href="https://webalive01.github.io/hkaapac/plan.html">Plan</a>
-  <a href="https://webalive01.github.io/hkaapac/build.html">Build</a>
-  <a href="https://webalive01.github.io/hkaapac/operate.html">Operate</a>
-  <a href="https://webalive01.github.io/hkaapac/customers.html">All Industries</a>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
   <div class="mm-section">Services</div>
-  <a href="https://webalive01.github.io/hkaapac/bi.html">Business Intelligence (BI)</a>
-  <a href="https://webalive01.github.io/hkaapac/dap.html">Digital Adoption (DAP)</a>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">Implementation</a>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">Quick Start Packages</a>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">Capital Works Advisory</a>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
   <div class="mm-section">Company</div>
-  <a href="https://webalive01.github.io/hkaapac/customers.html">Customers</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Our Story</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">APAC Team</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Accreditations</a>
-  <a href="https://webalive01.github.io/hkaapac/platform-overview.html">News &amp; Events</a>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
   <div class="mm-section">Resources</div>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">Implementation Guide</a>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">Knowledge Base</a>
-  <a href="https://webalive01.github.io/hkaapac/dap.html">DAP &amp; Training Tools</a>
-  <a href="https://webalive01.github.io/hkaapac/advisory.html">PMO Toolkit &amp; Advisory</a>
-  <a href="https://webalive01.github.io/hkaapac/index.html" class="mm-cta">Contact Us</a>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
 </div>
+
 
 <!-- ════════════════════════════════════
      MAIN CONTENT
 ════════════════════════════════════ -->
 <main id="main-content">
 
-  <!-- ═══ HERO ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — written from audit §4.3 BI page content structure -->
+  <!-- ── HERO ─────────────────────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
   <section class="inner-hero">
     <div class="wrap">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="https://webalive01.github.io/hkaapac/index.html">Home</a>
+        <a href="/">Home</a>
         <span aria-hidden="true">›</span>
-        <a href="https://webalive01.github.io/hkaapac/bi.html">Services</a>
+        <a href="/services">Services</a>
         <span aria-hidden="true">›</span>
         <span aria-current="page">Business Intelligence</span>
       </nav>
-      <div class="inner-hero-content">
-        <div class="inner-hero-over">Analytics &amp; Reporting</div>
-        <h1>Business Intelligence for <em>Capital Works Portfolios</em></h1>
-        <p class="inner-hero-lead">Custom dashboards and reporting that deliver real visibility across your capital works portfolio — for PMWeb and other enterprise systems. An independent HKA Tech capability that generates measurable value with or without PMWeb at the centre.</p>
-        <div class="inner-hero-ctas">
-          <a class="btn-primary" href="https://webalive01.github.io/hkaapac/index.html">
-            Contact Us
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-          <a class="btn-ghost" href="https://webalive01.github.io/hkaapac/platform-overview.html">
-            Explore PMWeb
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-          </a>
-        </div>
+      <div class="s-over lt">Analytics</div>
+      <h1>Business Intelligence<br><em>Built for Capital Programs</em></h1>
+      <p class="inner-hero-lead">Expert BI consulting for organizations delivering capital programs.</p>
+      <p class="inner-hero-lead" style="margin-top:-10px">We break down data silos and build the BI foundations that give program owners visibility and control—from data strategy to dashboards that accelerate delivery across your entire team.</p>
+      <p class="inner-hero-stat">20+ years partnering with capital program organizations across PMIS deployment and BI program development.</p>
+      <div class="inner-hero-ctas">
+        <a class="btn-primary" href="/contact">
+          Schedule a Consultation
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">Specialized in Capital Programs</span>
+        <span class="hero-tag">Microsoft Fabric and Power BI Specialists</span>
+        <span class="hero-tag">Public &amp; Private Sector Experience</span>
       </div>
     </div>
   </section>
 
-  <!-- ═══ CENTRED INTRO ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] -->
+
+  <!-- ── PROVEN TRACK RECORD ──────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
+  <div class="stat-bar rev">
+    <div class="wrap">
+      <div class="stat-bar-over">Proven Track Record</div>
+      <div class="stat-bar-title">Deep Expertise in Capital Program BI</div>
+      <div class="stat-grid">
+        <div class="stat-item rev d1">
+          <div class="stat-val">$8.5B+</div>
+          <div class="stat-lbl">Programs Supported</div>
+          <div class="stat-sub">Across public and private sectors</div>
+        </div>
+        <div class="stat-item rev d2">
+          <div class="stat-val">20+</div>
+          <div class="stat-lbl">Years Experience</div>
+          <div class="stat-sub">In capital program management</div>
+        </div>
+        <div class="stat-item rev d3">
+          <div class="stat-val">200+</div>
+          <div class="stat-lbl">Dashboards Delivered</div>
+          <div class="stat-sub">Custom Power BI solutions</div>
+        </div>
+        <div class="stat-item rev">
+          <div class="stat-val">50+</div>
+          <div class="stat-lbl">Organizations Served</div>
+          <div class="stat-sub">Public agencies &amp; private enterprises</div>
+        </div>
+      </div>
+      <div class="client-logos">
+        <div class="client-pill">CDOT</div>
+        <div class="client-pill">OCSAN</div>
+        <div class="client-pill">UC Davis Health</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── CLIENT EXPERIENCE ─────────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
   <section class="section rev">
     <div class="wrap">
-      <div class="centred-intro">
-        <div class="s-over">Our BI Capability</div>
-        <h2 class="s-title">Real Visibility. Across Every System.</h2>
-        <p class="s-body">HKA Tech's Business Intelligence practice builds custom dashboards and reporting solutions for organisations managing capital programs — connecting PMWeb data, financial systems, scheduling tools, and other enterprise platforms into a single, coherent view of performance. Our BI revenue is earned independently of PMWeb: we work with any system your organisation relies on.</p>
+      <div class="section-intro">
+        <div class="s-over">Client Experience</div>
+        <h2 class="s-title">Serving Diverse Capital Program Owners</h2>
+        <p class="s-body">We understand the unique challenges facing public agencies and private enterprises managing large-scale capital investments.</p>
+      </div>
+      <div class="app-grid">
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 19V9l8-6 8 6v10"/><rect x="8" y="13" width="6" height="6"/></svg></div>
+          <div class="app-title">Public Transportation</div>
+          <p class="app-desc">Track multi-billion dollar transit expansion programs with real-time visibility into hundreds of projects across planning, design, and construction phases.</p>
+        </div>
+
+        <div class="app-card rev d2">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="18" height="12" rx="2"/><path d="M7 8V6a4 4 0 0 1 8 0v2"/></svg></div>
+          <div class="app-title">Hotel &amp; Resort Owners</div>
+          <p class="app-desc">Track property renovations, expansions, and brand standard upgrades across multi-property portfolios with detailed ROI and guest impact analysis.</p>
+        </div>
+
+        <div class="app-card rev d3">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M11 2L2 7v13h18V7L11 2z"/><rect x="8" y="14" width="6" height="6"/></svg></div>
+          <div class="app-title">Cities &amp; Counties</div>
+          <p class="app-desc">Unify capital improvement programs across departments—parks, facilities, roads, utilities—into a single executive dashboard for council reporting.</p>
+        </div>
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 17V9l7-5 7 5v8"/><path d="M2 17h18M11 17V12"/></svg></div>
+          <div class="app-title">Utilities &amp; Infrastructure</div>
+          <p class="app-desc">Monitor system upgrades, capacity expansion, and regulatory compliance projects with integrated asset management data.</p>
+        </div>
+
+        <div class="app-card rev d2">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M11 2l-8 5v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V7L11 2z"/></svg></div>
+          <div class="app-title">Universities</div>
+          <p class="app-desc">Manage campus facility upgrades, new construction, and deferred maintenance programs with stakeholder-specific reporting for trustees and state agencies.</p>
+        </div>
+
+        <div class="app-card rev d3">
+          <div class="app-icon"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="18" height="16" rx="2"/><path d="M2 9h18M7 3v6M15 3v6"/></svg></div>
+          <div class="app-title">Real Estate Developers</div>
+          <p class="app-desc">Oversee mixed-use developments and build-to-suit projects with integrated financial modeling, construction tracking, and leasing pipeline visibility.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ FEATURE ROW 1 — PMWeb Dashboards ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.3 -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="feature-row rev">
-        <div class="feature-text">
-          <div class="s-over">PMWeb + BI</div>
-          <h2>Portfolio-Level Dashboards for PMWeb</h2>
-          <p>PMWeb contains a wealth of cost, schedule, contract, and workflow data. HKA Tech's BI team builds reporting layers that surface that data at the portfolio and program level — so executive decision-makers see what they need, when they need it, without navigating individual project records.</p>
-          <ul class="feature-detail-list">
-            <li>
-              <strong>Executive Portfolio Dashboards</strong>
-              Consolidated views of budget performance, contract status, cost-to-complete forecasts, and schedule variance across all projects in a program.
-            </li>
-            <li>
-              <strong>Program-Level Cost Reporting</strong>
-              Drill-down from portfolio to project to cost-code level, with variance flagging and trend analysis built in.
-            </li>
-            <li>
-              <strong>Governance &amp; Workflow Reporting</strong>
-              Visibility of approval pipeline status, outstanding actions, and document control metrics — critical for compliance-driven environments.
-            </li>
-          </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/platform-overview.html">
-            Explore PMWeb
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
-        </div>
-        <div class="feature-visual rev d1">
-          <!-- [IMAGE NEEDED]: bi-feature-pmweb-dashboard.jpg — PMWeb portfolio-level BI dashboard screenshot, 4:3, 800×600+ -->
-          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb portfolio-level BI dashboard screenshot">
-            <div class="ip-tag">Image Needed</div>
-            <div class="ip-filename">bi-feature-pmweb-dashboard.jpg</div>
-            <p class="ip-desc"><strong>Screenshot:</strong> A portfolio-level BI dashboard built on PMWeb data. Should show multiple KPI tiles (budget, schedule, contract status), a trend chart, and a project-level breakdown table. Use an anonymised demo dataset — no real client project names or dollar figures visible.</p>
-            <div class="ip-specs">4:3 · 800×600px minimum · PNG or high-quality JPG</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══ FEATURE ROW 2 — Enterprise System Dashboards ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.3: "Custom dashboards and reporting for PMWeb and other enterprise systems. Revenue earned independently of PMWeb." -->
-  <section class="section">
-    <div class="wrap">
-      <div class="feature-row reverse rev">
-        <div class="feature-text">
-          <div class="s-over">Enterprise BI</div>
-          <h2>Reporting Beyond PMWeb</h2>
-          <p>HKA Tech's BI capability is not limited to PMWeb. Many capital works organisations operate multiple enterprise systems — financial platforms, ERP solutions, scheduling tools, and asset management databases. We build reporting layers that connect these sources into a unified view, independent of any single vendor.</p>
-          <ul class="feature-detail-list">
-            <li>
-              <strong>Multi-System Data Integration</strong>
-              Connect data from SAP, Oracle, Microsoft Dynamics, and other platforms alongside PMWeb to produce a single source of truth for program performance.
-            </li>
-            <li>
-              <strong>Custom KPI Frameworks</strong>
-              We work with your team to define the metrics that matter — then build dashboards that track them consistently across all projects and programs.
-            </li>
-            <li>
-              <strong>Reporting for Every Audience</strong>
-              From field-level project reports to board-ready executive summaries — each dashboard is designed for its intended audience and decision context.
-            </li>
-          </ul>
-          <a class="arrow-link" href="https://webalive01.github.io/hkaapac/index.html">
-            Talk to Our Team
-            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
-          </a>
-        </div>
-        <div class="feature-visual rev d1">
-          <!-- [IMAGE NEEDED]: bi-feature-enterprise-dashboard.jpg — Non-PMWeb enterprise BI dashboard, 4:3, 800×600+ -->
-          <div class="img-placeholder" role="img" aria-label="Placeholder: Enterprise system BI dashboard screenshot — non-PMWeb source data">
-            <div class="ip-tag">Image Needed</div>
-            <div class="ip-filename">bi-feature-enterprise-dashboard.jpg</div>
-            <p class="ip-desc"><strong>Screenshot:</strong> A BI dashboard drawing on non-PMWeb enterprise data (e.g. SAP or Oracle financial data alongside a scheduling tool). Should show multi-source data integration visually — ideally a header noting two or more connected systems, with KPI tiles and a chart panel. Anonymised data only.</p>
-            <div class="ip-specs">4:3 · 800×600px minimum · PNG or high-quality JPG</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ AI-ENHANCED ANALYTICS ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — from audit §4.1 AI section: "BI + AI: Automated Insights" -->
+  <!-- ── KPIs AND METRICS ──────────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
   <section class="section alt rev">
     <div class="wrap">
-      <div class="centred-intro" style="margin-bottom:0">
-        <div class="s-over">AI-Enhanced Analytics</div>
-        <h2 class="s-title" style="max-width:600px;margin-left:auto;margin-right:auto">BI Dashboards Powered by AI</h2>
-        <p class="s-body" style="margin:0 auto 0">HKA Tech applies AI capabilities across its BI practice — surfacing anomalies, generating narrative summaries, and identifying patterns that conventional reporting cannot easily expose.</p>
+      <div class="section-intro">
+        <div class="s-over">Capital Program Analytics</div>
+        <h2 class="s-title">KPIs and Metrics That Drive Results</h2>
+        <p class="s-body">Track the metrics that matter most to your capital program's success. Our analytics solutions provide visibility into performance across all critical dimensions of program delivery. We partner with you to identify an optimized set of KPIs and metrics that best fit your organization.</p>
       </div>
-      <div class="ai-feature">
-        <div class="ai-feature-label">BI + AI</div>
-        <h3>Automated Insights for Capital Works Reporting</h3>
-        <p>AI-enhanced dashboards that go beyond data visualisation — identifying cost trends, flagging schedule risk, and generating plain-language summaries for program owners who need answers, not just charts.</p>
-        <div class="ai-cards-inner">
-          <div class="ai-card-sm">
-            <div class="ai-card-sm-tag">Anomaly Detection</div>
-            <div class="ai-card-sm-title">Surface Issues Before They Escalate</div>
-            <p class="ai-card-sm-desc">AI models flag unusual cost movements, contract variations, and schedule deviations automatically — so your team focuses on investigation rather than discovery.</p>
-          </div>
-          <div class="ai-card-sm">
-            <div class="ai-card-sm-tag">Narrative Summaries</div>
-            <div class="ai-card-sm-title">Reports That Explain Themselves</div>
-            <p class="ai-card-sm-desc">AI-generated narrative commentary interprets dashboard data for executive audiences — turning numbers into concise, readable performance summaries.</p>
-          </div>
-          <div class="ai-card-sm">
-            <div class="ai-card-sm-tag">Predictive Analytics</div>
-            <div class="ai-card-sm-title">Cost-to-Complete Forecasting</div>
-            <p class="ai-card-sm-desc">AI-assisted forecasting models draw on historical project data to improve the accuracy of cost-to-complete estimates across your portfolio.</p>
+
+      <!-- [IMAGE NEEDED]: bi-dashboard-screenshot.png — Capital program Power BI dashboard screenshot showing portfolio health, cost performance, and schedule data. Use anonymised demo data — no real client project names or dollar figures visible. -->
+      <div class="img-placeholder" role="img" aria-label="Placeholder: Capital program Power BI dashboard screenshot" style="margin-bottom:44px">
+        <div class="ip-tag">Image Needed</div>
+        <div class="ip-filename">bi-dashboard-screenshot.png</div>
+        <p class="ip-desc"><strong>Screenshot:</strong> Capital program Power BI dashboard — showing portfolio health overview, cost performance charts (CPI, budget variance), and schedule metrics. Use anonymised demo data with no real client names or dollar figures.</p>
+        <div class="ip-specs">16:9 · 1200×675px minimum · PNG or high-quality JPG</div>
+      </div>
+
+      <div class="kpi-grid">
+
+        <div class="kpi-card rev d1">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 14V8l8-6 8 6v6"/><rect x="7" y="9" width="6" height="5"/></svg></div>
+          <div class="kpi-title">Portfolio Health</div>
+          <ul class="kpi-list">
+            <li>Overall Program Performance Index</li>
+            <li>Portfolio-Level Budget Variance</li>
+            <li>Strategic Alignment Score</li>
+            <li>Benefit Realization Tracking</li>
+            <li>Cross-Project Resource Utilization</li>
+            <li>Program Risk Exposure</li>
+            <li>Portfolio Delivery Confidence</li>
+            <li>Value Delivered vs. Planned</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d2">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l6 3v5c0 4-2.5 6.5-6 8-3.5-1.5-6-4-6-8V5l6-3z"/></svg></div>
+          <div class="kpi-title">Change Management</div>
+          <ul class="kpi-list">
+            <li>Change Order Volume</li>
+            <li>Change Order Value ($)</li>
+            <li>Average Time to Approve Changes</li>
+            <li>Change Impact on Schedule</li>
+            <li>Change Impact on Budget</li>
+            <li>Change Order Approval Rate</li>
+            <li>Pending Changes Value</li>
+            <li>Change Order Trends</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d3">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 10l3 3 7-7"/><circle cx="10" cy="10" r="8"/></svg></div>
+          <div class="kpi-title">Quality Management</div>
+          <ul class="kpi-list">
+            <li>Quality Inspection Pass Rate</li>
+            <li>Defect Density by Project</li>
+            <li>Rework Costs</li>
+            <li>Quality Non-Conformance Reports</li>
+            <li>Commissioning Completion Rate</li>
+            <li>Warranty Claims</li>
+            <li>Quality Audit Scores</li>
+            <li>Lessons Learned Documentation</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>
+          <div class="kpi-title">Schedule Performance</div>
+          <ul class="kpi-list">
+            <li>Schedule Performance Index (SPI)</li>
+            <li>Schedule Variance (SV)</li>
+            <li>Milestone Completion Rate</li>
+            <li>Critical Path Analysis</li>
+            <li>Average Project Duration</li>
+            <li>On-Time Delivery Percentage</li>
+            <li>Schedule Adherence by Phase</li>
+            <li>Time to Complete by Project Type</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d1">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 15l4-8 3 5 3-3 5 6"/></svg></div>
+          <div class="kpi-title">Cost Performance</div>
+          <ul class="kpi-list">
+            <li>Cost Performance Index (CPI)</li>
+            <li>Cost Variance (CV)</li>
+            <li>Estimate at Completion (EAC)</li>
+            <li>Budget Utilization Rate</li>
+            <li>Cost per Square Foot/Meter</li>
+            <li>Forecast Accuracy</li>
+            <li>Burn Rate Analysis</li>
+            <li>Return on Investment (ROI)</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d2">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 16V5l4-3h8v14H4z"/><path d="M8 2v3H4M7 10h6M7 13h4"/></svg></div>
+          <div class="kpi-title">Document &amp; Data Management</div>
+          <ul class="kpi-list">
+            <li>Document Control Compliance</li>
+            <li>Drawing/Model Version Control</li>
+            <li>RFI Response Time</li>
+            <li>Submittal Approval Cycle Time</li>
+            <li>Data Quality Score</li>
+            <li>System Integration Status</li>
+            <li>As-Built Documentation Completion</li>
+            <li>Records Turnover Percentage</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d3">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="9" width="16" height="9" rx="1"/><path d="M6 9V6a4 4 0 0 1 8 0v3"/></svg></div>
+          <div class="kpi-title">Risk Management</div>
+          <ul class="kpi-list">
+            <li>Risk Score by Project</li>
+            <li>Open vs Closed Risks</li>
+            <li>Risk Probability x Impact Matrix</li>
+            <li>Risk Response Effectiveness</li>
+            <li>Risk Mitigation Cost</li>
+            <li>Average Time to Risk Resolution</li>
+            <li>Risk Velocity (Rate of Change)</li>
+            <li>Risk Exposure by Category</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l-7 4v5c0 4 3 6.5 7 8 4-1.5 7-4 7-8V6l-7-4z"/><path d="M7 10l2 2 4-4"/></svg></div>
+          <div class="kpi-title">Compliance &amp; Regulatory</div>
+          <ul class="kpi-list">
+            <li>Permit Approval Status</li>
+            <li>Regulatory Inspection Pass Rate</li>
+            <li>Compliance Violations</li>
+            <li>Code Compliance Score</li>
+            <li>Environmental Impact Assessments</li>
+            <li>Certification Achievement Rate</li>
+            <li>Audit Findings Resolution Time</li>
+            <li>Regulatory Reporting Timeliness</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d1">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="6" r="3"/><path d="M2 18v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg></div>
+          <div class="kpi-title">Resource Management</div>
+          <ul class="kpi-list">
+            <li>Resource Utilization Rate</li>
+            <li>Labor Hours vs Budget</li>
+            <li>Team Productivity Index</li>
+            <li>Subcontractor Performance</li>
+            <li>Equipment Utilization</li>
+            <li>Resource Allocation Efficiency</li>
+            <li>Staff Turnover Rate</li>
+            <li>Resource Availability Forecast</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d2">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 14l3-7 4 5 2-3 4 5"/><path d="M2 4h16"/></svg></div>
+          <div class="kpi-title">Procurement &amp; Contracts</div>
+          <ul class="kpi-list">
+            <li>Procurement Cycle Time</li>
+            <li>Contract Compliance Rate</li>
+            <li>Vendor Performance Scores</li>
+            <li>Purchase Order Status</li>
+            <li>Material Delivery On-Time Rate</li>
+            <li>Contract Modifications Volume</li>
+            <li>Subcontractor Backlog</li>
+            <li>Procurement Savings Achieved</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d3">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l6 3v5c0 3.5-2.5 6.5-6 8-3.5-1.5-6-4.5-6-8V5l6-3z"/></svg></div>
+          <div class="kpi-title">Safety &amp; Environmental</div>
+          <ul class="kpi-list">
+            <li>Total Recordable Incident Rate (TRIR)</li>
+            <li>Days Since Last Incident</li>
+            <li>Safety Training Completion Rate</li>
+            <li>Environmental Compliance Score</li>
+            <li>Permit Violations</li>
+            <li>Safety Audit Findings</li>
+            <li>Near-Miss Reporting Rate</li>
+            <li>Sustainability Metrics (Carbon, Waste)</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="M6 10l3 3 5-5"/></svg></div>
+          <div class="kpi-title">Stakeholder &amp; Communications</div>
+          <ul class="kpi-list">
+            <li>Stakeholder Satisfaction Score</li>
+            <li>Community Engagement Metrics</li>
+            <li>Issue Resolution Time</li>
+            <li>Meeting Action Item Completion</li>
+            <li>Communication Frequency</li>
+            <li>Stakeholder Influence/Impact Matrix</li>
+            <li>Public Comment Response Time</li>
+            <li>Media Sentiment Analysis</li>
+          </ul>
+        </div>
+
+        <div class="kpi-card rev d1">
+          <div class="kpi-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 16V6l6-4 6 4v10M10 16V10"/><path d="M6 9h8"/></svg></div>
+          <div class="kpi-title">Benefits Realization</div>
+          <ul class="kpi-list">
+            <li>Benefits Delivered vs Planned</li>
+            <li>Operational Performance Improvements</li>
+            <li>Capacity/Utilization Gains</li>
+            <li>Revenue Generation (if applicable)</li>
+            <li>Cost Savings Achieved</li>
+            <li>Service Level Improvements</li>
+            <li>Customer/User Satisfaction</li>
+            <li>Strategic Objectives Met</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- SOURCE: EXISTING -->
+      <div class="inline-callout rev">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 2l-2 7H4l6 4-2 7 4-3 4 3-2-7 6-4h-6z"/></svg>
+        <div>
+          <h4>Every Metric Tells a Story</h4>
+          <p>Our dashboards don't just display numbers—they transform your capital program data into actionable insights that help you make informed decisions and deliver projects on time and on budget.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── OUR EXPERTISE — SPECIALIZED SERVICES ─────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="section-intro">
+        <div class="s-over">Our Expertise</div>
+        <h2 class="s-title">Specialized Services for Capital Program Leaders</h2>
+      </div>
+
+      <!-- Feature row 1: Power BI + Strategic Consulting (feat-row pattern) -->
+      <div class="feat-row rev d1">
+        <div class="feat-text">
+          <div class="s-over">Power BI &amp; Microsoft Fabric</div>
+          <h2>Custom Solutions Built for Capital Programs</h2>
+          <p>Custom Power BI dashboards designed specifically for capital program tracking, portfolio oversight, and executive reporting. We leverage Microsoft Fabric to unify data from project management systems, ERP, financial platforms, and scheduling tools.</p>
+          <p>Assessment of your current state, BI strategy development, tool selection guidance, and roadmap planning — starting with where you are today, not a blank-slate prescription.</p>
+          <a class="arrow-link" href="/contact">
+            Schedule a Consultation
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="feat-visual">
+          <!-- [IMAGE NEEDED]: bi-dashboard-screenshot.png — see header comment above -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: Power BI capital program dashboard screenshot">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">bi-dashboard-screenshot.png</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> Power BI dashboard showing capital program analytics — portfolio health, cost performance, and schedule performance tiles visible. Anonymised demo data only.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG</div>
           </div>
         </div>
       </div>
+
+      <!-- All 10 services as 2-col app-card grid below -->
+      <div class="app-grid" style="grid-template-columns:repeat(2,1fr);margin-top:80px;padding-top:80px;border-top:1px solid var(--grey)">
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 15V8l7-5 7 5v7"/><rect x="7" y="10" width="6" height="5"/></svg></div>
+          <div class="app-title">Power BI Implementation</div>
+          <p class="app-desc">Custom Power BI dashboards designed specifically for capital program tracking, portfolio oversight, and executive reporting.</p>
+        </div>
+
+        <div class="app-card rev d2">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l6 3v5c0 4-2.5 6.5-6 8-3.5-1.5-6-4-6-8V5l6-3z"/></svg></div>
+          <div class="app-title">Strategic BI Consulting</div>
+          <p class="app-desc">Assessment of your current state, BI strategy development, tool selection guidance, and roadmap planning.</p>
+        </div>
+
+        <div class="app-card rev d3">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 16V5l7-3 7 3v11M10 16V10"/><path d="M6 8h8"/></svg></div>
+          <div class="app-title">Portfolio Optimization</div>
+          <p class="app-desc">Multi-project dashboards with drill-down capabilities for managing entire capital programs across hundreds of projects.</p>
+        </div>
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="7" r="4"/><path d="M3 18a7 7 0 0 1 14 0"/></svg></div>
+          <div class="app-title">Stakeholder Training</div>
+          <p class="app-desc">Comprehensive training programs to ensure your team can maintain, update, and expand your BI solutions.</p>
+        </div>
+
+        <div class="app-card rev d2">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M6 10h8M6 7h4M6 13h6"/></svg></div>
+          <div class="app-title">Microsoft Fabric Integration</div>
+          <p class="app-desc">Leverage Microsoft Fabric to unify data from project management systems, ERP, financial platforms, and scheduling tools.</p>
+        </div>
+
+        <div class="app-card rev d3">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 14V7l7-5 7 5v7M7 14V9h6v5"/></svg></div>
+          <div class="app-title">Custom Dashboard Design &amp; Visuals</div>
+          <p class="app-desc">Tailored visualizations that match your workflows, KPIs, and stakeholder reporting needs—not generic templates.</p>
+        </div>
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg></div>
+          <div class="app-title">AI-Ready Data Architecture</div>
+          <p class="app-desc">Future-proof solutions engineered for AI and LLM consumption, ensuring your data is structured for next-generation analytics and intelligent automation.</p>
+        </div>
+
+        <div class="app-card rev d2">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="10" r="3"/><circle cx="15" cy="10" r="3"/><path d="M8 10h4"/></svg></div>
+          <div class="app-title">Data Silo Elimination</div>
+          <p class="app-desc">Break down barriers between departments and systems. Connect PMWEB, P6, SAP, Oracle, and more into one unified view.</p>
+        </div>
+
+        <div class="app-card rev d3">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-3 4 5"/></svg></div>
+          <div class="app-title">Risk &amp; Performance Analytics</div>
+          <p class="app-desc">Build early warning systems that identify schedule delays, budget variances, and resource constraints before they escalate.</p>
+        </div>
+
+        <div class="app-card rev d1">
+          <div class="app-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M7 8h6M7 11h4"/></svg></div>
+          <div class="app-title">Governance &amp; Compliance</div>
+          <p class="app-desc">Ensure data security, access controls, and audit trails meet public sector requirements and enterprise standards.</p>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIAL ═══ -->
-  <!-- SOURCE: NEW [CLIENT TO SUPPLY] — placeholder quote; replace with real BI client testimonial -->
-  <section class="section rev">
+
+  <!-- ── TECHNOLOGY INTEGRATION ────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
+  <section class="section alt rev">
     <div class="wrap">
-      <div style="text-align:center;margin-bottom:44px">
-        <div class="s-over" style="justify-content:center">Client Results</div>
-        <h2 class="s-title" style="max-width:520px;margin-left:auto;margin-right:auto">What Our BI Clients Say</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:52px">
+        <div>
+          <div class="s-over">Technology Integration</div>
+          <h2 class="s-title">Breaking Down Data Silos</h2>
+        </div>
+        <div>
+          <p class="s-body">We connect your existing systems—ERP, project management, scheduling, financial—into unified Power BI dashboards powered by Microsoft Fabric.</p>
+        </div>
       </div>
-      <!-- [CLIENT TO SUPPLY: Replace the placeholder quote below with a real testimonial from a BI engagement — name, role, and organisation required. Quote should reference a specific outcome: reporting time reduction, visibility improvement, decision speed, or similar.] -->
-      <div class="testi-light">
-        <blockquote>"The BI dashboards HKA Tech built give us real-time visibility across every project in our portfolio. Our reporting time has been reduced dramatically and our executive team can now see the full picture in a single view — without waiting for end-of-month reports."</blockquote>
-        <div class="testi-light-rule"></div>
-        <div class="testi-light-name">[CLIENT TO SUPPLY: Name, Title]</div>
-        <div class="testi-light-role">[CLIENT TO SUPPLY: Organisation]</div>
+
+      <div class="int-grid">
+
+        <div class="int-card rev d1">
+          <div class="int-hdr">
+            <div class="int-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1"/><path d="M5 4V2M13 4V2M2 9h14"/></svg></div>
+            <div class="int-title">ERP &amp; Financial Systems</div>
+          </div>
+          <ul class="int-list">
+            <li>SAP</li><li>Lawson</li>
+            <li>Oracle Financials</li><li>Kuali (Financials)</li>
+            <li>PeopleSoft</li><li>eCMS</li>
+            <li>JD Edwards</li><li>Epicor</li>
+            <li>Microsoft Dynamics AX</li><li>Yardi</li>
+            <li>Timberline/Sage 300</li><li>IBM Maximo</li>
+            <li>ViewPoint</li>
+          </ul>
+        </div>
+
+        <div class="int-card rev d2">
+          <div class="int-hdr">
+            <div class="int-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M3 15V7l6-4 6 4v8"/><rect x="6" y="10" width="6" height="5"/></svg></div>
+            <div class="int-title">Construction Management Systems</div>
+          </div>
+          <ul class="int-list">
+            <li>PMWeb</li><li>e-Builder</li>
+            <li>Primavera Contract Manager / Expedition</li><li>Procore</li>
+            <li>Prolog Manager</li><li>Microsoft Project</li>
+            <li>Constructware</li><li>Oracle Primavera P6</li>
+          </ul>
+        </div>
+
+        <div class="int-card rev d3">
+          <div class="int-hdr">
+            <div class="int-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M2 14V5l4-3h6l4 3v9H2z"/><path d="M6 2v3H2"/></svg></div>
+            <div class="int-title">Content Management Systems</div>
+          </div>
+          <ul class="int-list">
+            <li>SharePoint</li><li>Laserfiche Rio</li>
+            <li>M-Files</li><li>HP Desksite</li>
+          </ul>
+        </div>
+
+        <div class="int-card rev">
+          <div class="int-hdr">
+            <div class="int-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
+            <div class="int-title">Other Solutions/Systems</div>
+          </div>
+          <ul class="int-list">
+            <li>ESRI ArcGIS</li><li>AS400</li>
+            <li>DB2</li><li>ABB Ellipse</li>
+            <li style="grid-column:1/-1">Business Intelligence (PowerBI, Tableau, Domo, Cognos etc.)</li>
+          </ul>
+        </div>
+
       </div>
+
+      <div class="int-feats rev">
+        <div class="int-feat">
+          <div class="int-feat-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="9" r="2"/><circle cx="13" cy="9" r="2"/><path d="M7 9h4"/><path d="M5 7V4M13 7V4M5 11v3M13 11v3"/></svg></div>
+          <div class="int-feat-title">Unify Disconnected Systems</div>
+          <p class="int-feat-desc">Connect project management, financial, scheduling, and document systems into a single source of truth.</p>
+        </div>
+        <div class="int-feat">
+          <div class="int-feat-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 12.5A3 3 0 0 1 4 6.5h.5a4.5 4.5 0 0 1 8.5 1 2.5 2.5 0 0 1 0 5H4z"/></svg></div>
+          <div class="int-feat-title">Microsoft Fabric Expertise</div>
+          <p class="int-feat-desc">Leverage the power of Microsoft Fabric to build modern, scalable data architectures for capital programs.</p>
+        </div>
+        <div class="int-feat">
+          <div class="int-feat-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="M4 14V5l5-3 5 3v9M4 9h10"/></svg></div>
+          <div class="int-feat-title">Power BI Mastery</div>
+          <p class="int-feat-desc">Custom dashboards, advanced DAX calculations, and Row-Level Security configured for your organization.</p>
+        </div>
+        <div class="int-feat">
+          <div class="int-feat-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M9 7v4M7 9h4"/></svg></div>
+          <div class="int-feat-title">Enterprise-Grade Security</div>
+          <p class="int-feat-desc">Implement proper data governance, access controls, and audit trails for sensitive capital program information.</p>
+        </div>
+      </div>
+
+      <!-- SOURCE: EXISTING -->
+      <div class="inline-callout rev">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M10 2l-2 7H4l6 4-2 7 4-3 4 3-2-7 6-4h-6z"/></svg>
+        <div>
+          <h4>Working with Other Systems?</h4>
+          <p>Every capital program has unique technology requirements. We'll assess your current systems and design an integration approach that works for your organization.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ═══ CTA BAND ═══ -->
-  <!-- SOURCE: NEW [NEW — VERIFY] — per audit §6 graduated engagement model -->
+
+  <!-- ── CTA BAND ──────────────────────────────────────────────────
+       SOURCE: EXISTING — https://www.hka-tech.com/businessintelligence
+  ─────────────────────────────────────────────────────────────── -->
   <section class="cta-sec rev">
     <div class="wrap">
-      <div class="cta-eye">Talk to Us</div>
-      <h2>Ready to Transform Your Capital Works Reporting?</h2>
-      <p>Talk to our BI team about what real portfolio visibility looks like for your organisation — whether you run PMWeb, another enterprise platform, or a combination of both.</p>
+      <div class="cta-eye">Business Intelligence</div>
+      <h2>Ready to Turn Your Capital Program Data Into Insights?</h2>
+      <p>Schedule a consultation to discuss your current challenges and how we can help you build Power BI solutions that drive better decision-making.</p>
+      <ul class="cta-consult-list">
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg>
+          <span><strong style="color:white">No-obligation consultation</strong> — We'll assess your needs and discuss potential solutions</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg>
+          <span><strong style="color:white">Talk with capital program BI experts</strong> — Our team has deep experience in both domains</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8l3 3 7-7"/></svg>
+          <span><strong style="color:white">See examples from similar organizations</strong> — We'll show you relevant case studies</span>
+        </li>
+      </ul>
       <div class="cta-btns">
-        <a class="btn-white" href="https://webalive01.github.io/hkaapac/index.html">Contact Us</a>
-        <a class="btn-gw" href="https://webalive01.github.io/hkaapac/platform-overview.html">
+        <a class="btn-white" href="/contact">Schedule a Consultation</a>
+        <a class="btn-gw" href="/services">
           Explore All Services
           <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
         </a>
@@ -961,8 +1387,9 @@ footer { background: var(--navy); padding: 68px 0 0; }
 
 </main>
 
+
 <!-- ════════════════════════════════════
-     FOOTER — VERBATIM from footer.html
+     FOOTER — verbatim from footer.html
 ════════════════════════════════════ -->
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
@@ -1007,14 +1434,14 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div>
         <div class="f-col-title">Platform &amp; Services</div>
         <div class="f-links">
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">PMWeb Overview</a>
-          <a href="https://webalive01.github.io/hkaapac/features.html">Platform Features</a>
-          <a href="https://webalive01.github.io/hkaapac/bi.html">Business Intelligence</a>
-          <a href="https://webalive01.github.io/hkaapac/dap.html">Digital Adoption (DAP)</a>
-          <a href="https://webalive01.github.io/hkaapac/advisory.html">Capital Works Advisory</a>
-          <a href="https://webalive01.github.io/hkaapac/advisory.html">Implementation Guide</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Hosting &amp; SaaS</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">What's New</a>
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
         </div>
       </div>
 
@@ -1022,13 +1449,13 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div>
         <div class="f-col-title">Company</div>
         <div class="f-links">
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Our Story</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">APAC Team</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">Accreditations</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">News &amp; Events</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Who Uses PMWeb</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Testimonials</a>
-          <a href="https://webalive01.github.io/hkaapac/platform-overview.html">HKA Global</a>
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
         </div>
       </div>
 
@@ -1036,14 +1463,14 @@ footer { background: var(--navy); padding: 68px 0 0; }
       <div>
         <div class="f-col-title">Industries</div>
         <div class="f-links">
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Government</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Healthcare</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Education</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Transportation</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Energy &amp; Resources</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Property &amp; Construction</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">Engineering &amp; Design</a>
-          <a href="https://webalive01.github.io/hkaapac/customers.html">All 11 Industries →</a>
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
         </div>
       </div>
 
@@ -1051,24 +1478,23 @@ footer { background: var(--navy); padding: 68px 0 0; }
     <div class="f-bottom">
       <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
       <div class="f-legal">
-        <a href="https://webalive01.github.io/hkaapac/index.html">Privacy Policy</a>
-        <a href="https://webalive01.github.io/hkaapac/index.html">Conditions of Use</a>
-        <a href="https://webalive01.github.io/hkaapac/index.html">Anti-Slavery Policy</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
       </div>
     </div>
   </div>
 </footer>
 
+
 <!-- ════════════════════════════════════
-     SCRIPTS — shared.js VERBATIM
+     shared.js — CANONICAL shared scripts
 ════════════════════════════════════ -->
 <script>
-/* ─ NAV DROPDOWNS (mega-menus) ────────────────────────────── */
 (function(){
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
   const overlay  = document.getElementById('navOverlay');
   if (!navItems.length) return;
-
   function closeAll() {
     navItems.forEach(i => {
       i.classList.remove('open');
@@ -1077,7 +1503,6 @@ footer { background: var(--navy); padding: 68px 0 0; }
     });
     if (overlay) overlay.classList.remove('active');
   }
-
   navItems.forEach(item => {
     const btn = item.querySelector('.nav-btn');
     if (!btn) return;
@@ -1092,40 +1517,28 @@ footer { background: var(--navy); padding: 68px 0 0; }
       }
     });
   });
-
   if (overlay) overlay.addEventListener('click', closeAll);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
 })();
-
-/* ─ NAV SHADOW ON SCROLL ──────────── */
 (function(){
   const nav = document.getElementById('mainNav');
   if (nav) {
     window.addEventListener('scroll', () => {
-      nav.style.boxShadow = window.scrollY > 20
-        ? '0 4px 24px rgba(0,0,0,.12)'
-        : '0 1px 8px rgba(0,0,0,.06)';
+      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 24px rgba(0,0,0,.12)' : '0 1px 8px rgba(0,0,0,.06)';
     }, { passive: true });
   }
 })();
-
-/* ─ SCROLL REVEAL ─────────────────── */
 (function(){
   const revEls = document.querySelectorAll('.rev');
   if (revEls.length && 'IntersectionObserver' in window) {
     const revObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('vis');
-          revObs.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('vis'); revObs.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revEls.forEach(el => revObs.observe(el));
   }
 })();
-
-/* ─ HAMBURGER MENU ────────────────── */
 (function(){
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1145,19 +1558,12 @@ footer { background: var(--navy); padding: 68px 0 0; }
     });
   });
 })();
-
-/* ─ BACK TO TOP ───────────────────── */
 (function(){
   const btt = document.getElementById('backToTop');
   if (!btt) return;
-  window.addEventListener('scroll', () => {
-    btt.classList.toggle('visible', window.scrollY > 600);
-  }, { passive: true });
-  btt.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', () => { btt.classList.toggle('visible', window.scrollY > 600); }, { passive: true });
+  btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 </script>
-
 </body>
 </html>

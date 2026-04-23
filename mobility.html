@@ -1,0 +1,1364 @@
+<!--
+  PAGE:             Mobility — Platform Features (Build Phase)
+  URL SLUG:         /platform/features/mobility
+  MENU LOCATION:    Platform ▾ → Platform Features
+  SEO TITLE:        PMWeb Mobility | Access Anywhere | Platform Features
+  META DESCRIPTION: True zero-footprint access — run PMWeb from any browser on iPad, iPhone, tablet, or smartphone. Full capital works management in the field with no downloads required.
+  PRIMARY KEYWORD:  PMWeb mobile access capital works field management
+  PAGE TYPE:        Service/product sub-feature page (Platform Features sub-page)
+  TEMPLATE FLOW:    Hero → Phase nav strip → Centred intro → Feature rows (alternating) → Related features → CTA band
+
+  PARTIALS USED:
+    - tokens.css    April 2026 — active state: Platform
+    - header.html   April 2026 — active state: Platform
+    - footer.html   April 2026
+    - shared.js     April 2026
+
+  DESIGN PHILOSOPHY:
+    Inner page consistency pass — no decorative hero visual, no dashboard mockup,
+    single column hero, three alternating feature sections, max stagger .d3.
+    Mirrors structure of /platform/features/procurement (reference page).
+    Phase nav strip shows all 10 platform features; Mobility is active.
+    Related cards show all 9 other platform features.
+
+  CONTENT SOURCE SUMMARY:
+    Existing:   20%  (PMWeb terminology from homepage Build cards and audit §4.1)
+    New:        80%  [NEW — VERIFY] — mobility feature content written from audit brief and homepage copy
+
+  [NEW — VERIFY] ITEMS:
+    - All body copy: mobility feature descriptions written from audit context and homepage
+  [CLIENT TO SUPPLY] ITEMS:
+    - None — structure complete; client to verify copy accuracy against PMWeb product docs
+  [IMAGE NEEDED] ITEMS:
+    - mobility-hero-field-device.jpg → PMWeb running on iPad in a construction site environment
+    - mobility-feature-field-access.jpg → PMWeb dashboard on a smartphone browser in the field
+    - mobility-feature-offline.jpg → PMWeb form or daily report on a tablet device
+    - mobility-feature-approvals.jpg → PMWeb approval or workflow action on a mobile device
+
+  REDIRECTS NEEDED: None (new page)
+  CTAs: 2 — "Contact Us", "Explore All Platform Features"
+  DEVIATIONS FROM GUIDELINES: None
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMWeb Mobility | Access Anywhere | Platform Features</title>
+<meta name="description" content="True zero-footprint access — run PMWeb from any browser on iPad, iPhone, tablet, or smartphone. Full capital works management in the field with no downloads required.">
+<meta property="og:title" content="PMWeb Mobility | Platform Features — HKA Tech">
+<meta property="og:description" content="Full PMWeb access on any device, anywhere on site. Zero-footprint mobile capability for capital works teams in the field.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   tokens.css — CANONICAL (verbatim)
+═══════════════════════════════════════ */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-u);font-size:16px;color:var(--text-dk);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit;cursor:pointer}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:transparent}
+.wrap{max-width:1280px;margin:0 auto;padding:0 56px}
+.skip-link{position:absolute;top:-100px;left:16px;background:var(--teal);color:var(--white);padding:10px 20px;border-radius:4px;font-size:14px;font-weight:600;z-index:9999;transition:top .2s}
+.skip-link:focus{top:12px}
+.nav{position:sticky;top:0;z-index:200;height:72px;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);box-shadow:0 1px 8px rgba(0,0,0,.06);transition:box-shadow .3s var(--ease)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:var(--teal);border-radius:3px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:20px;height:20px}
+.logo-words{display:flex;flex-direction:column;line-height:1}
+.logo-words b{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--navy);letter-spacing:-.01em}
+.logo-words small{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-top:2px}
+.nav-items{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.nav-item{position:relative}
+.nav-btn{display:flex;align-items:center;gap:5px;font-size:14px;font-weight:500;color:var(--text-md);padding:8px 14px;border-radius:4px;transition:color .15s,background .15s;user-select:none;white-space:nowrap;border:none;background:transparent;font-family:var(--font-u);position:relative}
+.nav-btn:hover{color:var(--teal);background:var(--teal-lt)}
+.nav-btn svg{width:11px;height:11px;opacity:.5;transition:transform .2s var(--ease)}
+.nav-item.open .nav-btn{color:var(--teal);background:var(--teal-lt)}
+.nav-item.open .nav-btn svg{transform:rotate(180deg);opacity:1}
+.nav-btn.active{color:var(--teal)}
+.nav-btn.active::after{content:'';position:absolute;bottom:-1px;left:14px;right:14px;height:2px;background:var(--teal);border-radius:1px}
+.mega{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--white);border:none;border-radius:6px;box-shadow:0 16px 48px rgba(26,58,74,.14),0 0 0 1px rgba(0,0,0,.06);padding:28px;min-width:560px;opacity:0;pointer-events:none;transform:translateX(-50%) translateY(-8px);transition:opacity .2s var(--ease),transform .2s var(--ease);border-top:3px solid var(--teal)}
+.nav-item.open .mega{opacity:1;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.mega-cols{display:grid;gap:24px}
+.mega-cols.c2{grid-template-columns:1fr 1fr}
+.mega-cols.c3{grid-template-columns:1fr 1fr 1fr}
+.mega-col-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lt);margin-bottom:14px;padding-bottom:10px}
+.mega-link{display:flex;align-items:flex-start;gap:11px;padding:10px;border-radius:4px;transition:background .15s;cursor:pointer}
+.mega-link:hover{background:var(--teal-lt)}
+.mega-link:hover .mega-link-title{color:var(--teal)}
+.mega-icon{width:34px;height:34px;background:var(--off-white);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mega-icon svg{width:16px;height:16px;color:var(--teal)}
+.mega-link-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;transition:color .15s}
+.mega-link-desc{font-size:11px;color:var(--text-lt);line-height:1.5}
+.mega-featured{background:var(--teal-lt);border-radius:5px;padding:18px;border-left:3px solid var(--teal)}
+.mega-featured-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.mega-featured-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.mega-featured-desc{font-size:12px;color:var(--text-md);line-height:1.55;margin-bottom:14px}
+.mega-featured-link{font-size:12px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:5px}
+.mega-featured-link svg{width:12px;height:12px}
+.nav-overlay{position:fixed;inset:0;z-index:199;display:none}
+.nav-overlay.active{display:block}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-login{font-size:13px;font-weight:500;color:var(--text-lt);padding:6px 12px;transition:color .15s}
+.nav-login:hover{color:var(--text-md)}
+.nav-cta{font-size:13px;font-weight:700;color:var(--white);background:var(--teal);padding:10px 20px;border-radius:4px;letter-spacing:.01em;white-space:nowrap;transition:background .15s,transform .15s}
+.nav-cta:hover{background:var(--teal-dk);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;padding:6px;border-radius:4px;transition:background .15s}
+.hamburger:hover{background:var(--teal-lt)}
+.hamburger span{display:block;width:100%;height:2px;background:var(--text-md);border-radius:1px;transition:transform .25s var(--ease),opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;bottom:0;background:var(--white);z-index:198;padding:24px 20px;overflow-y:auto;transform:translateY(-10px);opacity:0;transition:transform .25s var(--ease),opacity .25s var(--ease)}
+.mobile-menu.open{display:block;transform:translateY(0);opacity:1}
+.mobile-menu a{display:block;font-size:16px;font-weight:500;color:var(--text-md);padding:14px 0;border-bottom:1px solid var(--grey);transition:color .15s}
+.mobile-menu a:hover{color:var(--teal)}
+.mobile-menu .mm-section{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-lt);margin-top:18px;margin-bottom:6px;padding:0;border-bottom:none}
+.mobile-menu .mm-cta{display:block;text-align:center;font-size:14px;font-weight:700;color:var(--white);background:var(--teal);padding:14px;border-radius:4px;margin-top:24px;border-bottom:none}
+.mobile-menu .mm-cta:hover{background:var(--teal-dk)}
+.section{padding:96px 0;position:relative}
+.section.alt{background:var(--off-white)}
+.section.dark{background:var(--navy);color:var(--white)}
+.s-over{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:13px;display:flex;align-items:center;gap:9px}
+.s-over::before{content:'';display:block;width:18px;height:2px;background:currentColor}
+.s-over.lt{color:var(--teal-mid)}
+.s-title{font-family:var(--font-d);font-size:clamp(26px,2.8vw,38px);font-weight:700;line-height:1.18;color:var(--navy);letter-spacing:-.02em;margin-bottom:14px}
+.s-title.lt{color:var(--white)}
+.s-body{font-size:17px;line-height:1.65;color:var(--text-md);max-width:580px}
+.s-body.lt{color:rgba(255,255,255,.65)}
+.btn-primary,.btn-ghost,.btn-white,.btn-gw,.nav-cta,.arrow-link{white-space:nowrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--white);background:var(--teal);padding:13px 26px;border-radius:4px;transition:background .15s,transform .15s;letter-spacing:.01em;font-family:var(--font-u)}
+.btn-primary:hover{background:var(--teal-dk);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.72);border:1.5px solid rgba(255,255,255,.22);padding:13px 26px;border-radius:4px;transition:all .15s;font-family:var(--font-u)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:var(--white);background:rgba(255,255,255,.05)}
+.btn-white{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--teal);background:var(--white);padding:13px 30px;border-radius:4px;transition:background .15s;font-family:var(--font-u)}
+.btn-white:hover{background:var(--teal-lt)}
+.btn-gw{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--white);border:1.5px solid rgba(255,255,255,.35);padding:13px 26px;border-radius:4px;transition:all .15s;font-family:var(--font-u)}
+.btn-gw:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.08)}
+.arrow-link{font-size:13px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;transition:gap .15s}
+.arrow-link:hover{gap:9px}
+.arrow-link svg{width:13px;height:13px}
+.img-placeholder{border:2px dashed var(--teal);background:var(--teal-lt);border-radius:6px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;position:relative;overflow:hidden;min-height:180px}
+.img-placeholder .ip-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);background:var(--teal);padding:4px 10px;border-radius:2px}
+.img-placeholder .ip-filename{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:var(--teal-dk);background:var(--white);padding:4px 10px;border-radius:3px;border:1px solid rgba(0,152,164,.3);word-break:break-all;max-width:100%}
+.img-placeholder .ip-desc{font-size:12.5px;line-height:1.55;color:var(--text-md);max-width:380px}
+.img-placeholder .ip-desc strong{color:var(--navy);font-weight:700}
+.img-placeholder .ip-specs{font-size:11px;font-weight:600;color:var(--text-lt);letter-spacing:.02em;padding-top:8px;border-top:1px solid rgba(0,152,164,.2);margin-top:4px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rev.vis{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
+.back-to-top{position:fixed;bottom:28px;right:28px;z-index:150;width:44px;height:44px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,152,164,.3);opacity:0;transform:translateY(12px);transition:opacity .3s var(--ease),transform .3s var(--ease),background .15s;pointer-events:none}
+.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:all}
+.back-to-top:hover{background:var(--teal-dk);transform:translateY(-2px)}
+.back-to-top svg{width:18px;height:18px}
+footer{background:var(--navy);padding:68px 0 0}
+.footer-grid{display:grid;grid-template-columns:280px 1fr 1fr 1fr;gap:44px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07)}
+.f-logo{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.f-logo-mark{width:30px;height:30px;background:var(--teal);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.f-logo-mark svg{width:17px;height:17px}
+.f-logo-name{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--white)}
+.f-tag{font-size:12.5px;line-height:1.65;color:rgba(255,255,255,.45);margin-bottom:18px}
+.f-contact{display:flex;flex-direction:column;gap:7px}
+.f-contact a{font-size:12.5px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px;transition:color .15s}
+.f-contact a:hover{color:var(--teal-mid)}
+.f-contact a svg{width:13px;height:13px;flex-shrink:0}
+.f-offices{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.f-offices-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:2px}
+.f-office{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5}
+.f-office strong{color:rgba(255,255,255,.6);font-weight:600}
+.f-col-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+.f-links{display:flex;flex-direction:column;gap:9px}
+.f-links a{font-size:13px;color:rgba(255,255,255,.5);transition:color .15s}
+.f-links a:hover{color:var(--teal-mid)}
+.f-bottom{padding:18px 0;display:flex;align-items:center;justify-content:space-between}
+.f-copy{font-size:12px;color:rgba(255,255,255,.28)}
+.f-legal{display:flex;gap:18px}
+.f-legal a{font-size:12px;color:rgba(255,255,255,.28);transition:color .15s}
+.f-legal a:hover{color:rgba(255,255,255,.55)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}.rev{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media(max-width:1024px){.wrap{padding:0 32px}.nav-items{display:none}.hamburger{display:flex}.mega{position:fixed;top:72px;left:16px;right:16px;transform:none;max-height:calc(100vh - 88px);overflow-y:auto}.nav-item.open .mega{transform:none}.footer-grid{grid-template-columns:1fr 1fr;gap:36px}.footer-grid>div:first-child{grid-column:1 / -1}}
+@media(max-width:640px){.wrap{padding:0 20px}.section{padding:64px 0}.nav-actions .nav-login{display:none}.footer-grid{grid-template-columns:1fr;gap:32px}.f-bottom{flex-direction:column;gap:12px;text-align:center}.f-legal{flex-wrap:wrap;justify-content:center}}
+
+/* ═══════════════════════════════════════
+   FLAG STYLES — remove before going live
+═══════════════════════════════════════ */
+.flag-supply,.flag-verify,.flag-image{display:block;font-family:'Courier New',monospace;font-size:11.5px;font-weight:600;line-height:1.55;border-radius:3px;padding:8px 12px;margin:10px 0 4px}
+.flag-supply{background:#FFF3CD;color:#7A4F00;border-left:3px solid #F0A500}
+.flag-verify{background:#E8F4FD;color:#0A4A72;border-left:3px solid #2E8BC0}
+.flag-image{background:#F0F6EE;color:#2A5C1E;border-left:3px solid #4A9A38}
+
+/* ═══════════════════════════════════════
+   PAGE-SPECIFIC STYLES
+═══════════════════════════════════════ */
+
+/* ── Hero ── */
+.inner-hero {
+  background: var(--navy);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.inner-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,152,164,.10) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+.inner-hero::after {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.inner-hero .wrap { position: relative; z-index: 2; }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.breadcrumb a { color: rgba(255,255,255,.35); transition: color .15s; }
+.breadcrumb a:hover { color: var(--teal-mid); }
+.breadcrumb .sep { font-size: 11px; opacity: .5; }
+.breadcrumb .current { color: rgba(255,255,255,.6); }
+.hero-over {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+}
+.hero-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.inner-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700;
+  line-height: 1.14;
+  color: var(--white);
+  letter-spacing: -.02em;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
+.inner-hero h1 em { font-style: normal; color: var(--teal-mid); }
+.inner-hero .hero-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  max-width: 580px;
+  margin-bottom: 32px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── Phase nav strip ── */
+.phase-strip {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--grey);
+  padding: 0;
+}
+.phase-strip .wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.phase-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-md);
+  padding: 16px 22px;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+}
+.phase-link:hover { color: var(--teal); border-color: var(--teal); }
+.phase-link.active { color: var(--teal); border-color: var(--teal); }
+.phase-link svg { width: 14px; height: 14px; opacity: .65; }
+.phase-sep {
+  align-self: center;
+  width: 1px;
+  height: 18px;
+  background: var(--grey);
+  margin: 0 2px;
+}
+
+/* ── Centred intro ── */
+.page-intro {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.page-intro .s-over { justify-content: center; }
+
+/* ── Feature rows (alternating content + image) ── */
+.feat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.feat-row.reverse { direction: rtl; }
+.feat-row.reverse > * { direction: ltr; }
+.feat-content .feat-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-lt);
+  padding: 3px 8px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.feat-content h2 {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -.01em;
+  line-height: 1.22;
+  margin-bottom: 14px;
+}
+.feat-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-md);
+  margin-bottom: 22px;
+}
+.feat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.feat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.feat-item-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--teal-lt);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.feat-item-icon svg { width: 14px; height: 14px; color: var(--teal); }
+.feat-item-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3px;
+}
+.feat-item-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-md);
+}
+
+/* ── Related features strip ── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 52px;
+}
+.related-card {
+  background: var(--white);
+  border-radius: 6px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  transition: box-shadow .2s var(--ease), transform .2s var(--ease);
+  cursor: pointer;
+}
+.related-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.related-card:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.related-card:hover::before { opacity: 1; }
+.related-icon {
+  width: 40px; height: 40px;
+  background: var(--teal-lt);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.related-icon svg { width: 20px; height: 20px; color: var(--teal); }
+.related-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-lt);
+  margin-bottom: 6px;
+}
+.related-title {
+  font-family: var(--font-d);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.related-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-md);
+  margin-bottom: 16px;
+}
+
+/* ── CTA section ── */
+.cta-sec {
+  background: var(--teal);
+  padding: 90px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 18px;
+}
+.cta-sec h2 {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  letter-spacing: -.02em;
+}
+.cta-sec p {
+  font-size: 16px;
+  color: rgba(255,255,255,.72);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ── Responsive ── */
+@media(max-width:1024px) {
+  .feat-row { grid-template-columns: 1fr; gap: 40px; }
+  .feat-row.reverse { direction: ltr; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+  .phase-strip .wrap { overflow-x: auto; gap: 0; }
+  .phase-link { padding: 14px 16px; font-size: 12px; }
+}
+@media(max-width:640px) {
+  .inner-hero { padding: 56px 0 48px; }
+  .inner-hero h1 { font-size: 30px; }
+  .inner-hero .hero-lead { font-size: 15px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-ghost { justify-content: center; }
+  .related-grid { grid-template-columns: 1fr; }
+  .phase-link svg { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HEADER (verbatim from header.html)
+════════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+
+    <a class="logo" href="/" aria-label="HKA Tech — home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+
+    <div class="nav-items">
+
+      <!-- ═══ PLATFORM ═══ -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="/platform/overview">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="/platform/features">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="/platform/integrations">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="/platform/hosting">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="/platform/whats-new">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SOLUTIONS ═══ -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="/solutions/plan">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
+                <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/build">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
+                <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/operate">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICES ═══ -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="/services/bi">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
+                <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
+              </a>
+              <a class="mega-link" href="/services/dap">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
+                <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="/services/implementation">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
+              </a>
+              <a class="mega-link" href="/services/quick-start">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
+                <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
+              </a>
+              <a class="mega-link" href="/services/advisory">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
+                <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ CUSTOMERS (single link) ═══ -->
+      <div class="nav-item">
+        <a class="nav-btn" href="/customers">Customers</a>
+      </div>
+
+      <!-- ═══ ABOUT ═══ -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RESOURCES ═══ -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end nav-items -->
+
+    <div class="nav-actions">
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
+  <div class="mm-section">Resources</div>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ── HERO ── -->
+  <section class="inner-hero">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <a href="/platform/features">Platform Features</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span class="current">Mobility</span>
+      </nav>
+      <div class="hero-over">Build Phase</div>
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <h1>Mobility<br><em>in PMWeb</em></h1>
+      <p class="hero-lead">True zero-footprint access — run PMWeb from any browser on iPad, iPhone, tablet, or smartphone with no app downloads required. Full capital works management capability for teams in the field, on site, or working remotely.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="/contact">
+          Contact Us
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn-ghost" href="/platform/features">
+          All Platform Features
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURES NAV STRIP — all 10 platform features ── -->
+  <div class="phase-strip" aria-label="All platform features">
+    <div class="wrap">
+      <a class="phase-link" href="/platform/features/planning">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="10" rx="1"/><path d="M5 2v4M11 2v4M2 9h12"/></svg>
+        Planning
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/estimating">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 12V4l5-2 5 2v8M5 12V8h6v4"/></svg>
+        Estimating
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/procurement">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 4h12M2 8h8M2 12h5"/><circle cx="12" cy="11" r="3"/><path d="M12 9v2l1 1"/></svg>
+        Procurement
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/contracts">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 14V4l4-2h6l2 2v10H2z"/><path d="M5 7h6M5 10h4"/></svg>
+        Contract Management
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/scheduling">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M5 1v4M11 1v4M2 8h12"/><path d="M5 11h2M9 11h2"/></svg>
+        Scheduling &amp; Stage Gates
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/document-control">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 14V3l3-1h5l2 2v10H3z"/><path d="M6 2v3H3"/><path d="M5 8h6M5 11h4"/></svg>
+        Document &amp; Data Control
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/workflow">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="3" cy="8" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="13" cy="12" r="2"/><path d="M5 8h3l2-4M5 8h3l2 4"/></svg>
+        Workflow &amp; Approvals
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/asset-management">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l6-4 6 4v8"/><rect x="6" y="9" width="4" height="5"/></svg>
+        Facility/Asset Management
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link" href="/platform/features/bim">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M8 2l6 3v6l-6 3-6-3V5l6-3z"/><path d="M8 2v10M2 5l6 3 6-3"/></svg>
+        BIM Integration
+      </a>
+      <div class="phase-sep" aria-hidden="true"></div>
+      <a class="phase-link active" href="/platform/features/mobility" aria-current="page">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="5" y="1" width="6" height="14" rx="1.5"/><path d="M8 12h.01"/></svg>
+        Mobility
+      </a>
+    </div>
+  </div>
+
+  <!-- ── SECTION INTRO ── -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="page-intro">
+        <!-- SOURCE: NEW [NEW — VERIFY] -->
+        <div class="s-over">PMWeb Build Phase</div>
+        <h2 class="s-title">Capital Works Management — From Any Device, Anywhere</h2>
+        <p class="s-body" style="margin:0 auto">PMWeb's mobile capability is not a stripped-down field app — it is the full platform, browser-delivered to any device with an internet connection. Field supervisors, project managers, and contract administrators can access dashboards, complete daily reports, raise defects, submit approvals, and view documents on any iOS or Android device without installing a single application. Zero-footprint means no device management overhead, no version conflicts, and no separate mobile licence.</p>
+        <!-- [NEW — VERIFY]: intro paragraph written from homepage Build cards and audit brief — client to verify accuracy -->
+        <p class="flag-verify" style="max-width:720px;margin:16px auto 0">[NEW — VERIFY]: Intro paragraph written from homepage Build cards and audit context. Client to confirm accuracy against PMWeb mobility product documentation before publishing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE ROW 1: Zero-Footprint Access ── -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feat-row rev">
+        <div class="feat-content">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <span class="feat-tag">Access</span>
+          <h2>Zero-Footprint Browser Access on Any Device</h2>
+          <p>PMWeb runs entirely in the browser — on any modern device, on any operating system, without downloads, plugins, or device management configuration. Field staff open a URL and are in PMWeb. IT teams have nothing to deploy, patch, or manage on end-user devices, and your organisation retains full control of data within the PMWeb platform.</p>
+          <div class="feat-list">
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="5" y="1" width="6" height="14" rx="1.5"/><path d="M8 12h.01"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">iOS and Android compatible</div>
+                <div class="feat-item-desc">Full PMWeb access on iPad, iPhone, Android tablet, and Android phone — no app store install required on any platform.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M6 13v2M10 13v2M4 15h8"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Desktop and laptop continuity</div>
+                <div class="feat-item-desc">The same session and the same data are accessible from office desktop, laptop, and field device — users switch devices without losing context.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 10a6 6 0 1 1 12 0"/><path d="M5 10a3 3 0 0 1 6 0"/><circle cx="8" cy="10" r="1"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">No VPN or special network configuration</div>
+                <div class="feat-item-desc">PMWeb SaaS on AWS is accessed securely over standard HTTPS — no VPN tunnels or corporate network access required from the field.</div>
+              </div>
+            </div>
+          </div>
+          <a class="arrow-link" href="/platform/features">
+            Explore all platform features
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="feat-visual rev d1">
+          <!-- [IMAGE NEEDED]: mobility-feature-field-access.jpg — PMWeb dashboard on a smartphone browser in the field -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb portfolio dashboard displayed on a smartphone browser">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">mobility-feature-field-access.jpg</div>
+            <p class="ip-desc"><strong>Screenshot or photo:</strong> PMWeb's portfolio dashboard or project summary screen as displayed in a mobile browser (Safari or Chrome) on a smartphone. Clearly show PMWeb interface chrome and mobile form factor. Use an anonymised demo dataset — no real client project names.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE ROW 2: Field Data Entry ── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="feat-row reverse rev">
+        <div class="feat-content">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <span class="feat-tag">Field Data</span>
+          <h2>Daily Reports, Defects, and Forms on the Go</h2>
+          <p>Field teams can complete daily site reports, raise and assign defects, submit RFIs, and fill in custom forms directly from a tablet or smartphone on site. All entries are written directly to the live PMWeb database — no batch sync, no data reconciliation, and no separate field data tool to maintain alongside the main system.</p>
+          <div class="feat-list">
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 14V4l4-2h6l2 2v10H3z"/><path d="M6 3v4H3"/><path d="M6 9h4M6 12h3"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Daily site reports</div>
+                <div class="feat-item-desc">Complete structured daily reports on a tablet — weather, labour, plant, progress, and site observations — linked directly to the project record.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11h.01"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Defect and punch list management</div>
+                <div class="feat-item-desc">Raise, photograph, assign, and track defects from the field. Defect records update in real time for office teams monitoring close-out progress.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 8h6M8 5v6"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Custom forms and data capture</div>
+                <div class="feat-item-desc">PMWeb's configurable forms engine works fully on mobile — safety audits, inspection checklists, and site-specific data entry all work as designed.</div>
+              </div>
+            </div>
+          </div>
+          <a class="arrow-link" href="/contact">
+            Discuss Your Requirements
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="feat-visual rev d2">
+          <!-- [IMAGE NEEDED]: mobility-feature-offline.jpg — PMWeb form or daily report on a tablet device -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb daily site report or form entry on a tablet device">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">mobility-feature-offline.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's daily site report or custom form interface as displayed on an iPad or Android tablet. Show form fields, entry controls, and project context header. Use an anonymised demo dataset — no real project names, personnel, or organisation data.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURE ROW 3: Mobile Approvals ── -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="feat-row rev">
+        <div class="feat-content">
+          <!-- SOURCE: NEW [NEW — VERIFY] -->
+          <span class="feat-tag">Approvals</span>
+          <h2>Workflow Approvals and Sign-Offs from Any Location</h2>
+          <p>PMWeb's approval workflows operate identically on mobile devices as they do on desktop. Approvers receive notifications, review attached documents, and approve or reject — all from a smartphone or tablet, wherever they are. There is no need to return to the office to unblock a payment claim, variation, or procurement recommendation waiting on a single approval.</p>
+          <div class="feat-list">
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 6l4 4 8-8"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Full workflow access on mobile</div>
+                <div class="feat-item-desc">Every approval action — approve, reject, delegate, return for revision — is available on mobile without any feature restriction or simplified view.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M13 4a2 2 0 0 1 0 4H3"/><circle cx="3" cy="6" r="2"/><path d="M3 10a2 2 0 0 0 0 4h10"/><circle cx="13" cy="12" r="2"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Document viewing with approvals</div>
+                <div class="feat-item-desc">Approvers can open and review attached documents — invoices, variation claims, procurement submissions — directly within the mobile browser before acting.</div>
+              </div>
+            </div>
+            <div class="feat-item">
+              <div class="feat-item-icon">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="5" r="3"/><path d="M3 14a5 5 0 0 1 10 0"/></svg>
+              </div>
+              <div class="feat-item-body">
+                <div class="feat-item-label">Delegate access for approvers on leave</div>
+                <div class="feat-item-desc">Approval delegation is configured in PMWeb's workflow engine — delegates access PMWeb on their own mobile device and approval chains remain unbroken.</div>
+              </div>
+            </div>
+          </div>
+          <a class="arrow-link" href="/platform/features/workflow">
+            Explore Workflow &amp; Approvals
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+        <div class="feat-visual rev d1">
+          <!-- [IMAGE NEEDED]: mobility-feature-approvals.jpg — PMWeb approval or workflow action on a mobile device -->
+          <div class="img-placeholder" role="img" aria-label="Placeholder: PMWeb workflow approval screen on a smartphone">
+            <div class="ip-tag">Image Needed</div>
+            <div class="ip-filename">mobility-feature-approvals.jpg</div>
+            <p class="ip-desc"><strong>Screenshot:</strong> PMWeb's workflow approval interface on a smartphone — showing a pending approval item (e.g. a variation claim or invoice), attached document link, and approve/reject action buttons. Use an anonymised demo dataset with no real financial figures or personnel names.</p>
+            <div class="ip-specs">4:3 · 720×540px minimum · PNG or high-quality JPG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALL OTHER PLATFORM FEATURES ── -->
+  <section class="section rev">
+    <div class="wrap">
+      <div class="s-over">Platform Features</div>
+      <h2 class="s-title">Other Features in PMWeb</h2>
+      <p class="s-body">Mobility is one of ten platform features available across the full Plan, Build, and Operate lifecycle in PMWeb.</p>
+      <div class="related-grid">
+
+        <div class="related-card rev d1">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="5" width="16" height="12" rx="1"/><path d="M5 3v4M15 3v4M2 10h16"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Planning</div>
+          <p class="related-desc">Define scope, set governance frameworks, and establish stage gates and approval workflows for the program from day one.</p>
+          <a class="arrow-link" href="/platform/features/planning">
+            Explore Planning
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d2">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 16V6l6-4 6 4v10"/><rect x="7" y="11" width="6" height="5"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Estimating</div>
+          <p class="related-desc">Set program budgets, resource estimates, and contingency at every level of the WBS — from concept through to detailed design.</p>
+          <a class="arrow-link" href="/platform/features/estimating">
+            Explore Estimating
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d3">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 4h12M2 8h8M2 12h5"/><circle cx="15" cy="13" r="4"/><path d="M15 11v2l1 1"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Procurement</div>
+          <p class="related-desc">Manage sourcing, tender evaluation, and vendor selection through structured procurement workflows integrated with cost and contracts.</p>
+          <a class="arrow-link" href="/platform/features/procurement">
+            Explore Procurement
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d1">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 18V5l4-3h8l4 3v13H2z"/><path d="M7 18v-6h6v6"/><path d="M6 8h8"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Contract Management</div>
+          <p class="related-desc">Extensive contract management features integrated with cost, schedule, workflow, dashboards, and reports in real time.</p>
+          <a class="arrow-link" href="/platform/features/contracts">
+            Explore Contract Management
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d2">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="1"/><path d="M5 1v4M15 1v4M2 10h16"/><path d="M6 14h3M11 14h3"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Scheduling &amp; Stage Gates</div>
+          <p class="related-desc">Tasks and deliverables with self-contained scheduling tools and configurable stage gate controls tied to approval workflows.</p>
+          <a class="arrow-link" href="/platform/features/scheduling">
+            Explore Scheduling
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d3">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 18V4l4-2h6l4 2v14H3z"/><path d="M7 3v4H3"/><path d="M6 10h8M6 13h5"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Document &amp; Data Control</div>
+          <p class="related-desc">Templates, forms, and extensibility features supporting full document control and data governance across the lifecycle.</p>
+          <a class="arrow-link" href="/platform/features/document-control">
+            Explore Document Control
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d1">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="4" cy="10" r="2.5"/><circle cx="16" cy="5" r="2.5"/><circle cx="16" cy="15" r="2.5"/><path d="M6.5 10h4l3-5M6.5 10h4l3 5"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Workflow &amp; Approvals</div>
+          <p class="related-desc">Drag-and-drop document routing and approval workflows — configurable to your organisation's delegation matrix and governance requirements.</p>
+          <a class="arrow-link" href="/platform/features/workflow">
+            Explore Workflow
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d2">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 18V8l8-6 8 6v10"/><path d="M7 18v-5h6v5"/><rect x="8" y="6" width="4" height="3" rx=".5"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">Facility/Asset Management</div>
+          <p class="related-desc">Track, monitor, and manage locations, facilities, equipment, and subcomponents with preventive and predictive maintenance tools.</p>
+          <a class="arrow-link" href="/platform/features/asset-management">
+            Explore Asset Management
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="related-card rev d3">
+          <div class="related-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2l8 4v8l-8 4-8-4V6l8-4z"/><path d="M10 2v14M2 6l8 4 8-4"/></svg>
+          </div>
+          <div class="related-label">Platform Feature</div>
+          <div class="related-title">BIM Integration</div>
+          <p class="related-desc">Connect PMWeb with BIM models to align design data with cost, schedule, and document management across your capital program.</p>
+          <a class="arrow-link" href="/platform/features/bim">
+            Explore BIM Integration
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <section class="cta-sec rev">
+    <div class="wrap">
+      <div class="cta-eye">Talk to Our Team</div>
+      <!-- SOURCE: NEW [NEW — VERIFY] -->
+      <h2>Ready to Take PMWeb to the Field?</h2>
+      <p>Talk to HKA Tech about configuring PMWeb's mobile capability for your organisation's field teams, device environment, and project workflows.</p>
+      <div class="cta-btns">
+        <a class="btn-white" href="/contact">Contact Us</a>
+        <a class="btn-gw" href="/platform/features">
+          Explore All Platform Features
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════
+     FOOTER (verbatim from footer.html)
+════════════════════════════════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div>
+        <div class="f-logo">
+          <div class="f-logo-mark">
+            <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+              <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="f-logo-name">HKA Tech</span>
+        </div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>
+            asiapacific@hka.com
+          </a>
+          <a href="tel:+61292559100">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>
+            +61 2 9255 9100
+          </a>
+        </div>
+        <div class="f-offices">
+          <div class="f-offices-title">Offices</div>
+          <span class="f-office"><strong>Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span class="f-office"><strong>Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span class="f-office"><strong>Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     SCRIPTS (shared.js verbatim)
+════════════════════════════════════ -->
+<script>
+/* ─ NAV DROPDOWNS ─────────────────── */
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const overlay  = document.getElementById('navOverlay');
+  if (!navItems.length) return;
+  function closeAll() {
+    navItems.forEach(i => {
+      i.classList.remove('open');
+      const btn = i.querySelector('.nav-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+  }
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-btn');
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+  });
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+
+/* ─ NAV SHADOW ON SCROLL ──────────── */
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
+    }, { passive: true });
+  }
+})();
+
+/* ─ SCROLL REVEAL ─────────────────── */
+(function(){
+  const revEls = document.querySelectorAll('.rev');
+  if (revEls.length && 'IntersectionObserver' in window) {
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(el => revObs.observe(el));
+  }
+})();
+
+/* ─ HAMBURGER MENU ────────────────── */
+(function(){
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ─ BACK TO TOP ───────────────────── */
+(function(){
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

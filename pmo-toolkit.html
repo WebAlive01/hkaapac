@@ -1,0 +1,1299 @@
+<!--
+  PAGE:             PMO Toolkit & Advisory
+  URL SLUG:         /resources/pmo-toolkit
+  MENU LOCATION:    Resources ▾ → PMO Toolkit & Advisory
+  SEO TITLE:        PMO Toolkit & Advisory | HKA Tech
+  META DESCRIPTION: Governance frameworks, templates, and PMO advisory resources for capital works program management across APAC.
+  PRIMARY KEYWORD:  PMO toolkit capital works governance
+  PAGE TYPE:        Resources — PMO Toolkit & Advisory (Document download cards per guidelines §8)
+  TEMPLATE FLOW:    Hero banner → Section intro → Document download cards → Advisory callout → CTA band
+
+  PARTIALS USED:
+    - tokens.css    [April 2026] — verbatim
+    - header.html   [April 2026] — active state: Resources
+    - footer.html   [April 2026] — verbatim
+    - shared.js     [April 2026] — verbatim
+
+  DESIGN PHILOSOPHY:
+    Inner page — single-column text-only hero, no decorative visual. Document download cards are the primary content pattern (NEW per guidelines §8). No dark navy sections except final CTA band. Animation stagger capped at .d3. Matches implementation.html visual language exactly.
+
+  CONTENT SOURCE SUMMARY:
+    Existing:   0% (live site returned 403 — web_fetch blocked)
+    Relocated:  0%
+    Rewritten:  0%
+    New:        100% — structural scaffolding only; all card content marked [CLIENT TO SUPPLY] pending paste-in of existing PMO Toolkit page content
+
+  AUDIT CONTENT STATUS: MOVED — content exists on the live site (/pmo-toolkit or similar).
+    Live site was unreachable (403). All card content below is placeholder structure.
+    Client must paste existing PMO Toolkit resource descriptions into each card.
+    Audit §1 flags: "PMO Toolkit references 2018 pricing" — content requires freshness review before reuse.
+
+  [NEW — VERIFY] ITEMS:
+    - Hero H1, overline, lead paragraph — written to match audit tone; verify against existing site copy
+    - Section intro paragraph
+    - Advisory callout copy
+  [CLIENT TO SUPPLY] ITEMS:
+    - All 6 document card titles, descriptions, file types, and page counts — paste from existing /pmo-toolkit page
+    - Confirm which resources are available for public download vs gated (currently all point to /contact)
+    - Updated 2018 pricing references per audit §1 content freshness flag
+    - Actual downloadable file assets (PDFs, Word docs, Excel workbooks)
+  [IMAGE NEEDED] ITEMS:
+    - None — document download cards use icon-based design, no photography required
+
+  REDIRECTS NEEDED: Existing /pmo-toolkit (or equivalent) → /resources/pmo-toolkit
+  CTAs: 3 — "Schedule a Consultation" (hero), "Talk to Our Team" (advisory callout), "Contact Us" (CTA band)
+  DEVIATIONS FROM GUIDELINES: Document download card pattern is NEW per guidelines §8 — designed to match implementation.html visual language
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMO Toolkit &amp; Advisory | HKA Tech</title>
+<meta name="description" content="Governance frameworks, templates, and PMO advisory resources for capital works program management across APAC.">
+<meta property="og:title" content="PMO Toolkit &amp; Advisory | HKA Tech">
+<meta property="og:description" content="Governance frameworks, templates, and PMO advisory resources for capital works program management across APAC.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════════════════════
+   tokens.css — VERBATIM
+═══════════════════════════════════════════════════ */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-u);
+  font-size: 16px;
+  color: var(--text-dk);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; cursor: pointer; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--teal); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  z-index: 9999; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 72px;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  transition: box-shadow .3s var(--ease);
+}
+.nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-words { display: flex; flex-direction: column; line-height: 1; }
+.logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
+.logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
+
+.nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+.nav-item { position: relative; }
+.nav-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; color: var(--text-md);
+  padding: 8px 14px; border-radius: 4px;
+  transition: color .15s, background .15s;
+  user-select: none;
+  white-space: nowrap;
+  border: none; background: transparent; font-family: var(--font-u);
+  position: relative;
+}
+.nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
+.nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
+.nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
+.nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+
+.nav-btn.active { color: var(--teal); }
+.nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
+
+.mega {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 28px;
+  min-width: 560px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  border-top: 3px solid var(--teal);
+}
+.nav-item.open .mega {
+  opacity: 1; pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+.mega-cols { display: grid; gap: 24px; }
+.mega-cols.c2 { grid-template-columns: 1fr 1fr; }
+.mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 14px; padding-bottom: 10px; }
+.mega-link { display: flex; align-items: flex-start; gap: 11px; padding: 10px; border-radius: 4px; transition: background .15s; cursor: pointer; }
+.mega-link:hover { background: var(--teal-lt); }
+.mega-link:hover .mega-link-title { color: var(--teal); }
+.mega-icon { width: 34px; height: 34px; background: var(--off-white); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mega-icon svg { width: 16px; height: 16px; color: var(--teal); }
+.mega-link-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; transition: color .15s; }
+.mega-link-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.mega-featured { background: var(--teal-lt); border-radius: 5px; padding: 18px; border-left: 3px solid var(--teal); }
+.mega-featured-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.mega-featured-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
+.mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
+.mega-featured-link svg { width: 12px; height: 12px; }
+
+.nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
+.nav-overlay.active { display: block; }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
+.nav-login:hover { color: var(--text-md); }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  background: var(--teal); padding: 10px 20px; border-radius: 4px;
+  letter-spacing: .01em; white-space: nowrap;
+  transition: background .15s, transform .15s;
+}
+.nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
+.hamburger:hover { background: var(--teal-lt); }
+.hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
+.mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
+.mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
+.mobile-menu a:hover { color: var(--teal); }
+.mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
+.mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
+.mobile-menu .mm-cta:hover { background: var(--teal-dk); }
+
+.section { padding: 96px 0; position: relative; }
+.section.alt { background: var(--off-white); }
+.section.dark { background: var(--navy); color: var(--white); }
+
+.s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
+.s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.s-over.lt { color: var(--teal-mid); }
+.s-title { font-family: var(--font-d); font-size: clamp(26px, 2.8vw, 38px); font-weight: 700; line-height: 1.18; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
+.s-title.lt { color: var(--white); }
+.s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
+.s-body.lt { color: rgba(255,255,255,.65); }
+
+.btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--teal);
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .15s, transform .15s;
+  letter-spacing: .01em; font-family: var(--font-u);
+}
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--teal);
+  background: var(--white);
+  padding: 13px 30px; border-radius: 4px;
+  transition: background .15s; font-family: var(--font-u);
+}
+.btn-white:hover { background: var(--teal-lt); }
+
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+
+.arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
+.arrow-link:hover { gap: 9px; }
+.arrow-link svg { width: 13px; height: 13px; }
+
+.img-placeholder {
+  border: 2px dashed var(--teal);
+  background: var(--teal-lt);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+.img-placeholder .ip-tag {
+  font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--white); background: var(--teal);
+  padding: 4px 10px; border-radius: 2px;
+}
+.img-placeholder .ip-filename {
+  font-family: 'Courier New', monospace;
+  font-size: 13px; font-weight: 700; color: var(--teal-dk);
+  background: var(--white); padding: 4px 10px; border-radius: 3px;
+  border: 1px solid rgba(0,152,164,.3);
+  word-break: break-all; max-width: 100%;
+}
+.img-placeholder .ip-desc {
+  font-size: 12.5px; line-height: 1.55; color: var(--text-md);
+  max-width: 380px;
+}
+.img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
+.img-placeholder .ip-specs {
+  font-size: 11px; font-weight: 600; color: var(--text-lt);
+  letter-spacing: .02em;
+  padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2);
+  margin-top: 4px;
+}
+
+.rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.rev.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+footer { background: var(--navy); padding: 68px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.f-logo-mark { width: 30px; height: 30px; background: var(--teal); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.f-logo-mark svg { width: 17px; height: 17px; }
+.f-logo-name { font-family: var(--font-d); font-size: 17px; font-weight: 700; color: var(--white); }
+.f-tag { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.45); margin-bottom: 18px; }
+.f-contact { display: flex; flex-direction: column; gap: 7px; }
+.f-contact a { font-size: 12.5px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 8px; transition: color .15s; }
+.f-contact a:hover { color: var(--teal-mid); }
+.f-contact a svg { width: 13px; height: 13px; flex-shrink: 0; }
+.f-offices { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.f-offices-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 2px; }
+.f-office { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.f-office strong { color: rgba(255,255,255,.6); font-weight: 600; }
+.f-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+.f-links { display: flex; flex-direction: column; gap: 9px; }
+.f-links a { font-size: 13px; color: rgba(255,255,255,.5); transition: color .15s; }
+.f-links a:hover { color: var(--teal-mid); }
+.f-bottom { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+.f-copy { font-size: 12px; color: rgba(255,255,255,.28); }
+.f-legal { display: flex; gap: 18px; }
+.f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
+.f-legal a:hover { color: rgba(255,255,255,.55); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
+  .rev { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 1024px) {
+  .wrap { padding: 0 32px; }
+  .nav-items { display: none; }
+  .hamburger { display: flex; }
+  .mega { position: fixed; top: 72px; left: 16px; right: 16px; transform: none; max-height: calc(100vh - 88px); overflow-y: auto; }
+  .nav-item.open .mega { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .nav-actions .nav-login { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .f-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .f-legal { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ═══════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /resources/pmo-toolkit
+═══════════════════════════════════════════════════ */
+
+/* Hero */
+.page-hero {
+  background: var(--navy);
+  padding: 80px 0 72px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(0,152,164,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.page-hero .wrap { position: relative; z-index: 2; }
+.page-hero-breadcrumb {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.page-hero-breadcrumb a {
+  color: rgba(255,255,255,.35);
+  transition: color .15s;
+}
+.page-hero-breadcrumb a:hover { color: var(--teal-mid); }
+.page-hero-breadcrumb span { color: rgba(255,255,255,.2); }
+.page-hero-over {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.page-hero-over::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+.page-hero h1 {
+  font-family: var(--font-d);
+  font-size: clamp(32px, 3.4vw, 44px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.14;
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+  max-width: 780px;
+}
+.page-hero-lead {
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.62);
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+.page-hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Section intro */
+.section-intro {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.section-intro .s-over { justify-content: center; }
+.section-intro .s-title { margin-bottom: 16px; }
+.section-intro p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-md);
+}
+
+/* Document download cards */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 72px;
+}
+.doc-card {
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  transition: box-shadow .2s var(--ease), transform .2s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+.doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.doc-card:hover {
+  box-shadow: 0 8px 32px rgba(26,58,74,.1);
+  transform: translateY(-3px);
+}
+.doc-card:hover::before { opacity: 1; }
+
+.doc-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--teal-lt);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+.doc-icon svg {
+  width: 21px;
+  height: 21px;
+  color: var(--teal);
+}
+.doc-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-lt);
+  padding: 3px 7px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.doc-title {
+  font-family: var(--font-d);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.doc-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-md);
+  margin-bottom: 22px;
+  flex: 1;
+}
+.doc-meta {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-lt);
+  letter-spacing: .04em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.doc-meta::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+.doc-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  padding: 10px 16px;
+  border: 1.5px solid rgba(0,152,164,.25);
+  border-radius: 4px;
+  transition: background .15s, border-color .15s;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+.doc-download:hover {
+  background: var(--teal-lt);
+  border-color: var(--teal);
+}
+.doc-download svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* Advisory callout (mirrors qs-card from implementation.html) */
+.advisory-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 48px 52px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.advisory-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(0,152,164,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.advisory-card-content { position: relative; z-index: 2; }
+.advisory-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.advisory-tag::before {
+  content: '';
+  display: block;
+  width: 16px;
+  height: 2px;
+  background: var(--teal-mid);
+}
+.advisory-card h2 {
+  font-family: var(--font-d);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.22;
+  letter-spacing: -.02em;
+  margin-bottom: 12px;
+}
+.advisory-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.6);
+  max-width: 520px;
+}
+.advisory-card-cta { position: relative; z-index: 2; flex-shrink: 0; }
+
+/* CTA section */
+.cta-sec {
+  background: var(--teal);
+  padding: 90px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 18px;
+}
+.cta-sec h2 {
+  font-family: var(--font-d);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+  letter-spacing: -.02em;
+}
+.cta-sec p {
+  font-size: 16px;
+  color: rgba(255,255,255,.72);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.cta-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Responsive — page-specific */
+@media (max-width: 1024px) {
+  .doc-grid { grid-template-columns: repeat(2, 1fr); }
+  .advisory-card { grid-template-columns: 1fr; gap: 28px; padding: 36px; }
+  .advisory-card-cta { text-align: left; }
+}
+@media (max-width: 640px) {
+  .page-hero { padding: 56px 0 48px; }
+  .page-hero h1 { font-size: 32px; }
+  .page-hero-lead { font-size: 15px; }
+  .page-hero-ctas { flex-direction: column; align-items: stretch; }
+  .page-hero-ctas .btn-primary { justify-content: center; }
+  .doc-grid { grid-template-columns: 1fr; }
+  .advisory-card { padding: 28px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     HEADER — VERBATIM from header.html
+     Active state: Resources
+════════════════════════════════════ -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+
+    <a class="logo" href="/" aria-label="HKA Tech — home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+
+    <div class="nav-items">
+
+      <!-- PLATFORM -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="/platform/overview">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="/platform/features">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="/platform/integrations">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="/platform/hosting">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="/platform/whats-new">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOLUTIONS -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="/solutions/plan">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
+                <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/build">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
+                <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/operate">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="/services/bi">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
+                <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
+              </a>
+              <a class="mega-link" href="/services/dap">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
+                <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="/services/implementation">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
+              </a>
+              <a class="mega-link" href="/services/quick-start">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
+                <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
+              </a>
+              <a class="mega-link" href="/services/advisory">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
+                <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CUSTOMERS -->
+      <div class="nav-item">
+        <a class="nav-btn" href="/customers">Customers</a>
+      </div>
+
+      <!-- ABOUT -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESOURCES — ACTIVE -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end nav-items -->
+
+    <div class="nav-actions">
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
+  <div class="mm-section">Resources</div>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ════════ HERO ════════ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — new page, no existing content -->
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="page-hero-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">›</span>
+        <a href="/resources/implementation">Resources</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">PMO Toolkit &amp; Advisory</span>
+      </nav>
+      <div class="page-hero-over">Resources</div>
+      <h1>PMO Toolkit &amp; Governance Frameworks</h1>
+      <p class="page-hero-lead">Practical governance templates, program management frameworks, and advisory resources developed from 25 years of capital works delivery experience across APAC's most complex organisations.</p>
+      <div class="page-hero-ctas">
+        <a class="btn-primary" href="/contact">
+          Schedule a Consultation
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ DOCUMENT DOWNLOAD CARDS ════════ -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — guidelines §8 specifies "Document download cards" for this page type -->
+  <section class="section">
+    <div class="wrap">
+
+      <!-- SOURCE: MOVED — live site returned 403, content unreachable. Structure below is a scaffold awaiting paste-in of existing PMO Toolkit page content. -->
+      <div class="section-intro rev">
+        <div class="s-over">Governance Resources</div>
+        <h2 class="s-title">Frameworks Built for Capital Works</h2>
+        <p>These resources reflect the governance approaches, reporting structures, and delivery frameworks HKA Tech applies across government, infrastructure, and property programs.</p>
+        <p style="font-size:12px;color:var(--text-lt);font-style:italic;margin-top:10px;">[CLIENT TO SUPPLY: paste the existing intro paragraph from /pmo-toolkit here. Audit §1 notes this page references 2018 pricing — review all content for freshness before reuse.]</p>
+      </div>
+
+      <div class="doc-grid">
+
+        <!-- SOURCE: MOVED — cards below are structural scaffolds. Live site returned 403.
+             Client must paste existing PMO Toolkit resource names, descriptions, file types,
+             and page counts from the existing /pmo-toolkit page into each card below.
+             Audit §1 flags 2018 pricing in this content — review before reusing. -->
+
+        <!-- Card 1 -->
+        <div class="doc-card rev d1">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 2h10l4 4v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
+              <path d="M14 2v4h4M7 9h8M7 13h8M7 17h5"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 1 title from existing page]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="doc-card rev d2">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="3" y="4" width="16" height="15" rx="2"/>
+              <path d="M7 2v4M15 2v4M3 10h16"/>
+              <path d="M7 14h2M13 14h2M7 17.5h2"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 2 title from existing page]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="doc-card rev d3">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 16V9M8 16V6M12 16v-4M16 16V3M20 16H2"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 3 title from existing page]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="doc-card rev d1">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M11 2L4 6v5c0 4 3.2 7.7 7 9 3.8-1.3 7-5 7-9V6l-7-4z"/>
+              <path d="M8 11l2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 4 title from existing page]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="doc-card rev d2">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="9"/>
+              <path d="M11 7v4l3 2"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 5 title from existing page]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+        <!-- Card 6 — add more cards or remove unused ones as needed -->
+        <div class="doc-card rev d3">
+          <div class="doc-icon">
+            <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="8" height="8" rx="1"/>
+              <rect x="12" y="2" width="8" height="8" rx="1"/>
+              <rect x="2" y="12" width="8" height="8" rx="1"/>
+              <rect x="12" y="12" width="8" height="8" rx="1"/>
+            </svg>
+          </div>
+          <div class="doc-type">[CLIENT TO SUPPLY: Resource type]</div>
+          <div class="doc-title">[CLIENT TO SUPPLY: Resource 6 title — or remove this card if fewer resources exist]</div>
+          <p class="doc-desc">[CLIENT TO SUPPLY: Paste existing description from /pmo-toolkit. Check for 2018 pricing references and update before publishing.]</p>
+          <div class="doc-meta">[CLIENT TO SUPPLY: File type · Page count]</div>
+          <a class="doc-download" href="/contact">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2v8M3 7l4 4 4-4M2 12h10"/></svg>
+            Request Access
+          </a>
+        </div>
+
+      </div><!-- end doc-grid -->
+
+      <!-- ════════ ADVISORY CALLOUT ════════ -->
+      <!-- SOURCE: NEW [NEW — VERIFY] — mirrors Quick Start callout pattern from implementation.html -->
+      <div class="advisory-card rev">
+        <div class="advisory-card-content">
+          <div class="advisory-tag">Capital Works Advisory</div>
+          <h2>Need a Tailored Governance Framework?</h2>
+          <p>Our advisory team works with capital works organisations to design governance structures that fit the complexity, scale, and delivery model of their programs — not generic templates. Talk to us about a structured advisory engagement.</p>
+        </div>
+        <div class="advisory-card-cta">
+          <a class="btn-primary" href="/contact">
+            Talk to Our Team
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════
+     CTA BAND
+════════════════════════════════════ -->
+<!-- SOURCE: NEW [NEW — VERIFY] — standard CTA band per guidelines §8 -->
+<section class="cta-sec rev">
+  <div class="wrap">
+    <div class="cta-eye">Discuss Your Requirements</div>
+    <h2>Ready to Strengthen Your Program Governance?</h2>
+    <p>Talk to our team about advisory support, PMWeb governance configuration, or a project controls maturity review for your organisation.</p>
+    <div class="cta-btns">
+      <a class="btn-white" href="/contact">Contact Us</a>
+      <a class="btn-gw" href="/services/advisory">
+        Explore Capital Works Advisory
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER — VERBATIM from footer.html
+════════════════════════════════════ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div>
+        <div class="f-logo">
+          <div class="f-logo-mark">
+            <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+              <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="f-logo-name">HKA Tech</span>
+        </div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>
+            asiapacific@hka.com
+          </a>
+          <a href="tel:+61292559100">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>
+            +61 2 9255 9100
+          </a>
+        </div>
+        <div class="f-offices">
+          <div class="f-offices-title">Offices</div>
+          <span class="f-office"><strong>Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span class="f-office"><strong>Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span class="f-office"><strong>Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   shared.js — VERBATIM
+═══════════════════════════════════════════════════ */
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const overlay  = document.getElementById('navOverlay');
+  if (!navItems.length) return;
+
+  function closeAll() {
+    navItems.forEach(i => {
+      i.classList.remove('open');
+      const btn = i.querySelector('.nav-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-btn');
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+  });
+
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
+    }, { passive: true });
+  }
+})();
+
+(function(){
+  const revEls = document.querySelectorAll('.rev');
+  if (revEls.length && 'IntersectionObserver' in window) {
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(el => revObs.observe(el));
+  }
+})();
+
+(function(){
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+(function(){
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>

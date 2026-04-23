@@ -1,0 +1,1424 @@
+<!--
+  PAGE:             News & Events
+  URL SLUG:         /about/news
+  MENU LOCATION:    About ▾ → News & Events
+  SEO TITLE:        News & Events | HKA Tech
+  META DESCRIPTION: Latest updates from HKA Tech on PMWeb, Business Intelligence, Digital Adoption, and capital works advisory across the Asia Pacific region.
+  PRIMARY KEYWORD:  HKA Tech news PMWeb updates
+  PAGE TYPE:        News listing (About — News & Events per audit §4.7)
+  TEMPLATE FLOW:    Compact page header → Category filters → Article card grid (6 cards) → Pagination → CTA band
+
+  PARTIALS USED:
+    - tokens.css    April 2026
+    - header.html   April 2026 — active state: About
+    - footer.html   April 2026
+    - shared.js     April 2026
+
+  DESIGN PHILOSOPHY:
+    Inner-page restraint applied throughout. The page header is compact — an overline,
+    H1, and brief descriptor — no decorative hero visual. The card grid is the centrepiece.
+    No dark-navy sections except the CTA band and footer.
+
+  CONTENT SOURCE SUMMARY:
+    Existing:   95%
+    New:        5% (card excerpts trimmed/formatted; category labels assigned)
+
+  [NEW — VERIFY] ITEMS:
+    - Category labels: assigned by editorial judgment; client should confirm categories per CMS setup
+    - Card excerpts: shortened from full article body; source text preserved
+  [CLIENT TO SUPPLY] ITEMS:
+    - Thumbnail images: 6 article images required — see .img-placeholder blocks on each card
+    - LinkedIn article full body: pulled from existing site (Travis Hamera article) — confirm this is the correct bridging piece
+  [IMAGE NEEDED] ITEMS:
+    - news-card-capital-planning.jpg → Travis Hamera capital planning article header image
+    - news-card-nsw-cloud-services.jpg → NSW Government Advanced Suppliers List / cloud services registration
+    - news-card-bi-power.jpg → HKA BI/PowerBI dashboards for capital programs
+    - news-card-shuva-promo.jpg → Shuva Basu promotion announcement — professional headshot or team photo
+    - news-card-crux-2025.jpg → CRUX Insight 8th Annual Report cover or related image
+    - news-card-digital-adoption.jpg → Digital Adoption / WalkMe implementation article header
+
+  REDIRECTS NEEDED: /latest-news → /about/news
+  CTAs: 1 × "Contact Us" (CTA band), 1 × "Explore All Services" (CTA band)
+  DEVIATIONS FROM GUIDELINES: Compact header used instead of full hero per client direction and page type
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Events | HKA Tech</title>
+  <meta name="description" content="Latest updates from HKA Tech on PMWeb, Business Intelligence, Digital Adoption, and capital works advisory across the Asia Pacific region.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><rect width='20' height='20' rx='3' fill='%230098A4'/></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+/* ═══════════════════════════════════════════════════════════════
+   tokens.css — CANONICAL shared styles for all HKA Tech pages
+   Source of truth: extracted from approved homepage (index.html)
+   Do not diverge. If a rule needs changing, update here first.
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── DESIGN TOKENS ──────────────────────────────────────────── */
+:root {
+  --teal:      #0098A4;
+  --teal-dk:   #006E76;
+  --teal-lt:   #E4F6F7;
+  --teal-mid:  #33B2BD;
+  --navy:      #1A3A4A;
+  --navy-lt:   #244F63;
+  --off-white: #F0F4F5;
+  --grey:      #D4DADF;
+  --text-dk:   #1A2530;
+  --text-md:   #4A5C66;
+  --text-lt:   #8A9BA5;
+  --white:     #FFFFFF;
+  --ease:      cubic-bezier(0.16,1,0.3,1);
+  --font-d:    'Playfair Display', Georgia, serif;
+  --font-u:    'Outfit', system-ui, sans-serif;
+}
+
+/* ─── RESET ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-u);
+  font-size: 16px;
+  color: var(--text-dk);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; cursor: pointer; }
+ul { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+/* ─── CONTAINER ──────────────────────────────────────────────── */
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
+
+/* ─── SKIP LINK ──────────────────────────────────────────────── */
+.skip-link {
+  position: absolute; top: -100px; left: 16px;
+  background: var(--teal); color: var(--white);
+  padding: 10px 20px; border-radius: 4px;
+  font-size: 14px; font-weight: 600;
+  z-index: 9999; transition: top .2s;
+}
+.skip-link:focus { top: 12px; }
+
+/* ─── NAVIGATION ─────────────────────────────────────────────── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 72px;
+  background: rgba(255,255,255,.97);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  transition: box-shadow .3s var(--ease);
+}
+.nav .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.logo-mark { width: 36px; height: 36px; background: var(--teal); border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-words { display: flex; flex-direction: column; line-height: 1; }
+.logo-words b { font-family: var(--font-d); font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: -.01em; }
+.logo-words small { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-top: 2px; }
+
+.nav-items { display: flex; align-items: center; gap: 2px; flex: 1; justify-content: center; }
+.nav-item { position: relative; }
+.nav-btn {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 14px; font-weight: 500; color: var(--text-md);
+  padding: 8px 14px; border-radius: 4px;
+  transition: color .15s, background .15s;
+  user-select: none;
+  white-space: nowrap;
+  border: none; background: transparent; font-family: var(--font-u);
+  position: relative;
+}
+.nav-btn:hover { color: var(--teal); background: var(--teal-lt); }
+.nav-btn svg { width: 11px; height: 11px; opacity: .5; transition: transform .2s var(--ease); }
+.nav-item.open .nav-btn { color: var(--teal); background: var(--teal-lt); }
+.nav-item.open .nav-btn svg { transform: rotate(180deg); opacity: 1; }
+
+.nav-btn.active { color: var(--teal); }
+.nav-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--teal); border-radius: 1px; }
+
+/* ─── MEGA DROPDOWN ──────────────────────────────────────────── */
+.mega {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--white);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 16px 48px rgba(26,58,74,.14), 0 0 0 1px rgba(0,0,0,.06);
+  padding: 28px;
+  min-width: 560px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-8px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+  border-top: 3px solid var(--teal);
+}
+.nav-item.open .mega {
+  opacity: 1; pointer-events: all;
+  transform: translateX(-50%) translateY(0);
+}
+.mega-cols { display: grid; gap: 24px; }
+.mega-cols.c2 { grid-template-columns: 1fr 1fr; }
+.mega-cols.c3 { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 14px; padding-bottom: 10px; }
+.mega-link { display: flex; align-items: flex-start; gap: 11px; padding: 10px; border-radius: 4px; transition: background .15s; cursor: pointer; }
+.mega-link:hover { background: var(--teal-lt); }
+.mega-link:hover .mega-link-title { color: var(--teal); }
+.mega-icon { width: 34px; height: 34px; background: var(--off-white); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.mega-icon svg { width: 16px; height: 16px; color: var(--teal); }
+.mega-link-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; transition: color .15s; }
+.mega-link-desc { font-size: 11px; color: var(--text-lt); line-height: 1.5; }
+.mega-featured { background: var(--teal-lt); border-radius: 5px; padding: 18px; border-left: 3px solid var(--teal); }
+.mega-featured-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.mega-featured-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.mega-featured-desc { font-size: 12px; color: var(--text-md); line-height: 1.55; margin-bottom: 14px; }
+.mega-featured-link { font-size: 12px; font-weight: 600; color: var(--teal); display: flex; align-items: center; gap: 5px; }
+.mega-featured-link svg { width: 12px; height: 12px; }
+
+.nav-overlay { position: fixed; inset: 0; z-index: 199; display: none; }
+.nav-overlay.active { display: block; }
+
+.nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.nav-login { font-size: 13px; font-weight: 500; color: var(--text-lt); padding: 6px 12px; transition: color .15s; }
+.nav-login:hover { color: var(--text-md); }
+.nav-cta {
+  font-size: 13px; font-weight: 700; color: var(--white);
+  background: var(--teal); padding: 10px 20px; border-radius: 4px;
+  letter-spacing: .01em; white-space: nowrap;
+  transition: background .15s, transform .15s;
+}
+.nav-cta:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+/* ─── HAMBURGER ──────────────────────────────────────────────── */
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; border-radius: 4px; transition: background .15s; }
+.hamburger:hover { background: var(--teal-lt); }
+.hamburger span { display: block; width: 100%; height: 2px; background: var(--text-md); border-radius: 1px; transition: transform .25s var(--ease), opacity .2s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { display: none; position: fixed; top: 72px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 198; padding: 24px 20px; overflow-y: auto; transform: translateY(-10px); opacity: 0; transition: transform .25s var(--ease), opacity .25s var(--ease); }
+.mobile-menu.open { display: block; transform: translateY(0); opacity: 1; }
+.mobile-menu a { display: block; font-size: 16px; font-weight: 500; color: var(--text-md); padding: 14px 0; border-bottom: 1px solid var(--grey); transition: color .15s; }
+.mobile-menu a:hover { color: var(--teal); }
+.mobile-menu .mm-section { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--text-lt); margin-top: 18px; margin-bottom: 6px; padding: 0; border-bottom: none; }
+.mobile-menu .mm-cta { display: block; text-align: center; font-size: 14px; font-weight: 700; color: var(--white); background: var(--teal); padding: 14px; border-radius: 4px; margin-top: 24px; border-bottom: none; }
+.mobile-menu .mm-cta:hover { background: var(--teal-dk); }
+
+/* ─── SECTION UTILITIES ──────────────────────────────────────── */
+.section { padding: 96px 0; position: relative; }
+.section.alt { background: var(--off-white); }
+.section.dark { background: var(--navy); color: var(--white); }
+
+.s-over { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 13px; display: flex; align-items: center; gap: 9px; }
+.s-over::before { content: ''; display: block; width: 18px; height: 2px; background: currentColor; }
+.s-over.lt { color: var(--teal-mid); }
+.s-title { font-family: var(--font-d); font-size: clamp(26px, 2.8vw, 38px); font-weight: 700; line-height: 1.18; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px; }
+.s-title.lt { color: var(--white); }
+.s-body { font-size: 17px; line-height: 1.65; color: var(--text-md); max-width: 580px; }
+.s-body.lt { color: rgba(255,255,255,.65); }
+
+/* ─── BUTTONS ────────────────────────────────────────────────── */
+.btn-primary, .btn-ghost, .btn-white, .btn-gw, .nav-cta { white-space: nowrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--white);
+  background: var(--teal);
+  padding: 13px 26px; border-radius: 4px;
+  transition: background .15s, transform .15s;
+  letter-spacing: .01em; font-family: var(--font-u);
+}
+.btn-primary:hover { background: var(--teal-dk); transform: translateY(-1px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: rgba(255,255,255,.72);
+  border: 1.5px solid rgba(255,255,255,.22);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,.5); color: var(--white); background: rgba(255,255,255,.05); }
+
+.btn-white {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--teal);
+  background: var(--white);
+  padding: 13px 30px; border-radius: 4px;
+  transition: background .15s; font-family: var(--font-u);
+}
+.btn-white:hover { background: var(--teal-lt); }
+
+.btn-gw {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--white);
+  border: 1.5px solid rgba(255,255,255,.35);
+  padding: 13px 26px; border-radius: 4px;
+  transition: all .15s; font-family: var(--font-u);
+}
+.btn-gw:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); }
+
+.arrow-link { font-size: 13px; font-weight: 600; color: var(--teal); display: inline-flex; align-items: center; gap: 5px; transition: gap .15s; white-space: nowrap; }
+.arrow-link:hover { gap: 9px; }
+.arrow-link svg { width: 13px; height: 13px; }
+
+/* ─── IMAGE PLACEHOLDER ──────────────────────────────────────── */
+.img-placeholder {
+  border: 2px dashed var(--teal);
+  background: var(--teal-lt);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+}
+.img-placeholder .ip-tag { font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--white); background: var(--teal); padding: 4px 10px; border-radius: 2px; }
+.img-placeholder .ip-filename { font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; color: var(--teal-dk); background: var(--white); padding: 4px 10px; border-radius: 3px; border: 1px solid rgba(0,152,164,.3); word-break: break-all; max-width: 100%; }
+.img-placeholder .ip-desc { font-size: 12.5px; line-height: 1.55; color: var(--text-md); max-width: 380px; }
+.img-placeholder .ip-desc strong { color: var(--navy); font-weight: 700; }
+.img-placeholder .ip-specs { font-size: 11px; font-weight: 600; color: var(--text-lt); letter-spacing: .02em; padding-top: 8px; border-top: 1px solid rgba(0,152,164,.2); margin-top: 4px; }
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────────── */
+.rev { opacity: 0; transform: translateY(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.rev.vis { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+
+/* ─── FOCUS RING ─────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
+
+/* ─── BACK TO TOP ────────────────────────────────────────────── */
+.back-to-top { position: fixed; bottom: 28px; right: 28px; z-index: 150; width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: var(--white); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,152,164,.3); opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease), background .15s; pointer-events: none; }
+.back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+.back-to-top:hover { background: var(--teal-dk); transform: translateY(-2px); }
+.back-to-top svg { width: 18px; height: 18px; }
+
+/* ─── FOOTER ─────────────────────────────────────────────────── */
+footer { background: var(--navy); padding: 68px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 280px 1fr 1fr 1fr; gap: 44px; padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.f-logo { display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
+.f-logo-mark { width: 30px; height: 30px; background: var(--teal); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+.f-logo-mark svg { width: 17px; height: 17px; }
+.f-logo-name { font-family: var(--font-d); font-size: 17px; font-weight: 700; color: var(--white); }
+.f-tag { font-size: 12.5px; line-height: 1.65; color: rgba(255,255,255,.45); margin-bottom: 18px; }
+.f-contact { display: flex; flex-direction: column; gap: 7px; }
+.f-contact a { font-size: 12.5px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 8px; transition: color .15s; }
+.f-contact a:hover { color: var(--teal-mid); }
+.f-contact a svg { width: 13px; height: 13px; flex-shrink: 0; }
+.f-offices { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+.f-offices-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 2px; }
+.f-office { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
+.f-office strong { color: rgba(255,255,255,.6); font-weight: 600; }
+.f-col-title { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; }
+.f-links { display: flex; flex-direction: column; gap: 9px; }
+.f-links a { font-size: 13px; color: rgba(255,255,255,.5); transition: color .15s; }
+.f-links a:hover { color: var(--teal-mid); }
+.f-bottom { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+.f-copy { font-size: 12px; color: rgba(255,255,255,.28); }
+.f-legal { display: flex; gap: 18px; }
+.f-legal a { font-size: 12px; color: rgba(255,255,255,.28); transition: color .15s; }
+.f-legal a:hover { color: rgba(255,255,255,.55); }
+
+/* ─── REDUCED MOTION ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; animation-delay: 0s !important; transition-duration: 0s !important; transition-delay: 0s !important; }
+  .rev { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .wrap { padding: 0 32px; }
+  .nav-items { display: none; }
+  .hamburger { display: flex; }
+  .mega { position: fixed; top: 72px; left: 16px; right: 16px; transform: none; max-height: calc(100vh - 88px); overflow-y: auto; }
+  .nav-item.open .mega { transform: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-grid > div:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 0 20px; }
+  .section { padding: 64px 0; }
+  .nav-actions .nav-login { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .f-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .f-legal { flex-wrap: wrap; justify-content: center; }
+}
+
+/* ── FLAG STYLES — remove before going live ── */
+.flag-supply,
+.flag-verify,
+.flag-image {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  border-radius: 3px;
+  padding: 8px 12px;
+  margin: 10px 0 4px;
+}
+.flag-supply { background: #FFF3CD; color: #7A4F00; border-left: 3px solid #F0A500; }
+.flag-verify { background: #E8F4FD; color: #0A4A72; border-left: 3px solid #2E8BC0; }
+.flag-image  { background: #F0F6EE; color: #2A5C1E; border-left: 3px solid #4A9A38; }
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE-SPECIFIC STYLES — /about/news
+═══════════════════════════════════════════════════════════════ */
+
+/* ── COMPACT PAGE HEADER ──────────────────────────────────────── */
+.page-header {
+  background: var(--navy);
+  padding: 52px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,152,164,.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -40px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,152,164,.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-header .wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+}
+.page-header-left {}
+.page-breadcrumb {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.page-breadcrumb a { color: rgba(255,255,255,.45); transition: color .15s; }
+.page-breadcrumb a:hover { color: var(--teal-mid); }
+.page-breadcrumb span { color: rgba(255,255,255,.2); }
+.page-header h1 {
+  font-family: var(--font-d);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -.02em;
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+.page-header-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,.55);
+  max-width: 520px;
+}
+.page-header-right {
+  flex-shrink: 0;
+  text-align: right;
+}
+.page-header-stat {
+  font-family: var(--font-d);
+  font-size: 13px;
+  color: var(--teal-mid);
+  font-weight: 600;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+/* ── NEWS LISTING — 2-col layout (cards left, sidebar right) ──── */
+.news-listing { padding: 64px 0 72px; background: var(--off-white); }
+
+.news-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── ARTICLE CARDS ────────────────────────────────────────────── */
+.news-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-content: start; }
+
+.nc {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+  cursor: pointer;
+  transition: box-shadow .2s var(--ease), transform .2s var(--ease);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.nc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.nc:hover { box-shadow: 0 8px 32px rgba(26,58,74,.1); transform: translateY(-3px); }
+.nc:hover::before { opacity: 1; }
+
+.nc-img {
+  height: 140px;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.nc-img .img-placeholder {
+  border-radius: 0;
+  min-height: 140px;
+  border: none;
+}
+
+.nc-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* CaterMe card order: title → date → category → excerpt → read more */
+.nc-title {
+  font-family: var(--font-d);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 7px;
+  letter-spacing: -.01em;
+}
+.nc-title:hover { color: var(--teal); }
+.nc-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.nc-date {
+  font-size: 11px;
+  color: var(--text-lt);
+  font-weight: 500;
+}
+.nc-sep { color: var(--grey); font-size: 10px; }
+.nc-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-lt);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.nc-exc {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--text-md);
+  margin-bottom: 12px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.nc-read {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap .15s;
+  margin-top: auto;
+}
+.nc:hover .nc-read { gap: 8px; }
+.nc-read svg { width: 11px; height: 11px; }
+
+/* ── SIDEBAR ──────────────────────────────────────────────────── */
+.news-sidebar { display: flex; flex-direction: column; gap: 32px; position: sticky; top: 88px; }
+
+.sidebar-block {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(26,58,74,.06);
+}
+.sidebar-block-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-lt);
+  padding: 16px 20px 14px;
+  border-bottom: 1px solid var(--grey);
+}
+.cat-list { padding: 8px 0; }
+.cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-md);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-family: var(--font-u);
+}
+.cat-item:hover { background: var(--teal-lt); color: var(--teal); }
+.cat-item.active { color: var(--teal); font-weight: 600; }
+.cat-item.active .cat-count { background: var(--teal); color: var(--white); }
+.cat-count {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-lt);
+  background: var(--off-white);
+  padding: 2px 7px;
+  border-radius: 10px;
+  min-width: 22px;
+  text-align: center;
+  transition: background .15s, color .15s;
+}
+
+/* Popular posts sidebar */
+.pop-list { padding: 4px 0 8px; }
+.pop-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
+}
+.pop-item:hover { background: var(--teal-lt); }
+.pop-thumb {
+  width: 54px;
+  height: 44px;
+  border-radius: 4px;
+  background: var(--navy);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pop-thumb-ph {
+  font-family: var(--font-d);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(0,152,164,.5);
+  text-align: center;
+  line-height: 1.2;
+}
+.pop-content { flex: 1; min-width: 0; }
+.pop-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pop-item:hover .pop-title { color: var(--teal); }
+.pop-date { font-size: 10.5px; color: var(--text-lt); font-weight: 500; }
+
+/* ── PAGINATION ───────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  margin-top: 36px;
+}
+.pg-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-md);
+  background: var(--white);
+  border: 1px solid var(--grey);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: var(--font-u);
+}
+.pg-btn:hover { border-color: var(--teal); color: var(--teal); }
+.pg-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
+.pg-btn svg { width: 9px; height: 9px; }
+.pg-dots { font-size: 11px; color: var(--text-lt); padding: 0 2px; line-height: 30px; }
+
+/* Pagination spans all 3 card columns */
+.news-cards .pagination { grid-column: 1 / -1; margin-top: 8px; }
+
+/* ── CTA SECTION ─────────────────────────────────────────────── */
+.cta-sec { background: var(--teal); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+.cta-sec::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 26px 26px; }
+.cta-sec .wrap { position: relative; z-index: 2; }
+.cta-eye { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px; }
+.cta-sec h2 { font-family: var(--font-d); font-size: clamp(26px, 3vw, 42px); font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: -.02em; }
+.cta-sec p { font-size: 16px; color: rgba(255,255,255,.72); max-width: 500px; margin: 0 auto 36px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; align-items: center; }
+
+/* ── RESPONSIVE (page-specific) ────────────────────────────────── */
+@media (max-width: 1024px) {
+  .page-header .wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .page-header-right { text-align: left; }
+  .news-layout { grid-template-columns: 1fr; }
+  .news-cards { grid-template-columns: repeat(2, 1fr); }
+  .news-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .sidebar-block { flex: 1; min-width: 260px; }
+}
+@media (max-width: 640px) {
+  .page-header { padding: 40px 0 36px; }
+  .news-listing { padding: 48px 0 56px; }
+  .news-cards { grid-template-columns: 1fr; }
+  .news-sidebar { flex-direction: column; }
+  .sidebar-block { min-width: unset; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- ════════════════════════════════════
+     HEADER — VERBATIM from header.html
+════════════════════════════════════ -->
+<div class="nav-overlay" id="navOverlay"></div>
+<nav class="nav" id="mainNav" aria-label="Main navigation">
+  <div class="wrap">
+
+    <!-- Logo -->
+    <a class="logo" href="/" aria-label="HKA Tech — home">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+          <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+        </svg>
+      </div>
+      <div class="logo-words"><b>HKA Tech</b><small>APAC Region</small></div>
+    </a>
+
+    <!-- Nav items -->
+    <div class="nav-items">
+
+      <!-- ═══ PLATFORM ═══ -->
+      <div class="nav-item" data-menu="platform">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Platform
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:620px;left:0;transform:none" id="mega-platform">
+          <div class="mega-cols c3">
+            <div>
+              <div class="mega-col-title">Product</div>
+              <a class="mega-link" href="/platform/overview">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg></div>
+                <div><div class="mega-link-title">PMWeb Overview</div><div class="mega-link-desc">The complete capital works platform</div></div>
+              </a>
+              <a class="mega-link" href="/platform/features">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l6-3 6 3v7M6 12V8h4v4"/></svg></div>
+                <div><div class="mega-link-title">Platform Features</div><div class="mega-link-desc">Cost, docs, workflow, scheduling</div></div>
+              </a>
+              <a class="mega-link" href="/platform/integrations">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Integrations</div><div class="mega-link-desc">Bluebeam, BIM, and enterprise systems</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Infrastructure</div>
+              <a class="mega-link" href="/platform/hosting">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V2M11 4V2"/></svg></div>
+                <div><div class="mega-link-title">Hosting &amp; SaaS</div><div class="mega-link-desc">AWS SaaS, managed, or on-premise</div></div>
+              </a>
+              <a class="mega-link" href="/platform/whats-new">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12l3-6 3 4 2-2 4 4"/></svg></div>
+                <div><div class="mega-link-title">What's New</div><div class="mega-link-desc">Version history &amp; release notes</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-featured">
+                <div class="mega-featured-label">Latest Release</div>
+                <div class="mega-featured-title">PMWeb Version 8.0</div>
+                <div class="mega-featured-desc">Enhanced AI forecasting, improved dashboards, and new mobile capabilities for field teams.</div>
+                <a class="mega-featured-link" href="/platform/whats-new">See what's new <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SOLUTIONS ═══ -->
+      <div class="nav-item" data-menu="solutions">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Solutions
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-solutions">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">By Lifecycle</div>
+              <a class="mega-link" href="/solutions/plan">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 13V7l5-5 5 5v6"/><rect x="6" y="9" width="4" height="4"/></svg></div>
+                <div><div class="mega-link-title">Plan</div><div class="mega-link-desc">Estimating, budgeting &amp; program setup</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/build">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="8" width="4" height="6"/><rect x="6" y="5" width="4" height="9"/><rect x="10" y="2" width="4" height="12"/></svg></div>
+                <div><div class="mega-link-title">Build</div><div class="mega-link-desc">Construction delivery &amp; contract management</div></div>
+              </a>
+              <a class="mega-link" href="/solutions/operate">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/></svg></div>
+                <div><div class="mega-link-title">Operate</div><div class="mega-link-desc">Asset management &amp; ongoing operations</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">By Industry</div>
+              <a class="mega-link" href="/solutions/government"><div><div class="mega-link-title">Government</div></div></a>
+              <a class="mega-link" href="/solutions/healthcare"><div><div class="mega-link-title">Healthcare</div></div></a>
+              <a class="mega-link" href="/solutions/education"><div><div class="mega-link-title">Education</div></div></a>
+              <a class="mega-link" href="/solutions/transportation"><div><div class="mega-link-title">Transportation</div></div></a>
+              <a class="mega-link" href="/solutions/energy"><div><div class="mega-link-title">Energy &amp; Resources</div></div></a>
+              <a class="mega-link" href="/solutions/industries" style="margin-top:4px"><div><div class="mega-link-title" style="color:var(--teal);font-size:12px">View all 11 industries →</div></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SERVICES ═══ -->
+      <div class="nav-item" data-menu="services">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Services
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:580px;left:0;transform:none" id="mega-services">
+          <div class="mega-cols c2">
+            <div>
+              <div class="mega-col-title">Technology Services</div>
+              <a class="mega-link" href="/services/bi">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 12V5l5-3 5 3v7M3 8h10"/></svg></div>
+                <div><div class="mega-link-title">Business Intelligence (BI)</div><div class="mega-link-desc">Dashboards for PMWeb &amp; other systems</div></div>
+              </a>
+              <a class="mega-link" href="/services/dap">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8l2 2 4-4"/></svg></div>
+                <div><div class="mega-link-title">Digital Adoption (DAP)</div><div class="mega-link-desc">WalkMe &amp; more</div></div>
+              </a>
+            </div>
+            <div>
+              <div class="mega-col-title">Advisory</div>
+              <a class="mega-link" href="/services/implementation">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg></div>
+                <div><div class="mega-link-title">Implementation</div><div class="mega-link-desc">Configuration, data migration, training, support</div></div>
+              </a>
+              <a class="mega-link" href="/services/quick-start">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 14V6l4-4h8v12H2z"/><path d="M6 2v4H2"/></svg></div>
+                <div><div class="mega-link-title">Quick Start Packages</div><div class="mega-link-desc">Accelerated PMWeb deployment</div></div>
+              </a>
+              <a class="mega-link" href="/services/advisory">
+                <div class="mega-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M8 2l-5 3v4c0 3 2 5 5 6 3-1 5-3 5-6V5L8 2z"/></svg></div>
+                <div><div class="mega-link-title">Capital Works Advisory</div><div class="mega-link-desc">Delivery expertise &amp; Crux Insight</div></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ CUSTOMERS ═══ -->
+      <div class="nav-item">
+        <a class="nav-btn" href="/customers">Customers</a>
+      </div>
+
+      <!-- ═══ ABOUT ═══ -->
+      <div class="nav-item" data-menu="about">
+        <button class="nav-btn active" aria-haspopup="true" aria-expanded="false">About
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-about">
+          <div>
+            <div class="mega-col-title">Company</div>
+            <a class="mega-link" href="/about/story"><div><div class="mega-link-title">Our Story</div><div class="mega-link-desc">History &amp; mission</div></div></a>
+            <a class="mega-link" href="/about/team"><div><div class="mega-link-title">APAC Team</div><div class="mega-link-desc">Meet the team</div></div></a>
+            <a class="mega-link" href="/about/accreditations"><div><div class="mega-link-title">Accreditations</div><div class="mega-link-desc">Certifications &amp; partnerships</div></div></a>
+            <a class="mega-link" href="/about/news"><div><div class="mega-link-title">News &amp; Events</div><div class="mega-link-desc">Latest updates from HKA Tech</div></div></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ RESOURCES ═══ -->
+      <div class="nav-item" data-menu="resources">
+        <button class="nav-btn" aria-haspopup="true" aria-expanded="false">Resources
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg>
+        </button>
+        <div class="mega" style="min-width:340px;right:0;left:auto;transform:none" id="mega-resources">
+          <div>
+            <div class="mega-col-title">Resources</div>
+            <a class="mega-link" href="/resources/implementation"><div><div class="mega-link-title">Implementation Guide</div><div class="mega-link-desc">Approach, data migration &amp; onboarding</div></div></a>
+            <a class="mega-link" href="/resources/kb"><div><div class="mega-link-title">Knowledge Base</div><div class="mega-link-desc">FAQs &amp; technical documentation</div></div></a>
+            <a class="mega-link" href="/resources/dap-training"><div><div class="mega-link-title">DAP &amp; Training Tools</div><div class="mega-link-desc">WalkMe walkthroughs</div></div></a>
+            <a class="mega-link" href="/resources/pmo-toolkit"><div><div class="mega-link-title">PMO Toolkit &amp; Advisory</div><div class="mega-link-desc">Governance frameworks &amp; templates</div></div></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end nav-items -->
+
+    <!-- Actions -->
+    <div class="nav-actions">
+      <a class="nav-login" href="/login">Login</a>
+      <a class="nav-cta" href="/contact">Contact Us</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-section">Platform</div>
+  <a href="/platform/overview">PMWeb Overview</a>
+  <a href="/platform/features">Platform Features</a>
+  <a href="/platform/integrations">Integrations</a>
+  <a href="/platform/hosting">Hosting &amp; SaaS</a>
+  <a href="/platform/whats-new">What's New</a>
+  <div class="mm-section">Solutions</div>
+  <a href="/solutions/plan">Plan</a>
+  <a href="/solutions/build">Build</a>
+  <a href="/solutions/operate">Operate</a>
+  <a href="/solutions/industries">All Industries</a>
+  <div class="mm-section">Services</div>
+  <a href="/services/bi">Business Intelligence (BI)</a>
+  <a href="/services/dap">Digital Adoption (DAP)</a>
+  <a href="/services/implementation">Implementation</a>
+  <a href="/services/quick-start">Quick Start Packages</a>
+  <a href="/services/advisory">Capital Works Advisory</a>
+  <div class="mm-section">Company</div>
+  <a href="/customers">Customers</a>
+  <a href="/about/story">Our Story</a>
+  <a href="/about/team">APAC Team</a>
+  <a href="/about/accreditations">Accreditations</a>
+  <a href="/about/news">News &amp; Events</a>
+  <div class="mm-section">Resources</div>
+  <a href="/resources/implementation">Implementation Guide</a>
+  <a href="/resources/kb">Knowledge Base</a>
+  <a href="/resources/dap-training">DAP &amp; Training Tools</a>
+  <a href="/resources/pmo-toolkit">PMO Toolkit &amp; Advisory</a>
+  <a href="/contact" class="mm-cta">Contact Us</a>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ── COMPACT PAGE HEADER ─────────────────────────────────── -->
+  <!-- SOURCE: NEW [NEW — VERIFY] — compact header per client direction; no full hero -->
+  <div class="page-header">
+    <div class="wrap">
+      <div class="page-header-left">
+        <nav class="page-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">›</span>
+          <a href="/about/story">About</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">News &amp; Events</span>
+        </nav>
+        <div class="s-over lt">About HKA Tech</div>
+        <h1>News &amp; Events</h1>
+        <p class="page-header-desc">Insights, announcements, and updates from the HKA Tech team across capital works technology, Business Intelligence, Digital Adoption, and advisory.</p>
+      </div>
+      <div class="page-header-right">
+        <div class="page-header-stat">6 latest articles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NEWS LISTING ───────────────────────────────────────── -->
+  <section class="news-listing" aria-label="News articles">
+    <div class="wrap">
+      <div class="news-layout">
+
+        <!-- ══ LEFT: ARTICLE CARDS ══════════════════════════════ -->
+        <div class="news-cards">
+
+          <!-- Card 1 — Defensible Capital Decisions with PMWeb (LinkedIn bridging piece, Travis Hamera) -->
+          <!-- SOURCE: EXISTING — content from LinkedIn post by Travis Hamera (screenshot provided by client) -->
+          <!-- [NEW — VERIFY] Article date: LinkedIn post was recent (April 2026 per "6d" shown in screenshot). Confirm exact publish date. -->
+          <article class="nc rev" aria-label="Defensible Capital Decisions with PMWeb">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-defensible-capital.jpg — article header image for Travis Hamera LinkedIn bridging piece -->
+              <!-- [IMAGE NEEDED]: news-card-defensible-capital.jpg — A capital portfolio / asset planning visual. Could use Travis Hamera's headshot as an author image, or a capital works infrastructure photograph. No client data. 16:9, 700×400px minimum, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: Defensible Capital Decisions article header image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h2 class="nc-title">Defensible Capital Decisions with PMWeb</h2>
+              <div class="nc-meta-row">
+                <span class="nc-date">April 2026</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Capital Planning</span>
+              </div>
+              <p class="nc-exc">If you want defensible capital decisions, you need traceability: Assets → Work Elements → Initiatives → Portfolio Scenarios → Projects → Financials/Outcomes. PMWEB closes the gap by carrying approved intent into execution and tying commitments, changes, and actuals back to the originating work elements.</p>
+              <a class="nc-read" href="/about/news/defensible-capital-decisions-pmweb">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 2 — NSW Cloud Services Registration -->
+          <!-- SOURCE: EXISTING — pulled from https://www.hka-tech.com.au/latest-news -->
+          <article class="nc rev d1" aria-label="NSW Cloud Services Registration article">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-nsw-cloud-services.jpg — NSW Government Advanced Suppliers List / ICT Cloud Services announcement -->
+              <!-- [IMAGE NEEDED]: news-card-nsw-cloud-services.jpg — Use existing "Approved supplier.png" from live site, or NSW Government / cloud infrastructure visual. 16:9, 700×400px min, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: NSW cloud services image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h3 class="nc-title">HKA Registered on NSW Government Advanced Suppliers List for ICT Cloud Services</h3>
+              <div class="nc-meta-row">
+                <span class="nc-date">March 2026</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Government</span>
+              </div>
+              <p class="nc-exc">In March 2026, the NSW Government approved HKA with its PMWeb SaaS delivery for Category R (ICT Cloud Services), covering Cloud Applications, Cloud Hosting and Infrastructure, and Cloud Support.</p>
+              <a class="nc-read" href="/about/news/nsw-cloud-services-registration">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 3 — BI / PowerBI services -->
+          <!-- SOURCE: EXISTING — pulled from https://www.hka-tech.com.au/latest-news -->
+          <article class="nc rev d1" aria-label="Business Intelligence for Capital Programs">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-bi-power.jpg — BI dashboard for capital programs -->
+              <!-- [IMAGE NEEDED]: news-card-bi-power.jpg — Use existing "Final dashboard.png" from live site — Power BI capital program dashboard. Anonymised data only. 16:9, 700×400px min, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: BI dashboard article image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h3 class="nc-title">Business Intelligence Built for Capital Programs</h3>
+              <div class="nc-meta-row">
+                <span class="nc-date">February 2026</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Business Intelligence</span>
+              </div>
+              <p class="nc-exc">HKA has released its expanded Power BI services for organisations delivering capital programs. Expert BI consulting helps clients break down data silos and build the BI foundations that give program owners visibility and control — from data strategy to dashboards that accelerate delivery.</p>
+              <a class="nc-read" href="/about/news/bi-capital-programs">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 4 — Shuva Basu promotion -->
+          <!-- SOURCE: EXISTING — pulled from https://www.hka-tech.com.au/latest-news -->
+          <article class="nc rev d1" aria-label="Shuva Basu promotion announcement">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-shuva-promo.jpg — Shuva Basu professional headshot or HKA APAC team photo -->
+              <!-- [IMAGE NEEDED]: news-card-shuva-promo.jpg — Professional headshot of Shuva Basu or HKA APAC team photo. Natural light, professional. 16:9, 700×400px min, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: Shuva Basu promotion image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h3 class="nc-title">New Promotion: Shuva Basu Appointed Associate Director of Transformation</h3>
+              <div class="nc-meta-row">
+                <span class="nc-date">February 2026</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Team News</span>
+              </div>
+              <p class="nc-exc">HKA Tech is pleased to announce the promotion of Shuva Basu to Associate Director of Transformation, strengthening our leadership capability in delivering high-impact digital transformation for key strategic clients.</p>
+              <a class="nc-read" href="/about/news/shuva-basu-promotion">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 5 — CRUX Insight 2025 -->
+          <!-- SOURCE: EXISTING — pulled from https://www.hka-tech.com.au/latest-news -->
+          <article class="nc rev d1" aria-label="CRUX Insight 8th Annual Report">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-crux-2025.jpg — CRUX Insight 8th Annual Report cover -->
+              <!-- [IMAGE NEEDED]: news-card-crux-2025.jpg — Use existing "2026 picture Crux.jpeg" from live site. 16:9, 700×400px min, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: CRUX Insight report image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h3 class="nc-title">From Insight to Foresight: HKA's Eighth Annual CRUX Insight Report</h3>
+              <div class="nc-meta-row">
+                <span class="nc-date">November 2025</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Industry Insight</span>
+              </div>
+              <p class="nc-exc">HKA's eighth Annual CRUX Insight Report presents the latest industry-leading analysis of construction and engineering projects worldwide — covering over 2,200 projects across 114 countries valued at more than $2.43 trillion.</p>
+              <a class="nc-read" href="/about/news/crux-insight-2025">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 6 — Digital Adoption / PMIS (Patrick Mason) -->
+          <!-- SOURCE: EXISTING — pulled from https://www.hka-tech.com.au/latest-news -->
+          <article class="nc rev d1" aria-label="PMIS Implementations and Digital Adoption">
+            <div class="nc-img">
+              <!-- [IMAGE NEEDED]: news-card-digital-adoption.jpg — Digital Adoption / WalkMe article image -->
+              <!-- [IMAGE NEEDED]: news-card-digital-adoption.jpg — Use existing "Update reminder.png" from live site, or a WalkMe/DAP in-app guidance screenshot. Anonymised, no client data. 16:9, 700×400px min, PNG or JPG -->
+              <div class="img-placeholder" role="img" aria-label="Placeholder: Digital adoption article image" style="min-height:140px;border-radius:0;border:none">
+              </div>
+            </div>
+            <div class="nc-body">
+              <h3 class="nc-title">PMIS Implementations and Digital Adoption: Bridging the Gap Between Technology and People</h3>
+              <div class="nc-meta-row">
+                <span class="nc-date">2022</span>
+                <span class="nc-sep">·</span>
+                <span class="nc-tag">Digital Adoption</span>
+              </div>
+              <p class="nc-exc">As technology becomes evermore present in the construction industry, the challenge of fully utilising these new capabilities is a struggle many organisations have yet to overcome. Digital Adoption is the concept designed to bridge that gap.</p>
+              <a class="nc-read" href="/about/news/pmis-digital-adoption">Read more <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+            </div>
+          </article>
+
+          <!-- ── PAGINATION ──────────────────────────────────── -->
+          <!-- SOURCE: NEW — visual placeholder; wire to WebCommander pagination widget -->
+          <nav class="pagination" aria-label="Article pages">
+            <button class="pg-btn" aria-label="Previous page" disabled>
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 2L3 5l4 3"/></svg>
+            </button>
+            <button class="pg-btn active" aria-label="Page 1, current" aria-current="page">1</button>
+            <button class="pg-btn" aria-label="Page 2">2</button>
+            <button class="pg-btn" aria-label="Page 3">3</button>
+            <span class="pg-dots">…</span>
+            <button class="pg-btn" aria-label="Page 8">8</button>
+            <button class="pg-btn" aria-label="Next page">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 2l4 3-4 3"/></svg>
+            </button>
+          </nav>
+
+        </div><!-- end news-cards -->
+
+        <!-- ══ RIGHT: SIDEBAR ════════════════════════════════════ -->
+        <!-- SOURCE: NEW [NEW — VERIFY] — categories listed; confirm taxonomy with client -->
+        <aside class="news-sidebar" aria-label="Article categories and recent articles">
+
+          <!-- Categories block -->
+          <div class="sidebar-block">
+            <div class="sidebar-block-title">Categories</div>
+            <div class="cat-list" role="list">
+              <button class="cat-item active" role="listitem" aria-pressed="true">All Articles <span class="cat-count">6</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Capital Planning <span class="cat-count">1</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Business Intelligence <span class="cat-count">1</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Government <span class="cat-count">1</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Team News <span class="cat-count">1</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Industry Insight <span class="cat-count">1</span></button>
+              <button class="cat-item" role="listitem" aria-pressed="false">Digital Adoption <span class="cat-count">1</span></button>
+            </div>
+            <!-- [NEW — VERIFY] Category labels and counts — confirm these match your WebCommander CMS taxonomy -->
+            <p class="flag-verify" style="margin:8px 12px 12px">[NEW — VERIFY] Category labels. Confirm these match your WebCommander CMS article category taxonomy.</p>
+          </div>
+
+          <!-- Recent articles block -->
+          <div class="sidebar-block">
+            <div class="sidebar-block-title">Recent Articles</div>
+            <div class="pop-list">
+              <a class="pop-item" href="/about/news/defensible-capital-decisions-pmweb">
+                <div class="pop-thumb"><div class="pop-thumb-ph">CAP</div></div>
+                <div class="pop-content">
+                  <div class="pop-title">Defensible Capital Decisions with PMWeb</div>
+                  <div class="pop-date">April 2026</div>
+                </div>
+              </a>
+              <a class="pop-item" href="/about/news/nsw-cloud-services-registration">
+                <div class="pop-thumb"><div class="pop-thumb-ph">NSW</div></div>
+                <div class="pop-content">
+                  <div class="pop-title">HKA Registered on NSW Government Advanced Suppliers List</div>
+                  <div class="pop-date">March 2026</div>
+                </div>
+              </a>
+              <a class="pop-item" href="/about/news/bi-capital-programs">
+                <div class="pop-thumb"><div class="pop-thumb-ph">BI</div></div>
+                <div class="pop-content">
+                  <div class="pop-title">Business Intelligence Built for Capital Programs</div>
+                  <div class="pop-date">February 2026</div>
+                </div>
+              </a>
+              <a class="pop-item" href="/about/news/shuva-basu-promotion">
+                <div class="pop-thumb"><div class="pop-thumb-ph">TEAM</div></div>
+                <div class="pop-content">
+                  <div class="pop-title">Shuva Basu Appointed Associate Director of Transformation</div>
+                  <div class="pop-date">February 2026</div>
+                </div>
+              </a>
+              <a class="pop-item" href="/about/news/crux-insight-2025">
+                <div class="pop-thumb"><div class="pop-thumb-ph">CRUX</div></div>
+                <div class="pop-content">
+                  <div class="pop-title">From Insight to Foresight: 8th Annual CRUX Report</div>
+                  <div class="pop-date">November 2025</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </aside><!-- end sidebar -->
+
+      </div><!-- end news-layout -->
+    </div><!-- end wrap -->
+  </section>
+
+  <!-- ── CTA BAND ───────────────────────────────────────────── -->
+  <section class="cta-sec rev" aria-label="Contact call to action">
+    <div class="wrap">
+      <div class="cta-eye">Talk to Us</div>
+      <h2>Ready to Transform Your Capital Works Program?</h2>
+      <p>Talk to our team about PMWeb, Business Intelligence, Digital Adoption, or Advisory services. We'll help you find the right starting point.</p>
+      <div class="cta-btns">
+        <a class="btn-white" href="/contact">Contact Us</a>
+        <a class="btn-gw" href="/services">Explore All Services <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 7h10M7 3l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════════════════════════════════════
+     FOOTER — VERBATIM from footer.html
+════════════════════════════════════ -->
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 14V4M4 8l5-5 5 5"/></svg>
+</button>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <!-- Column 1: Brand + Contact + Offices -->
+      <div>
+        <div class="f-logo">
+          <div class="f-logo-mark">
+            <svg viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="2" width="7" height="7" rx="1"/>
+              <rect x="2" y="11" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/>
+            </svg>
+          </div>
+          <span class="f-logo-name">HKA Tech</span>
+        </div>
+        <p class="f-tag">Capital works technology and advisory, delivered by people who understand how projects are built.</p>
+        <div class="f-contact">
+          <a href="mailto:asiapacific@hka.com">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="1" y="3" width="12" height="8" rx="1"/><path d="M1 3l6 5 6-5"/></svg>
+            asiapacific@hka.com
+          </a>
+          <a href="tel:+61292559100">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2h3l1.5 3-1.5 1.5c.9 1.8 2.5 3.4 4.3 4.3L11 9.5l3 1.5v3a1 1 0 0 1-1 1C5 14.5-.5 7.7 2 2z"/></svg>
+            +61 2 9255 9100
+          </a>
+        </div>
+        <div class="f-offices">
+          <div class="f-offices-title">Offices</div>
+          <span class="f-office"><strong>Sydney</strong> — Suite 1001, Level 10, 309 Kent St, NSW 2000</span>
+          <span class="f-office"><strong>Melbourne</strong> — Level 27, 101 Collins St, VIC 3000</span>
+          <span class="f-office"><strong>Brisbane</strong> — Suite 2, Level 26, 145 Ann St, QLD 4000</span>
+          <span class="f-office"><strong>Perth</strong> — Level 28, 140 St Georges Tce, WA 6000</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Platform & Services -->
+      <div>
+        <div class="f-col-title">Platform &amp; Services</div>
+        <div class="f-links">
+          <a href="/platform/overview">PMWeb Overview</a>
+          <a href="/platform/features">Platform Features</a>
+          <a href="/services/bi">Business Intelligence</a>
+          <a href="/services/dap">Digital Adoption (DAP)</a>
+          <a href="/services/advisory">Capital Works Advisory</a>
+          <a href="/resources/implementation">Implementation Guide</a>
+          <a href="/platform/hosting">Hosting &amp; SaaS</a>
+          <a href="/platform/whats-new">What's New</a>
+        </div>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div>
+        <div class="f-col-title">Company</div>
+        <div class="f-links">
+          <a href="/about/story">Our Story</a>
+          <a href="/about/team">APAC Team</a>
+          <a href="/about/accreditations">Accreditations</a>
+          <a href="/about/news">News &amp; Events</a>
+          <a href="/customers">Who Uses PMWeb</a>
+          <a href="/customers/testimonials">Testimonials</a>
+          <a href="/about/hka-global">HKA Global</a>
+        </div>
+      </div>
+
+      <!-- Column 4: Industries -->
+      <div>
+        <div class="f-col-title">Industries</div>
+        <div class="f-links">
+          <a href="/solutions/government">Government</a>
+          <a href="/solutions/healthcare">Healthcare</a>
+          <a href="/solutions/education">Education</a>
+          <a href="/solutions/transportation">Transportation</a>
+          <a href="/solutions/energy">Energy &amp; Resources</a>
+          <a href="/solutions/property">Property &amp; Construction</a>
+          <a href="/solutions/engineering">Engineering &amp; Design</a>
+          <a href="/solutions/industries">All 11 Industries →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="f-bottom">
+      <span class="f-copy">© 2025–2026 HKA Global Pty Ltd. All rights reserved.</span>
+      <div class="f-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Conditions of Use</a>
+        <a href="/anti-slavery">Anti-Slavery Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     SCRIPTS — shared.js VERBATIM + page-specific
+════════════════════════════════════ -->
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   shared.js — CANONICAL shared scripts for all HKA Tech pages
+═══════════════════════════════════════════════════════════════ */
+
+/* ─ NAV DROPDOWNS (mega-menus) ────────────────────────────── */
+(function(){
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const overlay  = document.getElementById('navOverlay');
+  if (!navItems.length) return;
+
+  function closeAll() {
+    navItems.forEach(i => {
+      i.classList.remove('open');
+      const btn = i.querySelector('.nav-btn');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    if (overlay) overlay.classList.remove('active');
+  }
+
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-btn');
+    if (!btn) return;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const wasOpen = item.classList.contains('open');
+      closeAll();
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('active');
+      }
+    });
+  });
+
+  if (overlay) overlay.addEventListener('click', closeAll);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+})();
+
+/* ─ NAV SHADOW ON SCROLL ──────────── */
+(function(){
+  const nav = document.getElementById('mainNav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 20
+        ? '0 4px 24px rgba(0,0,0,.12)'
+        : '0 1px 8px rgba(0,0,0,.06)';
+    }, { passive: true });
+  }
+})();
+
+/* ─ SCROLL REVEAL ─────────────────── */
+(function(){
+  const revEls = document.querySelectorAll('.rev');
+  if (revEls.length && 'IntersectionObserver' in window) {
+    const revObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vis');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revEls.forEach(el => revObs.observe(el));
+  }
+})();
+
+/* ─ HAMBURGER MENU ────────────────── */
+(function(){
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (!hamburger || !mobileMenu) return;
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ─ BACK TO TOP ───────────────────── */
+(function(){
+  const btt = document.getElementById('backToTop');
+  if (!btt) return;
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+/* ─ PAGE-SPECIFIC: SIDEBAR CATEGORY BUTTONS (visual state only) ── */
+(function(){
+  const btns = document.querySelectorAll('.cat-item');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed','true');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
